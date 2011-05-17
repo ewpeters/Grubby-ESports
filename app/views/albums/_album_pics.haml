@@ -6,8 +6,7 @@
         url: "/albums/slide/"+ $(this).attr('id') + ".js",
         data: {position: $(this).attr('position') },
         success: function(data) {
-          var json = jQuery.parseJSON(data);
-          $(".ajax-replace").html(json.html);
+          $(".ajax-replace").html(data.html);
         },
       	error: function(data) {
 

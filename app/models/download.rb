@@ -9,16 +9,8 @@ class Download < ActiveRecord::Base
   RACES = ["Terran", "Zerg", "Protoss", "Orc", "Night Elf", "Human", "Undead"]
   GAMES = ["Starcraft 2", "Warcraft 3"]
   acts_as_taggable_on :tags
-  has_attached_file :media_file,
-    :storage => :s3,
-    :path => ":attachment/:id/:style/:basename.:extension"
-  has_attached_file :wallpaper_one,
-    :styles => { :thumb => "210x135!" },
-    :path => ":attachment/:id/:style/:basename.:extension"
-  has_attached_file :wallpaper_two,
-    :styles => { :thumb => "210x135!" },
-    :path => ":attachment/:id/:style/:basename.:extension"
-  has_attached_file :wallpaper_three,
-    :styles => { :thumb => "210x135!" },
-    :path => ":attachment/:id/:style/:basename.:extension"
+  has_attached_file :media_file
+  has_attached_file :wallpaper_one, :styles => { :thumb => "210x135!" }
+  has_attached_file :wallpaper_two, :styles => { :thumb => "210x135!" }
+  has_attached_file :wallpaper_three, :styles => { :thumb => "210x135!" } 
 end

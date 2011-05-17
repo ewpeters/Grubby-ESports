@@ -8,8 +8,7 @@ class Feature < ActiveRecord::Base
     :styles => {
       :original => ["394x126!", :png]
     },
-    :convert_options => {:original => Proc.new{self.convert_options}},
-    :path => ":attachment/:id/:style/:basename.:extension"
+    :convert_options => {:original => Proc.new{self.convert_options}}
   validates_attachment_content_type :picture, :content_type => 'image/png'
     def self.convert_options
         trans = ""

@@ -7,8 +7,7 @@ class Article < ActiveRecord::Base
   after_create :create_topic
   has_attached_file :html,
     :processors => [:word],
-    :styles => {:original => ""},
-    :path => ":attachment/:id/:style/:basename.:extension"
+    :styles => {:original => ""}
   def create_topic
     f = Forum.find_by_title("Article Discussion")
     u = User.first

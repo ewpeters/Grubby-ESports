@@ -18,7 +18,7 @@ module Paperclip
 
       while (line = @file.gets)
         if line.match(/#{match}_files/)
-          new_line = line.gsub(/#{match}_files/, "html_files/#{match}")
+          new_line = line.gsub(/#{match}_files/, "/html_files/#{match}")
           valid_line = valid_string = ic.iconv(new_line)
           dst.write valid_line
         else

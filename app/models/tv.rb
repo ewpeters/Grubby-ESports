@@ -4,7 +4,5 @@ class Tv < ActiveRecord::Base
   GAMES = ["Starcraft 2", "Warcraft 3"]
   VIDEO_TYPE = ["Default", "You Tube", "JustinTV", "GOMTV", "BlipTV"]
   acts_as_taggable_on :tags
-  has_attached_file :thumb,
-    :styles => { :normal => "133x69!" },
-    :path => ":attachment/:id/:style/:basename.:extension"
+  has_attached_file :thumb, :styles => { :normal => "133x69!" }
 end

@@ -4,7 +4,7 @@ module Rboard
       begin
         login, password, email = [login, password, email].map!(&:strip)
          puts "Creating admin user now..."
-         administrator = User.new(:login => login, :password => password, :password_confirmation => password, :email => email)
+         administrator = User.new(:login => login, :password => password, :password_confirmation => password, :email => email, :activated => true)
          administrator.identifier = "administrator"
          administrator.save!
 

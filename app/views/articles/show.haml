@@ -13,6 +13,6 @@
   .strip.grey
   .strip.blue
   #article_body  
-    = render :inline =>open(@article.html.url).read
+    = render :inline => open(@article.html.path).read
 %br
-= render :partial => "topics/article_show"
+/ = render :partial => "topics/article_show"

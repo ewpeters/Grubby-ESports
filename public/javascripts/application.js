@@ -83,8 +83,7 @@ $(document).ready(function() {
       type: "GET",
       url: "/albums/"+ $(this).attr('id') + ".js",
       success: function(data) {
-        var json = jQuery.parseJSON(data);
-        $(".ajax-replace").html(json.html);
+        $(".ajax-replace").html(data.html);
       },
 	  	error: function(data) {
 	  	  

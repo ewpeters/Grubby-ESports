@@ -16,6 +16,14 @@ class Photo < ActiveRecord::Base
           :watermark_path => "#{Rails.root}/public/images/watermark.png",
           :position => "SouthEast"
         }
-      },
-    :path => ":attachment/:id/:style/:basename.:extension"
+      }
+      
+  after_save :verify_cover
+  
+  def verify_cover
+    if !album.cover
+      album.cover = album.photos.first
+      album.save
+    end
+  end
 end

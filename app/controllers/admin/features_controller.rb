@@ -71,7 +71,7 @@ class Admin::FeaturesController < Admin::ApplicationController
     folder_name = "#{@feature.article.html.original_filename.gsub(/\..*/, '')}"
     
     
-    unless Dir.new("public/html_files/#{folder_name}")
+    unless File.exists?("public/html_files/#{folder_name}")
       Dir.mkdir("public/html_files/#{folder_name}")
     end
     

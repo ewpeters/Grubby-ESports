@@ -5,7 +5,7 @@
     - @album.errors.full_messages.each do |msg|
       %li= msg
 %div{:style => "position: relative"}
-  = form_for [:admin, @album], :html => { :multipart => true } do |f|
+  - form_for [:admin, @album], :html => { :multipart => true } do |f|
     %div{:class => "field"}
       %div=  f.label :title
       %div= f.text_field :title
