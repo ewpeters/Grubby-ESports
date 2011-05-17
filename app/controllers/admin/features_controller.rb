@@ -76,9 +76,6 @@ class Admin::FeaturesController < Admin::ApplicationController
     end
     
     FileUtils.mv(params[:file].path, "public/html_files/#{folder_name}/#{params[:qqfile]}")
-    Rails.logger.info(params[:qqfile])
-    Rails.logger.info(params[:file])
-    # AWS::S3::S3Object.store(params[:qqfile], params[:file], bucket_name, :access => :public_read)
     render :layout => false
   end
   

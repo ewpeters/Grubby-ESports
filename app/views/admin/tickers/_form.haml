@@ -3,7 +3,7 @@
     %div For Reference:
     %br
     = image_tag("ticker_example.png")
-= form_for [:admin, @ticker], :html => { :multipart => true } do |f|
+- form_for [:admin, @ticker], :html => { :multipart => true } do |f|
   - if @ticker.errors.any?
     %div{:id => "errorExplanation"}
     %h2= "#{pluralize(@ticker.errors.count, "error")} prohibited this post from being saved:"

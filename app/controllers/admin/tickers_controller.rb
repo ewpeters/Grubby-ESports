@@ -73,9 +73,15 @@ class Admin::TickersController < Admin::ApplicationController
   end
   
   def uploader
-    bucket_name = "#{Rails.env}_#{@ticker.article.html.original_filename.gsub(/\..*/, '')}"
-    # AWS::S3::S3Object.store(params[:qqfile], params[:file], bucket_name, :access => :public_read)
-    render :layout => false
+    folder_name = "#{@ticker.article.html.original_filename.gsub(/\..*/, '')}"
+    
+    
+    unless File.exists?("public/html_files/#{folder_name}")
+      Dir.mkdir("public/html_files/#{folder_name}")
+    end
+    
+    FileUtils.mv(params[:file].path, "public/html_files/#{folder_name}/#{params[:qqfile]}")  
+    render :layout => false  
   end
   
   def move_up
