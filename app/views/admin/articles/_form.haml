@@ -1,0 +1,24 @@
+= form_for [:admin, @article], :html => { :multipart => true } do |f|
+  - if @article.errors.any?
+    %div{:id => "errorExplanation"}
+    %h2= "#{pluralize(@article.errors.count, "error")} prohibited this post from being saved:"
+    %ul
+      - @article.errors.full_messages.each do |msg|
+        %li= msg 
+  %div{:class => "field"}
+    %div= f.label :title
+    %div= f.text_field :title
+  %div{:class => "field"}
+    %div= f.label :article_type
+    %div= f.text_field :article_type
+  %div{:class => "field"}
+    %div= f.label :author
+    %div= f.text_field :author
+  %div{:class => "field"}
+    %div= f.label :html
+    %div= f.file_field :html
+  %div
+    %div Example Article:
+    = image_tag("article_example.png")
+  %div{:class => "actions"}
+    %div= f.submit

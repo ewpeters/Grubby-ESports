@@ -1,0 +1,21 @@
+= flash[:notice]
+= link_to "New Ticker Item", new_admin_ticker_path
+%br
+- @tickers.each do |ticker|
+  = ticker.title
+  = link_to "View Ticker", admin_ticker_path(ticker)
+  |
+  = link_to "Edit Ticker", edit_admin_ticker_path(ticker)
+  |
+  = link_to "Delete Ticker", admin_ticker_path(ticker), :method => :delete, :confirm => t(:confirm_deletion, :thing => "ticker")
+  |
+  - unless ticker.first?
+    = link_to theme_image_tag("top.jpg", :alt => t(:Top), :title => t(:Top)), move_to_top_admin_ticker_path(ticker), :method => :put
+    = link_to theme_image_tag("up.jpg", :alt => t(:Up), :title => t(:Up)), move_up_admin_ticker_path(ticker), :method => :put
+  = ticker.position
+  - unless ticker.last?
+    = link_to theme_image_tag("down.jpg", :alt => t(:Down), :title => t(:Down)), move_down_admin_ticker_path(ticker), :method => :put
+    = link_to theme_image_tag("bottom.jpg", :alt => t(:Bottom), :title => t(:Bottom)), move_to_bottom_admin_ticker_path(ticker), :method => :put
+  %br
+= link_to "New Ticker Item", new_admin_ticker_path
+= will_paginate(@tickers)

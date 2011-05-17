@@ -1,0 +1,12 @@
+= flash[:notice]
+%br
+- @tvs.each do |tv|
+  = tv.title
+  |
+  = link_to "Edit Tv Item", edit_admin_tv_path(tv)
+  |
+  = link_to "Delete Tv Item", admin_tv_path(tv), :method => :delete, :confirm => t(:confirm_deletion, :thing => "Tv Item")
+  %br
+= link_to "New TV Item", new_admin_tv_path
+
+= will_paginate(@tvs)

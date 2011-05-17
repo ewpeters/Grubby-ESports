@@ -1,0 +1,14 @@
+= form_for [:admin, @photo], :html => { :multipart => true } do |f|
+  %div{:class => "field"}
+    %div=  f.label :title
+    %div= f.text_field :title
+  %div{:class => "field"}
+    %div= f.label :description
+    %div= f.text_area :description, :size => "27x4"
+  %div{:class => "field"}
+    %div= f.label :picture
+    %div= f.file_field  :picture
+  %input{:type => "hidden", :name => "album_id", :value => params[:album_id]}
+  %div{:class => "actions"}
+    %br
+    %div= f.submit

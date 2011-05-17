@@ -1,0 +1,1175 @@
+@mixin opacity($value) {
+  opacity: $value;
+  ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$value*100})";
+  filter: "aplha(opacity=#{$value * 100})";
+}
+
+@mixin rounded_corners($color, $top: 5px, $right: 5px, $bottom: 5px, $left: 5px) {
+  -moz-border-radius: $top $right $bottom $left;
+  border-top-left-radius: $top;
+  border-top-right-radius: $right;
+  border-bottom-right-radius: $bottom; 
+  border-bottom-left-radius: $left; 
+  
+}
+
+@mixin drop_shadow($one: 0px, $two: 6px, $three: 10px) {
+  -webkit-box-shadow: $one $two $three rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: $one $two $three rgba(0, 0, 0, 0.5);
+}
+
+@mixin button {
+  -moz-border-radius: 5px 5px 5px 5px;
+  -webkit-border-radius: 5px;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: bold;
+  padding: 2px 7px 2px 6px;
+  text-align: center;
+  border: 0 none;
+  background-color: white;
+  color: black;
+  font-size: 16px;
+}
+.button {
+  @include button;
+}
+
+.add_more {
+  @include button;
+}
+@mixin blue {
+  color: #74aed3;
+}
+@mixin grey {
+  color: #878787;
+}
+
+@mixin greyish {
+  color: #7c7c7c !important;
+}
+
+@mixin light_blue_bg {
+  background-color: #74aed3;
+}
+@mixin grey_bg {
+  background-color: #878787;
+}
+body { 
+  background-color: #101010;
+/*  background-image: url("/images/site_background.jpg");
+  background-repeat: no-repeat;*/
+  font-family: 'century gothic',verdana,arial,helvetica,sans-serif;
+  
+  color: white;
+  .wrapper {
+    width: 1011px;
+    margin: 0 auto;
+  }
+}
+
+#background {
+  background: url("/images/site_background.jpg");
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center top;
+  position: relative;
+  z-index: 0;
+  margin: 0 auto;
+  padding-top: 183px;
+}
+
+input {
+  font-family: 'century gothic',verdana,arial,helvetica,sans-serif;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+a{
+  text-decoration: none;
+}
+img {
+  border: 0;
+}
+.grey {
+  color: grey;
+}
+#fb_connect {
+  cursor:pointer;
+
+}
+#user_nav {
+  position: absolute; 
+  top: 0px;
+  height: 34px;
+  line-height: 34px;
+  background-color: rgba(0,0,0,0.1);
+  color: white;
+  img {
+    vertical-align: middle;
+  }
+  a.signup {
+    vertical-align: middle;
+    color: white;
+    @include button;
+    height: 17px;
+    line-height: 17px;
+  }
+  #password {
+    position: absolute;
+  }
+  #password_div {
+    position: absolute;
+  }
+  form.shown {
+    background-color: black;
+    border: 1px white solid;
+  }
+  form {
+    padding: 3px;
+    display: inline-block;
+    height: 85px;
+    width: 200px;
+    border: 0;
+    margin: 0;
+    border: 1px transparent solid;
+    @include rounded_corners(black, 5px, 5px, 5px, 5px);
+    input {
+      width: 200px;
+    }
+    #submit {
+      @include button;
+      position: absolute;
+      top: 25px;
+      line-height: 14px;
+      left: 150px;
+      height: 25px;
+      width: 50px;
+    }
+    #remember_label {
+      color: white;
+      font-size: 11px;
+      line-height: 25px;
+      position: absolute;
+      top: 25px;
+      width: 200px;
+    }
+    #remember_me {
+      position: absolute;
+      top: 25px;
+      width: 200px;
+    }
+  }
+  input {
+    background-color: white;
+    border: 0;
+    height: 20px;
+    vertical-align: middle;
+    color: black;
+    font-size:14px;
+    font-weight:bold;
+  }
+}
+#logo_box {
+  position: absolute;
+  top: 26px;
+  z-index: -1;
+}
+
+.sponsor {
+  position: absolute;
+  left: 500px;
+  z-index: -1;
+  top: 0px;
+}
+#content {
+  width: 1011px;
+  background-image: url("/images/content_bg.png");
+  background-repeat: repeat-y;
+  background-position: center;
+  min-height: 2000px;
+  margin: 0 auto;
+  padding-top: 10px;
+  padding-bottom: 30px;
+  display: table;
+  #main {
+    float: left;
+    padding-left:40px;
+    width:740px;
+    #ad_banner {
+      height: 90px;
+      width: 728px;
+      display: block;
+      background-color: #b9b9b9;
+      margin-bottom: 10px
+    }
+  }
+  #side_bar {
+    float: right;
+    width: 200px;
+    .box{
+      
+      height: 181px;
+      width: 180px;
+      background-color: #030303;
+      background: -moz-linear-gradient(top left,  #363636,  #030303);
+      background: -webkit-gradient(linear, left top, right bottom, from(#363636), to(#030303));
+      -moz-border-radius: 10px 10px 10px 10px;
+      -webkit-border-radius: 10px;
+      border-radius: 10px;
+      -webkit-box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
+      -moz-box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
+      margin-top:15px;
+      position: relative;
+      .inner_box {
+        height:170px;
+        left:12px;
+        position:absolute;
+        top:27px;
+        width:170px;
+        .follow {
+          font-family: 'century gothic',verdana,arial,helvetica,sans-serif;
+          color: #656565;
+          font-weight: bold;
+          margin-left:-6px;
+        }
+        img {
+          -moz-border-radius: 5px 5px 5px 5px;
+          -webkit-border-radius: 5px;
+           border-radius: 5px;
+          -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
+          -moz-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
+        }
+      }
+    }
+    .calendar {
+      width: 180px;
+      height: 350px;
+      margin-top: 20px;
+      padding-top: 15px;
+      position: relative;
+      background-color: #030303;
+      background: -moz-linear-gradient(top left,  #363636,  #030303);
+      background: -webkit-gradient(linear, left top, right bottom, from(#363636), to(#030303));
+      -moz-border-radius: 10px 10px 10px 10px;
+      -webkit-border-radius: 10px;
+      border-radius: 10px;
+      -webkit-box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
+      -moz-box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
+      #datepicker {
+        width: 175px;
+      }
+    }
+  }
+}
+#news {
+  background-image: url("/images/ticker_background_fix.png");
+  width: 750px;
+  height: 550px;
+  margin-left: -10px;
+  -webkit-box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
+  color: white;
+  font-family:  'century gothic';
+  position: relative;
+  #loading {
+    position: absolute;
+    left: 27px;
+    top: 18px;
+    display: none;
+  }
+  .title_box {
+    position: absolute;
+    left: 25px;
+    top: 35px;
+    width: 200px;
+    height: 125px;
+    .title {
+      color: white;      
+    }
+    .tag_line {
+      @include grey;
+      margin-left:20px;
+      margin-top:10px;
+    }
+  }
+  .picture {
+    position: absolute;
+    right:17px;
+    top:15px;
+  }
+  .news_item {
+    font-size:12px;
+    font-weight:bold;
+    height:32px;
+    line-height:32px;
+    padding-left:30px;
+    color: #d7d7d7;
+    position: absolute;
+    left: 15px;
+    width:177px;
+  }
+  .news_item.selected{
+    @include blue;
+  }
+  .arrow {
+    width: 12px;
+    height: 10px;
+    background-image: url("/images/arrow.png");
+    position:absolute;
+    left: 12px;
+    top:11px;
+  }
+  .summary {
+    position: absolute;
+    right:35px;
+    bottom:60px;
+    width: 475px;
+    height: 145px;
+    padding-left: 25px;
+    padding-top: 10px;
+    .title { 
+      font-weight: bold;
+      color:#06264b;
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+    .body {
+      font-weight:bold;
+      line-height:16px;
+    }
+  }
+}
+
+#features {
+  margin-left: -10px;
+  width: 749px;
+  background-color: #000000;
+  padding-top:30px;
+  background: url("/images/scales.jpg") no-repeat scroll 0 0 #000000;
+  @include rounded_corners(black, 0px, 0px, 10px, 10px);
+  @include drop_shadow;
+  padding-bottom: 15px;
+  .feature {
+    position: relative;
+    margin-left: 12.5px;
+    margin-bottom: 20px;
+    width:725px;
+    height: 136px;
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: #010101;
+    font-weight: bold;
+    .overlay {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      z-index: 3;
+    }
+    .main_title {
+      position:absolute;
+      top: 4px;
+      left: 50px;
+      color: lightGrey !important;
+      font-size: 16px;
+      z-index: 4;
+    }
+    
+    .picture {
+      position: absolute;
+      bottom: 0px;
+      height:126px;
+      left:4px;
+      top:11px;
+      width:394px;
+      z-index: 2;
+    }
+    
+    .text {
+      position: absolute;
+      left:450px;
+      top:40px;
+      width: 257px;
+      height: 80px;
+      z-index: 2;
+    }
+    .insert {
+      background-color: #B9B9B9;
+      height: 125px;
+      position: absolute;
+      right: 10px;
+      top: 9px;
+      width: 320px;
+      z-index: 1;
+    }
+  }
+}
+#login_form {
+ position: absolute;
+ left: 0px;
+ top: 0px;
+ font-size: 18px;  
+}
+ul#nav_bar {
+  width: 1011px;
+  list-style-type:none;
+  height: 45px;
+  background-image: url("/images/nav_bar_bg.png");
+  background-repeat: no-repeat;
+  img { 
+      display: inline;
+      
+    }
+
+  li {
+    margin-left: 25px;
+    line-height:45px;
+    display: inline;
+    vertical-align:top;
+    position: relative;
+    a {
+      width:100px;
+      color:#ade2f5;
+      font-weight:bold;
+      font-size:24px;
+      text-decoration: none;
+      text-align:center;
+      z-index: 1;
+      position: relative;
+    }
+    img {
+      position:absolute;
+      @include opacity(.6);
+      left: -15px;
+      top: -7px;
+      width: 140%;
+      height: 43px;
+      z-index: 0;
+    }
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+#article_content {
+  margin-left: -10px;
+  #header {
+    width: 751px;
+    height: 71px;
+    background-color: black;
+    @include rounded_corners(black, 15px, 15px, 0px, 0px);
+    position:relative;
+    #left_content {
+      font-size: 30px;
+      position: absolute;
+      left: 15px;
+      bottom: 10px;
+      #type {
+        @include blue;
+      }
+      #title {
+        @include grey;
+      }
+    }
+    #right_content {
+      position: absolute;
+      right: 10px;
+      bottom: 5px;
+      font-size: 12px;
+      color: #5681b1;
+      text-align: right;
+    }
+    .grey {
+      @include grey;
+    }
+  }
+  .strip {
+    width: 751px;
+    height: 4px;
+  }
+  
+  .strip.blue {
+    @include light_blue_bg;
+  }
+  .strip.grey {
+    @include grey_bg;
+  }
+  #article_body {
+    @include drop_shadow;
+    color:black;
+    width: 721px;
+    height: 100%;
+    font-size: 14px;
+    padding-left: 15px;
+    padding-right: 15px;
+    background-image: url("/images/general_content_background.png");
+  }
+  #header.partner {
+    line-height: 71px;
+    font-size: 24px;
+    .partners {
+      color: #74aed3;
+    }
+    .other {
+      color: #a6a7a7;
+    }
+  }
+  #partner_body {
+    background-image: url("/images/partner_bg.png");
+    width: 750px;
+    height: 100%;
+    padding-bottom: 45px;
+    @include rounded_corners(black, 0px, 0px, 10px, 10px);
+  }
+}
+
+#time_now {
+  @include greyish;
+  font-size: 15px;
+  top: -190px;
+  height: 30px;
+}
+
+/* Media index */
+@mixin media_category {
+  left: 16px;
+  line-height: 32px;
+  text-align: center;
+  height: 32px;
+  width: 114px;
+  position: absolute;
+  cursor: pointer;
+  a {
+    color: white;
+  }
+}
+#media_container {
+  height: 550px;
+  width: 750px;
+  margin-left: -11px;
+  background-image: url("/images/media_bg.png");
+  position: relative;
+  @include drop_shadow;
+  #header {
+    height: 50px;
+    width: 120px;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    font-size: 16px;
+    text-align: center;
+    line-height: 50px;
+    a {
+      color: white;
+    }
+  }
+  #replay_header {
+    @include media_category;
+    top: 66px;
+  }
+  #vod_header {
+    @include media_category;
+    top: 99px;
+  }
+  #wallpaper_header {
+    @include media_category;
+    top: 132px;
+  }
+  
+  #search {
+    position: absolute;
+    top: 193px;
+    left: 20px;
+    form {
+      input {
+        font-family: 'century gothic',verdana,arial,helvetica,sans-serif;
+        padding: 0;
+        background: transparent;
+        color: grey;
+        border: 0;
+        width: 105px;
+        font-size: 14px;
+        font-weight: bold;
+        text-align: center;
+      }
+    }
+  }
+  
+  #filters {
+    position: absolute;
+    top: 240px;
+    left: 20px;
+    color: grey;
+    .header {
+      width: 105px;
+      text-align: center;
+    }
+    .icon {
+      display: block;
+      height: 82px;
+      width: 82px;
+      margin-left: 8px;
+      background-image: url('/images/media_filter_game_icons.png');
+      background-repeat: no-repeat;
+    }
+    .warcraft {
+      background-position: -75px -82px;
+    }
+    .starcraft {
+      background-position: -75px 0px;
+    }
+    .warcraft.true {
+      background-position: 0px -82px;
+    }
+    .starcraft.true {
+      background-position: 0px 0px;
+    }
+  }
+  .true {
+    background: -moz-linear-gradient(top,  #0097fc,  #39b0ff);
+    background: -webkit-gradient(linear,  left top, left bottom, from(#0097fc), to(#39b0ff));
+    @include opacity(0.8);
+  }
+  ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+  }
+
+  ::-webkit-scrollbar-button:start:decrement,
+  ::-webkit-scrollbar-button:end:increment {
+      display: none;
+      height: 3px;
+  }
+  ::-webkit-scrollbar-button:vertical:increment {
+      background-color: transparent;
+  }
+
+  ::-webkit-scrollbar-track-piece {
+      background-color: #596673;
+      -webkit-border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:vertical {
+      height: 10px;
+      background-color: #142B44 ;
+      -webkit-border-radius: 3px;
+  }
+
+  
+  #media_box {
+    width: 586px;
+    height: 450px;
+    overflow-y: auto;
+    position: absolute;
+    right: 20px;
+    top: 25px;    
+  }
+  .media_item.wallpaper {
+    height: 174px;
+    .media_item_outer {
+      height: 174px;
+      .media_item_inner {
+        height: 157px;
+        background-image: url("/images/download_wallpaper_background.png");
+        .thumb {
+          position: absolute;
+          left: 32px;
+          top: 10px;
+        }
+        .meta {
+          position: absolute;
+          width: 270px;
+          height: 140px;
+          right: 5px;
+          top: 10px;
+          .title {
+            font-size: 20px;
+            color: #6CB9F1;
+          }
+          .summary {
+            font-size: 12px;
+            color: #B3E1F8;
+            height: 75px;
+          }
+          .links {
+            line-height: 35px;
+          }
+          .link {
+            cursor: pointer;
+            height: 29px;
+            width: 25px;
+            display: inline-block;
+            vertical-align: middle;
+            background-image: url("/images/download_wallpaper_arrow.png");
+          }
+          .ratio {
+            height: 29px;
+            width: 35px;
+            margin-right: 10px;
+            display: inline-block;
+            vertical-align: middle;
+            font-size: 18px;
+            color: #49A5E8;
+          }
+        }
+      }
+    }
+  }
+  .media_item {
+    width: 580px;
+    height: 87px;
+    margin-bottom: 20px;
+    position: relative;
+    .media_item_outer {
+      @include rounded_corners(black, 10px, 10px, 10px, 10px);
+      border: 2px white solid;
+      width: 555px;
+      height: 87px;
+      background-color: #101010;
+      .media_item_inner {
+        width: 540px;
+        height: 73px;
+        border: 1px #333f45 solid;
+        @include rounded_corners(black, 10px, 10px, 10px, 10px);
+        position: absolute;
+        top: 7.5px;
+        left: 7.5px;
+        .players {
+          color: #6bb9f0;
+          margin-left: 15px;
+          margin-top: 2px;
+          position: relative;
+          z-index: 2;
+          .vs {
+            margin-left: 10px;
+            margin-right: 10px;
+          }
+        }
+        .meta {
+          margin-left: 20px;
+          z-index: 100;
+          width: 75%;
+          color: #cdd6da;
+          font-size: 12px;
+        }
+        .desc {
+          margin-left: 20px;
+          z-index: 100;
+          width: 75%;
+          color: #fcfeff;
+          font-size: 10px;
+          position: absolute;
+        }
+        .map {
+          position: absolute;
+          top: 0px;
+          right: 77px;
+          z-index: 1;
+        }
+        .download {
+          position: absolute;
+          right: 10px;
+          top: 10px;
+        }
+      }
+    }
+  }
+  
+  #album_box {
+    width: 586px;
+    height: 385px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: absolute;
+    right: 20px;
+    top: 50px;
+    overflow-y:auto;
+    .column {
+      float:left;
+      width: 161px;
+      height: 150px;
+      margin-bottom: 25px;
+      margin-right: 15px;
+      background-image: url('/images/album_bg.png');
+      background-repeat: no-repeat;
+      position: relative;
+      cursor: pointer;
+      .photo_holder {
+        height: 105px;
+        left: 14px;
+        line-height: 105px;
+        position: absolute;
+        top: 12px;
+        width: 148px;
+        img {
+          vertical-align: middle;
+        }
+      }
+      
+      .title {
+        background-color: transparent;
+        color: grey;
+        height: 25px;
+        left: 15px;
+        line-height: 25px;
+        position: absolute;
+        text-align: center;
+        top: 118px;
+        width: 155px;
+      }
+    }
+  }
+}
+
+thead {
+  tr {
+    height: 20px;
+  }
+}
+.album_pic {
+  float:left;
+  cursor: pointer;
+  line-height: 98px;
+  width: 161px;
+  height: 102px;
+  margin-right: 25px;
+  margin-bottom: 25px;
+  @include rounded_corners(#4d8e5e, 10px, 10px, 10px, 10px);
+/*  background: -moz-linear-gradient(top right,  #4e4f4f,  #e6e6e6);
+  background: -webkit-gradient(linear,  right top, left bottom, from(#4e4f4f), to(#e6e6e6));*/
+  background-color: black;
+  @include drop_shadow;
+  img {
+    vertical-align:middle;
+  }
+}
+
+.ad {
+  @include drop_shadow;
+}
+
+@mixin tv_category {
+  left: 16px;
+  line-height: 32px;
+  text-align: center;
+  height: 32px;
+  width: 114px;
+  position: absolute;
+  cursor: pointer;
+  a {
+    color: white;
+  }
+}
+
+#tv_container {
+  height: 550px;
+  width: 750px;
+  margin-left: -11px;
+  background-image: url("/images/grubbytv_background.png");
+  position: relative;
+  @include drop_shadow;
+  #live_link {
+    background-image: url("/images/grubby_tv_livebutton.png");
+    width: 157px;
+    height: 50px;
+    cursor: pointer;
+    position: absolute;
+    bottom: 0px;
+    right: 25px;
+  }
+  #live_link.true {
+    background-position: -157px 0px;
+  }
+  
+  #live_link.false {
+    background-position: 0px 0px;
+  }
+  #header {
+    height: 50px;
+    width: 120px;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    font-size: 20px;
+    text-align: center;
+    line-height: 50px;
+    a {
+      color: white;
+    }
+  }
+  #live_header {
+    @include tv_category;
+    top: 66px;
+  }
+  #training_header {
+    @include tv_category;
+    top: 99px;
+  }
+  #event_header {
+    @include tv_category;
+    top: 132px;
+  }
+  
+  #search {
+    position: absolute;
+    top: 193px;
+    left: 20px;
+    form {
+      input {
+        font-family: 'century gothic',verdana,arial,helvetica,sans-serif;
+        padding: 0;
+        background: transparent;
+        color: grey;
+        border: 0;
+        width: 105px;
+        font-size: 14px;
+        font-weight: bold;
+        text-align: center;
+      }
+    }
+  }
+  #filters {
+    position: absolute;
+    top: 240px;
+    left: 20px;
+    color: grey;
+    .header {
+      width: 105px;
+      text-align: center;
+    }
+    .icon {
+      display: block;
+      margin-left: 8px;
+      height: 82px;
+      width: 82px;
+      background-image: url('/images/grubbytv_filter_game_icons.png');
+      background-repeat: no-repeat;
+    }
+    .warcraft {
+      background-position: -75px -82px;
+    }
+    .starcraft {
+      background-position: -75px 0px;
+    }
+    .warcraft.true {
+      background-position: 0px -82px;
+    }
+    .starcraft.true {
+      background-position: 0px 0px;
+    }
+  }
+  .true {
+    background: -moz-linear-gradient(top,  #447362,  #2c6651);
+    background: -webkit-gradient(linear,  left top, left bottom, from(#447362), to(#2c6651));
+    @include opacity(0.8);
+  }
+  ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+  }
+
+  ::-webkit-scrollbar-button:start:decrement,
+  ::-webkit-scrollbar-button:end:increment {
+      display: none;
+      height: 3px;
+  }
+  ::-webkit-scrollbar-button:vertical:increment {
+      background-color: transparent;
+  }
+
+  ::-webkit-scrollbar-track-piece {
+      background-color: #596673;
+      -webkit-border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:vertical {
+      height: 10px;
+      background-color: #78bba3 ;
+      -webkit-border-radius: 3px;
+  }
+
+  
+  #tv_box {
+    width: 586px;
+    height: 500px;
+    overflow-y: auto;
+    position: absolute;
+    right: 20px;
+    top: 25px;    
+  }
+  .box {
+    @include rounded_corners(#4d8e5e, 10px, 10px, 10px, 10px);
+    border: 3px #4d8e5e solid;
+    width: 575px;
+    height: 355px;
+    background-color: 'transparent';
+    display: table;
+    #cell {
+      display:table-cell; 
+      vertical-align:middle;
+    }    
+  }
+  
+  .dialog {
+    @include rounded_corners(#4d8e5e, 10px, 10px, 10px, 10px);
+    border: 3px #4d8e5e solid;
+    width: 575px;
+    height: 95px;
+    margin-top: 5px;
+    background-color: 'transparent';
+    position: relative;
+    .inner {
+      width: 560px;
+      height: 80px;
+      border: 2px #182c1d solid;
+      @include rounded_corners(#182c1d, 10px, 10px, 10px, 10px);
+      position: absolute;
+      top: 6.5px;
+      left: 6.5px;
+      .controls {
+        position: relative;
+        height: 17px;
+        span {
+          position: absolute;
+        }
+      }
+      .video_title {
+        margin-left: 15px;
+        margin-top: 5px;
+      }
+      .video_summary {
+        margin-left: 15px;
+      }
+    }
+  }
+
+  .tv_item {
+    width: 580px;
+    height: 87px;
+    margin-bottom: 20px;
+    position: relative;
+    .tv_item_outer {
+      @include rounded_corners(#4d8e5e, 10px, 10px, 10px, 10px);
+      border: 2px #4d8e5e solid;
+      width: 555px;
+      height: 87px;
+      background-color: #101010;
+      .tv_item_inner {
+        width: 540px;
+        height: 73px;
+        border: 1px #182c1d solid;
+        @include rounded_corners(#182c1d, 10px, 10px, 10px, 10px);
+        position: absolute;
+        top: 7.5px;
+        left: 7.5px;
+        .title {
+          margin-left: 20px;
+          z-index: 100;
+          width: 75%;
+          color: #b6bec0;
+          font-size: 12px;
+        }
+        .meta {
+          margin-left: 20px;
+          z-index: 100;
+          width: 75%;
+          color: #c0dce8;
+          font-size: 12px;
+        }
+        .desc {
+          margin-left: 20px;
+          z-index: 100;
+          width: 75%;
+          color: #fcfdfe;
+          font-size: 10px;
+          position: absolute;
+        }
+        .overlay {
+          position: absolute;
+          top: 2px;
+          right: 77px;
+          width: 133px;
+          height: 69px;
+          display: block;
+          
+          .inner {
+            background-image: url('/images/grubbytv_vodoverlay.png');
+            background-repeat: no-repeat;
+            position: absolute;
+            width: 133px;
+            height: 69px;
+            z-index: 2;
+          }
+          img {
+            position: absolute;
+            z-index: 1;
+          }
+        }
+        .download {
+          position: absolute;
+          right: 10px;
+          top: 10px;
+          a {
+            display: block;
+            cursor: pointer;
+            height: 53px;
+            width: 60px;
+          }
+          .default {
+            background-image: url('/images/grubbytv_videotype_play_icons.png');
+            background-repeat: no-repeat;
+            background-position: -287px 0px;
+          }
+          .you_tube {
+            background-image: url('/images/grubbytv_videotype_play_icons.png');
+            background-repeat: no-repeat;
+            background-position: -77px 0px;
+          }
+          .justintv {
+            background-image: url('/images/grubbytv_videotype_play_icons.png');
+            background-repeat: no-repeat;
+            background-position: -145px 0px;
+          }
+          .gomtv {
+            background-image: url('/images/grubbytv_videotype_play_icons.png');
+            background-repeat: no-repeat;
+            background-position: -3px 0px;
+          }
+          
+          .bliptv{
+            background-image: url('/images/grubbytv_videotype_play_icons.png');
+            background-repeat: no-repeat;
+            background-position: -220px 0px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.side_date {
+  -moz-transform: rotate(90deg);
+  -moz-transform-origin: 50% 50%;
+  -webkit-transform: rotate(90deg);
+  -webkit-transform-origin: 50% 50%;
+  position: absolute;
+  right: -25px;
+  top: 30px;;
+  color: #CDD4DC;
+  font-size: 14px;
+}
+
+.avatar_picker {
+  height: 15px;
+  width: 15px;
+}
+
+#avatars {
+  img {
+  margin-right: 40px;
+  }
+}

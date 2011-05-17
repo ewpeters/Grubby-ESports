@@ -1,0 +1,213 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+%html
+  %head
+    / = csrf_meta_tag
+    %link{:href=>"/stylesheets/jquery-ui.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}
+    %link{:href=>"/stylesheets/common.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}
+    %link{:href=>"/stylesheets/style.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}
+    %link{:href=>"/stylesheets/jquery.wysiwyg.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}
+    %link{:rel => "shortcut icon", :href=>"/favicon.ico"}
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+    <script src="/javascripts/application.js"></script>
+    <script src="/javascripts/rails.js"></script>
+    <script src="/javascripts/jquery.wysiwyg.js"></script>
+    <script src="/javascripts/wysiwyg.image.js"></script>
+    <script src="/javascripts/wysiwyg.table.js"></script>
+    <script src="/javascripts/wysiwyg.link.js"></script>
+    <script src="/javascripts/date.format.js"></script>
+    = yield :head
+  %title FollowGrubby.com
+  - if Rails.env == 'production'
+    :javascript
+      (function ($) {
+      $(document).ajaxSend(function(event, xhr, settings){ 
+      _gaq.push(['_trackPageview', settings.url]);
+      });
+      })(jQuery);   
+  :javascript
+    function insertTimeNow() {
+      var date = new Date();
+      var dateStr = date.format("HH:MM Z") + " (GMT +" + (date.getTimezoneOffset()/60) + ")";
+      $("<center><div id='time_now'>"+ dateStr +"</div></center>").appendTo(".ui-datepicker-calendar thead tr");
+    }
+    String.prototype.append_zero = function () {
+        if (this[0] == "0" || this.length == 2) {
+          return this
+        } else {
+          return "0" + this
+        }
+      }
+    var event_data = $.parseJSON($("#events").html());
+    var dates = [];
+    $(document).ready(function() {
+      $('#post_text').wysiwyg();
+      
+      
+      var event_data = $.parseJSON($("#events").html());
+      for (var i = 0; i < event_data.length; i++) {
+        year = event_data[i][0];
+        month = event_data[i][1]-1;
+        day = event_data[i][2];
+        dates.push(new Date(year, month, day));
+      }
+      $("#datepicker").datepicker({ 
+        monthNames: ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'],
+        beforeShowDay: highlightDays,
+        onSelect: function(dateText, inst) { 
+           $(".event_info[date_text!="+ dateText+ "]").addClass('hidden');
+           $(".event_info[date_text="+ dateText+ "]").removeClass('hidden');
+           
+           setTimeout('hoverEvents()', 250);
+           setTimeout('insertTimeNow()', 500);
+        }
+      });
+      hoverEvents();
+      insertTimeNow();
+    });
+    
+    
+    function highlightDays(date) {
+      for (var i = 0; i < dates.length; i++) {
+        if (dates[i].getTime() == date.getTime()) {
+          return [true, 'highlight'];
+        }
+      }
+      return [true, ''];
+    }
+    
+    function hoverEvents() {
+      $(".ui-datepicker td a").mouseenter(function() {
+        var date = $("#datepicker").datepicker( "getDate" );
+        date.setDate(parseInt($(this).html()));
+        var month = date.getMonth() + 1
+        month = month +  '';
+        var day = date.getDate() + '';
+        var dateText = month.append_zero() + "/" + day.append_zero() + "/" + date.getFullYear();
+        $(".event_info[date_text!="+ dateText+ "]").addClass('hidden');
+        $(".event_info[date_text="+ dateText+ "]").removeClass('hidden');
+      });
+      $(".calendar").mouseleave(function(event) {
+          var date = $("#datepicker").datepicker( "getDate" );
+          var month = date.getMonth() + 1
+          month = month +  '';
+          var day = date.getDate() + '';
+          var dateText = month.append_zero() + "/" + day.append_zero() + "/" + date.getFullYear();
+          $(".event_info[date_text="+ dateText+ "]").removeClass('hidden');
+      });
+      
+    }
+  %body
+    %div#fb-root
+    %script{:src => "http://connect.facebook.net/en_US/all.js"}
+    :javascript
+      FB.init({
+        appId  : '159271560800336',
+        status : true, // check login status
+        cookie : true, // enable cookies to allow the server to access the session
+        xfbml  : true  // parse XFBML
+      });
+    %div#background
+      .wrapper
+        #user_nav
+          %div.hidden
+            - form_tag("/fb_login", :id => 'fb_form') do
+              = text_field_tag 'access_token'
+              = text_field_tag 'uid'
+          - unless logged_in?
+            = image_tag ("login_icon_facebook.png", :id => "fb_connect")
+            - form_tag "/login", :action => :post, :id => "login-form" do
+              = text_field_tag 'login'
+              %div#password_div.hidden
+                = password_field_tag 'password'
+                %span#remember_label Remember Me:
+                = check_box_tag "remember_me"
+                = submit_tag "Login", :id => "submit"
+            %span.grey= "|"
+            = link_to t(:Signup), signup_path, :class => "signup"
+          - else
+            %span{ :id => "logged-in-as"}
+              - if logged_in?
+                = t(:Logged_in_as)
+                = link_to current_user, "/users/#{current_user}/edit"
+                %span.grey= "|"
+                = link_to t(:Logout), logout_path
+                - if current_user.can?(:access_admin_section)
+                  %span.grey= "|"
+                  = link_to "admin section", "/admin"
+          %span.grey= "|"
+          %span= flash[:notice]
+      .wrapper
+        %div#logo_box
+          = image_tag "grubby_header_logo.png", :class => "logo"
+          %a.sponsor{:href => "http://steelseries.com/", :target => "_blank"}
+            = image_tag "grubby_header_sponsor_steelseries.png", :class => ""
+        = navigation [:home, "Home"], [:tvs, "GrubbyTV"], [:downloads, "Downloads"], [:albums, "Gallery"], [:shop, "Shop"], [:forums, "Discussions"], [:welcome, "Welcome"], [:partners, "Partners"]
+      #content
+        #main
+          %span#ad_banner.ad
+            %object{:width => 728, :height => 90, :classid => "clsid:D27CDB6E-AE6D-11cf-96B8-444553540000", :codebase => "http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0"}
+              %param{:name => "movie", :value => "/ads/xai_review_728x90.swf"}
+              %embed{:src => "/ads/xai_review_728x90.swf", :width => 728, :height => 90, :pluginspage => "http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash", :type => "application/x-shockwave-flash"}
+          = yield
+        #side_bar
+          %div.box
+            %div.inner_box
+              %a{:href => "http://www.facebook.com/followgrubby", :target => "_blank"}
+                = image_tag("fb_button.png")
+              %a{:href => "http://www.twitter.com/followgrubby", :target => "_blank"}
+                = image_tag("tw_button.png")
+              %a{:href => "http://www.followgrubby.tumblr.com", :target => "_blank"}
+                = image_tag("tr_button.png")
+              %a{:href => "http://t.qq.com/FollowGrubby", :target => "_blank"}
+                = image_tag("qq_button.png")
+              %a{:href => "http://www.youtube.com/user/FollowGrubby", :target => "_blank"}
+                = image_tag("yt_button.png")
+              %center
+                %div.follow FOLLOW GRUBBY
+          %div.calendar
+            %div#events.hidden= @events.collect{|e| [e.date.year, e.date.month, e.date.day]}.to_json
+            %center
+              %div#datepicker{:type => "text", :stlye => "font-size: 12px"}
+            %br
+            - @events.each do |event|
+              - css_class = "hidden"
+              - if event.date.strftime('%d%m') == @now.strftime('%d%m') || @next_three.member?(event)
+                - css_class = ""
+              %center
+                %div.event_info{:date_text => event.date.strftime('%m/%d/%Y'), :class => css_class}
+                  %a{:href => url_for (event.link), :target => external_target(event.link)}
+                    %span.event_day= event.date.day
+                    %span.suffix= event.date.day.ordinalize.gsub(/\d/, '')
+                    %span -
+                    %span.event_title= event.title
+                    %span.event_hour= event.date.strftime('%H:%M')
+          %div.ad{:style => "margin-top: 15px; margin-left:10px; width: 160px; height: 600px;"}
+            %object{:width => 160, :height => 600, :classid => "clsid:D27CDB6E-AE6D-11cf-96B8-444553540000", :codebase => "http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0"}
+              %param{:name => "movie", :value => "/ads/xai_review_160x600.swf"}
+              %embed{:src => "/ads/xai_review_160x600.swf", :width => 160, :height => 600, :pluginspage => "http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash", :type => "application/x-shockwave-flash"}
+          %div.ad{:style => "margin-top: 15px; margin-left:10px; width: 160px; height: 600px;"}
+            %object{:width => 160, :height => 600, :classid => "clsid:D27CDB6E-AE6D-11cf-96B8-444553540000", :codebase => "http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0"}
+              %param{:name => "movie", :value => "/ads/xai_review_160x600.swf"}
+              %embed{:src => "/ads/xai_review_160x600.swf", :width => 160, :height => 600, :pluginspage => "http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash", :type => "application/x-shockwave-flash"}
+    
+    - if Rails.env == "production"
+      :javascript
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-23142738-1']);
+          _gaq.push(['_trackPageview']);
+    
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+    %center
+      #footer
+        %a{:href => '/users/contact'} Contact Us
+        %span.grey= "|"
+        %a{:href => "/pages/privacy"} Privacy Policy
+        %span.grey= "|"
+        %a{:href => "/pages/terms"} Terms of Use
+        %br
+        %div All Content &copy; FollowGrubby.com 2011 - 2012

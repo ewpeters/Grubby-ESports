@@ -1,0 +1,33 @@
+%html
+  %head
+    / = csrf_meta_tag
+    = yield :head
+    %link{:href=>"/stylesheets/jquery-ui.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}
+    %link{:href=>"/stylesheets/common.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}
+    %link{:href=>"/stylesheets/style.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}
+    %link{:href=>"/stylesheets/jquery.wysiwyg.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}
+    %link{:rel => "shortcut icon", :href=>"/favicon.ico"}
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+    <script src="/javascripts/rails.js"></script>
+    <script src="/javascripts/jquery.wysiwyg.js"></script>
+    <script src="/javascripts/wysiwyg.image.js"></script>
+    <script src="/javascripts/wysiwyg.table.js"></script>
+    <script src="/javascripts/wysiwyg.link.js"></script>
+    <script src="/javascripts/application.js"></script>
+  %body
+    #content
+      %center
+        %h1 Admin Controls
+        %a{:href => "/"} Go To Main Page
+        %ul#navlist
+          %div Forum and User Management
+          %li= link_to "Index", admin_root_path,  :class => selected("index")
+          %li= link_to "IP Banning", ban_ip_admin_users_path, :class => selected("ip_banning")
+          - for section in @sections
+            - if section.titleize == "Tickers"
+              %div Content Management
+            %li= link_to section.titleize, send("admin_#{section}_path"), :class => selected(section)
+      %br
+      %div{:style => "color: red !important; font-size: 20px !important"}= flash[:notice]
+      #admin-page{:style => "position: relative;"}= yield

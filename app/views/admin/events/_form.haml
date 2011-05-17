@@ -1,0 +1,20 @@
+%center
+  - if @event.errors.any?
+    %div{:id => "errorExplanation"}
+    %h2= "#{pluralize(@event.errors.count, "error")} prohibited this post from being saved:"
+    %ul
+      - @event.errors.full_messages.each do |msg|
+        %li= msg
+  %div{:style => "position: relative"}
+    = form_for [:admin, @event], :html => { :multipart => true } do |f|    
+      %div{:class => "field"}
+        %div=  f.label :title
+        %div= f.text_field :title
+      %div{:class => "field"}
+        %div= f.label :date
+        %div= datetime_select :event, :date
+      %div{:class => "field"}
+        %div= f.label :link
+        %div= f.text_field :link        
+      %div{:class => "actions"}
+        %div= f.submit

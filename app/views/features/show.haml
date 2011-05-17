@@ -1,0 +1,10 @@
+%center
+  %div{:style => "color:white"}
+    %h1= @feature.title
+    %h2= @feature.tag_line
+    %div
+    - if @feature.article.html.url == "/htmls/original/missing.png"
+      = "No Content"
+    - else
+      = render :inline =>open(@feature.article.html.url).read
+      

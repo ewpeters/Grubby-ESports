@@ -1,0 +1,27 @@
+#media_container
+  #header
+    %a{:href => albums_path} GALLERY
+  #replay_header{:class => "#{params[:filter] == 'featured'}"}
+    = link_to "Featured", "#{albums_path}?filter=featured"
+  #vod_header{:class => "#{params[:filter] == 'archived'}"}
+    = link_to "Archived", "#{albums_path}?filter=archived"
+  #wallpaper_header  
+    = link_to "Real Life", "#{albums_path}?filter=real_life"
+  #search
+    %form#search_form{:action => albums_path, :method => :get}
+      %input#search_input{:name => "query", :value => "Search"}
+      %input{:type => "hidden", :name => "filter", :value => "search"}
+      %div.hidden
+        = submit_tag
+  #filters
+    %div.header Filters
+  %span.ajax-replace  
+    #album_box{:style => "top: 20px;"}
+      - @albums.each do |a|
+        %a.album_thumb.column{:id => a.id, :href => "/albums/#{a.id}"}
+          %div.photo_holder
+            %center
+              = image_tag(a.cover.picture.url(:thumb))
+          %div.title{:style => "overflow:hidden;"}= a.title
+= render :partial => "features/features"
+                

@@ -1,0 +1,62 @@
+- if @media.errors.any?
+  %div{:id => "errorExplanation"}
+  %h2= "#{pluralize(@media.errors.count, "error")} prohibited this post from being saved:"
+  %ul
+    - @media.errors.full_messages.each do |msg|
+      %li= msg 
+%div{:style => "position: relative"}
+  = form_for [:admin, @media], :html => { :multipart => true } do |f|
+    %div{:class => "field"}
+      %div=  f.label :title
+      %div= f.text_field :title
+    %div{:class => "field"}
+      %div= f.label :summary
+      %div= f.text_area :summary, :size => "27x2"
+    %div{:class => "field"}
+      %div= f.label :display_date
+      %div= date_select :download, :display_date
+    %div{:class => "field"}
+      %div=  f.label :player_one_name
+      %div= f.text_field :player_one_name
+    %div{:class => "field"}
+      %div= f.label :player_one_race
+      %div= select(:download, :player_one_race, Download::RACES)
+    %div{:class => "field"}
+      %div=  f.label :player_two_name
+      %div= f.text_field :player_two_name
+    %div{:class => "field"}
+      %div= f.label :player_two_race
+      %div= select(:download, :player_two_race, Download::RACES)
+    %div{:class => "field"}
+      %div= f.label :game
+      %div= select(:download, :game, Download::GAMES)
+    %div{:class => "field"}
+      %div Tag List (comma seperated list)
+      %div Currently supported tags: (featured, archived, wallpaper)
+      = text_area_tag :tags, @media.tag_list.join(' ')
+    %div{:class => "field"}
+      %div= f.label :media_file
+      %div= f.file_field  :media_file
+    %div If you are uploading a wallpaper leave media file blank and fill in the following three fields
+    %div{:class => "field"}
+      %div= f.label :wallpaper_one_label
+      %div= f.text_field  :wallpaper_one_label
+    %div{:class => "field"}
+      %div= f.label :wallpaper_one
+      %div= f.file_field  :wallpaper_one
+    %div{:class => "field"}
+      %div= f.label :wallpaper_two_label
+      %div= f.text_field  :wallpaper_two_label
+    %div{:class => "field"}
+      %div= f.label :wallpaper_two
+      %div= f.file_field  :wallpaper_two
+    %div{:class => "field"}
+      %div= f.label :wallpaper_three_label
+      %div= f.text_field  :wallpaper_three_label
+    %div{:class => "field"}
+      %div= f.label :wallpaper_three
+      %div= f.file_field  :wallpaper_three
+    %div{:class => "actions"}
+      %div= f.submit
+    %div{:style => "position:absolute; top: 0px; right: 0px"}
+      = image_tag("/images/example_download.png")

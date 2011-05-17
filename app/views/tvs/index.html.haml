@@ -1,0 +1,57 @@
+#tv_container
+  - if @live
+    %a#live_link.embed_video{:embed_source => "#{@live.embeded}", :title => "Title: #{@live.title}", :summary => "Description: #{@live.summary}", :type => "#{@live.video_type}", :chat_code => tv_path(@live), :class => "#{@live.video_type.gsub(' ', '_').downcase} #{@live.tag_list.memeber?('on')}"}
+    #header
+    %a{:href => tvs_path} CHANNELS
+  #live_header{:class => "#{params[:filter] == 'featured'}"}
+    = link_to "Featured", "/tvs?filter=featured"
+  #training_header{:class => "#{params[:filter] == 'archived'}"}
+    = link_to "Archived", "/tvs?filter=archived"
+  #event_header{:class => "#{params[:filter] == 'special_live'}"}
+    = link_to "Live", "/tvs?filter=special_live"  
+  #search
+    %form#search_form{:action => "/tvs", :method => :get}
+      %input#search_input{:name => "query", :value => "Search"}
+      %input{:type => "hidden", :name => "filter", :value => "search"}
+      %div.hidden
+        = submit_tag
+  #filters
+    %div.header Filters
+    %div.starcraft.icon.true
+    %div.warcraft.icon.true
+  #tv_box
+    #video_player.hidden
+      .box
+        #cell
+          %center
+            #embed
+      .dialog
+        .inner
+          %div.controls
+            %span#chat{:style => 'left:15px; top: 0px;', :onClick => "popitup($(this).attr('chat_code') + '?chat=#{true}')"} Chat
+            %span#video_type{:style => 'left:45%; top: 0px;'}
+            %span#pop_up{:style => 'right:15px; top: 0px;', :onClick => "popitup($(this).attr('chat_code') + '?chat=#{false}')"} Pop Up
+          %div.video_title
+          %div.video_summary
+    - @tvs.each do |tv|
+      .tv_item{:game => tv.game.gsub(' ', '_').downcase}
+        %span.side_date= tv.display_date.strftime('%d.%m.%Y')
+        .tv_item_outer
+          .tv_item_inner
+            %div.title= tv.title
+            %div.meta
+              %span.from= "From: #{tv.from}"
+              %span.views
+                %span{:style => "color: #58899e"}= tv.downloaded.to_i
+                %span=" views"
+            %div.desc= tv.summary
+            .overlay
+              .inner
+              - if !tv.thumb_file_name.nil?
+                = image_tag(tv.thumb.url(:normal))
+            .download
+              - if !tv.link.nil? && tv.link != ""
+                %a{:href => tv.link, :target => external_target(tv.link), :class => tv.video_type.gsub(' ', '_').downcase, :onClick => "$.get('/tvs/watch/#{tv.id}')"}
+              - else
+                %a.embed_video{:embed_source => "#{tv.embeded}", :title => "Title: #{tv.title}", :summary => "Description: #{tv.summary}", :type => "#{tv.video_type}", :chat_code => tv_path(tv), :class => "#{tv.video_type.gsub(' ', '_').downcase}", :onClick => "$.get('/tvs/watch/#{tv.id}')"}
+= render :partial => "features/features"

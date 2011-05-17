@@ -1,0 +1,10 @@
+- @albums.each do |album|
+  = album.title
+  = link_to "Edit Pictures", admin_album_path(album)
+  |
+  = link_to "Edit Album", edit_admin_album_path(album)
+  |
+  = link_to "Delete Album", admin_album_path(album), :method => :delete, :confirm => t(:confirm_deletion, :thing => "Album")
+  %br
+= link_to "New Album", new_admin_album_path
+= will_paginate(@albums)

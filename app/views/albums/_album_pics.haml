@@ -1,0 +1,31 @@
+:javascript
+  $(document).ready(function(){
+    $(".album_pic").click(function() {
+      $.ajax({
+        type: "GET",
+        url: "/albums/slide/"+ $(this).attr('id') + ".js",
+        data: {position: $(this).attr('position') },
+        success: function(data) {
+          var json = jQuery.parseJSON(data);
+          $(".ajax-replace").html(json.html);
+        },
+      	error: function(data) {
+
+      	}
+      });
+      return false;
+    });
+  })
+%center
+  %div{:style => "background-color: black; top: 20px; height: 20px; position: absolute; right: 15px; width: 600px; font-size: 14px"}= "Photo Album: #{@album.title}"
+#album_box
+  - @album.photos.each_with_index do |p, ndx|
+    .album_pic{:id => @album.id, :position => ndx}
+      %center
+        = image_tag(p.picture.url(:thumb))
+%center
+  %div{:style => "background-color: black; bottom: 50px; height: 65px; position: absolute; right: 15px; width: 600px;"}
+    %a{:href => albums_path, :style => "float:left"}
+      = image_tag("/images/gallery_backtogallery_icon.png")
+    %div= "#{@album.title}"
+  

@@ -1,0 +1,56 @@
+- if @tv.errors.any?
+  %div{:id => "errorExplanation"}
+  %h2= "#{pluralize(@tv.errors.count, "error")} prohibited this post from being saved:"
+  %ul
+    - @tv.errors.full_messages.each do |msg|
+      %li= msg
+%div{:style => "position: relative"}
+  = form_for [:admin, @tv], :html => { :multipart => true } do |f|
+    %div{:class => "field"}
+      %div=  f.label :title
+      %div= f.text_field :title
+    %div{:class => "field"}
+      %div=  f.label :from
+      %div= f.text_field :from
+    %div{:class => "field"}
+      %div= f.label :display_date
+      %div= date_select :tv, :display_date
+    %div{:class => "field"}
+      %div= f.label :summary
+      %div= f.text_area :summary, :size => "27x2"
+    %div{:class => "field"}
+      %div= f.label :embeded
+      %div= f.text_area :embeded, :size => "40x4"
+    %div{:class => "field"}
+      %div= f.label :chat_code
+      %div= " (for You tube leave blank)"
+      %div= f.text_area :chat_code, :size => "40x4"    
+    %div{:class => "field"}
+      %div= f.label :game
+      %div= select(:tv, :game, Tv::GAMES)
+    %div{:class => "field"}
+      %div= f.label :video_type
+      %div= select(:tv, :video_type, Tv::VIDEO_TYPE)
+    %div{:class => "field"}
+      %div Tag List (comma seperated list)
+      %div For the live link add the tags 'special_live' and on or 'off' depending on the state
+      %div Currently supported tags: (featured, archived, real_life)
+      = text_area_tag :tags, @tv.tag_list.join(' ')
+    %div{:class => "field"}
+      %div= f.label :link 
+      %span (optional)
+      %div= f.text_field :link
+    %div{:class => "field"}
+      %div= f.label :thumb
+      %span 133x69 for thumbnail
+      %div= f.file_field  :thumb
+    %div{:class => "actions"}
+      %div= f.submit
+    %div{:style => "position:absolute; top: 0px; right: 0px"}
+      %div You Tube How To:
+      %div
+        = image_tag("/images/example_yt.png")
+    %div{:style => "position:absolute; top: 700px; left: 0px"}
+      %div Justin.tv How To:
+      %div
+        = image_tag("/images/example_jt.png")

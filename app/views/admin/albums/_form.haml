@@ -1,0 +1,24 @@
+- if @album.errors.any?
+  %div{:id => "errorExplanation"}
+  %h2= "#{pluralize(@album.errors.count, "error")} prohibited this post from being saved:"
+  %ul
+    - @album.errors.full_messages.each do |msg|
+      %li= msg
+%div{:style => "position: relative"}
+  = form_for [:admin, @album], :html => { :multipart => true } do |f|
+    %div{:class => "field"}
+      %div=  f.label :title
+      %div= f.text_field :title
+    %div{:class => "field"}
+      %div= f.label :description
+      %div= f.text_area :description, :size => "27x4"
+    %div{:class => "field"}
+      %div Tag List (comma seperated list)
+      %div Currently supported tags: (featured, archived, real_life)
+      = text_area_tag :tags, @album.tag_list.join(' ')  
+    %div{:class => "actions"}
+      %br
+      %div= f.submit
+    %div{:style => "width: 200px"} You will upload photos in the next step
+    %div{:style => "position:absolute; top: 0px; right: 0px"}
+      = image_tag("/images/example_album.png")

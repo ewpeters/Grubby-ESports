@@ -1,0 +1,4 @@
+- if params[:chat] == "true"
+  = @tv.chat_code.html_safe
+- else
+  = @tv.embeded.html_safe

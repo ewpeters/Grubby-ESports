@@ -1,0 +1,60 @@
+%div{:style => "float:right"}
+  %center
+    %div For Reference:
+    %br
+    = image_tag("ticker_example.png")
+= form_for [:admin, @ticker], :html => { :multipart => true } do |f|
+  - if @ticker.errors.any?
+    %div{:id => "errorExplanation"}
+    %h2= "#{pluralize(@ticker.errors.count, "error")} prohibited this post from being saved:"
+    %ul
+      - @ticker.errors.full_messages.each do |msg|
+        %li= msg 
+  %div{:class => "field"}
+    %div=  f.label :title_small
+    %div= f.text_field :title_small
+  %div{:class => "field"}
+    %div= f.label :tagline_small
+    %div= f.text_area :tagline_small, :size => "40x2"
+  %div{:class => "field"}
+    %div= f.label :title_list
+    %div= f.text_field :title_list
+  %div{:class => "field"}
+    %div= f.label :title
+    %div= f.text_field :title
+  %div{:class => "field"}
+    %div= f.label :summary
+    %div= f.text_area  :summary, :size => "40x7"
+  %div{:class => "field"}
+    %div
+      = f.label :link 
+      %span (optional)
+    %div= f.text_field :link
+  %div{:class => "field"}
+    %div
+      %span= f.label :picture
+      %span Ideal size: 510x319
+    %div= f.file_field  :picture
+  %span Article:
+  %div If you want to create a new article click the check box below, if you want to link to an existing article paste the url into the link field above
+  = check_box_tag("Article", "Attach Article", false, :onClick => "$('#article').toggle()")
+  %div#article{:style => "display:none;"}
+    = f.fields_for :article, @article do |builder|
+      %div{:class => "field"}
+        %div= builder.label :title
+        %div= builder.text_field :title
+      %div{:class => "field"}
+        %div= builder.label :article_type
+        %div= builder.text_field :article_type
+      %div{:class => "field"}
+        %div= builder.label :author
+        %div= builder.text_field :author
+      %div{:class => "field"}
+        %div= builder.label :html
+        %div= builder.file_field :html
+    %div
+      %div Example Article:
+      = image_tag("article_example.png")
+  %div{:class => "actions"}
+    %div= f.submit
+  

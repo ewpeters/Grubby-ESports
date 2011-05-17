@@ -1,0 +1,10 @@
+= link_to "New Event", new_admin_event_path
+- @events.each do |event|
+  %div
+    %span= event.title
+    %span= event.link
+    %span= event.date
+    = link_to "Edit Event", edit_admin_event_path(event)
+    |
+    = link_to "Delete Event", admin_event_path(event), :method => :delete, :confirm => t(:confirm_deletion, :thing => "event")
+= will_paginate(@events)

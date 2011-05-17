@@ -1,0 +1,18 @@
+#article_content
+  #header
+    %div#left_content
+      %span#type= "#{@article.article_type}:"
+      %span#title= @article.title
+    %div#right_content
+      #author_box
+        %span.grey= "By: "
+        %span.blue= @article.author
+      #date_box
+        %span.grey= "Date: " 
+        %span.blue= @article.created_at.strftime("%b %d, %Y")
+  .strip.grey
+  .strip.blue
+  #article_body  
+    = render :inline =>open(@article.html.url).read
+%br
+= render :partial => "topics/article_show"

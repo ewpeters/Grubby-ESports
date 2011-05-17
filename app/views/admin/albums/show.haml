@@ -1,0 +1,23 @@
+%div= "Album Title: #{@album.title}"
+%div= "Album Desc: #{@album.description}"
+= link_to "New Photo", "/admin/photos/new?album_id=#{@album.id}"
+%div Pictures:
+- @album.photos.each do |p|
+  %br
+  = image_tag(p.picture.url(:thumb))
+  = link_to "Delete Photo", admin_photo_path(p), :method => :delete, :confirm => t(:confirm_deletion, :thing => "Photo")
+  - unless p.first?
+    = link_to theme_image_tag("top.jpg", :alt => t(:Top), :title => t(:Top)), move_to_top_admin_photo_path(p), :method => :put
+    = link_to theme_image_tag("up.jpg", :alt => t(:Up), :title => t(:Up)), move_up_admin_photo_path(p), :method => :put
+  = p.position
+  - unless p.last?
+    = link_to theme_image_tag("down.jpg", :alt => t(:Down), :title => t(:Down)), move_down_admin_photo_path(p), :method => :put
+    = link_to theme_image_tag("bottom.jpg", :alt => t(:Bottom), :title => t(:Bottom)), move_to_bottom_admin_photo_path(p), :method => :put
+  - if p == @album.cover
+    %span COVER
+  - else
+    = link_to "Set Cover", "#{set_cover_admin_album_path(@album)}?photo_id=#{p.id}", :method => :put
+  = render :partial => "photo_form", :locals => {:photo => p}
+  = "------------------------"
+  
+  

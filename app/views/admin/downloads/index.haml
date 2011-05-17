@@ -1,0 +1,32 @@
+= flash[:notice]
+%br
+= link_to "New Download Item", new_admin_download_path
+%br
+%h3 Featured:
+- @featured.each do |item|
+  %span= item.title
+  |
+  = link_to "Edit Download Item", edit_admin_download_path(item)
+  |
+  = link_to "Delete Download Item", admin_download_path(item), :method => :delete, :confirm => t(:confirm_deletion, :thing => "Download Item")
+  %br
+= will_paginate(@featured)
+%br
+%h3 Archived:
+- @archived.each do |item|
+  %span= item.title
+  |
+  = link_to "Edit Download Item", edit_admin_download_path(item)
+  |
+  = link_to "Delete Download Item", admin_download_path(item), :method => :delete, :confirm => t(:confirm_deletion, :thing => "Download Item")
+  %br
+= will_paginate(@archived)
+%br
+%h3 Not tagged:
+- @other.each do |item|
+  %span= item.title
+  |
+  = link_to "Edit Download Item", edit_admin_download_path(item)
+  |
+  = link_to "Delete Download Item", admin_download_path(item), :method => :delete, :confirm => t(:confirm_deletion, :thing => "Download Item")
+  %br

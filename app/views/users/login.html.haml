@@ -1,0 +1,18 @@
+%div.black_box.standard
+  %div= t(:Login)
+  %div= link_to t(:Do_not_have_a_user_account?), signup_path
+  = form_tag do
+    %div
+      %label{:for => "login"}= t(:Login)
+      %br
+      = text_field_tag 'login'
+    %div
+      %label{:for => "password"}= t(:Password)
+      %br
+      = password_field_tag 'password'
+    %div
+      %label{:for => "remember_me"}
+      = t(:Remember_me)
+      = check_box_tag 'remember_me'
+    %div
+      = submit_tag t(:Login), :class => "white-submit"

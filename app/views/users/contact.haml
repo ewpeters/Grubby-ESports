@@ -1,0 +1,10 @@
+= flash[:notice]
+= form_tag :controller => "users", :action => "send_email" do
+  %div Your Email:
+  = text_field_tag("email")
+  %div Your Name:
+  = text_field_tag("name")
+  %div Message:
+  = text_area_tag ("message", nil, :cols => 40, :rows => 5)
+  %br
+  = submit_tag "Send"

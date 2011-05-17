@@ -1,0 +1,10 @@
+- @articles.each do |article|
+  = article.title
+  = link_to "View Article", admin_article_path(article)
+  |
+  = link_to "Edit Article", edit_admin_article_path(article)
+  |
+  = link_to "Delete Article", admin_article_path(article), :method => :delete, :confirm => t(:confirm_deletion, :thing => "article")
+  %br
+= link_to "New Article", new_admin_article_path
+= will_paginate(@articles)

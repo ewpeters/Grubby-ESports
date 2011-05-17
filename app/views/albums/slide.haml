@@ -1,0 +1,18 @@
+#media_container
+  #header
+    %a{:href => albums_path} GALLERY
+  #replay_header
+    = link_to "Featured", "#{albums_path}?filter=featured"
+  #vod_header
+    = link_to "Archived", "#{albums_path}?filter=archived"
+  #search
+    %form#search_form{:action => albums_path, :action => :post}
+      %input{:name => "query", :value => "Search"}
+      %input{:type => "hidden", :name => "filter", :value => "search"}
+      %div.hidden
+        = submit_tag
+  #filters
+    %div.header Filters
+  %span.ajax-replace  
+    = render "slideshow"
+= render :partial => "features/features"

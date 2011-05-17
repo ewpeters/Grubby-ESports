@@ -1,0 +1,28 @@
+#news{:total => news.size}
+  = image_tag "newsticker_loading.png", :id => "loading"
+  - news.each_with_index do |item, ndx|
+    %div.title_box.carousel{:class => "#{item == news.first ? 'selected' : 'hidden' }", :position => ndx}
+      - if item.link
+        %a{:href => item.link, :target => external_target(item.link)}
+          %div.title= item.title_small
+          %div.tag_line= item.tagline_small
+      - else 
+        %a{:href => article_path(item.article)}
+          %div.title= item.title_small
+          %div.tag_line= item.tagline_small
+    %div.picture.carousel{:class => "#{item == news.first ? 'selected' : 'hidden' }", :position => ndx}
+      - if item.link
+        %a{:href => item.link, :target => external_target(item.link)}
+          = image_tag(item.picture.url, :size => "510x319")
+      - else 
+        %a{:href => article_path(item.article)}
+          = image_tag(item.picture.url, :size => "510x319")
+    %div.summary.carousel{:class => "#{item == news.first ? 'selected' : 'hidden' }", :position => ndx}
+      %div.title= item.title
+      %div.body= item.summary
+    %div.news_item{:class => "#{item == news.first ? 'selected' : '' }", :style => "top: #{(32 * ndx) + 152}px", :position => ndx}
+      %div.arrow
+      - if item.link
+        %a{:href => item.link, :target => external_target(item.link)}= item.title_list
+      - else 
+        %a{:href => article_path(item.article)}= item.title_list

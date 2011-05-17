@@ -1,0 +1,19 @@
+- unless @features.empty?
+  #features
+    - @features.each do |item|
+      - if item.article
+        - link = "#{article_path(item.article)}"
+      - else
+        - link = item.link
+      %a{:href => link, :target => external_target(link)}
+        %div.feature
+          = image_tag(item.picture.url(:original), :class => "picture", :size => "394x126")
+          = image_tag("feature_ol_ds.png", :class => "overlay")
+          %div.insert
+          %div.main_title= item.title
+          %div.text
+            %div.tag_link= item.summary
+            %center
+              %br
+              %div.title= item.tag_line
+

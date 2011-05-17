@@ -1,0 +1,58 @@
+#media_container
+  #header 
+    %a{:href => downloads_path} DOWNLOADS
+  #replay_header{:class => "#{params[:filter] == 'featured'}"}
+    = link_to "Featured", "#{downloads_path}?filter=featured"
+  #vod_header{:class => "#{params[:filter] == 'archived'}"}
+    = link_to "Archived", "#{downloads_path}?filter=archived"
+  #search
+    %form#search_form{:action => downloads_path, :method => :get}
+      %input#search_input{:name => "query", :value => "Search"}
+      %input{:type => "hidden", :name => "filter", :value => "search"}
+      %div.hidden
+        = submit_tag
+  #filters
+    %div.header Filters
+    %div.starcraft.icon.true
+    %div.warcraft.icon.true
+  #media_box
+    - @medias.each do |media|
+      - if !media.tag_list.member?("wallpaper")
+        .media_item{:game => media.game.gsub(' ', '_').downcase}
+          %span.side_date= media.display_date.strftime('%d.%m.%Y')
+          .media_item_outer
+            .media_item_inner
+              .players
+                %span.player_one
+                  = image_tag("media/#{media.player_one_race}.png")
+                  %span= media.player_one_name
+                %span.vs= "vs"
+                %span.player_two
+                  = image_tag("media/#{media.player_two_race}.png")
+                  %span= media.player_two_name
+              %div.meta= media.title
+              %div.desc= media.summary
+              .map
+                = image_tag("/images/#{media.game.gsub(' ', '_')}.png")
+              .download
+                %a{:href => media.media_file.url}
+                  = image_tag("media/#{media.game}_download.png")
+      - else
+        .media_item.wallpaper
+          %span.side_date= media.display_date.strftime('%d.%m.%Y')
+          .media_item_outer
+            .media_item_inner
+              %div.thumb
+                = image_tag(media.wallpaper_one.url(:thumb))
+              %div.meta
+                %center
+                  %div.title= media.title
+                  %div.summary= media.summary
+                  %div.links
+                    %a.link{:href => media.wallpaper_one.url}
+                    %span.ratio= media.wallpaper_one_label
+                    %a.link{:href => media.wallpaper_two.url}
+                    %span.ratio= media.wallpaper_two_label
+                    %a.link{:href => media.wallpaper_three.url}
+                    %span.ratio= media.wallpaper_three_label
+= render :partial => "features/features"
