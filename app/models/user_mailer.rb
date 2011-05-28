@@ -18,8 +18,8 @@ class UserMailer < ActionMailer::Base
   end
   
   def contact_email(name, email, message)
-    @recipients = "contact@followgrubby.com"
-    @from = "contact@followgrubby.com"
+    @recipients = "admin@followgrubby.com"
+    @from = "admin@followgrubby.com"
     @subject     = "Message from #{name}"
     @sent_on     = Time.now
     @name = name
@@ -30,7 +30,7 @@ class UserMailer < ActionMailer::Base
   protected
     def setup_email(user)
       @recipients  = "#{user.email}"
-      @from        = "support@mysite.com"
+      @from        = "admin@followgrubby.com"
       @subject     = "[FollowGrubby] "
       @sent_on     = Time.now
       @user = user

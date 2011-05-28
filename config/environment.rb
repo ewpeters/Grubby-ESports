@@ -48,6 +48,7 @@ CONFIG = Rails::Initializer.run do |config|
   config.gem 'RedCloth'
   config.gem 'rmagick', :lib => "RMagick2",  :version => '2.13.1'
   config.gem "sqlite3-ruby", :lib => "sqlite3", :version => "1.3.1"
+  config.gem 'exceptional' 
   # config.gem 'thinking-sphinx', :lib => 'thinking_sphinx'
   config.gem 'will_paginate'
 
