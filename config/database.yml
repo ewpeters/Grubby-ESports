@@ -16,3 +16,10 @@ test:
   timeout: 5000
 
 production:
+  adapter: mysql
+  encoding: utf8
+  database: followg1_prod
+  username: root
+  password: root
+  host: localhost
+

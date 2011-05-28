@@ -4,6 +4,8 @@
 RAILS_GEM_VERSION = '2.3.8' unless defined? RAILS_GEM_VERSION
 
 # Bootstrap the Rails environment, frameworks, and default configuration
+require 'thread'
+require 'rubygems'
 require File.join(File.dirname(__FILE__), 'boot')
 
 PER_PAGE = 25
@@ -33,7 +35,7 @@ CONFIG = Rails::Initializer.run do |config|
   config.gem 'chronic'
   config.gem 'coderay'
   config.gem 'i18n'
-  config.gem 'dotiw'
+  # config.gem 'dotiw'
   config.gem 'escape_utils', :version => '0.2.3'
   config.gem 'haml', :version => "2.2.21"
   config.gem 'highline'
@@ -44,7 +46,7 @@ CONFIG = Rails::Initializer.run do |config|
   config.gem 'rack-raw-upload', :lib => "rack/raw_upload"
   config.gem 'rbbcode', :version => '0.1.11'
   config.gem 'RedCloth'
-  config.gem 'rmagick', :version => '2.13.1'
+  config.gem 'rmagick', :lib => "RMagick2",  :version => '2.13.1'
   config.gem "sqlite3-ruby", :lib => "sqlite3", :version => "1.3.1"
   # config.gem 'thinking-sphinx', :lib => 'thinking_sphinx'
   config.gem 'will_paginate'
