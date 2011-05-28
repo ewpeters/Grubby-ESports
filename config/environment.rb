@@ -93,18 +93,6 @@ begin
 rescue LoadError
 end
 
-ActionMailer::Base.delivery_method = :smtp
-ActionMailer::Base.smtp_settings = {
-   :address => "mail.followgrubby.com ",
-   :port => 2626,
-   :domain => "followgrubby.com",
-   :authentication => :login,
-   :user_name => "admin+followgrubby.com",
-   :password => "grubtor112"
-}
-ActionMailer::Base.perform_deliveries = true
-ActionMailer::Base.raise_delivery_errors = true
-ActionMailer::Base.default_charset = "utf-8"
 
   # def puts str
   #   super caller.first if caller.first.index("shoulda.rb") == -1
