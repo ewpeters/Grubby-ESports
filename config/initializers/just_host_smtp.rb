@@ -1,9 +1,9 @@
 ActionMailer::Base.delivery_method = :smtp
 ActionMailer::Base.smtp_settings = {
-   :address => "mail.followgrubby.com ",
+   :address => "mail.followgrubby.com",
    :port => 2626,
    :authentication => :plain,
-   :domain => "mail.followgrubby.com",
+   :domain => "www.followgrubby.com",
    :user_name => "admin+followgrubby.com",
    :password => "grubtor112"
 }
