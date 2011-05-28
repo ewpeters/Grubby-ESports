@@ -2,7 +2,7 @@ class UserMailer < ActionMailer::Base
   def signup_notification(user)
     setup_email(user)
     @subject    += 'Please activate your new account'  
-    @url  = "http://gestesting.heroku.com/activate/#{user.activation_code}".html_safe
+    @url  = "http://50.16.224.93/activate/#{user.activation_code}".html_safe
   end
   
   def activation(user)
@@ -14,7 +14,7 @@ class UserMailer < ActionMailer::Base
   def reset_notification(user)
     setup_email(user)
     @subject    += 'Link to reset your password'
-    @url  = "http://gestesting.heroku.com/reset/#{user.reset_code}".html_safe
+    @url  = "http://50.16.224.93/reset/#{user.reset_code}".html_safe
   end
   
   def contact_email(name, email, message)

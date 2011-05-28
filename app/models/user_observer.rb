@@ -4,7 +4,11 @@ class UserObserver < ActiveRecord::Observer
   end
   
   def after_save(user)
-    UserMailer.deliver_activation(user) if user.activated? 
+    if user.activated? && user.activation_code
+      UserMailer.deliver_activation(user) 
+      user.activation_code = nil
+      user.save
+    end
     UserMailer.deliver_reset_notification(user) if user.recently_reset?
   end
 end
