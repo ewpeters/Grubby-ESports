@@ -19,8 +19,10 @@ $(document).ready(function() {
 });
 
 function fader() {
-    $("#loading").animate({opacity: 0}, {duration: 10})
-    $("#loading").animate({opacity: 1.0}, {duration: ticker_time, complete: fader})
+  if (parseInt($("#news").attr('total')) > 1) {
+   $("#loading").animate({opacity: 0}, {duration: 10})
+   $("#loading").animate({opacity: 1.0}, {duration: ticker_time, complete: fader})
+  }
 }
 
 function list_events() {
