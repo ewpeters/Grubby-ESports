@@ -18,7 +18,11 @@ module Rboard::Permissions
         conditions = "permissions.#{association} = '#{thing.id}'"
         permission = permissions.first(:conditions => conditions)
         if permission.nil?
-         {"can_#{action}" => false}
+          if !can?(:access_admin_section) 
+            return {"can_#{action}" => false}
+          else
+            return {}
+          end
         else
           attributes = permission.attributes
           unless single

@@ -20,13 +20,6 @@ class Forum < ActiveRecord::Base
 
   validates_presence_of :title, :description
 
-  before_create :ensure_admin
-  
-  def ensure_admin
-    permissions += Group.find_by_name("Administrators").permissions
-    permissions += Group.find_by_name("Registered Users").permissions
-  end
-
   def to_s
     title
   end
