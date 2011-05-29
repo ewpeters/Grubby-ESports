@@ -98,7 +98,6 @@ class User < ActiveRecord::Base
   def recently_reset?
     @reset
   end
-  
 
   def delete_reset_code
     self.attributes = {:reset_code => nil}

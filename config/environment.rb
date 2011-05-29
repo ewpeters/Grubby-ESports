@@ -51,7 +51,7 @@ CONFIG = Rails::Initializer.run do |config|
   config.gem 'exceptional' 
   # config.gem 'thinking-sphinx', :lib => 'thinking_sphinx'
   config.gem 'will_paginate'
-
+  config.gem 'delayed_job', :version => '~>2.0.4'
 
   # lol actionwebservice
   # lol activeresource

@@ -123,9 +123,9 @@ img {
       position: absolute;
       top: 25px;
       line-height: 14px;
-      left: 150px;
+      left: 129px;
       height: 25px;
-      width: 50px; }
+      width: 70px; }
     #user_nav form #remember_label {
       color: white;
       font-size: 11px;
@@ -135,7 +135,8 @@ img {
       width: 200px; }
     #user_nav form #remember_me {
       position: absolute;
-      top: 25px;
+      top: 28px;
+      left: 91px;
       width: 200px; }
   #user_nav input {
     background-color: white;

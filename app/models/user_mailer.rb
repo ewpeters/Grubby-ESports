@@ -27,6 +27,16 @@ class UserMailer < ActionMailer::Base
     @message = message
   end
   
+  def jobs_email(name, email, message)
+    @recipients = "admin@followgrubby.com"
+    @from =       "admin@followgrubby.com"
+    @subject     = "#{name} wants a job"
+    @sent_on     = Time.now
+    @name = name
+    @email = email
+    @message = message
+  end
+  
   protected
     def setup_email(user)
       @recipients  = "#{user.email}"

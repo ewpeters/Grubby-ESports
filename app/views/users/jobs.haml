@@ -1,4 +1,6 @@
-= flash[:notice]
+%center
+  = flash[:notice]
+  %h3 Want to be a part of the team here at FollowGrubby.com? Tells us why along with a quick summary about yourself.  A staff member will review it and get back to you in a few days.
 - form_tag :controller => "users", :action => "send_email" do
   %div Your Email:
   = text_field_tag("email")

@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_filter :login_required, :only => [:edit, :update, :index]
   
   include Rboard::Login
-  skip_before_filter :lock_that_shit_up, :only => :login
+  
   def index
     @users = User.paginate :page => params[:page], :per_page => 30, :order => "login ASC"
   end
@@ -54,7 +54,7 @@ class UsersController < ApplicationController
       else
         flash[:notice] = "#{params[:user][:email]} does not exist in system"
       end
-      redirect_back_or_default('/')
+      redirect_back_or_default('/home')
     end
   end
   
@@ -65,7 +65,7 @@ class UsersController < ApplicationController
         self.current_user = @user
         @user.delete_reset_code
         flash[:notice] = "Password reset successfully for #{@user.email}"
-        redirect_back_or_default('/')
+        redirect_back_or_default('/home')
       else
         render :action => :reset
       end
@@ -78,7 +78,7 @@ class UsersController < ApplicationController
       if @user.update_attributes(:activated => true)
         self.current_user = @user
         flash[:notice] = "Account activated!"
-        redirect_back_or_default('/')
+        redirect_back_or_default('/home')
       else
         render :action => :activate
       end
@@ -86,13 +86,22 @@ class UsersController < ApplicationController
   end
   
   def send_email
-    @user = current_user
     flash[:notice] = "Your email has been sent."
-    UserMailer.contact_email(params[:name], params[:email], params[:message])
-    redirect_back_or_default('/')
+    UserMailer.delay.contact_email(params[:name], params[:email], params[:message])
+    redirect_back_or_default('/home')
+  end
+  
+  def jobs_email
+    flash[:notice] = "Your email has been sent."
+    UserMailer.delay.jobs_email(params[:name], params[:email], params[:message])
+    redirect_back_or_default('/home')
   end
   
   def contact
+    
+  end
+  
+  def jobs
     
   end
 end
