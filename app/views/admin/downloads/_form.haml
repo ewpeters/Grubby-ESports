@@ -34,9 +34,14 @@
       %div Tag List (comma seperated list)
       %div Currently supported tags: (featured, archived, wallpaper)
       = text_area_tag :tags, @media.tag_list.join(' ')
+    %h1 File (upload a file or link to one)
     %div{:class => "field"}
       %div= f.label :media_file
       %div= f.file_field  :media_file
+    %div or
+    %div{:class => "field"}
+      %div=  f.label :url
+      %div= f.text_field :url
     %div If you are uploading a wallpaper leave media file blank and fill in the following three fields
     %div{:class => "field"}
       %div= f.label :wallpaper_one_label

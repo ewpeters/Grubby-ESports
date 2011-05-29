@@ -1,5 +1,4 @@
 module Rboard::Permissions
-
   def self.included(klass)
     klass.class_eval do
       # Get the global permissions for the current user.
@@ -13,13 +12,13 @@ module Rboard::Permissions
       # Objects at the moment are forum and category, but there is room to add more.
       # If the object is a forum or category it will find the ancestors for these and
       # then work its way up to the top. The top-most permission takes precendence.
-      def permissions_for(thing = nil, single = false)
+      def permissions_for(thing = nil, single = false, action = "")
         return {} if thing.nil?
         association = "#{thing.class.to_s.downcase}_id"
         conditions = "permissions.#{association} = '#{thing.id}'"
         permission = permissions.first(:conditions => conditions)
         if permission.nil?
-         {}
+         {"can_#{action}" => false}
         else
           attributes = permission.attributes
           unless single
@@ -35,15 +34,15 @@ module Rboard::Permissions
 
       # Takes the global permissions and merges it with the permissions for an object.
       # The #permissions_for permissions will take precedence over the global permissions.
-      def overall_permissions(thing)
-        global_permissions.merge!(permissions_for(thing))
+      def overall_permissions(thing, action="")
+        global_permissions.merge!(permissions_for(thing, false, action))
       end
 
       # Can the user do this action?
       # If no object is given checks global permissions.
       # If no permissions set for that user then it defaults to false.
       def can?(action, thing = nil)
-        !!overall_permissions(thing)["can_#{action}"]
+        !!overall_permissions(thing, action)["can_#{action}"]
       end
 
       # Instead of having a multi if-statement line, use this.

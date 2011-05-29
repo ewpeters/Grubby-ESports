@@ -1,7 +1,7 @@
 class Rank < ActiveRecord::Base
   has_many :users, :dependent => :nullify
 
-  scope :custom, :conditions => { :custom => true }
+  named_scope :custom, :conditions => { :custom => true }
 
   def self.for_user(user)
     first(:conditions => ["posts_required >= ?", user.posts.count], :order => "posts_required DESC" )

@@ -1,6 +1,7 @@
 class Download < ActiveRecord::Base
   validates_presence_of :title, :summary, :display_date
-  validates_presence_of :media_file_file_name, :unless => Proc.new { |user| user.tag_list.member?("wallpaper") }
+  validates_presence_of :url, :unless => Proc.new { |user| user.tag_list.member?("wallpaper") || user.media_file_file_name }
+  validates_presence_of :media_file_file_name, :unless => Proc.new { |user| user.tag_list.member?("wallpaper") || user.url }
   validates_presence_of :wallpaper_one,   :if => Proc.new { |user| user.tag_list.member?("wallpaper") }
   validates_presence_of :wallpaper_two,   :if => Proc.new { |user| user.tag_list.member?("wallpaper") }
   validates_presence_of :wallpaper_three, :if => Proc.new { |user| user.tag_list.member?("wallpaper") }

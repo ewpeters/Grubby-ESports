@@ -3,5 +3,5 @@ class Edit < ActiveRecord::Base
   belongs_to :user
   belongs_to :ip
 
-  scope :visible, :conditions => { :hidden => false }
+  named_scope :visible, :conditions => { :hidden => false }
 end

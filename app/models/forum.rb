@@ -1,13 +1,11 @@
 class Forum < ActiveRecord::Base
-  default_scope :order => "title asc"
-
   acts_as_list :scope => :parent_id
   acts_as_tree :order => :position
 
   includes = [:children, :permissions, { :last_post => [:topic, :user] }, :last_post_forum]
-  scope :without_category, :conditions => { :category_id => nil }, :include => includes, :order => "position"
-  scope :without_parent, :conditions => { :parent_id => nil }, :include => includes, :order => "position"
-  scope :active, :conditions => { :active => true }
+  named_scope :without_category, :conditions => { :category_id => nil }, :include => includes, :order => "position"
+  named_scope :without_parent, :conditions => { :parent_id => nil }, :include => includes, :order => "position"
+  named_scope :active, :conditions => { :active => true }
 
 
   has_many :moderations
@@ -21,6 +19,13 @@ class Forum < ActiveRecord::Base
   belongs_to :last_post_forum, :class_name => "Forum"
 
   validates_presence_of :title, :description
+
+  before_create :ensure_admin
+  
+  def ensure_admin
+    permissions += Group.find_by_name("Administrators").permissions
+    permissions += Group.find_by_name("Registered Users").permissions
+  end
 
   def to_s
     title
