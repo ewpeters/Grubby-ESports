@@ -16,14 +16,14 @@
     });
   })
 %center
-  %div{:style => "background-color: black; top: 20px; height: 20px; position: absolute; right: 15px; width: 600px; font-size: 14px"}= "Photo Album: #{@album.title}"
+  %div{:style => "background-color: black; top: 20px; height: 20px; position: absolute; right: 15px; width: 600px; font-size: 14px; color: grey"}= "Photo Album: #{@album.title}"
 #album_box
   - @album.photos.each_with_index do |p, ndx|
     .album_pic{:id => @album.id, :position => ndx}
       %center
         = image_tag(p.picture.url(:thumb))
 %center
-  %div{:style => "background-color: black; bottom: 50px; height: 65px; position: absolute; right: 15px; width: 600px;"}
+  %div{:style => "background-color: black; bottom: 50px; height: 65px; position: absolute; right: 15px; width: 600px;; color: grey"}
     %a{:href => albums_path, :style => "float:left"}
       = image_tag("/images/gallery_backtogallery_icon.png")
     %div= "#{@album.title}"

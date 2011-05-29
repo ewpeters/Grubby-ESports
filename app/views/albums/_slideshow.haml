@@ -75,7 +75,7 @@
       height: 60px;
       position: relative;
       z-index: 3;
-      top: 15;
+      top: 15px;
       width: 85%;
     }
     /** 
@@ -109,7 +109,7 @@
   });
 
 / = image_tag(p.picture.url(:normal), :size => '555x375')
-#album_box{:style => "right: 20px; top: 20px; height: 465px; overflow: hidden;", :slides => @album.photos.size}
+#album_box{:style => "right: 20px; top: 20px; height: 465px; overflow: hidden;color: grey", :slides => @album.photos.size}
   %div.top_bar
   %div#slideshow
     %span.control#leftControl
