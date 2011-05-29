@@ -87,13 +87,13 @@ class UsersController < ApplicationController
   
   def send_email
     flash[:notice] = "Your email has been sent."
-    UserMailer.delay.contact_email(params[:name], params[:email], params[:message])
+    UserMailer.delay.deliver_contact_email(params[:name], params[:email], params[:message])
     redirect_back_or_default('/home')
   end
   
   def jobs_email
     flash[:notice] = "Your email has been sent."
-    UserMailer.delay.jobs_email(params[:name], params[:email], params[:message])
+    UserMailer.delay.deliver_jobs_email(params[:name], params[:email], params[:message])
     redirect_back_or_default('/home')
   end
   
