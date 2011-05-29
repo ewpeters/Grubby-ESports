@@ -111,12 +111,14 @@ ActionController::Routing::Routes.draw do |map|
 
   map.connect 'users/contact', :controller => 'users', :action => 'contact'
   map.connect 'users/jobs', :controller => 'users', :action => 'jobs'
+  map.connect 'users/send_email', :controller => 'users', :action => 'send_email'
+  map.connect 'users/jobs_email', :controller => 'users', :action => 'jobs_email'
   map.resources :users, :member => { :profile => :any }, :collection => { :signup => [:get, :post], :ip_is_banned => :get } do |user|
     user.resources :posts
   end
   
   
-  map.connect 'users/send_email', :controller => 'users', :action => 'send_email'
+  
   
   
 
