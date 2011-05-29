@@ -1,23 +1,26 @@
 class UserMailer < ActionMailer::Base
-  def signup_notification(user)
+  def self.signup_notification(user)
     setup_email(user)
     @subject    += 'Please activate your new account'  
     @url  = "http://50.16.224.93/activate/#{user.activation_code}".html_safe
+    mail(:to => @recipients , :subject => @subject)
   end
   
-  def activation(user)
+  def self.activation(user)
     setup_email(user)
     @subject    += 'Your account has been activated!'
     @url  = "www.followgrubby.com"
+    mail(:to => @recipients , :subject => @subject)
   end
   
-  def reset_notification(user)
+  def self.reset_notification(user)
     setup_email(user)
     @subject    += 'Link to reset your password'
     @url  = "http://50.16.224.93/reset/#{user.reset_code}".html_safe
+    mail(:to => @recipients , :subject => @subject)
   end
   
-  def contact_email(name, email, message)
+  def self.contact_email(name, email, message)
     @recipients = "admin@followgrubby.com"
     @from = "admin@followgrubby.com"
     @subject     = "Message from #{name}"
@@ -25,9 +28,10 @@ class UserMailer < ActionMailer::Base
     @name = name
     @email = email
     @message = message
+    mail(:to => @recipients , :subject => @subject)
   end
   
-  def jobs_email(name, email, message)
+  def self.jobs_email(name, email, message)
     @recipients = "admin@followgrubby.com"
     @from =       "admin@followgrubby.com"
     @subject     = "#{name} wants a job"
@@ -35,10 +39,11 @@ class UserMailer < ActionMailer::Base
     @name = name
     @email = email
     @message = message
+    mail(:to => @recipients , :subject => @subject)
   end
   
   protected
-    def setup_email(user)
+    def self.setup_email(user)
       @recipients  = "#{user.email}"
       @from        = "admin@followgrubby.com"
       @subject     = "[FollowGrubby] "
