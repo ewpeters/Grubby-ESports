@@ -26,8 +26,6 @@
 
 body {
   background-color: #101010;
-  /*  background-image: url("/images/site_background.jpg");
-    background-repeat: no-repeat;*/
   font-family: 'century gothic',verdana,arial,helvetica,sans-serif;
   color: white; }
   body .wrapper {
@@ -35,7 +33,7 @@ body {
     margin: 0 auto; }
 
 #background {
-  background: url("/images/site_background.jpg");
+  background-image: url("/images/site_background.jpg");
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center top;
@@ -68,7 +66,7 @@ img {
   top: 0px;
   height: 34px;
   line-height: 34px;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0,0,0,0.1);
   color: white; }
   #user_nav img {
     vertical-align: middle; }
@@ -103,11 +101,11 @@ img {
     border: 0;
     margin: 0;
     border: 1px transparent solid;
-    -moz-border-radius: 5px 5px 5px 5px;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-    border-bottom-left-radius: 5px; }
+    -moz-border-radius: !top !right !bottom !left;
+    border-top-left-radius: !top;
+    border-top-right-radius: !right;
+    border-bottom-right-radius: !bottom;
+    border-bottom-left-radius: !left; }
     #user_nav form input {
       width: 200px; }
     #user_nav form #submit {
@@ -186,7 +184,7 @@ img {
       height: 181px;
       width: 180px;
       background-color: #030303;
-      background: -moz-linear-gradient(top left, #363636, #030303);
+      background: -moz-linear-gradient(top left,  #363636,  #030303);
       background: -webkit-gradient(linear, left top, right bottom, from(#363636), to(#030303));
       -moz-border-radius: 10px 10px 10px 10px;
       -webkit-border-radius: 10px;
@@ -219,7 +217,7 @@ img {
       padding-top: 15px;
       position: relative;
       background-color: #030303;
-      background: -moz-linear-gradient(top left, #363636, #030303);
+      background: -moz-linear-gradient(top left,  #363636,  #030303);
       background: -webkit-gradient(linear, left top, right bottom, from(#363636), to(#030303));
       -moz-border-radius: 10px 10px 10px 10px;
       -webkit-border-radius: 10px;
@@ -243,7 +241,7 @@ img {
     position: absolute;
     left: 27px;
     top: 18px;
-    display: none; }
+    opacity: 0; }
   #news .title_box {
     position: absolute;
     left: 25px;
@@ -270,8 +268,8 @@ img {
     position: absolute;
     left: 15px;
     width: 177px; }
-  #news .news_item.selected {
-    color: #74aed3; }
+  #news .news_item.selected a {
+    color: white; }
   #news .arrow {
     width: 12px;
     height: 10px;
@@ -301,14 +299,14 @@ img {
   width: 749px;
   background-color: #000000;
   padding-top: 30px;
-  background: url("/images/scales.jpg") no-repeat scroll 0 0 black;
-  -moz-border-radius: 0px 0px 10px 10px;
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
-  border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 10px;
-  -webkit-box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.5);
+  background: url("/images/scales.jpg") no-repeat scroll 0 0 #000000;
+  -moz-border-radius: !top !right !bottom !left;
+  border-top-left-radius: !top;
+  border-top-right-radius: !right;
+  border-bottom-right-radius: !bottom;
+  border-bottom-left-radius: !left;
+  -webkit-box-shadow: !one !two !three rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: !one !two !three rgba(0, 0, 0, 0.5);
   padding-bottom: 15px; }
   #features .feature {
     position: relative;
@@ -387,9 +385,9 @@ ul#nav_bar {
       position: relative; }
     ul#nav_bar li img {
       position: absolute;
-      opacity: 0.6;
-      ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
-      filter: "aplha(opacity=60)";
+      opacity: !value;
+      ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=#!value*100)";
+      filter: "aplha(opacity=#!value * 100)";
       left: -15px;
       top: -7px;
       width: 140%;
@@ -405,11 +403,11 @@ ul#nav_bar {
     width: 751px;
     height: 71px;
     background-color: black;
-    -moz-border-radius: 15px 15px 0px 0px;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 0px;
-    border-bottom-left-radius: 0px;
+    -moz-border-radius: !top !right !bottom !left;
+    border-top-left-radius: !top;
+    border-top-right-radius: !right;
+    border-bottom-right-radius: !bottom;
+    border-bottom-left-radius: !left;
     position: relative; }
     #article_content #header #left_content {
       font-size: 30px;
@@ -437,8 +435,8 @@ ul#nav_bar {
   #article_content .strip.grey {
     background-color: #878787; }
   #article_content #article_body {
-    -webkit-box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.5);
-    -moz-box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: !one !two !three rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: !one !two !three rgba(0, 0, 0, 0.5);
     color: black;
     width: 721px;
     height: 100%;
@@ -458,11 +456,11 @@ ul#nav_bar {
     width: 750px;
     height: 100%;
     padding-bottom: 45px;
-    -moz-border-radius: 0px 0px 10px 10px;
-    border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px; }
+    -moz-border-radius: !top !right !bottom !left;
+    border-top-left-radius: !top;
+    border-top-right-radius: !right;
+    border-bottom-right-radius: !bottom;
+    border-bottom-left-radius: !left; }
 
 #time_now {
   color: #7c7c7c !important;
@@ -477,8 +475,8 @@ ul#nav_bar {
   margin-left: -11px;
   background-image: url("/images/media_bg.png");
   position: relative;
-  -webkit-box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.5); }
+  -webkit-box-shadow: !one !two !three rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: !one !two !three rgba(0, 0, 0, 0.5); }
   #media_container #header {
     height: 50px;
     width: 120px;
@@ -550,7 +548,7 @@ ul#nav_bar {
       height: 82px;
       width: 82px;
       margin-left: 8px;
-      background-image: url("/images/media_filter_game_icons.png");
+      background-image: url('/images/media_filter_game_icons.png');
       background-repeat: no-repeat; }
     #media_container #filters .warcraft {
       background-position: -75px -82px; }
@@ -561,11 +559,11 @@ ul#nav_bar {
     #media_container #filters .starcraft.true {
       background-position: 0px 0px; }
   #media_container .true {
-    background: -moz-linear-gradient(top, #0097fc, #39b0ff);
-    background: -webkit-gradient(linear, left top, left bottom, from(#0097fc), to(#39b0ff));
-    opacity: 0.8;
-    ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
-    filter: "aplha(opacity=80)"; }
+    background: -moz-linear-gradient(top,  #0097fc,  #39b0ff);
+    background: -webkit-gradient(linear,  left top, left bottom, from(#0097fc), to(#39b0ff));
+    opacity: !value;
+    ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=#!value*100)";
+    filter: "aplha(opacity=#!value * 100)"; }
   #media_container ::-webkit-scrollbar {
     width: 6px;
     height: 6px; }
@@ -636,11 +634,11 @@ ul#nav_bar {
     margin-bottom: 20px;
     position: relative; }
     #media_container .media_item .media_item_outer {
-      -moz-border-radius: 10px 10px 10px 10px;
-      border-top-left-radius: 10px;
-      border-top-right-radius: 10px;
-      border-bottom-right-radius: 10px;
-      border-bottom-left-radius: 10px;
+      -moz-border-radius: !top !right !bottom !left;
+      border-top-left-radius: !top;
+      border-top-right-radius: !right;
+      border-bottom-right-radius: !bottom;
+      border-bottom-left-radius: !left;
       border: 2px white solid;
       width: 555px;
       height: 87px;
@@ -649,11 +647,11 @@ ul#nav_bar {
         width: 540px;
         height: 73px;
         border: 1px #333f45 solid;
-        -moz-border-radius: 10px 10px 10px 10px;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-        border-bottom-right-radius: 10px;
-        border-bottom-left-radius: 10px;
+        -moz-border-radius: !top !right !bottom !left;
+        border-top-left-radius: !top;
+        border-top-right-radius: !right;
+        border-bottom-right-radius: !bottom;
+        border-bottom-left-radius: !left;
         position: absolute;
         top: 7.5px;
         left: 7.5px; }
@@ -703,7 +701,7 @@ ul#nav_bar {
       height: 150px;
       margin-bottom: 25px;
       margin-right: 15px;
-      background-image: url("/images/album_bg.png");
+      background-image: url('/images/album_bg.png');
       background-repeat: no-repeat;
       position: relative;
       cursor: pointer; }
@@ -738,22 +736,21 @@ thead tr {
   height: 102px;
   margin-right: 25px;
   margin-bottom: 25px;
-  -moz-border-radius: 10px 10px 10px 10px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 10px;
-  /*  background: -moz-linear-gradient(top right,  #4e4f4f,  #e6e6e6);
-    background: -webkit-gradient(linear,  right top, left bottom, from(#4e4f4f), to(#e6e6e6));*/
-  background-color: black;
-  -webkit-box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.5); }
-  .album_pic img {
-    vertical-align: middle; }
+  -moz-border-radius: !top !right !bottom !left;
+  border-top-left-radius: !top;
+  border-top-right-radius: !right;
+  border-bottom-right-radius: !bottom;
+  border-bottom-left-radius: !left; }
 
+/* background:  -moz-linear-gradient(top right,  #4e4f4f,  #e6e6e6)
+ * background:  -webkit-gradient(linear,  right top, left bottom, from(#4e4f4f), to(#e6e6e6))*/
+ * background-color:  black
+ * +drop_shadow
+ * img 
+ *   vertical-align: middle */
 .ad {
-  -webkit-box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.5); }
+  -webkit-box-shadow: !one !two !three rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: !one !two !three rgba(0, 0, 0, 0.5); }
 
 #tv_container {
   height: 550px;
@@ -761,8 +758,8 @@ thead tr {
   margin-left: -11px;
   background-image: url("/images/grubbytv_background.png");
   position: relative;
-  -webkit-box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.5); }
+  -webkit-box-shadow: !one !two !three rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: !one !two !three rgba(0, 0, 0, 0.5); }
   #tv_container #live_link {
     background-image: url("/images/grubby_tv_livebutton.png");
     width: 157px;
@@ -846,7 +843,7 @@ thead tr {
       margin-left: 8px;
       height: 82px;
       width: 82px;
-      background-image: url("/images/grubbytv_filter_game_icons.png");
+      background-image: url('/images/grubbytv_filter_game_icons.png');
       background-repeat: no-repeat; }
     #tv_container #filters .warcraft {
       background-position: -75px -82px; }
@@ -857,11 +854,11 @@ thead tr {
     #tv_container #filters .starcraft.true {
       background-position: 0px 0px; }
   #tv_container .true {
-    background: -moz-linear-gradient(top, #447362, #2c6651);
-    background: -webkit-gradient(linear, left top, left bottom, from(#447362), to(#2c6651));
-    opacity: 0.8;
-    ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
-    filter: "aplha(opacity=80)"; }
+    background: -moz-linear-gradient(top,  #447362,  #2c6651);
+    background: -webkit-gradient(linear,  left top, left bottom, from(#447362), to(#2c6651));
+    opacity: !value;
+    ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=#!value*100)";
+    filter: "aplha(opacity=#!value * 100)"; }
   #tv_container ::-webkit-scrollbar {
     width: 6px;
     height: 6px; }
@@ -886,11 +883,11 @@ thead tr {
     right: 20px;
     top: 25px; }
   #tv_container .box {
-    -moz-border-radius: 10px 10px 10px 10px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
+    -moz-border-radius: !top !right !bottom !left;
+    border-top-left-radius: !top;
+    border-top-right-radius: !right;
+    border-bottom-right-radius: !bottom;
+    border-bottom-left-radius: !left;
     border: 3px #4d8e5e solid;
     width: 575px;
     height: 355px;
@@ -900,11 +897,11 @@ thead tr {
       display: table-cell;
       vertical-align: middle; }
   #tv_container .dialog {
-    -moz-border-radius: 10px 10px 10px 10px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
+    -moz-border-radius: !top !right !bottom !left;
+    border-top-left-radius: !top;
+    border-top-right-radius: !right;
+    border-bottom-right-radius: !bottom;
+    border-bottom-left-radius: !left;
     border: 3px #4d8e5e solid;
     width: 575px;
     height: 95px;
@@ -915,11 +912,11 @@ thead tr {
       width: 560px;
       height: 80px;
       border: 2px #182c1d solid;
-      -moz-border-radius: 10px 10px 10px 10px;
-      border-top-left-radius: 10px;
-      border-top-right-radius: 10px;
-      border-bottom-right-radius: 10px;
-      border-bottom-left-radius: 10px;
+      -moz-border-radius: !top !right !bottom !left;
+      border-top-left-radius: !top;
+      border-top-right-radius: !right;
+      border-bottom-right-radius: !bottom;
+      border-bottom-left-radius: !left;
       position: absolute;
       top: 6.5px;
       left: 6.5px; }
@@ -939,11 +936,11 @@ thead tr {
     margin-bottom: 20px;
     position: relative; }
     #tv_container .tv_item .tv_item_outer {
-      -moz-border-radius: 10px 10px 10px 10px;
-      border-top-left-radius: 10px;
-      border-top-right-radius: 10px;
-      border-bottom-right-radius: 10px;
-      border-bottom-left-radius: 10px;
+      -moz-border-radius: !top !right !bottom !left;
+      border-top-left-radius: !top;
+      border-top-right-radius: !right;
+      border-bottom-right-radius: !bottom;
+      border-bottom-left-radius: !left;
       border: 2px #4d8e5e solid;
       width: 555px;
       height: 87px;
@@ -952,11 +949,11 @@ thead tr {
         width: 540px;
         height: 73px;
         border: 1px #182c1d solid;
-        -moz-border-radius: 10px 10px 10px 10px;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-        border-bottom-right-radius: 10px;
-        border-bottom-left-radius: 10px;
+        -moz-border-radius: !top !right !bottom !left;
+        border-top-left-radius: !top;
+        border-top-right-radius: !right;
+        border-bottom-right-radius: !bottom;
+        border-bottom-left-radius: !left;
         position: absolute;
         top: 7.5px;
         left: 7.5px; }
@@ -987,7 +984,7 @@ thead tr {
           height: 69px;
           display: block; }
           #tv_container .tv_item .tv_item_outer .tv_item_inner .overlay .inner {
-            background-image: url("/images/grubbytv_vodoverlay.png");
+            background-image: url('/images/grubbytv_vodoverlay.png');
             background-repeat: no-repeat;
             position: absolute;
             width: 133px;
@@ -1006,23 +1003,23 @@ thead tr {
             height: 53px;
             width: 60px; }
           #tv_container .tv_item .tv_item_outer .tv_item_inner .download .default {
-            background-image: url("/images/grubbytv_videotype_play_icons.png");
+            background-image: url('/images/grubbytv_videotype_play_icons.png');
             background-repeat: no-repeat;
             background-position: -287px 0px; }
           #tv_container .tv_item .tv_item_outer .tv_item_inner .download .you_tube {
-            background-image: url("/images/grubbytv_videotype_play_icons.png");
+            background-image: url('/images/grubbytv_videotype_play_icons.png');
             background-repeat: no-repeat;
             background-position: -77px 0px; }
           #tv_container .tv_item .tv_item_outer .tv_item_inner .download .justintv {
-            background-image: url("/images/grubbytv_videotype_play_icons.png");
+            background-image: url('/images/grubbytv_videotype_play_icons.png');
             background-repeat: no-repeat;
             background-position: -145px 0px; }
           #tv_container .tv_item .tv_item_outer .tv_item_inner .download .gomtv {
-            background-image: url("/images/grubbytv_videotype_play_icons.png");
+            background-image: url('/images/grubbytv_videotype_play_icons.png');
             background-repeat: no-repeat;
             background-position: -3px 0px; }
           #tv_container .tv_item .tv_item_outer .tv_item_inner .download .bliptv {
-            background-image: url("/images/grubbytv_videotype_play_icons.png");
+            background-image: url('/images/grubbytv_videotype_play_icons.png');
             background-repeat: no-repeat;
             background-position: -220px 0px; }
 

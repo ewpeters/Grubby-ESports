@@ -1,36 +1,39 @@
 var current_news_ndx = 0;
-var timeout_id = null;
-var loading_img = null;
+var interval_id = null;
+var ticker_time = 5000;
+$.idleTimer(30000);  
+$(document).bind("idle.idleTimer", function(){
+ // function you want to fire when the user goes idle
+ $("#loading").stop();
+ clearInterval(interval_id);
+});
+$(document).bind("active.idleTimer", function(){
+ // function you want to fire when the user becomes active again
+ fader();
+ interval_id = setInterval('next_news()', ticker_time);
+});
 $(document).ready(function() {
-  loading_img = $("#loading").clone();
   list_events();
-  start_loading();
-  setInterval('check_loading()', 5000);
+  interval_id = setInterval('next_news()', ticker_time);
+  fader();
 });
 
-function check_loading() {
-  clearTimeout(timeout_id);
-  if ($("#loading").length == 0) {
-    loading_img.prependTo("#news");
-    start_loading();
-  } 
+function fader() {
+    $("#loading").animate({opacity: 0}, {duration: 10})
+    $("#loading").animate({opacity: 1.0}, {duration: ticker_time, complete: fader})
 }
+
 function list_events() {
   $(".news_item").hover(function() {
-    stop_loading();
     var current_ndx = parseInt($(".title_box.carousel:visible").attr('position'));
     var next_ndx = $(this).attr('position');
     move_news(current_ndx, next_ndx);
+    $("#loading").stop();
+    clearInterval(interval_id);
   }, function () {
   });
 }
-function start_loading() {
-  $("#loading").fadeIn(5000, next_news);
-}
 
-function stop_loading() {
-  $("#loading").remove();
-}
 function next_news() {
   var total = parseInt($("#news").attr('total'));
   var current_ndx = parseInt($(".title_box.carousel:visible").attr('position'));
@@ -38,8 +41,6 @@ function next_news() {
   
   move_news(current_ndx, next_ndx);
   current_news_ndx = next_ndx;
-  $("#loading").hide();
-  timeout_id = setTimeout('start_loading();', 1000)
 }
 
 function move_news(current_ndx, next_ndx) {

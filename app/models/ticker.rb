@@ -7,6 +7,6 @@ class Ticker < ActiveRecord::Base
   has_attached_file :picture
     
   def reject_articles(attributed)
-    attributed['title'].blank? || attributed['article_type'].blank? || attributed['author'].blank? || attributed['html_file_name'].blank?
+    attributed['title'].blank? || attributed['article_type'].blank? || attributed['author'].blank? || attributed['html'].nil?
   end
 end

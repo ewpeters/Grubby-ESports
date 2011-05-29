@@ -16,6 +16,8 @@
     <script src="/javascripts/wysiwyg.table.js"></script>
     <script src="/javascripts/wysiwyg.link.js"></script>
     <script src="/javascripts/date.format.js"></script>
+    <script src="/javascripts/jquery.idletimer.js"></script>
+    <script src="/javascripts/jquery.idletimeout.js"></script
     = yield :head
   %title FollowGrubby.com
   - if Rails.env == 'production'
@@ -26,11 +28,6 @@
       });
       })(jQuery);   
   :javascript
-    function insertTimeNow() {
-      var date = new Date();
-      var dateStr = date.format("HH:MM Z") + " (GMT +" + (date.getTimezoneOffset()/60) + ")";
-      $("<center><div id='time_now'>"+ dateStr +"</div></center>").appendTo(".ui-datepicker-calendar thead tr");
-    }
     String.prototype.append_zero = function () {
         if (this[0] == "0" || this.length == 2) {
           return this
@@ -59,11 +56,9 @@
            $(".event_info[date_text="+ dateText+ "]").removeClass('hidden');
            
            setTimeout('hoverEvents()', 250);
-           setTimeout('insertTimeNow()', 500);
         }
       });
       hoverEvents();
-      insertTimeNow();
     });
     
     

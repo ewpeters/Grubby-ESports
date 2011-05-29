@@ -87,11 +87,10 @@ begin
 rescue LoadError
 end
 
-begin
-  require 'sass'
-  Sass::Plugin.options[:template_location] = 'stylesheets/sass'
-rescue LoadError
-end
+
+# require 'sass'
+# Sass::Plugin.options[:template_location] = 'stylesheets/sass'
+# Sass::Plugin.options[:always_update] = true
 
 
   # def puts str

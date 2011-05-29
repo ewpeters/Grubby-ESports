@@ -1,7 +1,7 @@
 .light-box {
   background-color: #030303;
-  background: -moz-linear-gradient(top right, #4e4f4f, #e6e6e6);
-  background: -webkit-gradient(linear, right top, left bottom, from(#4e4f4f), to(#e6e6e6));
+  background: -moz-linear-gradient(top right,  #4e4f4f,  #e6e6e6);
+  background: -webkit-gradient(linear,  right top, left bottom, from(#4e4f4f), to(#e6e6e6));
   -moz-border-radius: 10px 10px 10px 10px;
   -webkit-border-radius: 10px;
   border-radius: 10px;
@@ -12,7 +12,7 @@
 
 .black-box {
   background-color: #030303;
-  background: -moz-linear-gradient(top left, #363636, #030303);
+  background: -moz-linear-gradient(top left,  #363636,  #030303);
   background: -webkit-gradient(linear, left top, right bottom, from(#363636), to(#030303));
   -moz-border-radius: 10px 10px 10px 10px;
   -webkit-border-radius: 10px;
@@ -134,9 +134,9 @@ form p label {
   .pagination a {
     padding: .1em .2em;
     text-decoration: none;
-    color: black; }
-    .pagination a:hover, .pagination a:focus {
-      text-decoration: underline; }
+    color: black;
+    &: hover, &: focus;
+    &-text-decoration: underline; }
   .pagination span {
     padding: .1em .2em; }
     .pagination span.disabled {
@@ -179,7 +179,7 @@ ul.listing {
   width: 728px; }
   ul.listing li {
     background-color: #030303;
-    background: -moz-linear-gradient(top left, #363636, #030303);
+    background: -moz-linear-gradient(top left,  #363636,  #030303);
     background: -webkit-gradient(linear, left top, right bottom, from(#363636), to(#030303));
     -moz-border-radius: 10px 10px 10px 10px;
     -webkit-border-radius: 10px;
@@ -232,7 +232,7 @@ ul.listing {
 
 .action-box, .user {
   background-color: #030303;
-  background: -moz-linear-gradient(top left, #363636, #030303);
+  background: -moz-linear-gradient(top left,  #363636,  #030303);
   background: -webkit-gradient(linear, left top, right bottom, from(#363636), to(#030303));
   -moz-border-radius: 10px 10px 10px 10px;
   -webkit-border-radius: 10px;
@@ -248,7 +248,7 @@ ul.listing {
 
 .post {
   background-color: #030303;
-  background: -moz-linear-gradient(top left, #363636, #030303);
+  background: -moz-linear-gradient(top left,  #363636,  #030303);
   background: -webkit-gradient(linear, left top, right bottom, from(#363636), to(#030303));
   -moz-border-radius: 10px 10px 10px 10px;
   -webkit-border-radius: 10px;
@@ -334,7 +334,7 @@ ul#navlist {
 
 #admin-page, #moderator-page {
   background-color: #030303;
-  background: -moz-linear-gradient(top left, #363636, #030303);
+  background: -moz-linear-gradient(top left,  #363636,  #030303);
   background: -webkit-gradient(linear, left top, right bottom, from(#363636), to(#030303));
   -moz-border-radius: 10px 10px 10px 10px;
   -webkit-border-radius: 10px;
@@ -400,9 +400,9 @@ ul#navlist {
     margin: 0;
     list-style-type: none; }
     .ac_results ul li {
-      padding: 5px; }
-      .ac_results ul li:hover {
-        background: #DBF8FF; }
+      padding: 5px;
+      &: hover;
+      &-background: #DBF8FF; }
 
 .lalign {
   text-align: left !important; }
