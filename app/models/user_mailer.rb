@@ -17,7 +17,7 @@ class UserMailer < ActionMailer::Base
     @url  = "http://50.16.224.93/reset/#{user.reset_code}".html_safe
   end
   
-  def  contact_email(name, email, message)
+  def contact_email(name, email, message)
     @recipients = "admin@followgrubby.com"
     @from = "admin@followgrubby.com"
     @subject     = "Message from #{name}"
