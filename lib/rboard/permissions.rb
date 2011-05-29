@@ -18,11 +18,11 @@ module Rboard::Permissions
         conditions = "permissions.#{association} = '#{thing.id}'"
         permission = permissions.first(:conditions => conditions)
         if permission.nil?
-          if !can?(:access_admin_section) 
-            return {"can_#{action}" => false}
-          else
-            return {}
-          end
+          # if !can?(:access_admin_section) 
+          #   return {"can_#{action}" => false}
+          # else
+          {}
+          # end
         else
           attributes = permission.attributes
           unless single
@@ -46,7 +46,15 @@ module Rboard::Permissions
       # If no object is given checks global permissions.
       # If no permissions set for that user then it defaults to false.
       def can?(action, thing = nil)
-        !!overall_permissions(thing, action)["can_#{action}"]
+        if action == :see_forum
+          if (thing.groups.collect{|g| g.users}.flatten.member?(self))
+            return true
+          else
+            return false
+          end
+        else
+          !!overall_permissions(thing, action)["can_#{action}"]
+        end
       end
 
       # Instead of having a multi if-statement line, use this.
