@@ -1,6 +1,6 @@
 module ApplicationHelper
   require 'enumerator'
-  WIDTH_HASH = {0 => "140%", 1 => "127%", 2 => "122%",3 => "130%",4 => "148%",5 => "123%",6 => "127%",7 => "132%"}
+  WIDTH_HASH = {0 => "148%", 1 => "127%", 2 => "122%",3 => "130%",4 => "148%",5 => "123%",6 => "127%",7 => "132%"}
   def divider
     image_tag("divider.png").html_safe
   end
@@ -10,7 +10,7 @@ module ApplicationHelper
       nav =  links.enum_with_index.map do |name, ndx| 
         content = link_to(name[1], :controller => name[0].to_s, :action => 'index')
         if name[0] == @active_tab
-          content = image_tag("active_tab.png", :style => "width: #{WIDTH_HASH[ndx]}") + content
+          content = image_tag("menu_highlight.png", :style => "width: #{WIDTH_HASH[ndx]}; margin-top: -3px") + content
         end
         content_tag(:li, content)
       end
