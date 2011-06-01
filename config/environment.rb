@@ -52,7 +52,7 @@ CONFIG = Rails::Initializer.run do |config|
   # config.gem 'thinking-sphinx', :lib => 'thinking_sphinx'
   config.gem 'will_paginate'
   config.gem 'delayed_job', :version => '~>2.0.4'
-
+  config.gem 'oa-oauth'
   # lol actionwebservice
   # lol activeresource
   config.frameworks -= [:action_web_service, :activeresource]
@@ -63,7 +63,9 @@ CONFIG = Rails::Initializer.run do |config|
   config.time_zone = "UTC"
  
   config.middleware.use 'Rack::RawUpload', :paths => ['/admin/albums/uploader', '/admin/features/uploader', '/admin/tickers/uploader']
-  config.middleware.use "OmniAuth::Builder", provider :facebook, "159271560800336", "f51da2f99537b91b19ed42d544d40efb", {:client_options => {:ssl => {:ca_path => "/etc/ssl/certs"}}}
+  config.middleware.use "OmniAuth::Builder" do
+     provider :facebook, "159271560800336", "f51da2f99537b91b19ed42d544d40efb", {:client_options => {:ssl => {:ca_path => "/etc/ssl/certs"}}}
+   end
   
   config.active_record.observers = [:user_observer]
 end
