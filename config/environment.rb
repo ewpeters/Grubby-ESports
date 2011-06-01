@@ -63,11 +63,15 @@ CONFIG = Rails::Initializer.run do |config|
   config.time_zone = "UTC"
  
   config.middleware.use 'Rack::RawUpload', :paths => ['/admin/albums/uploader', '/admin/features/uploader', '/admin/tickers/uploader']
-  config.middleware.use "OmniAuth::Builder" do
-     provider :facebook, "159271560800336", "f51da2f99537b91b19ed42d544d40efb", {:client_options => {:ssl => {:ca_path => "/etc/ssl/certs"}}}
-   end
+  
   
   config.active_record.observers = [:user_observer]
+end
+
+ActionController::Dispatcher.middleware.use OmniAuth::Builder do
+    provider :facebook,
+      "159271560800336", "f51da2f99537b91b19ed42d544d40efb", 
+      :client_options => {:ssl => {:ca_path => '/etc/ssl/certs'}}
 end
 # Change this if your locale is not english
 I18n.default_locale = "en"
