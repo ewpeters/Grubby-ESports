@@ -103,9 +103,10 @@
         cookie : true, // enable cookies to allow the server to access the session
         xfbml  : true  // parse XFBML
       });
-    %div#background
-      .wrapper
-        #user_nav
+    %div#background    
+      #user_nav
+        .wrapper
+          %span.grey
           %div.hidden
             - form_tag("/fb_login", :id => 'fb_form') do
               = text_field_tag 'access_token'
@@ -113,26 +114,25 @@
           - unless logged_in?
             = image_tag ("login_icon_facebook.png", :id => "fb_connect")
             - form_tag "/login", :action => :post, :id => "login-form" do
+              %span{:style => "font-weight: bold;"} Login
               = text_field_tag 'login'
               %div#password_div.hidden
+                %span{:style => "font-weight: bold;"} Pass
                 = password_field_tag 'password'
                 %span#remember_label Remember Me:
                 = check_box_tag "remember_me"
                 = submit_tag "Login", :id => "submit"
-            %span.grey= "|"
+            %span.grey
             = link_to t(:Signup), signup_path, :class => "signup"
           - else
             %span{ :id => "logged-in-as"}
               - if logged_in?
                 = t(:Logged_in_as)
                 = link_to current_user, "/users/#{current_user}/edit"
-                %span.grey= "|"
                 = link_to t(:Logout), logout_path
                 - if current_user.can?(:access_admin_section)
-                  %span.grey= "|"
                   = link_to "admin section", "/admin"
-          %span.grey= "|"
-          %span= flash[:notice]
+          %span{:style => "position: relative; top: -8px; left: 20px"}= flash[:notice]
       .wrapper
         %div#logo_box
           = image_tag "grubby_header_logo.png", :class => "logo"
