@@ -1,0 +1,33 @@
+/ = "An account for this email has been created at www.followgrubby.com"
+/ = "Visit this url to activate your account:"
+/ = @url
+/ = ""
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", 'http-equiv' => "Content-Type"}
+  %body
+    %div Welcome Erik Petersen,
+    %br
+    %div 
+      %span We at 
+      %a{:href => "http://followgrubby.com"} FollowGrubby.com
+      %span= " are honored to welcome you as our newest member. Your account with username \"#{@user.login}\" has been created for this email address."
+      %div Please visit this URL to activate your account:
+    %br
+    %div
+      %a{:href => @url}= @url
+    %br
+    %div
+      %div
+        %span Once you're activated and all powered up, feel free to explore 
+        %a{:href => "http://followgrubby.com"} FollowGrubby.com 
+        %span and:
+        %ul
+          %li Discuss topics with other users (Link to website page or section)
+          %li Find out more about Grubby's pro-gaming adventures
+          %li News about Team Grubby
+          %li Download replays, watch live streaming
+          %li Much more!
+    %div Sincerely,
+    %div Team Grubby
