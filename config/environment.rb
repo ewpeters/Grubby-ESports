@@ -1,12 +1,20 @@
 # Be sure to restart your server when you modify this file
 
 # Specifies gem version of Rails to use when vendor/rails is not present
+if RAILS_ENV == 'production'
+  ENV['GEM_PATH'] = '/home/followg1/ruby/gems:/usr/lib/ruby/gems/1.8'
+end
 RAILS_GEM_VERSION = '2.3.8' unless defined? RAILS_GEM_VERSION
 
 # Bootstrap the Rails environment, frameworks, and default configuration
 require 'thread'
 require 'rubygems'
 require File.join(File.dirname(__FILE__), 'boot')
+begin
+  gem 'i18n', "~> 0.4.0"
+rescue LoadError
+  # no biggie, optional anyway
+end
 
 PER_PAGE = 25
 
@@ -34,7 +42,7 @@ CONFIG = Rails::Initializer.run do |config|
   config.gem 'by_star', :version => '0.6.3'
   config.gem 'chronic'
   config.gem 'coderay'
-  config.gem 'i18n'
+  config.gem 'i18n', :version => '0.4.0'
   # config.gem 'dotiw'
   config.gem 'escape_utils', :version => '0.2.3'
   config.gem 'haml', :version => "2.2.21"
@@ -47,19 +55,20 @@ CONFIG = Rails::Initializer.run do |config|
   config.gem 'rbbcode', :version => '0.1.11'
   config.gem 'RedCloth'
   config.gem 'rmagick', :lib => "RMagick2",  :version => '2.13.1'
-  config.gem "sqlite3-ruby", :lib => "sqlite3", :version => "1.3.1"
+  # config.gem "sqlite3-ruby", :lib => "sqlite3", :version => "1.3.1"
   config.gem 'exceptional' 
+  # config.gem 'mysql', :version => '2.8.1'
   # config.gem 'thinking-sphinx', :lib => 'thinking_sphinx'
   config.gem 'will_paginate'
-  config.gem 'delayed_job', :version => '~>2.0.4'
-  config.gem 'oa-oauth'
-  config.gem 'always_verify_ssl_certificates'
+  config.gem 'delayed_job', :version => '2.0.7'
+  # config.gem 'oa-oauth'
+  # config.gem 'always_verify_ssl_certificates'
   # AlwaysVerifySSLCertificates.ca_file = "/etc/ssl/certs/ca-certificates.crt"  
   # lol actionwebservice
   # lol activeresource
   config.frameworks -= [:action_web_service, :activeresource]
 
-  config.action_controller.session = { :session_key => "rboard_secret", :secret => "this is a super secret passphrase that protects rboard and you should probably change it" }
+  config.action_controller.session = { :session_key => "rboard_secret", :secret => "supersecret" }
 
   config.active_record.default_timezone = :utc
   config.time_zone = "UTC"
