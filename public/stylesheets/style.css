@@ -61,12 +61,11 @@ form p label {
   float: left;
   width: 10em; }
 
-#logged-in-as {
-  line-height: 34px;
-  font-size: 15px;
-  margin: 0px;
-  padding: 0px; }
-
+/* #logged-in-as
+ * line-height:  34px
+ * font-size:  15px
+ * margin:  0px
+ * padding:  0px */
 .translation_missing {
   background: #000000;
   color: red;

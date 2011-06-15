@@ -2,7 +2,7 @@ class Feature < ActiveRecord::Base
   validates_presence_of :title, :tag_line, :summary, :picture_file_name
   
   has_one :article
-  accepts_nested_attributes_for :article, :reject_if => :reject_articles
+  accepts_nested_attributes_for
   acts_as_list
   has_attached_file :picture,
     :styles => {
@@ -18,12 +18,5 @@ class Feature < ActiveRecord::Base
         trans << "\\( +clone -flip \\) -compose Multiply -composite "
         trans << "\\( +clone -flop \\) -compose Multiply -composite "
         trans << "\\) +matte -compose CopyOpacity -composite "
-  end
-  
-  def reject_articles(attributed)
-    # Rails.logger.info("*" * 30)
-    # Rails.logger.info(attributed)
-    false
-    # attributed['title'].blank? || attributed['article_type'].blank? || attributed['author'].blank? || attributed['html_file_name'].blank?
   end
 end

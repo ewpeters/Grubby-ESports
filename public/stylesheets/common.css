@@ -81,6 +81,16 @@ img {
 #fb_connect {
   cursor: pointer; }
 
+#logged-in-as {
+  font-family: 'cgothb', 'century gothic,' verdana,arial,helvetica,sans-serif;
+  font-weight: bold;
+  font-size: 16px; }
+
+.notice {
+  font-family: 'cgothb', 'century gothic,' verdana,arial,helvetica,sans-serif;
+  font-weight: bold;
+  font-size: 16px; }
+
 #user_nav {
   position: absolute;
   left: 0px;
@@ -160,7 +170,8 @@ img {
       color: white;
       background-color: #4D4D4F;
       border: 0;
-      height: 25px; }
+      height: 25px;
+      font-family: verdana,arial,helvetica,sans-serif; }
     #user_nav form #submit {
       -moz-border-radius: 5px 5px 5px 5px;
       -webkit-border-radius: 5px;
@@ -280,18 +291,19 @@ img {
         width: 175px; }
 
 #news {
-  background-image: url("/images/ticker_background_fix.png");
+  background-image: url("/images/ticker_background_fix2.png");
   width: 750px;
   height: 550px;
   margin-left: -10px;
   -webkit-box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
   color: white;
-  font-family: 'cgoth', 'century gothic,' verdana,arial,helvetica,sans-serif;
+  font-family: 'cgothb', 'century gothic,' verdana,arial,helvetica,sans-serif;
+  font-weight: bold;
   position: relative; }
   #news #loading {
     position: absolute;
-    left: 27px;
+    left: 60px;
     top: 18px;
     opacity: 0; }
   #news .title_box {
@@ -322,7 +334,9 @@ img {
     left: 15px;
     width: 177px; }
   #news .news_item.selected a {
-    color: white; }
+    color: white;
+    font-family: 'cgothb', 'century gothic,' verdana,arial,helvetica,sans-serif;
+    font-weight: bold; }
   #news .arrow {
     width: 12px;
     height: 10px;
@@ -347,7 +361,7 @@ img {
     #news .summary .body {
       font-family: 'cgothb', 'century gothic,' verdana,arial,helvetica,sans-serif;
       font-weight: bold;
-      line-height: 16px; }
+      line-height: 18px; }
 
 #features {
   margin-left: -10px;

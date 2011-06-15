@@ -3,7 +3,6 @@
   ms-filter:  "progid: DXImageTransform.Microsoft.Alpha(Opacity=#!value*100)"
   filter:  "aplha(opacity=#!value * 100)"
 
-
 =rounded_corners(!top=5px, !right=5px, !bottom=5px, !left=5px) 
   -moz-border-radius:  !top !right !bottom !left
   border-top-left-radius:  !top
@@ -16,6 +15,9 @@
   -webkit-box-shadow:  !one !two !three rgba(0, 0, 0, 0.5)
   -moz-box-shadow:  !one !two !three rgba(0, 0, 0, 0.5)
 
+=goth_bold
+  font-family: 'cgothb', 'century gothic,' verdana,arial,helvetica,sans-serif
+  font-weight: bold
 
 =button
   -moz-border-radius:  5px 5px 5px 5px
@@ -110,7 +112,15 @@ img
 #fb_connect 
   cursor:  pointer
 
-
+#logged-in-as
+  font-family: 'cgothb', 'century gothic,' verdana,arial,helvetica,sans-serif
+  font-weight: bold
+  font-size: 16px
+  position
+.notice
+  font-family: 'cgothb', 'century gothic,' verdana,arial,helvetica,sans-serif
+  font-weight: bold
+  font-size: 16px
 #user_nav 
   position:  absolute 
   left: 0px
@@ -182,6 +192,7 @@ img
       background-color: #4D4D4F
       border: 0
       height: 25px
+      font-family: verdana,arial,helvetica,sans-serif
     #submit 
       +button
       font-family: 'cgothb', 'century gothic,' verdana,arial,helvetica,sans-serif
@@ -304,18 +315,19 @@ img
   
 
 #news 
-  background-image:  url("/images/ticker_background_fix.png")
+  background-image:  url("/images/ticker_background_fix2.png")
   width:  750px
   height:  550px
   margin-left:  -10px
   -webkit-box-shadow:  0 6px 10px rgba(0, 0, 0, 0.5)
   -moz-box-shadow:  0 6px 10px rgba(0, 0, 0, 0.5)
   color:  white
-  font-family: 'cgoth', 'century gothic,' verdana,arial,helvetica,sans-serif
+  font-family: 'cgothb', 'century gothic,' verdana,arial,helvetica,sans-serif
+  font-weight: bold
   position:  relative
   #loading 
     position:  absolute
-    left:  27px
+    left:  60px
     top:  18px
     opacity: 0
   
@@ -354,6 +366,8 @@ img
   .news_item.selected 
     a
       color:  white
+      font-family: 'cgothb', 'century gothic,' verdana,arial,helvetica,sans-serif
+      font-weight: bold
   .arrow 
     width:  12px
     height:  10px
@@ -380,7 +394,7 @@ img
     .body 
       font-family: 'cgothb', 'century gothic,' verdana,arial,helvetica,sans-serif
       font-weight: bold
-      line-height: 16px
+      line-height: 18px
     
   
 

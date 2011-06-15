@@ -1,6 +1,6 @@
 var current_news_ndx = 0;
 var interval_id = null;
-var ticker_time = 5000;
+var ticker_time = 7000;
 $.idleTimer(30000);  
 $(document).bind("idle.idleTimer", function(){
  // function you want to fire when the user goes idle

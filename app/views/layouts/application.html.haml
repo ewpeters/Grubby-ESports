@@ -125,14 +125,18 @@
             %span.grey
             = link_to t(:Signup), signup_path, :class => "signup"
           - else
-            %span{ :id => "logged-in-as"}
+            %span{ :id => "logged-in-as", :style => "position: relative; left: 10px; top: 3px;"}
               - if logged_in?
                 = t(:Logged_in_as)
                 = link_to current_user, "/users/#{current_user}/edit"
+                %span= "|"
                 = link_to t(:Logout), logout_path
                 - if current_user.can?(:access_admin_section)
+                  %span= "|"
                   = link_to "admin section", "/admin"
-          %span{:style => "position: relative; top: -8px; left: 20px"}= flash[:notice]
+                  %span.notice{:style => "position: relative; top: 0px; left: 20px"}= flash[:notice]
+          - unless logged_in?
+            %span.notice{:style => "position: relative; top: -8px; left: 20px"}= flash[:notice]
       .wrapper
         %div#logo_box
           = image_tag "grubby_header_logo.png", :class => "logo"
