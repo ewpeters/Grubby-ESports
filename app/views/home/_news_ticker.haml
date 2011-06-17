@@ -19,8 +19,14 @@
           %a{:href => article_path(item.article)}
             = image_tag(item.picture.url, :size => "510x319")
       %div.summary.carousel{:class => "#{item == news.first ? 'selected' : 'hidden' }", :position => ndx}
-        %div.title= item.title
-        %div.body= item.summary
+        - if item.link && !item.link.blank?
+          %a{:href => item.link, :target => external_target(item.link)}
+            %div.title= item.title
+            %div.body= item.summary
+        - elsif item.article
+          %a{:href => article_path(item.article)}
+            %div.title= item.title
+            %div.body= item.summary
       %div.news_item{:class => "#{item == news.first ? 'selected' : '' }", :style => "top: #{(32 * ndx) + 152}px", :position => ndx}
         %div.arrow
         - if item.link && !item.link.blank?
