@@ -34,7 +34,7 @@ class Admin::DownloadsController < Admin::ApplicationController
     end
   end
   def update
-    @media.tags = params[:tags]
+    @media.tag_list = params[:tags]
     @media.save
     respond_to do |format|
       if @media.update_attributes(params[:download])
