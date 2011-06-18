@@ -1,30 +1,27 @@
 =opacity(!value)
-  opacity:  !value
-  ms-filter:  "progid: DXImageTransform.Microsoft.Alpha(Opacity=#!value*100)"
-  filter:  "aplha(opacity=#!value * 100)"
+  opacity= "#{!value}"
+  ms-filter:  "progid: DXImageTransform.Microsoft.Alpha(Opacity=#{!value}*100)"
+  filter: "aplha(opacity=#{!value} * 100)"
 
 =rounded_corners(!top=5px, !right=5px, !bottom=5px, !left=5px) 
-  -moz-border-radius:  !top !right !bottom !left
-  border-top-left-radius:  !top
-  border-top-right-radius:  !right
-  border-bottom-right-radius:  !bottom 
-  border-bottom-left-radius:  !left 
+  -moz-border-radius =  "#{!top} #{!right} #{!bottom} #{!left}"
+  border-top-left-radius = "#{!top}"
+  border-top-right-radius =  "#{!right}"
+  border-bottom-right-radius =  "#{!bottom}"
+  border-bottom-left-radius =  "#{!left}"
+  border-radius =  "#{!top} #{!right} #{!bottom} #{!left}"
 
 
-=drop_shadow(!one=0px, !two= 6px, !three= 10px)
-  -webkit-box-shadow:  !one !two !three rgba(0, 0, 0, 0.5)
-  -moz-box-shadow:  !one !two !three rgba(0, 0, 0, 0.5)
-
-=goth_bold
-  font-family: 'cgothb', 'century gothic,' verdana,arial,helvetica,sans-serif
-  font-weight: bold
+=drop_shadow(!color=rgba(0, 0, 0, 0.5), !values=0px 6px 10px)
+  box-shadow         = "#{!color} #{!values}"
+  -webkit-box-shadow = "#{!color} #{!values}"
+  -moz-box-shadow    = "#{!color} #{!values}"
 
 =button
   -moz-border-radius:  5px 5px 5px 5px
   -webkit-border-radius:  5px
   cursor:  pointer
   display:  inline-block
-  font-family: 'cgoth', 'century gothic,' verdana,arial,helvetica,sans-serif
   padding:  2px 7px 2px 6px
   text-align:  center
   border:  0 none
@@ -75,7 +72,7 @@
 
 body  
   background-color:  #101010
-  font-family: 'cgoth', 'century gothic,' verdana,arial,helvetica,sans-serif
+  font-family: 'cgoth', 'century gothic', verdana,arial,helvetica,sans-serif
   color:  white
   .wrapper 
     width:  1011px
@@ -93,7 +90,7 @@ body
 
 
 input 
-  font-family: 'cgoth', 'century gothic,' verdana,arial,helvetica,sans-serif
+  font-family: 'cgoth', 'century gothic', verdana,arial,helvetica,sans-serif
 
 
 ul 
@@ -102,6 +99,7 @@ ul
 
 a
   text-decoration:  none
+  font-family: 'cgoth', 'century gothic', verdana,arial,helvetica,sans-serif
 
 img 
   border:  0
@@ -113,13 +111,9 @@ img
   cursor:  pointer
 
 #logged-in-as
-  font-family: 'cgothb', 'century gothic,' verdana,arial,helvetica,sans-serif
-  font-weight: bold
   font-size: 16px
   position
 .notice
-  font-family: 'cgothb', 'century gothic,' verdana,arial,helvetica,sans-serif
-  font-weight: bold
   font-size: 16px
 #user_nav 
   position:  absolute 
@@ -142,8 +136,6 @@ img
     position: relative
     top: 2px
     left: 10px
-  span
-    font-family: 'cgothb', 'century gothic,' verdana,arial,helvetica,sans-serif
   a.signup 
     vertical-align:  middle
     color:  white
@@ -154,7 +146,6 @@ img
     border-radius:  10px
     +button
     color: black
-    font-family: 'cgothb', 'century gothic,' verdana,arial,helvetica,sans-serif
     font-weight: bold
     font-size: 16px
     height:  20px
@@ -200,7 +191,6 @@ img
       font-family: verdana,arial,helvetica,sans-serif
     #submit 
       +button
-      font-family: 'cgothb', 'century gothic,' verdana,arial,helvetica,sans-serif
       font-weight: bold
       position:  absolute
       top:  30px
@@ -240,6 +230,20 @@ img
   z-index:  -1
   top:  0px
 
+.box 
+  background-color:  #030303
+  background:  -moz-linear-gradient(top left,  #4E4E4E,  #030303)
+  background:  -webkit-gradient(linear, left top, right bottom, from(#4E4E4E), to(#030303))
+  -moz-border-radius:  10px 10px 10px 10px
+  -webkit-border-radius:  10px
+  font-size: 14px
+  border-radius:  10px
+  +drop_shadow
+  padding-left:  35px
+  padding-right: 35px
+  padding-top: 20px
+  padding-bottom: 35px
+
 #content 
   width: 1011px
   background-image:  url("/images/content_bg.png")
@@ -260,22 +264,22 @@ img
       display:  block
       background-color:  #b9b9b9
       margin-bottom:  10px
-    
+      +drop_shadow
   
   #side_bar 
     float:  right
     width:  200px
     .box 
       height:  181px
-      width:  180px
+      width:  130px
       background-color:  #030303
       background:  -moz-linear-gradient(top left,  #363636,  #030303)
       background:  -webkit-gradient(linear, left top, right bottom, from(#363636), to(#030303))
       -moz-border-radius:  10px 10px 10px 10px
       -webkit-border-radius:  10px
       border-radius:  10px
-      -webkit-box-shadow:  0 6px 10px rgba(0, 0, 0, 0.5)
-      -moz-box-shadow:  0 6px 10px rgba(0, 0, 0, 0.5)
+      +drop_shadow
+
       margin-top: 15px
       position:  relative
       .inner_box 
@@ -285,7 +289,6 @@ img
         top: 27px
         width: 170px
         .follow 
-          font-family: 'cgothb', 'century gothic,' verdana,arial,helvetica,sans-serif
           color:  #656565
           font-weight:  bold
           margin-left: -6px
@@ -327,7 +330,6 @@ img
   -webkit-box-shadow:  0 6px 10px rgba(0, 0, 0, 0.5)
   -moz-box-shadow:  0 6px 10px rgba(0, 0, 0, 0.5)
   color:  white
-  font-family: 'cgothb', 'century gothic,' verdana,arial,helvetica,sans-serif
   font-weight: bold
   position:  relative
   #loading 
@@ -358,7 +360,6 @@ img
   
   .news_item 
     font-size: 12px
-    font-family: 'cgothb', 'century gothic,' verdana,arial,helvetica,sans-serif
     font-weight: bold
     height: 32px
     line-height: 32px
@@ -371,7 +372,6 @@ img
   .news_item.selected 
     a
       color:  white
-      font-family: 'cgothb', 'century gothic,' verdana,arial,helvetica,sans-serif
       font-weight: bold
   .arrow 
     width:  12px
@@ -390,14 +390,12 @@ img
     padding-left:  25px
     padding-top:  10px
     .title  
-      font-family: 'cgothb', 'century gothic,' verdana,arial,helvetica,sans-serif
       font-weight:  bold
       color: #06264b
       font-size:  22px
       margin-bottom:  10px
     
     .body 
-      font-family: 'cgothb', 'century gothic,' verdana,arial,helvetica,sans-serif
       font-weight: bold
       line-height: 18px
       color: white
@@ -423,7 +421,6 @@ img
     font-size:  11px
     letter-spacing:  1px
     color:  #010101
-    font-family: 'cgothb', 'century gothic,' verdana,arial,helvetica,sans-serif
     font-weight:  bold
     .overlay 
       position:  absolute
@@ -493,7 +490,6 @@ ul#nav_bar
     a 
       width: 100px
       color: #ade2f5
-      font-family: 'cgothb', 'century gothic,' verdana,arial,helvetica,sans-serif
       font-weight: bold
       font-size: 23px
       text-decoration:  none
@@ -647,9 +643,8 @@ ul#nav_bar
     position:  absolute
     top:  193px
     left:  20px
-    form 
-      input 
-        font-family: 'cgothb', 'century gothic,' verdana,arial,helvetica,sans-serif
+    form
+      input
         padding:  0
         background:  transparent
         color:  grey
@@ -712,23 +707,24 @@ ul#nav_bar
   
 
   ::-webkit-scrollbar-track-piece 
-    background-color:  #596673
+    background-color: #142B44
     -webkit-border-radius:  3px
   
 
   ::-webkit-scrollbar-thumb:vertical 
     height:  10px
-    background-color:  #142B44 
+    background-color: #596673 
     -webkit-border-radius:  3px
   
 
   
   #media_box 
-    width:  586px
+    width:  591px
     height:  450px
     overflow-y:  auto
+    overflow-x: hidden
     position:  absolute
-    right:  20px
+    right:  15px
     top:  25px    
   
   .media_item.wallpaper 
@@ -850,7 +846,6 @@ ul#nav_bar
     position:  absolute
     right:  20px
     top:  50px
-    overflow-y: auto
     .column 
       float: left
       width:  161px
@@ -902,8 +897,6 @@ thead
   margin-right:  25px
   margin-bottom:  25px
   +rounded_corners(10px, 10px, 10px, 10px)
-/*  background:  -moz-linear-gradient(top right,  #4e4f4f,  #e6e6e6)
-  background:  -webkit-gradient(linear,  right top, left bottom, from(#4e4f4f), to(#e6e6e6))*/
   background-color:  black
   +drop_shadow
   img 
@@ -982,8 +975,7 @@ thead
     top:  193px
     left:  20px
     form 
-      input 
-        font-family: 'cgothb', 'century gothic,' verdana,arial,helvetica,sans-serif
+      input
         padding:  0
         background:  transparent
         color:  grey
@@ -1045,13 +1037,13 @@ thead
   
 
   ::-webkit-scrollbar-track-piece 
-    background-color:  #596673
+    background-color:  #78bba3 
     -webkit-border-radius:  3px
   
 
   ::-webkit-scrollbar-thumb:vertical 
     height:  10px
-    background-color:  #78bba3 
+    background-color: #596673  
     -webkit-border-radius:  3px
   
 
@@ -1060,6 +1052,7 @@ thead
     width:  586px
     height:  500px
     overflow-y:  auto
+    overflow-x: hidden
     position:  absolute
     right:  20px
     top:  25px    
@@ -1220,8 +1213,8 @@ thead
   -webkit-transform:  rotate(90deg)
   -webkit-transform-origin:  50% 50%
   position:  absolute
-  right:  -25px
-  top:  30px
+  left:  535px
+  top:  37px
   color:  #CDD4DC
   font-size:  14px
 
@@ -1263,3 +1256,21 @@ thead
   position: absolute 
   top: 615px 
   width: 145px 
+
+.jobs
+  input
+    background-color: #CCCCCC
+    border: 0
+  textarea
+    background-color: #CCCCCC
+  #name
+    width: 200px
+    height: 21px
+  #email
+    width: 200px
+    height: 21px
+  
+#footer
+  margin-top: 25px
+  
+  
