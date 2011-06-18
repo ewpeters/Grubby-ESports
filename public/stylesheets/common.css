@@ -260,7 +260,7 @@ img {
     width: 200px; }
     #content #side_bar .box {
       height: 181px;
-      width: 130px;
+      width: 108px;
       background-color: #030303;
       background: -moz-linear-gradient(top left,  #363636,  #030303);
       background: -webkit-gradient(linear, left top, right bottom, from(#363636), to(#030303));
@@ -819,6 +819,8 @@ thead tr {
   height: 20px; }
 
 .album_pic {
+  background: -moz-linear-gradient(top left,  #363636,  #030303);
+  background: -webkit-gradient(linear, left top, right bottom, from(#363636), to(#030303));
   float: left;
   cursor: pointer;
   line-height: 98px;

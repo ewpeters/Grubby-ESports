@@ -5,8 +5,8 @@
       height: 455px;
     	position:absolute;
     	top: 0px;
-      background: -moz-linear-gradient(top right,  #4e4f4f,  #e6e6e6);
-      background: -webkit-gradient(linear,  right top, left bottom, from(#4e4f4f), to(#e6e6e6));
+      background: -moz-linear-gradient(right,  #0c0c0c,  #1f2121);
+      background: -webkit-gradient(linear,  left , right , from(#0c0c0c), to(#1f2121));
     }
     #slideshow #slidesContainer {
       margin:0 auto;
@@ -102,7 +102,7 @@
   $(document).ready(function(){
     $('#slidesContainer').cycle({
         fx:     'scrollHorz',
-        prev:   '#prev2',
+        prev:   '#leftControl',
         next:   '#rightControl',
         timeout: 0
     });    	
@@ -113,7 +113,7 @@
   %div.top_bar
   %div#slideshow
     %span.control#leftControl
-    %div#slidesContainer
+    %div#slidesContainer{:style => "z-index: 1;"}
       - @album.photos.each do |p|
         .slide
           %center
@@ -123,7 +123,7 @@
             %div.desc= p.description || p.album.description
     %span.control#rightControl        
   %div.bottom_bar
-    %a{:href => album_path(@album), :style => "position: absolute; left: 0px;"}
+    %a{:href => album_path(@album), :style => "position: absolute; left: 0px; z-index: 2;"}
       = image_tag("/images/gallery_backtoalbum_icon.png")
 
             
