@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
       'f51da2f99537b91b19ed42d544d40efb',
       :site => 'https://graph.facebook.com',
       :parse_json => true,
-      :ssl => {:ca_path => '/etc/ssl/certs'}
+      :ssl => {:ca_path => '/home/followg1/etc/certs'}
     )
     token = OAuth2::AccessToken.new(client, access_token)
     
