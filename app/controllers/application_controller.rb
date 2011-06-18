@@ -20,20 +20,8 @@ class ApplicationController < ActionController::Base
 
   # Sets the default theme
 
-  before_filter :set_default_theme
-  before_filter :lock_that_shit_up
   before_filter :get_events
   
-  def lock_that_shit_up
-    # if current_user.nil? || current_user.login == "anonymous"
-    #   redirect_to :controller => "users", :action => "login"
-    # end
-  end
-
-  def set_default_theme
-    @default_theme = Theme.find_by_is_default(true)
-  end
-
   def check_page_value
     params[:page] = params[:page].to_i <= 0 ? "1" : params[:page]
   end
@@ -43,7 +31,7 @@ class ApplicationController < ActionController::Base
   end
   
   def get_events
-    @events = Event.find(:all, :order => "date DESC")
+    @events = Event.find(:all, :order => "date ASC")
     @now = Time.now.utc
     todays_events = @events.select{|event| event.date.utc.strftime('%d%m') == @now.strftime('%d%m')}
     @next_three = []
