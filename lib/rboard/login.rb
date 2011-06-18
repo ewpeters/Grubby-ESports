@@ -6,11 +6,14 @@ module Rboard::Login
     end
     return unless request.post?
     self.current_user = @user = User.authenticate(params[:login], params[:password])
-    if logged_in?    
+    if logged_in?
       # #remember_me calls save internally, so don't bother saving it twice
       if params[:remember_me] == "1"
+        Rails.logger.info("*" * 20)
+        Rails.logger.info("Logged in")
         self.current_user.remember_me
-        cookies[:auth_token] = { :value => self.current_user.remember_token , :expires => self.current_user.remember_token_expires_at }
+        session[:auth_token] = { :value => self.current_user.remember_token , :expires => self.current_user.remember_token_expires_at }
+        Rails.logger.info(session[:auth_token])
       else
         current_user.save
       end
