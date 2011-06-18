@@ -1,4 +1,3 @@
-= error_messages_for :user, :object => current_user
 - form_for current_user, :html => { :multipart => true } do |f|
   %table.action-box{:cellpadding => "2", :cellspacing => "0", :width => "100%"}
     %thead
@@ -6,6 +5,15 @@
         %td{:colspan => "2"}
           %h2= t(:Editing_your_profile)
     %tbody
+      - if @user.errors.size > 0
+        %tr
+          %td.error{:colspan => "2", :style => "font-weight:bold; font-size: 20px"} The following errors prevented your profile from being saved:
+        - @user.errors.full_messages.each do |msg|
+          %tr
+            %td.error= msg
+      %tr
+        %td
+          %br
       %tr
         %td.label{:valign => "top"}= f.label "display_name", t(:Display_Name)
         %td.input= f.text_field :display_name
@@ -41,10 +49,6 @@
         %td.label{:valign => "top"}
           = label_tag "example_time_display", t(:Example_time_display)
         %td.input= Time.now.strftime(date_display + " " + time_display)
-      - if @themes.size > 1
-        %tr
-          %td.label{:valign => "top"}= f.label 'theme_id', t(:Theme)
-          %td= f.select "theme_id", @themes.map { |t| [t.name.titleize, t.id] }
       %tr
         %td.label{:valign => "top"}= f.label 'per_page', t(:Items_per_page)
         %td.input= f.text_field "per_page", :size => 3

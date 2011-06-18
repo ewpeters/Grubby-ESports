@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @themes = Theme.all
+    @user = current_user
   end
 
   def update

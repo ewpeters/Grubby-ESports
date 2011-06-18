@@ -214,6 +214,12 @@ img {
       top: 29px;
       width: 20px; }
 
+#upcoming_events {
+  text-decoration: underline;
+  color: #7C7C7C;
+  cursor: pointer;
+  font-weight: bold; }
+
 #logo_box {
   position: absolute;
   top: 26px;

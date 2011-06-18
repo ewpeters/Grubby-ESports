@@ -41,6 +41,9 @@
     $(document).ready(function() {
       $('#post_text').wysiwyg();
       
+      $("#upcoming_events").click(function() {
+        $('.upcoming').show();
+      });
       
       var event_data = $.parseJSON($("#events").html());
       for (var i = 0; i < event_data.length; i++) {
@@ -146,10 +149,12 @@
             %center
               %div#datepicker{:type => "text", :stlye => "font-size: 12px"}
             %br
+            %center
+              %div#upcoming_events Upcoming Events
             - @events.each do |event|
               - css_class = "hidden"
               - if event.date.strftime('%d%m') == @now.strftime('%d%m') || @next_three.member?(event)
-                - css_class = ""
+                - css_class = "upcoming"
               %center
                 %div.event_info{:date_text => event.date.strftime('%m/%d/%Y'), :class => css_class}
                   %a{:href => url_for (event.link), :target => external_target(event.link)}
