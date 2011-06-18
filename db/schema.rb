@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110529221930) do
+ActiveRecord::Schema.define(:version => 20110618051506) do
 
   create_table "albums", :force => true do |t|
     t.string   "title"
@@ -461,8 +461,8 @@ ActiveRecord::Schema.define(:version => 20110529221930) do
     t.integer  "avatar_file_size"
     t.string   "identifier"
     t.text     "uid"
-    t.string   "avatar_file",                             :default => "default"
-    t.boolean  "activated",                               :default => false,        :null => false
+    t.string   "avatar_file",                             :default => "default.png"
+    t.boolean  "activated",                               :default => false,         :null => false
     t.string   "reset_code",                              :default => ""
     t.string   "activation_code",                         :default => ""
   end
