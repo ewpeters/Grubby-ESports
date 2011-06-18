@@ -71,8 +71,8 @@ class Admin::FeaturesController < Admin::ApplicationController
     folder_name = "#{@feature.article.html.original_filename.gsub(/\..*/, '')}"
     
     
-    unless File.exists?("public/html_files/#{folder_name}")
-      Dir.mkdir("public/html_files/#{folder_name}")
+    unless File.exists?("#{Rails.root}/public/html_files/#{folder_name}")
+      Dir.mkdir("#{Rails.root}/public/html_files/#{folder_name}")
     end
     
     FileUtils.mv(params[:file].path, "public/html_files/#{folder_name}/#{params[:qqfile]}")
