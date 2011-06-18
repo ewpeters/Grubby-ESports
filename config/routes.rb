@@ -20,6 +20,8 @@ ActionController::Routing::Routes.draw do |map|
     admin.map 'features/uploader', :controller => "features", :action => "uploader"
     admin.map 'tickers/add_files/:id', :controller => "tickers", :action => "add_files"
     admin.map 'tickers/uploader', :controller => "tickers", :action => "uploader"
+    admin.map 'articles/add_files/:id', :controller => "articles", :action => "add_files"
+    admin.map 'articles/uploader',      :controller => "articles", :action => "uploader"
     
     admin.resources :tvs
     admin.resources :downloads
