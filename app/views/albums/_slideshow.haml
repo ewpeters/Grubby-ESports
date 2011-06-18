@@ -104,12 +104,14 @@
         fx:     'scrollHorz',
         prev:   '#leftControl',
         next:   '#rightControl',
-        timeout: 0
-    });    	
+        timeout: 0,
+        startingSlide: parseInt($('#album_box').attr('position'))
+    });
+    console.log("wut");
   });
 
 / = image_tag(p.picture.url(:normal), :size => '555x375')
-#album_box{:style => "right: 20px; top: 20px; height: 465px; overflow: hidden;color: grey", :slides => @album.photos.size}
+#album_box{:style => "right: 20px; top: 20px; height: 465px; overflow: hidden;color: grey", :slides => @album.photos.size, :position => params[:position]}
   %div.top_bar
   %div#slideshow
     %span.control#leftControl
