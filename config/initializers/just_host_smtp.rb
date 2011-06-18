@@ -3,8 +3,8 @@ if Rails.env == "production"
   ActionMailer::Base.smtp_settings = {
      :address => "mail.followgrubby.com",
      :port => 2626,
-     :authentication => :plain,
-     :domain => "www.followgrubby.com",
+     :authentication => :login,
+     :domain => "followgrubby.com",
      :user_name => "admin+followgrubby.com",
      :password => "grubtor112"
   }
