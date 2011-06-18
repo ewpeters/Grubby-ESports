@@ -86,6 +86,9 @@ img {
 #fb_connect {
   cursor: pointer; }
 
+.error {
+  color: red; }
+
 #logged-in-as {
   font-size: 16px; }
 

@@ -137,7 +137,9 @@ module Rboard::UserExtension
 
       def display_name_is_not_other_login_name
         user = User.find_by_login(display_name)
-        errors.add(:display_name, I18n.t(:taken, :scope => :'active_record.error_messages' )) if user  && user != self
+        if !errors.on(:display_name)
+          errors.add(:display_name, I18n.t(:taken, :scope => :'active_record.error_messages' )) if user  && user != self
+        end
       end
     end
   end
