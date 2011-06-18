@@ -33,7 +33,7 @@
     %div{:class => "field"}
       %div Tag List (comma seperated list)
       %div Currently supported tags: (featured, archived, wallpaper)
-      = text_area_tag :tags, @media.tag_list.join(' ')
+      = text_area_tag :tags, @media.tag_list.join(',')
     %h1 File (upload a file or link to one)
     %div{:class => "field"}
       %div= f.label :media_file

@@ -240,7 +240,7 @@ ul.listing {
   margin-bottom: 15px;
   -webkit-box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
-  font-size: 20px;
+  font-size: 16px;
   margin-bottom: 15px; }
   .action-box input[type='submit'], .user input[type='submit'] {
     font-size: 16px; }
@@ -363,6 +363,7 @@ ul#navlist {
   padding: 5px;
   text-align: left;
   width: 90%; }
+
 
 .ban-box {
   background: #DE0000 none repeat scroll 0;

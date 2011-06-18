@@ -15,7 +15,7 @@
     %div{:class => "field"}
       %div Tag List (comma seperated list)
       %div Currently supported tags: (featured, archived, real_life)
-      = text_area_tag :tags, @album.tag_list.join(' ')  
+      = text_area_tag :tags, @album.tag_list.join(',')  
     %div{:class => "actions"}
       %br
       %div= f.submit
