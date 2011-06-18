@@ -12,8 +12,10 @@ module Rboard::Login
         Rails.logger.info("*" * 20)
         Rails.logger.info("Logged in")
         self.current_user.remember_me
-        session[:auth_token] = { :value => self.current_user.remember_token , :expires => self.current_user.remember_token_expires_at }
-        Rails.logger.info(session[:auth_token])
+        cookies[:auth_token] = { :value => self.current_user.remember_token , :expires => self.current_user.remember_token_expires_at }
+        Rails.logger.info(cookies[:auth_token])
+        # session[:auth_token] = { :value => self.current_user.remember_token , :expires => self.current_user.remember_token_expires_at }
+        # Rails.logger.info(session[:auth_token])
       else
         current_user.save
       end
