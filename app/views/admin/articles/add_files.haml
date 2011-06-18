@@ -1,0 +1,18 @@
+- content_for :head do
+  = javascript_include_tag 'fileuploader'
+  = stylesheet_link_tag    'fileuploader'
+
+#file-uploader
+  %noscript
+    %p Please enable JavaScript to use file uploader
+
+:javascript
+  var uploader = new qq.FileUploader({
+    element: document.getElementById('file-uploader'),
+    action: '/admin/articles/uploader',
+    params: {
+      id: '#{params[:id]}'
+    }
+  });
+  
+%a.button{:href => admin_articles_path } Done

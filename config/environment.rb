@@ -1,9 +1,8 @@
 # Be sure to restart your server when you modify this file
 
 # Specifies gem version of Rails to use when vendor/rails is not present
-if RAILS_ENV == 'production'
-  ENV['GEM_PATH'] = '/home/followg1/ruby/gems:/usr/lib/ruby/gems/1.8'
-end
+
+ENV['GEM_PATH'] = '/home/followg1/ruby/gems:/usr/lib/ruby/gems/1.8'
 RAILS_GEM_VERSION = '2.3.8' unless defined? RAILS_GEM_VERSION
 
 # Bootstrap the Rails environment, frameworks, and default configuration
@@ -57,7 +56,7 @@ CONFIG = Rails::Initializer.run do |config|
   config.gem 'rmagick', :lib => "RMagick2",  :version => '2.13.1'
   # config.gem "sqlite3-ruby", :lib => "sqlite3", :version => "1.3.1"
   config.gem 'exceptional' 
-  # config.gem 'mysql', :version => '2.8.1'
+  config.gem 'mysql', :version => '2.8.1'
   # config.gem 'thinking-sphinx', :lib => 'thinking_sphinx'
   config.gem 'will_paginate'
   config.gem 'delayed_job', :version => '2.0.7'
@@ -73,7 +72,7 @@ CONFIG = Rails::Initializer.run do |config|
   config.active_record.default_timezone = :utc
   config.time_zone = "UTC"
  
-  config.middleware.use 'Rack::RawUpload', :paths => ['/admin/albums/uploader', '/admin/features/uploader', '/admin/tickers/uploader']
+  config.middleware.use 'Rack::RawUpload', :paths => ['/admin/albums/uploader', '/admin/features/uploader', '/admin/tickers/uploader', '/admin/articles/uploader']
   
   
   config.active_record.observers = [:user_observer]
@@ -96,7 +95,7 @@ end
 # Needs to be set for paperclip to find the identify command with Passenger.
 begin
   require 'paperclip'
-  Paperclip.options[:command_path] = "/usr/local/bin"
+  Paperclip.options[:command_path] = "/usr/bin"
 rescue LoadError
 end
 
