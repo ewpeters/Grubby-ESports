@@ -215,10 +215,9 @@ img {
       width: 20px; }
 
 #upcoming_events {
-  text-decoration: underline;
-  color: #7C7C7C;
-  cursor: pointer;
-  font-weight: bold; }
+  margin-bottom: 5px;
+  color: silver;
+  cursor: pointer; }
 
 #logo_box {
   position: absolute;
@@ -824,11 +823,11 @@ ul#nav_bar {
         color: grey;
         height: 25px;
         left: 15px;
-        line-height: 25px;
         position: absolute;
         text-align: center;
-        top: 118px;
-        width: 155px; }
+        top: 120px;
+        width: 147px;
+        font-size: 9px; }
 
 thead tr {
   height: 20px; }

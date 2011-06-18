@@ -39,12 +39,6 @@
   %p 
     = label_tag "example_time_display", t(:Example_time_display)
     = Time.now.strftime(date_display + " " + time_display)
-
-  - if @themes.size > 1
-    %p 
-      = f.label 'theme_id', t(:Theme)
-      = f.select "theme_id", @themes.map { |t| [t.name, t.id] }
-
   %p
     = f.label 'per_page', t(:Items_per_page)
     = f.text_field 'per_page', :size => 3
