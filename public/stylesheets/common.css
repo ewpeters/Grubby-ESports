@@ -1070,7 +1070,8 @@ thead tr {
         #tv_container .tv_item .tv_item_outer .tv_item_inner .desc {
           margin-left: 20px;
           z-index: 100;
-          width: 75%;
+          height: 42px;
+          width: 54%;
           color: #fcfdfe;
           font-size: 10px;
           position: absolute; }
