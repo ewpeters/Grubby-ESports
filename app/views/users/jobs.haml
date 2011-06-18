@@ -1,12 +1,20 @@
-%center
+%div.jobs.box{:style => "margin-top: 25px"}
   = flash[:notice]
-  %h3 Want to be a part of the team here at FollowGrubby.com? Tells us why along with a quick summary about yourself.  A staff member will review it and get back to you in a few days.
-- form_tag :controller => "users", :action => "jobs_email" do
-  %div Your Email:
-  = text_field_tag("email")
-  %div Your Name:
-  = text_field_tag("name")
-  %div Message:
-  = text_area_tag ("message", nil, :cols => 40, :rows => 5)
+  %div{:style => "float:right"}
+    = image_tag("jobs_grubby_photo.png")
+  %div Want to be a part of the team here at FollowGrubby.com? 
+  %div Tell us why along with a quick summary about yourself.  
   %br
-  = submit_tag "Send"
+  %div A staff member will review it and get back to you in a few days.
+  %br
+  - form_tag :controller => "users", :action => "jobs_email" do
+    %div{:style => "margin-bottom: 10px"} 
+      %div{:style => "margin-bottom: 2px"} Your Email:
+      = text_field_tag("email")
+    %div{:style => "margin-bottom: 10px"} 
+      %div{:style => "margin-bottom: 2px"} Your Name:
+      = text_field_tag("name")
+    %div{:style => "margin-bottom: 10px"}
+      %div{:style => "margin-bottom: 2px"} Message:
+      = text_area_tag ("message", nil, :cols => 40, :rows => 5)
+    = submit_tag "Send"
