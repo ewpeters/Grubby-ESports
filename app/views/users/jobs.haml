@@ -1,11 +1,11 @@
-%div.jobs.box{:style => "margin-top: 25px; height: 456px;"}
+%div.jobs.box{:style => "margin-top: 25px; height: 332px;"}
   = image_tag("jobs_bg_emblem.png", :style => "position: absolute; left:0; top:0; z-index: 0")
   = flash[:notice]
   = image_tag("jobs_grubby_photo.png", :style => "float:right; z-index: 1; position: relative")
-  %div Want to be a part of the team here at FollowGrubby.com? 
-  %div Tell us why along with a quick summary about yourself.  
+  %div{:style => "position: relative; z-index: 1"} Want to be a part of the team here at FollowGrubby.com? 
+  %div{:style => "position: relative; z-index: 1"} Tell us why along with a quick summary about yourself.  
   %br
-  %div A staff member will review it and get back to you in a few days.
+  %div{:style => "position: relative; z-index: 1"} A staff member will review it and get back to you in a few days.
   %br
   %div{:style => "position: relative; z-index: 1"}
     - form_tag :controller => "users", :action => "jobs_email" do
