@@ -55,11 +55,8 @@
         onSelect: function(dateText, inst) { 
            $(".event_info[date_text!="+ dateText+ "]").addClass('hidden');
            $(".event_info[date_text="+ dateText+ "]").removeClass('hidden');
-           
-           setTimeout('hoverEvents()', 250);
         }
       });
-      hoverEvents();
     });
     
     
@@ -72,27 +69,6 @@
       return [true, ''];
     }
     
-    function hoverEvents() {
-      $(".ui-datepicker td a").mouseenter(function() {
-        var date = $("#datepicker").datepicker( "getDate" );
-        date.setDate(parseInt($(this).html()));
-        var month = date.getMonth() + 1
-        month = month +  '';
-        var day = date.getDate() + '';
-        var dateText = month.append_zero() + "/" + day.append_zero() + "/" + date.getFullYear();
-        $(".event_info[date_text!="+ dateText+ "]").addClass('hidden');
-        $(".event_info[date_text="+ dateText+ "]").removeClass('hidden');
-      });
-      $(".calendar").mouseleave(function(event) {
-          var date = $("#datepicker").datepicker( "getDate" );
-          var month = date.getMonth() + 1
-          month = month +  '';
-          var day = date.getDate() + '';
-          var dateText = month.append_zero() + "/" + day.append_zero() + "/" + date.getFullYear();
-          $(".event_info[date_text="+ dateText+ "]").removeClass('hidden');
-      });
-      
-    }
   %body
     %div#fb-root
     %script{:src => "http://connect.facebook.net/en_US/all.js"}
