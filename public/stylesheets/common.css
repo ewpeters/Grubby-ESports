@@ -482,6 +482,8 @@ ul#nav_bar {
 #article_content {
   margin-left: -10px;
   position: relative; }
+  #article_content img {
+    margin-top: 10px; }
   #article_content #header {
     width: 751px;
     height: 71px;
@@ -1169,17 +1171,19 @@ thead tr {
   top: 615px;
   width: 145px; }
 
-.jobs input {
-  background-color: #CCCCCC;
-  border: 0; }
-.jobs textarea {
-  background-color: #CCCCCC; }
-.jobs #name {
-  width: 200px;
-  height: 21px; }
-.jobs #email {
-  width: 200px;
-  height: 21px; }
+.jobs {
+  position: relative; }
+  .jobs input {
+    background-color: #CCCCCC;
+    border: 0; }
+  .jobs textarea {
+    background-color: #CCCCCC; }
+  .jobs #name {
+    width: 200px;
+    height: 21px; }
+  .jobs #email {
+    width: 200px;
+    height: 21px; }
 
 #footer {
   margin-top: 25px; }
