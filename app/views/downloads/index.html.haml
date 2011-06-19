@@ -35,7 +35,7 @@
               .map
                 = image_tag("/images/#{media.game.gsub(' ', '_')}.png")
               .download
-                %a{:href => media.media_file.url}
+                %a{:href => media.media_file.path}
                   = image_tag("media/#{media.game}_download.png")
       - else
         .media_item.wallpaper

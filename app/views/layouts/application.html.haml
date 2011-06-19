@@ -148,7 +148,6 @@
             %div#events.hidden= @events.collect{|e| [e.date.year, e.date.month, e.date.day]}.to_json
             %center
               %div#datepicker{:type => "text", :stlye => "font-size: 12px"}
-            %br
             %center
               %div#upcoming_events Upcoming Events
             - @events.each do |event|

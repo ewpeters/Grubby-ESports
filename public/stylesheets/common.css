@@ -317,7 +317,11 @@ img {
       -webkit-box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
       -moz-box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5); }
       #content #side_bar .calendar #datepicker {
-        width: 175px; }
+        width: 175px;
+        margin-bottom: 10px; }
+      #content #side_bar .calendar .event_info {
+        padding-left: 4px;
+        padding-right: 4px; }
 
 #news {
   background-image: url("/images/ticker_background_fix2.png");
@@ -822,12 +826,13 @@ ul#nav_bar {
         background-color: transparent;
         color: grey;
         height: 25px;
+        line-height: 25px;
         left: 15px;
         position: absolute;
         text-align: center;
         top: 120px;
         width: 147px;
-        font-size: 9px; }
+        font-size: 13px; }
 
 thead tr {
   height: 20px; }

@@ -8,7 +8,7 @@
   - form_for [:admin, @album], :html => { :multipart => true } do |f|
     %div{:class => "field"}
       %div=  f.label :title
-      %div= f.text_field :title
+      %div= f.text_field :title, :maxlength => 20
     %div{:class => "field"}
       %div= f.label :description
       %div= f.text_area :description, :size => "27x4"
