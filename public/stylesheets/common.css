@@ -321,8 +321,9 @@ img {
         width: 175px;
         margin-bottom: 10px; }
       #content #side_bar .calendar .event_info {
-        padding-left: 4px;
-        padding-right: 4px; }
+        padding-left: 10px;
+        padding-right: 10px;
+        text-align: center; }
 
 #news {
   background-image: url("/images/ticker_background_fix2.png");

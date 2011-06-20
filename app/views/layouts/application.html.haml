@@ -154,14 +154,13 @@
               - css_class = "hidden"
               - if event.date.strftime('%d%m') == @now.strftime('%d%m') || @next_three.member?(event)
                 - css_class = "upcoming"
-              %center
-                %div.event_info{:date_text => event.date.strftime('%m/%d/%Y'), :class => css_class}
-                  %a{:href => url_for (event.link), :target => external_target(event.link)}
-                    %span.event_day= event.date.day
-                    %span.suffix= event.date.day.ordinalize.gsub(/\d/, '')
-                    %span -
-                    %span.event_title= event.title
-                    %span.event_hour{:class => "#{event.show_time ? "" : "hidden"}"}= event.date.strftime('%H:%M')
+              %div.event_info{:date_text => event.date.strftime('%m/%d/%Y'), :class => css_class}
+                %a{:href => url_for (event.link), :target => external_target(event.link)}
+                  %span.event_day= event.date.day
+                  %span.suffix= event.date.day.ordinalize.gsub(/\d/, '')
+                  %span -
+                  %span.event_title= event.title
+                  %span.event_hour{:class => "#{event.show_time ? "" : "hidden"}"}= event.date.strftime('%H:%M')
           %div.ad{:style => "margin-top: 15px; margin-left:10px; width: 160px; height: 600px;"}
             %object{:width => 160, :height => 600, :classid => "clsid:D27CDB6E-AE6D-11cf-96B8-444553540000", :codebase => "http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0"}
               %param{:name => "movie", :value => "/ads/xai_review_160x600.swf"}
