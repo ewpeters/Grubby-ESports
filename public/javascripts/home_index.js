@@ -1,7 +1,7 @@
 var current_news_ndx = 0;
 var interval_id = null;
 var ticker_time = 7000;
-$.idleTimer(30000);  
+$.idleTimer(600000);  
 $(document).bind("idle.idleTimer", function(){
  // function you want to fire when the user goes idle
  $("#loading").stop();
@@ -9,13 +9,18 @@ $(document).bind("idle.idleTimer", function(){
 });
 $(document).bind("active.idleTimer", function(){
  // function you want to fire when the user becomes active again
- fader();
- interval_id = setInterval('next_news()', ticker_time);
+ // fader();
+ // interval_id = setInterval('next_news()', ticker_time);
 });
 $(document).ready(function() {
   list_events();
   interval_id = setInterval('next_news()', ticker_time);
   fader();
+  $("#news").hover(function() {
+  }, function() {
+    fader();
+    interval_id = setInterval('next_news()', ticker_time);
+  });
 });
 
 function fader() {

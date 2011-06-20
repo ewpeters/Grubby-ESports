@@ -7,6 +7,7 @@ class Download < ActiveRecord::Base
   validates_presence_of :wallpaper_three, :if => Proc.new { |user| user.tag_list.member?("wallpaper") }
   validates_presence_of :player_one_name, :unless => Proc.new { |user| user.tag_list.member?("wallpaper") }
   validates_presence_of :player_two_name, :unless => Proc.new { |user| user.tag_list.member?("wallpaper") }
+  
   RACES = ["Terran", "Zerg", "Protoss", "Orc", "Night Elf", "Human", "Undead"]
   GAMES = ["Starcraft 2", "Warcraft 3"]
   acts_as_taggable_on :tags

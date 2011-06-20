@@ -35,6 +35,8 @@
       %span= f.label :picture
       %span Ideal size: 510x319
     %div= f.file_field  :picture
+  %div{:class => "actions"}
+    %div= f.submit    
   %span Article:
   %div If you want to create a new article click the check box below, if you want to link to an existing article paste the url into the link field above
   = check_box_tag("Article", "Attach Article", false, :onClick => "$('#article').toggle()")
@@ -49,12 +51,11 @@
       %div{:class => "field"}
         %div= builder.label :author
         %div= builder.text_field :author
+      %div Notes on html file name:
+      %div Only use alpha numeric characters (a-z, 0-9) and underscores  in the file name of the document
       %div{:class => "field"}
         %div= builder.label :html
         %div= builder.file_field :html
     %div
       %div Example Article:
       = image_tag("article_example.png")
-  %div{:class => "actions"}
-    %div= f.submit
-  

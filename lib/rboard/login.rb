@@ -34,6 +34,7 @@ module Rboard::Login
       redirect_back_or_default('/')
     end
     crap = User.new(params[:user])
+    crap.display_name = crap.login
     return unless request.post?
     crap.save!
     redirect_to(:controller => "home", :action => "index")

@@ -33,7 +33,7 @@
       %div= select(:tv, :video_type, Tv::VIDEO_TYPE)
     %div{:class => "field"}
       %div Tag List (comma seperated list)
-      %div For the live link add the tags 'special_live' and on or 'off' depending on the state
+      %div For the live link add the tags 'special_live' and 'on' or 'off' depending on the state
       %div Currently supported tags: (featured, archived, real_life)
       = text_area_tag :tags, @tv.tag_list.join(',')
     %div{:class => "field"}
@@ -46,11 +46,12 @@
       %div= f.file_field  :thumb
     %div{:class => "actions"}
       %div= f.submit
-    %div{:style => "position:absolute; top: 0px; right: 0px"}
-      %div You Tube How To:
+    %h1 Instructions
+    %div
+      %h2 You Tube How To:
       %div
         = image_tag("/images/example_yt.png")
-    %div{:style => "position:absolute; top: 700px; left: 0px"}
-      %div Justin.tv How To:
+    %div
+      %h2 Justin.tv How To:
       %div
         = image_tag("/images/example_jt.png")

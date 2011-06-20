@@ -15,14 +15,21 @@ module Paperclip
       dst = Tempfile.new([@basename, @format].compact.join("."))
       dst.binmode
       match =  @original_basename.gsub(/\..+$/, '')
-
+      match.gsub!('_', ' ')
+      puts "processing 1"
+      puts match
+      spaces_gone = match.gsub(' ', '_')
+      puts spaces_gone
       while (line = @file.gets)
-        if line.match(/#{match}_files/)
-          new_line = line.gsub(/#{match}_files/, "/html_files/#{match}")
-          valid_line = valid_string = ic.iconv(new_line)
+        temp_line = CGI::unescape(line)
+        
+        if temp_line.match(/#{match}_files/)
+          puts "Temp Line: #{temp_line}"
+          new_line = temp_line.gsub(/#{match}_files/, "/html_files/#{spaces_gone}")
+          valid_line = ic.iconv(new_line)
           dst.write valid_line
         else
-          valid_line = valid_string = ic.iconv(line)
+          valid_line = ic.iconv(line)
           dst.write valid_line
         end
       end

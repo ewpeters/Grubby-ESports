@@ -1,6 +1,7 @@
 require 'paperclip_processors/word'
 class Article < ActiveRecord::Base
   validates_presence_of :title, :article_type, :author, :html_file_name
+  validates_format_of :html_file_name, :with => /^[a-zA-Z0-9\_\s\.]+$/, :message => "Invalid characters in html_file_name"
   belongs_to :ticker
   belongs_to :feature
   has_one :topic

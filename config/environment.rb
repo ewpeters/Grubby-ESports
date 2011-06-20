@@ -2,7 +2,7 @@
 
 # Specifies gem version of Rails to use when vendor/rails is not present
 
-ENV['GEM_PATH'] = '/home/followg1/ruby/gems:/usr/lib/ruby/gems/1.8'
+# ENV['GEM_PATH'] = '/home/followg1/ruby/gems:/usr/lib/ruby/gems/1.8'
 RAILS_GEM_VERSION = '2.3.8' unless defined? RAILS_GEM_VERSION
 
 # Bootstrap the Rails environment, frameworks, and default configuration
@@ -67,7 +67,9 @@ CONFIG = Rails::Initializer.run do |config|
   # lol activeresource
   config.frameworks -= [:action_web_service, :activeresource]
 
-  config.action_controller.session = { :session_key => "rboard_secret", :secret => "supersecret" }
+  config.action_controller.session = {:key => '_sessions_test', :secret  => 'whatever'}
+  config.action_controller.session_store = :cookie_store
+  # config.action_controller.session = { :session_key => "rboard_secret", :secret => "supersecret" }
 
   config.active_record.default_timezone = :utc
   config.time_zone = "UTC"
@@ -95,7 +97,7 @@ end
 # Needs to be set for paperclip to find the identify command with Passenger.
 begin
   require 'paperclip'
-  Paperclip.options[:command_path] = "/usr/bin"
+  Paperclip.options[:command_path] = "/usr/local/bin"
 rescue LoadError
 end
 

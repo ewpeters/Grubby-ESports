@@ -93,10 +93,10 @@
           - unless logged_in?
             = image_tag ("login_icon_facebook.png", :id => "fb_connect")
             - form_tag "/login", :action => :post, :id => "login-form" do
-              %span{:style => "font-weight: bold;"} Login
+              %span{:style => "font-weight: bold;"} Username
               = text_field_tag 'login'
               %div#password_div.hidden
-                %span{:style => "font-weight: bold;"} Pass
+                %span{:style => "font-weight: bold;"} Password
                 = password_field_tag 'password'
                 %span#remember_label Remember Me:
                 = check_box_tag "remember_me"

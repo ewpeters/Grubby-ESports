@@ -1,10 +1,5 @@
 - form_for current_user, :html => { :multipart => true } do |f|
   %h2= t(:Editing_your_profile)
-
-  %p
-    = f.label "display_name", t(:Display_Name)
-    = f.text_field :display_name
-
   %h3= t(:New, :thing => "Password")
   = t(:Changing_your_password)
 

@@ -75,7 +75,7 @@ class Admin::FeaturesController < Admin::ApplicationController
       Dir.mkdir("#{Rails.root}/public/html_files/#{folder_name}")
     end
     
-    FileUtils.mv(params[:file].path, "public/html_files/#{folder_name}/#{params[:qqfile]}")
+    FileUtils.mv(params[:file].path, "#{Rails.root}/public/html_files/#{folder_name}/#{params[:qqfile]}")
     render :layout => false
   end
   
