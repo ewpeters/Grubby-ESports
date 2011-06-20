@@ -14,6 +14,9 @@
         %div= f.label :date
         %div= datetime_select :event, :date
       %div{:class => "field"}
+        %div= f.label :show_time
+        %div= f.check_box :show_time
+      %div{:class => "field"}
         %div= f.label :link
         %div= f.text_field :link        
       %div{:class => "actions"}

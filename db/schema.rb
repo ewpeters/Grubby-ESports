@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110618051506) do
+ActiveRecord::Schema.define(:version => 20110620030040) do
 
   create_table "albums", :force => true do |t|
     t.string   "title"
@@ -123,11 +123,12 @@ ActiveRecord::Schema.define(:version => 20110618051506) do
   add_index "edits", ["ip_id"], :name => "index_edits_on_ip_id"
 
   create_table "events", :force => true do |t|
-    t.string   "title",      :null => false
-    t.datetime "date",       :null => false
-    t.string   "link",       :null => false
+    t.string   "title",                        :null => false
+    t.datetime "date",                         :null => false
+    t.string   "link",                         :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "show_time",  :default => true
   end
 
   create_table "features", :force => true do |t|

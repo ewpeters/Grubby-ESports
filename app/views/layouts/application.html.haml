@@ -93,7 +93,7 @@
           - unless logged_in?
             = image_tag ("login_icon_facebook.png", :id => "fb_connect")
             - form_tag "/login", :action => :post, :id => "login-form" do
-              %span{:style => "font-weight: bold;"} Username
+              %span{:style => "font-weight: bold;"} Login
               = text_field_tag 'login'
               %div#password_div.hidden
                 %span{:style => "font-weight: bold;"} Password
@@ -102,7 +102,7 @@
                 = check_box_tag "remember_me"
                 = submit_tag "Login", :id => "submit"
             %span.grey
-            = link_to t(:Signup), signup_path, :class => "signup"
+            = link_to "Register", signup_path, :class => "signup"
           - else
             %span{ :id => "logged-in-as", :style => "position: relative; left: 10px; top: 3px;"}
               - if logged_in?
@@ -161,7 +161,7 @@
                     %span.suffix= event.date.day.ordinalize.gsub(/\d/, '')
                     %span -
                     %span.event_title= event.title
-                    %span.event_hour= event.date.strftime('%H:%M')
+                    %span.event_hour{:class => "#{event.show_time ? "" : "hidden"}"}= event.date.strftime('%H:%M')
           %div.ad{:style => "margin-top: 15px; margin-left:10px; width: 160px; height: 600px;"}
             %object{:width => 160, :height => 600, :classid => "clsid:D27CDB6E-AE6D-11cf-96B8-444553540000", :codebase => "http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0"}
               %param{:name => "movie", :value => "/ads/xai_review_160x600.swf"}
