@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110621024552) do
+ActiveRecord::Schema.define(:version => 20110621040107) do
 
   create_table "albums", :force => true do |t|
     t.string   "title"
@@ -106,6 +106,7 @@ ActiveRecord::Schema.define(:version => 20110621024552) do
     t.integer  "wallpaper_three_file_size"
     t.datetime "wallpaper_three_updated_at"
     t.text     "url"
+    t.string   "icon_link"
   end
 
   create_table "edits", :force => true do |t|

@@ -27,6 +27,7 @@
       %td= t(:Banned_until)
       %td= t(:Times_banned)
       %td= t(:Last_IP)
+      %td Promote
   %tbody
     - if @users.empty?
       - if @object
@@ -53,5 +54,10 @@
             = link_to theme_image_tag("ban.jpg"), ban_ip_admin_users_path(:ip => user.ip)
             - if !user.ips.empty?
               (#{link_to t(:other_IPs, :count => user.ips.count), admin_user_ips_path(user)})
+          %td
+            - unless user.can?(:access_admin_section)
+              %a{:href => "users/promote/#{user.id}"} Promote
+            - else
+              %a{:href => "users/demote/#{user.id}"} Demote
   %tfoot
 = will_paginate(@users)

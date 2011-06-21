@@ -1,7 +1,7 @@
 class Admin::UsersController < Admin::ApplicationController
   before_filter :store_location, :only => [:index]
   before_filter :find_ip
-  before_filter :find_user, :only => [:show, :edit, :update, :destroy]
+  before_filter :find_user, :only => [:show, :edit, :update, :destroy, :promote]
   before_filter :find_group
 
   # Show all the users, by login in ascending order. 
@@ -100,6 +100,28 @@ class Admin::UsersController < Admin::ApplicationController
     redirect_back_or_default ban_ip_admin_users_path
   end
 
+  def promote
+    @user = User.find_by_id(params[:id])
+    @user.groups = []
+    @user.groups << Group.first
+    @user.groups << Group.find_by_id(3)
+    if @user.save
+      redirect_to(admin_users_path, :notice => "#{@user.login} is now an Admin")
+    else
+      redirect_to(admin_users_path, :notice => "Something messed up")
+    end
+  end
+  
+  def demote
+    @user = User.find_by_id(params[:id])
+    @user.groups = []
+    @user.groups << Group.find_by_id(3)
+    if @user.save
+      redirect_to(admin_users_path, :notice => "#{@user.login} is now a pleb")
+    else
+      redirect_to(admin_users_path, :notice => "Something messed up")
+    end
+  end
 
   private
 
