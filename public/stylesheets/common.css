@@ -227,9 +227,8 @@ img {
 
 .sponsor {
   position: absolute;
-  left: 500px;
   z-index: -1;
-  top: 0px; }
+  top: 14px; }
 
 .box {
   background-color: #030303;

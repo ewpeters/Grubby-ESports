@@ -24,7 +24,7 @@ class Admin::ApplicationController < ApplicationController
     end
 
     def find_sections
-      @sections = ["categories", "forums", "users", "groups", "ranks", "themes", "configurations", "tickers", "features", "articles", "events", "downloads", "tvs", "albums"].select do |name|
+      @sections = ["categories", "forums", "users", "groups", "ranks", "themes", "configurations", "tickers", "features", "articles", "events", "downloads", "tvs", "albums", "logos"].select do |name|
         current_user.can?("manage_#{name}")
       end
     end

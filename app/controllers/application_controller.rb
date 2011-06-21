@@ -21,6 +21,7 @@ class ApplicationController < ActionController::Base
   # Sets the default theme
 
   before_filter :get_events
+  before_filter :get_logos
   
   def check_page_value
     params[:page] = params[:page].to_i <= 0 ? "1" : params[:page]
@@ -38,6 +39,10 @@ class ApplicationController < ActionController::Base
     if todays_events.empty?
       @next_three = @events.select{|event| event.date.utc > @now}[0..2]
     end
+  end
+  
+  def get_logos
+    @logos = Logo.find(:all, :limit => 4)
   end
   
   protected

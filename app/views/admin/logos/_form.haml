@@ -1,0 +1,22 @@
+- if @logo.errors.any?
+  %div{:id => "errorExplanation"}
+  %h2= "#{pluralize(@logo.errors.count, "error")} prohibited this post from being saved:"
+  %ul
+    - @logo.errors.full_messages.each do |msg|
+      %li= msg
+%div{:style => "position: relative"}
+  - form_for [:admin, @logo], :html => { :multipart => true } do |f|
+    %div{:class => "field"}
+      %div=  f.label :link
+      %div= f.text_field :link
+    %h3 Picture dimensions: 110x120
+    %div{:class => "field"}
+      %div= f.label :picture
+      %div= f.file_field :picture
+    %div or  
+    %div{:class => "field"}
+      %div=  f.label :image_url
+      %div= f.text_field :image_url  
+    %div{:class => "actions"}
+      %br
+      %div= f.submit

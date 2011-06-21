@@ -1,0 +1,22 @@
+= link_to "New Logo", new_admin_logo_path
+%br
+- @logos.each do |logo|
+  = image_tag(logo.picture.url)  
+  |
+  %a{:href => logo.link}= logo.link
+  |
+  = link_to "Show Logo", admin_logo_path(logo)
+  |
+  = link_to "Edit Logo", edit_admin_logo_path(logo)
+  |
+  = link_to "Delete Logo", admin_logo_path(logo), :method => :delete, :confirm => t(:confirm_deletion, :thing => "Logo")
+  |
+  - unless logo.first?
+    = link_to theme_image_tag("top.jpg", :alt => t(:Top), :title => t(:Top)), move_to_top_admin_logo_path(logo), :method => :put
+    = link_to theme_image_tag("up.jpg", :alt => t(:Up), :title => t(:Up)), move_up_admin_logo_path(logo), :method => :put
+  = logo.position
+  |
+  - unless logo.last?
+    = link_to theme_image_tag("down.jpg", :alt => t(:Down), :title => t(:Down)), move_down_admin_logo_path(logo), :method => :put
+    = link_to theme_image_tag("bottom.jpg", :alt => t(:Bottom), :title => t(:Bottom)), move_to_bottom_admin_logo_path(logo), :method => :put
+  %br

@@ -23,6 +23,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.map 'articles/add_files/:id', :controller => "articles", :action => "add_files"
     admin.map 'articles/uploader',      :controller => "articles", :action => "uploader"
     
+    admin.resources :logos, :member => { :move_up => :put, :move_down => :put, :move_to_top => :put, :move_to_bottom => :put }
     admin.resources :tvs
     admin.resources :downloads
     admin.resources :albums, :member => {:set_cover => :put}
