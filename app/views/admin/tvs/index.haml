@@ -1,4 +1,5 @@
 = flash[:notice]
+= link_to "New TV Item", new_admin_tv_path
 %br
 - @tvs.each do |tv|
   = tv.title
