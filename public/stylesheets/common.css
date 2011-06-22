@@ -689,12 +689,12 @@ ul#nav_bar {
     background-color: #596673;
     -webkit-border-radius: 3px; }
   #media_container #media_box {
-    width: 591px;
-    height: 450px;
+    width: 596px;
+    height: 460px;
     overflow-y: auto;
     overflow-x: hidden;
     position: absolute;
-    right: 15px;
+    right: 14px;
     top: 25px; }
   #media_container .media_item.wallpaper {
     height: 174px; }
@@ -991,12 +991,12 @@ thead tr {
     background-color: #596673;
     -webkit-border-radius: 3px; }
   #tv_container #tv_box {
-    width: 586px;
-    height: 500px;
+    width: 596px;
+    height: 476px;
     overflow-y: auto;
     overflow-x: hidden;
     position: absolute;
-    right: 20px;
+    right: 14px;
     top: 25px; }
   #tv_container .box {
     -moz-border-radius: 10px 10px 10px 10px;

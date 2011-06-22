@@ -47,7 +47,9 @@
             %div.desc= tv.summary
             .overlay
               .inner
-              - if !tv.thumb_file_name.nil?
+              - if tv.thumb_file_name.nil?
+                = image_tag(tv.thumbnail_image_link)
+              - else
                 = image_tag(tv.thumb.url(:normal))
             .download
               - if !tv.link.nil? && tv.link != ""

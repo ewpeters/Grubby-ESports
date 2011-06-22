@@ -28,16 +28,13 @@
       %div= f.label :player_two_race
       %div= select(:download, :player_two_race, Download::RACES)
     %div{:class => "field"}
-      %div= f.label :game
-      %div= select(:download, :game, Download::GAMES)
-    %div{:class => "field"}
       %div Tag List (comma seperated list)
       %div Currently supported tags: (featured, archived, wallpaper)
       = text_area_tag :tags, @media.tag_list.join(',')
     %h3 67x55 you have been warned.....
     %div{:class => "field"}
-      %div= f.label :icon_link
-      %div= f.text_field  :icon_link  
+      %div= f.label :icon_image_link
+      %div= f.text_field  :icon_image_link
     %h1 File (upload a file or link to one)
     %div{:class => "field"}
       %div= f.label :media_file

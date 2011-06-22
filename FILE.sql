@@ -64,7 +64,7 @@ CREATE TABLE `articles` (
   `feature_id` int(11) default NULL,
   `article_type` varchar(255) collate utf8_unicode_ci default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -73,7 +73,7 @@ CREATE TABLE `articles` (
 
 LOCK TABLES `articles` WRITE;
 /*!40000 ALTER TABLE `articles` DISABLE KEYS */;
-INSERT INTO `articles` VALUES (1,'Warcraft Commentaries #2','20110608_wc3_commentary.htm','text/html',9589,'2011-06-17 03:04:18','2011-06-17 03:04:18','2011-06-17 03:04:18','Shagrath + Raihn + Grubby',NULL,NULL,'Update'),(2,'Warcraft Commentaries pt 2','20110608_wc3_commentary.htm','text/html',9574,'2011-06-17 03:21:44','2011-06-17 03:21:44','2011-06-17 03:21:44','Shagrath',NULL,NULL,'Update');
+INSERT INTO `articles` VALUES (2,'Warcraft Commentaries pt 2','20110608_wc3_commentary.htm','text/html',9574,'2011-06-17 03:21:44','2011-06-17 03:21:44','2011-06-17 03:21:44','Shagrath',NULL,NULL,'Update'),(7,'Test','This_is_a_test_Article.htm','text/html',15728,'2011-06-19 00:41:19','2011-06-19 00:41:19','2011-06-19 00:41:19','test',NULL,NULL,'test'),(8,'Error','CriticalErrors.htm','text/html',10927,'2011-06-19 00:56:49','2011-06-19 00:56:49','2011-06-19 00:56:49','Error',NULL,NULL,'Error');
 /*!40000 ALTER TABLE `articles` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -180,7 +180,7 @@ CREATE TABLE `delayed_jobs` (
   `updated_at` datetime default NULL,
   PRIMARY KEY  (`id`),
   KEY `delayed_jobs_priority` (`priority`,`run_at`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -189,7 +189,6 @@ CREATE TABLE `delayed_jobs` (
 
 LOCK TABLES `delayed_jobs` WRITE;
 /*!40000 ALTER TABLE `delayed_jobs` DISABLE KEYS */;
-INSERT INTO `delayed_jobs` VALUES (8,0,23,'--- !ruby/struct:Delayed::PerformableMethod \nobject: LOAD;UserMailer\nmethod: :deliver_activation\nargs: \n- LOAD;User;12\n','501 <>: missing or malformed local part\n\n/usr/lib/ruby/1.8/net/smtp.rb:930:in `check_response\'\n/usr/lib/ruby/1.8/net/smtp.rb:899:in `getok\'\n/usr/lib/ruby/1.8/net/smtp.rb:842:in `rcptto\'\n/usr/lib/ruby/1.8/net/smtp.rb:834:in `rcptto_list\'\n/usr/lib/ruby/1.8/net/smtp.rb:833:in `each\'\n/usr/lib/ruby/1.8/net/smtp.rb:833:in `rcptto_list\'\n/usr/lib/ruby/1.8/net/smtp.rb:654:in `sendmail\'\n/home/followg1/ruby/gems/gems/actionmailer-2.3.8/lib/action_mailer/base.rb:684:in `perform_delivery_smtp\'\n/usr/lib/ruby/1.8/net/smtp.rb:526:in `start\'\n/home/followg1/ruby/gems/gems/actionmailer-2.3.8/lib/action_mailer/base.rb:682:in `perform_delivery_smtp\'\n/home/followg1/ruby/gems/gems/actionmailer-2.3.8/lib/action_mailer/base.rb:523:in `__send__\'\n/home/followg1/ruby/gems/gems/actionmailer-2.3.8/lib/action_mailer/base.rb:523:in `deliver!\'\n/home/followg1/ruby/gems/gems/actionmailer-2.3.8/lib/action_mailer/base.rb:395:in `method_missing\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/performable_method.rb:35:in `send\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/performable_method.rb:35:in `perform\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/backend/base.rb:74:in `invoke_job\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/worker.rb:122:in `run\'\n/usr/lib/ruby/1.8/timeout.rb:62:in `timeout\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/worker.rb:122:in `run\'\n/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/worker.rb:121:in `run\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/worker.rb:173:in `reserve_and_run_one_job\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/worker.rb:106:in `work_off\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/worker.rb:105:in `times\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/worker.rb:105:in `work_off\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/worker.rb:80:in `start\'\n/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/worker.rb:79:in `start\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/worker.rb:76:in `loop\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/worker.rb:76:in `start\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/command.rb:100:in `run\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/command.rb:79:in `run_process\'\n/home/followg1/ruby/gems/gems/daemons-1.0.10/lib/daemons/application.rb:215:in `call\'\n/home/followg1/ruby/gems/gems/daemons-1.0.10/lib/daemons/application.rb:215:in `start_proc\'\n/home/followg1/ruby/gems/gems/daemons-1.0.10/lib/daemons/daemonize.rb:192:in `call\'\n/home/followg1/ruby/gems/gems/daemons-1.0.10/lib/daemons/daemonize.rb:192:in `call_as_daemon\'\n/home/followg1/ruby/gems/gems/daemons-1.0.10/lib/daemons/application.rb:219:in `start_proc\'\n/home/followg1/ruby/gems/gems/daemons-1.0.10/lib/daemons/application.rb:255:in `start\'\n/home/followg1/ruby/gems/gems/daemons-1.0.10/lib/daemons/controller.rb:69:in `run\'\n/home/followg1/ruby/gems/gems/daemons-1.0.10/lib/daemons.rb:188:in `run_proc\'\n/home/followg1/ruby/gems/gems/daemons-1.0.10/lib/daemons/cmdline.rb:105:in `call\'\n/home/followg1/ruby/gems/gems/daemons-1.0.10/lib/daemons/cmdline.rb:105:in `catch_exceptions\'\n/home/followg1/ruby/gems/gems/daemons-1.0.10/lib/daemons.rb:187:in `run_proc\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/command.rb:78:in `run_process\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/command.rb:72:in `daemonize\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/command.rb:70:in `times\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/command.rb:70:in `daemonize\'\nscript/delayed_job:5','2011-06-17 17:15:35',NULL,NULL,NULL,'2011-06-01 03:37:45','2011-06-14 11:31:29'),(9,0,23,'--- !ruby/struct:Delayed::PerformableMethod \nobject: LOAD;UserMailer\nmethod: :deliver_signup_notification\nargs: \n- LOAD;User;12\n','501 <>: missing or malformed local part\n\n/usr/lib/ruby/1.8/net/smtp.rb:930:in `check_response\'\n/usr/lib/ruby/1.8/net/smtp.rb:899:in `getok\'\n/usr/lib/ruby/1.8/net/smtp.rb:842:in `rcptto\'\n/usr/lib/ruby/1.8/net/smtp.rb:834:in `rcptto_list\'\n/usr/lib/ruby/1.8/net/smtp.rb:833:in `each\'\n/usr/lib/ruby/1.8/net/smtp.rb:833:in `rcptto_list\'\n/usr/lib/ruby/1.8/net/smtp.rb:654:in `sendmail\'\n/home/followg1/ruby/gems/gems/actionmailer-2.3.8/lib/action_mailer/base.rb:684:in `perform_delivery_smtp\'\n/usr/lib/ruby/1.8/net/smtp.rb:526:in `start\'\n/home/followg1/ruby/gems/gems/actionmailer-2.3.8/lib/action_mailer/base.rb:682:in `perform_delivery_smtp\'\n/home/followg1/ruby/gems/gems/actionmailer-2.3.8/lib/action_mailer/base.rb:523:in `__send__\'\n/home/followg1/ruby/gems/gems/actionmailer-2.3.8/lib/action_mailer/base.rb:523:in `deliver!\'\n/home/followg1/ruby/gems/gems/actionmailer-2.3.8/lib/action_mailer/base.rb:395:in `method_missing\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/performable_method.rb:35:in `send\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/performable_method.rb:35:in `perform\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/backend/base.rb:74:in `invoke_job\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/worker.rb:122:in `run\'\n/usr/lib/ruby/1.8/timeout.rb:62:in `timeout\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/worker.rb:122:in `run\'\n/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/worker.rb:121:in `run\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/worker.rb:173:in `reserve_and_run_one_job\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/worker.rb:106:in `work_off\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/worker.rb:105:in `times\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/worker.rb:105:in `work_off\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/worker.rb:80:in `start\'\n/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/worker.rb:79:in `start\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/worker.rb:76:in `loop\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/worker.rb:76:in `start\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/command.rb:100:in `run\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/command.rb:79:in `run_process\'\n/home/followg1/ruby/gems/gems/daemons-1.0.10/lib/daemons/application.rb:215:in `call\'\n/home/followg1/ruby/gems/gems/daemons-1.0.10/lib/daemons/application.rb:215:in `start_proc\'\n/home/followg1/ruby/gems/gems/daemons-1.0.10/lib/daemons/daemonize.rb:192:in `call\'\n/home/followg1/ruby/gems/gems/daemons-1.0.10/lib/daemons/daemonize.rb:192:in `call_as_daemon\'\n/home/followg1/ruby/gems/gems/daemons-1.0.10/lib/daemons/application.rb:219:in `start_proc\'\n/home/followg1/ruby/gems/gems/daemons-1.0.10/lib/daemons/application.rb:255:in `start\'\n/home/followg1/ruby/gems/gems/daemons-1.0.10/lib/daemons/controller.rb:69:in `run\'\n/home/followg1/ruby/gems/gems/daemons-1.0.10/lib/daemons.rb:188:in `run_proc\'\n/home/followg1/ruby/gems/gems/daemons-1.0.10/lib/daemons/cmdline.rb:105:in `call\'\n/home/followg1/ruby/gems/gems/daemons-1.0.10/lib/daemons/cmdline.rb:105:in `catch_exceptions\'\n/home/followg1/ruby/gems/gems/daemons-1.0.10/lib/daemons.rb:187:in `run_proc\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/command.rb:78:in `run_process\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/command.rb:72:in `daemonize\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/command.rb:70:in `times\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/command.rb:70:in `daemonize\'\nscript/delayed_job:5','2011-06-17 17:15:35',NULL,NULL,NULL,'2011-06-01 03:37:45','2011-06-14 11:31:29'),(10,0,23,'--- !ruby/struct:Delayed::PerformableMethod \nobject: LOAD;UserMailer\nmethod: :deliver_activation\nargs: \n- LOAD;User;13\n','501 <>: missing or malformed local part\n\n/usr/lib/ruby/1.8/net/smtp.rb:930:in `check_response\'\n/usr/lib/ruby/1.8/net/smtp.rb:899:in `getok\'\n/usr/lib/ruby/1.8/net/smtp.rb:842:in `rcptto\'\n/usr/lib/ruby/1.8/net/smtp.rb:834:in `rcptto_list\'\n/usr/lib/ruby/1.8/net/smtp.rb:833:in `each\'\n/usr/lib/ruby/1.8/net/smtp.rb:833:in `rcptto_list\'\n/usr/lib/ruby/1.8/net/smtp.rb:654:in `sendmail\'\n/home/followg1/ruby/gems/gems/actionmailer-2.3.8/lib/action_mailer/base.rb:684:in `perform_delivery_smtp\'\n/usr/lib/ruby/1.8/net/smtp.rb:526:in `start\'\n/home/followg1/ruby/gems/gems/actionmailer-2.3.8/lib/action_mailer/base.rb:682:in `perform_delivery_smtp\'\n/home/followg1/ruby/gems/gems/actionmailer-2.3.8/lib/action_mailer/base.rb:523:in `__send__\'\n/home/followg1/ruby/gems/gems/actionmailer-2.3.8/lib/action_mailer/base.rb:523:in `deliver!\'\n/home/followg1/ruby/gems/gems/actionmailer-2.3.8/lib/action_mailer/base.rb:395:in `method_missing\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/performable_method.rb:35:in `send\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/performable_method.rb:35:in `perform\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/backend/base.rb:74:in `invoke_job\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/worker.rb:122:in `run\'\n/usr/lib/ruby/1.8/timeout.rb:62:in `timeout\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/worker.rb:122:in `run\'\n/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/worker.rb:121:in `run\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/worker.rb:173:in `reserve_and_run_one_job\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/worker.rb:106:in `work_off\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/worker.rb:105:in `times\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/worker.rb:105:in `work_off\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/worker.rb:80:in `start\'\n/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/worker.rb:79:in `start\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/worker.rb:76:in `loop\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/worker.rb:76:in `start\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/command.rb:100:in `run\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/command.rb:79:in `run_process\'\n/home/followg1/ruby/gems/gems/daemons-1.0.10/lib/daemons/application.rb:215:in `call\'\n/home/followg1/ruby/gems/gems/daemons-1.0.10/lib/daemons/application.rb:215:in `start_proc\'\n/home/followg1/ruby/gems/gems/daemons-1.0.10/lib/daemons/daemonize.rb:192:in `call\'\n/home/followg1/ruby/gems/gems/daemons-1.0.10/lib/daemons/daemonize.rb:192:in `call_as_daemon\'\n/home/followg1/ruby/gems/gems/daemons-1.0.10/lib/daemons/application.rb:219:in `start_proc\'\n/home/followg1/ruby/gems/gems/daemons-1.0.10/lib/daemons/application.rb:255:in `start\'\n/home/followg1/ruby/gems/gems/daemons-1.0.10/lib/daemons/controller.rb:69:in `run\'\n/home/followg1/ruby/gems/gems/daemons-1.0.10/lib/daemons.rb:188:in `run_proc\'\n/home/followg1/ruby/gems/gems/daemons-1.0.10/lib/daemons/cmdline.rb:105:in `call\'\n/home/followg1/ruby/gems/gems/daemons-1.0.10/lib/daemons/cmdline.rb:105:in `catch_exceptions\'\n/home/followg1/ruby/gems/gems/daemons-1.0.10/lib/daemons.rb:187:in `run_proc\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/command.rb:78:in `run_process\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/command.rb:72:in `daemonize\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/command.rb:70:in `times\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/command.rb:70:in `daemonize\'\nscript/delayed_job:5','2011-06-17 18:54:29',NULL,NULL,NULL,'2011-06-01 05:16:53','2011-06-14 13:10:23'),(11,0,23,'--- !ruby/struct:Delayed::PerformableMethod \nobject: LOAD;UserMailer\nmethod: :deliver_signup_notification\nargs: \n- LOAD;User;13\n','501 <>: missing or malformed local part\n\n/usr/lib/ruby/1.8/net/smtp.rb:930:in `check_response\'\n/usr/lib/ruby/1.8/net/smtp.rb:899:in `getok\'\n/usr/lib/ruby/1.8/net/smtp.rb:842:in `rcptto\'\n/usr/lib/ruby/1.8/net/smtp.rb:834:in `rcptto_list\'\n/usr/lib/ruby/1.8/net/smtp.rb:833:in `each\'\n/usr/lib/ruby/1.8/net/smtp.rb:833:in `rcptto_list\'\n/usr/lib/ruby/1.8/net/smtp.rb:654:in `sendmail\'\n/home/followg1/ruby/gems/gems/actionmailer-2.3.8/lib/action_mailer/base.rb:684:in `perform_delivery_smtp\'\n/usr/lib/ruby/1.8/net/smtp.rb:526:in `start\'\n/home/followg1/ruby/gems/gems/actionmailer-2.3.8/lib/action_mailer/base.rb:682:in `perform_delivery_smtp\'\n/home/followg1/ruby/gems/gems/actionmailer-2.3.8/lib/action_mailer/base.rb:523:in `__send__\'\n/home/followg1/ruby/gems/gems/actionmailer-2.3.8/lib/action_mailer/base.rb:523:in `deliver!\'\n/home/followg1/ruby/gems/gems/actionmailer-2.3.8/lib/action_mailer/base.rb:395:in `method_missing\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/performable_method.rb:35:in `send\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/performable_method.rb:35:in `perform\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/backend/base.rb:74:in `invoke_job\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/worker.rb:122:in `run\'\n/usr/lib/ruby/1.8/timeout.rb:62:in `timeout\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/worker.rb:122:in `run\'\n/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/worker.rb:121:in `run\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/worker.rb:173:in `reserve_and_run_one_job\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/worker.rb:106:in `work_off\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/worker.rb:105:in `times\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/worker.rb:105:in `work_off\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/worker.rb:80:in `start\'\n/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/worker.rb:79:in `start\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/worker.rb:76:in `loop\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/worker.rb:76:in `start\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/command.rb:100:in `run\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/command.rb:79:in `run_process\'\n/home/followg1/ruby/gems/gems/daemons-1.0.10/lib/daemons/application.rb:215:in `call\'\n/home/followg1/ruby/gems/gems/daemons-1.0.10/lib/daemons/application.rb:215:in `start_proc\'\n/home/followg1/ruby/gems/gems/daemons-1.0.10/lib/daemons/daemonize.rb:192:in `call\'\n/home/followg1/ruby/gems/gems/daemons-1.0.10/lib/daemons/daemonize.rb:192:in `call_as_daemon\'\n/home/followg1/ruby/gems/gems/daemons-1.0.10/lib/daemons/application.rb:219:in `start_proc\'\n/home/followg1/ruby/gems/gems/daemons-1.0.10/lib/daemons/application.rb:255:in `start\'\n/home/followg1/ruby/gems/gems/daemons-1.0.10/lib/daemons/controller.rb:69:in `run\'\n/home/followg1/ruby/gems/gems/daemons-1.0.10/lib/daemons.rb:188:in `run_proc\'\n/home/followg1/ruby/gems/gems/daemons-1.0.10/lib/daemons/cmdline.rb:105:in `call\'\n/home/followg1/ruby/gems/gems/daemons-1.0.10/lib/daemons/cmdline.rb:105:in `catch_exceptions\'\n/home/followg1/ruby/gems/gems/daemons-1.0.10/lib/daemons.rb:187:in `run_proc\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/command.rb:78:in `run_process\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/command.rb:72:in `daemonize\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/command.rb:70:in `times\'\n/home/followg1/ruby/gems/gems/delayed_job-2.0.7/lib/delayed/command.rb:70:in `daemonize\'\nscript/delayed_job:5','2011-06-17 18:54:29',NULL,NULL,NULL,'2011-06-01 05:16:53','2011-06-14 13:10:23');
 /*!40000 ALTER TABLE `delayed_jobs` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -233,8 +232,9 @@ CREATE TABLE `downloads` (
   `wallpaper_three_file_size` int(11) default NULL,
   `wallpaper_three_updated_at` datetime default NULL,
   `url` text collate utf8_unicode_ci,
+  `icon_link` varchar(255) collate utf8_unicode_ci default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -243,7 +243,7 @@ CREATE TABLE `downloads` (
 
 LOCK TABLES `downloads` WRITE;
 /*!40000 ALTER TABLE `downloads` DISABLE KEYS */;
-INSERT INTO `downloads` VALUES (1,'EGDeMusliM','Terran','Grubby','Protoss','Starcraft 2','2011-06-16 11:00:00',NULL,'Grubby Replay','Protoss vs Terran on Shattered Temple.','_1__P_Grubby_vs__T_EGDeMusliM_the_shattered_temple_sc2rep_com_20110517.sc2replay','application/octet-stream',237559,'2011-06-16 19:34:28','2011-06-16 19:34:28','2011-06-16 19:34:28','',NULL,NULL,NULL,NULL,'',NULL,NULL,NULL,NULL,'',NULL,NULL,NULL,NULL,''),(2,'Grubby','Protoss','LiquidTLO','Terran','Starcraft 2','2011-06-16 11:00:00',NULL,'Grubby Replay','Protoss vs Terran on Shakuras Plateau','_1__P_Grubby_vs__T_LiquidTLO_shakuras_plateau_sc2rep_com_20110424.sc2replay','application/octet-stream',89598,'2011-06-16 19:51:03','2011-06-16 19:51:03','2011-06-16 19:51:03','',NULL,NULL,NULL,NULL,'',NULL,NULL,NULL,NULL,'',NULL,NULL,NULL,NULL,''),(3,'Grubby','Protoss','Unix','Terran','Starcraft 2','2011-06-16 11:00:00',NULL,'Grubby Replay','Protoss vs Terran on Metalopolis ','_1__P_Grubby_vs__T_Unix_metalopolis_sc2rep_com_20110418.sc2replay','application/octet-stream',0,'2011-06-16 19:53:50','2011-06-16 19:53:50','2011-06-16 19:53:50','',NULL,NULL,NULL,NULL,'',NULL,NULL,NULL,NULL,'',NULL,NULL,NULL,NULL,''),(5,'','Terran','','Terran','Starcraft 2','2011-06-16 11:00:00',NULL,'Grubby Shield','<br><br> Aromor up your desktop with Grubby gear',NULL,NULL,NULL,NULL,'2011-06-16 20:17:06','2011-06-16 20:30:22','6:10','GrubbyShield_16x10_SamMcCaferty.jpg','image/jpeg',1627215,'2011-06-16 20:17:05','6:9','GrubbyShield_16x9_SamMcCaferty.jpg','image/jpeg',1500645,'2011-06-16 20:17:06','4:3','GrubbyShield_4x3_SamMcCaferty.jpg','image/jpeg',1307900,'2011-06-16 20:17:05','');
+INSERT INTO `downloads` VALUES (1,'EGDeMusliM','Terran','Grubby','Protoss','Starcraft 2','2011-06-16 11:00:00',NULL,'Grubby Replay','Protoss vs Terran on Shattered Temple.','_1__P_Grubby_vs__T_EGDeMusliM_the_shattered_temple_sc2rep_com_20110517.sc2replay','application/octet-stream',237559,'2011-06-16 19:34:28','2011-06-16 19:34:28','2011-06-16 19:34:28','',NULL,NULL,NULL,NULL,'',NULL,NULL,NULL,NULL,'',NULL,NULL,NULL,NULL,'',NULL),(2,'Grubby','Protoss','LiquidTLO','Terran','Starcraft 2','2011-06-16 11:00:00',NULL,'Grubby Replay','Protoss vs Terran on Shakuras Plateau','_1__P_Grubby_vs__T_LiquidTLO_shakuras_plateau_sc2rep_com_20110424.sc2replay','application/octet-stream',89598,'2011-06-16 19:51:03','2011-06-16 19:51:03','2011-06-16 19:51:03','',NULL,NULL,NULL,NULL,'',NULL,NULL,NULL,NULL,'',NULL,NULL,NULL,NULL,'',NULL),(3,'Grubby','Protoss','Unix','Terran','Starcraft 2','2011-06-16 11:00:00',NULL,'Grubby Replay','Protoss vs Terran on Metalopolis ','_1__P_Grubby_vs__T_Unix_metalopolis_sc2rep_com_20110418.sc2replay','application/octet-stream',0,'2011-06-16 19:53:50','2011-06-16 19:53:50','2011-06-16 19:53:50','',NULL,NULL,NULL,NULL,'',NULL,NULL,NULL,NULL,'',NULL,NULL,NULL,NULL,'',NULL),(5,'','Terran','','Terran','Starcraft 2','2011-06-20 11:00:00',NULL,'Grubby Shield','<br><br> Armor up your desktop with Grubby gear',NULL,NULL,NULL,NULL,'2011-06-16 20:17:06','2011-06-21 01:15:48','6:10','GrubbyShield_16x10.jpg','image/jpeg',1627215,'2011-06-18 05:09:31','6:9','GrubbyShield_16x9.jpg','image/jpeg',1500645,'2011-06-18 05:09:32','4:3','GrubbyShield_4x3.jpg','image/jpeg',1307900,'2011-06-18 05:09:31','',NULL),(6,'Grubby','Protoss','Battle.net','Terran','Starcraft 2','2011-06-16 11:00:00',NULL,'July Week 2 replay pack','Check out the best replays of the past week with Grubby\'s weekly FTW!','20110615_week2_sc2_replay_pack.zip','application/x-zip-compressed',2790796,'2011-06-17 03:50:19','2011-06-17 03:50:20','2011-06-17 03:50:20','',NULL,NULL,NULL,NULL,'',NULL,NULL,NULL,NULL,'',NULL,NULL,NULL,NULL,'',NULL),(7,'','Terran','','Terran','Starcraft 2','2011-06-17 11:00:00',NULL,'G is for Grubby','<br><br>Be inspired by all that is Grubby',NULL,NULL,NULL,NULL,'2011-06-18 04:39:34','2011-06-18 04:43:20','16:10','GrubbyGletter_16x10.jpg','image/jpeg',1510754,'2011-06-18 04:40:31','16:9','GrubbyGletter_16x9.jpg','image/jpeg',1451870,'2011-06-18 04:40:32','4:3','GrubbyGletter_4x3.jpg','image/jpeg',1405068,'2011-06-18 04:40:31','',NULL);
 /*!40000 ALTER TABLE `downloads` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -293,6 +293,7 @@ CREATE TABLE `events` (
   `link` varchar(255) collate utf8_unicode_ci NOT NULL,
   `created_at` datetime default NULL,
   `updated_at` datetime default NULL,
+  `show_time` tinyint(1) default '1',
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -303,7 +304,7 @@ CREATE TABLE `events` (
 
 LOCK TABLES `events` WRITE;
 /*!40000 ALTER TABLE `events` DISABLE KEYS */;
-INSERT INTO `events` VALUES (1,'Dreamhack Summer 2011','2011-06-08 20:00:00','http://www.dreamhack.se/splash/','2011-06-02 05:04:21','2011-06-02 05:04:21'),(2,'MLG Anaheim','2011-07-28 00:00:00','http://pro.majorleaguegaming.com/competitions/22','2011-06-02 05:09:17','2011-06-02 05:09:17'),(3,'Assembly Summer 2011','2011-08-05 16:53:00','http://www.assembly.org/summer11/','2011-06-16 16:54:58','2011-06-16 16:54:58'),(4,'MLG Raleigh','2011-08-26 16:55:00','http://pro.majorleaguegaming.com/competitions/23','2011-06-16 16:56:41','2011-06-16 16:56:41'),(5,'MLG Orlando','2011-10-12 16:56:00','http://pro.majorleaguegaming.com/competitions/24','2011-06-16 16:57:21','2011-06-16 16:57:21'),(6,'MLG Providence - National Finals','2011-11-18 16:57:00','http://pro.majorleaguegaming.com/competitions/25','2011-06-16 16:58:13','2011-06-16 16:58:13');
+INSERT INTO `events` VALUES (1,'Dreamhack Summer 2011','2011-06-08 20:00:00','http://www.dreamhack.se/splash/','2011-06-02 05:04:21','2011-06-20 05:31:45',0),(2,'MLG Anaheim','2011-07-28 00:00:00','http://pro.majorleaguegaming.com/competitions/22','2011-06-02 05:09:17','2011-06-20 05:31:50',0),(3,'Assembly Summer 2011','2011-08-05 16:53:00','http://www.assembly.org/summer11/','2011-06-16 16:54:58','2011-06-20 05:31:56',0),(4,'MLG Raleigh','2011-08-26 16:55:00','http://pro.majorleaguegaming.com/competitions/23','2011-06-16 16:56:41','2011-06-20 05:32:01',0),(5,'MLG Orlando','2011-10-12 16:56:00','http://pro.majorleaguegaming.com/competitions/24','2011-06-16 16:57:21','2011-06-20 05:32:06',0),(6,'MLG Providence - National Finals','2011-11-18 16:57:00','http://pro.majorleaguegaming.com/competitions/25','2011-06-16 16:58:13','2011-06-20 05:32:15',0);
 /*!40000 ALTER TABLE `events` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -369,7 +370,7 @@ CREATE TABLE `forums` (
   KEY `index_forums_on_parent_id` (`parent_id`),
   KEY `index_forums_on_posts_count` (`posts_count`),
   KEY `index_forums_on_topics_count` (`topics_count`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -378,7 +379,7 @@ CREATE TABLE `forums` (
 
 LOCK TABLES `forums` WRITE;
 /*!40000 ALTER TABLE `forums` DISABLE KEYS */;
-INSERT INTO `forums` VALUES (1,'Article Discussion','Discuss FollowGrubby.com Articles here',NULL,NULL,1,NULL,NULL,NULL,2,2,NULL,1,1),(3,'Staff Discussion','Staff only!',NULL,NULL,2,NULL,NULL,NULL,0,0,NULL,1,1),(4,'General','Anything goes, have fun.',NULL,NULL,3,NULL,NULL,NULL,0,0,NULL,1,1),(5,'Starcraft','All things Zerg, Protoss, and Terran',NULL,NULL,4,NULL,NULL,NULL,0,0,NULL,1,1),(6,'Warcraft','All things Night Elf, Orc, Undead, and Human',NULL,NULL,5,NULL,NULL,NULL,0,0,NULL,1,1),(7,'eSport Scene','Talk about the SC scene.',NULL,NULL,1,5,NULL,NULL,0,0,NULL,1,1),(8,'Strategy','Talk here about SC strategy',NULL,NULL,2,5,NULL,NULL,0,0,NULL,1,1),(9,'eSport Scene','Talk here about the Warcraft scene.',NULL,NULL,1,6,NULL,NULL,0,0,NULL,1,1),(10,'Strategy','Talk here about Warcraft strategy.',NULL,NULL,2,6,NULL,NULL,0,0,NULL,1,1);
+INSERT INTO `forums` VALUES (1,'Article Discussion','Discuss FollowGrubby.com Articles here',NULL,NULL,1,NULL,NULL,NULL,8,8,NULL,1,1),(11,'Warcraft 3','Discuss all things Night Elf, Undead, Orc and Human.',NULL,NULL,2,NULL,2,NULL,1,1,NULL,1,1);
 /*!40000 ALTER TABLE `forums` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -394,7 +395,7 @@ CREATE TABLE `group_users` (
   `user_id` int(11) default NULL,
   `group_id` int(11) default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -403,7 +404,7 @@ CREATE TABLE `group_users` (
 
 LOCK TABLES `group_users` WRITE;
 /*!40000 ALTER TABLE `group_users` DISABLE KEYS */;
-INSERT INTO `group_users` VALUES (1,3,1),(2,4,2),(3,3,3),(8,9,3),(9,10,3),(10,11,3),(11,3,4),(12,12,3),(13,13,3),(16,16,3),(17,17,3),(18,14,1),(19,14,3),(20,15,1),(21,15,3),(25,18,3);
+INSERT INTO `group_users` VALUES (1,3,1),(2,4,2),(3,3,3),(8,9,3),(9,10,3),(10,11,3),(11,3,4),(12,12,3),(13,13,3),(16,16,3),(17,17,3),(18,14,1),(19,14,3),(20,15,1),(21,15,3),(29,18,1),(30,18,3),(31,19,3),(32,20,3),(33,21,3);
 /*!40000 ALTER TABLE `group_users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -429,7 +430,7 @@ CREATE TABLE `groups` (
 
 LOCK TABLES `groups` WRITE;
 /*!40000 ALTER TABLE `groups` DISABLE KEYS */;
-INSERT INTO `groups` VALUES (1,'Administrators',3,'administrators'),(2,'Anonymous',4,'anonymous'),(3,'Registered Users',3,'registered_users'),(4,'Staff',3,'staff');
+INSERT INTO `groups` VALUES (1,'Administrators',3,'administrators'),(2,'Anonymous',4,'anonymous'),(3,'Registered Users',3,'registered_users');
 /*!40000 ALTER TABLE `groups` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -469,7 +470,7 @@ CREATE TABLE `ip_users` (
   `created_at` datetime default NULL,
   `updated_at` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -478,7 +479,7 @@ CREATE TABLE `ip_users` (
 
 LOCK TABLES `ip_users` WRITE;
 /*!40000 ALTER TABLE `ip_users` DISABLE KEYS */;
-INSERT INTO `ip_users` VALUES (1,1,4,'2011-05-28 06:46:53','2011-05-28 06:46:53'),(2,1,3,'2011-05-28 06:47:14','2011-05-28 06:47:14'),(3,1,11,'2011-05-28 08:00:57','2011-05-28 08:00:57'),(4,1,12,'2011-06-01 03:37:45','2011-06-01 03:37:45'),(5,1,13,'2011-06-01 05:16:53','2011-06-01 05:16:53'),(6,1,14,'2011-06-02 05:07:49','2011-06-02 05:07:49'),(7,2,14,'2011-06-10 00:04:58','2011-06-10 00:04:58'),(8,3,3,'2011-06-12 18:28:30','2011-06-12 18:28:30'),(9,1,16,'2011-06-12 18:33:32','2011-06-12 18:33:32'),(10,1,17,'2011-06-12 18:35:10','2011-06-12 18:35:10'),(11,3,17,'2011-06-12 18:44:50','2011-06-12 18:44:50'),(12,1,15,'2011-06-14 03:55:16','2011-06-14 03:55:16'),(13,1,18,'2011-06-16 16:50:04','2011-06-16 16:50:04');
+INSERT INTO `ip_users` VALUES (1,1,4,'2011-05-28 06:46:53','2011-05-28 06:46:53'),(2,1,3,'2011-05-28 06:47:14','2011-05-28 06:47:14'),(3,1,11,'2011-05-28 08:00:57','2011-05-28 08:00:57'),(4,1,12,'2011-06-01 03:37:45','2011-06-01 03:37:45'),(5,1,13,'2011-06-01 05:16:53','2011-06-01 05:16:53'),(6,1,14,'2011-06-02 05:07:49','2011-06-02 05:07:49'),(7,2,14,'2011-06-10 00:04:58','2011-06-10 00:04:58'),(8,3,3,'2011-06-12 18:28:30','2011-06-12 18:28:30'),(9,1,16,'2011-06-12 18:33:32','2011-06-12 18:33:32'),(10,1,17,'2011-06-12 18:35:10','2011-06-12 18:35:10'),(11,3,17,'2011-06-12 18:44:50','2011-06-12 18:44:50'),(12,1,15,'2011-06-14 03:55:16','2011-06-14 03:55:16'),(13,1,18,'2011-06-16 16:50:04','2011-06-16 16:50:04'),(14,1,19,'2011-06-18 07:08:14','2011-06-18 07:08:14'),(15,1,20,'2011-06-18 07:18:00','2011-06-18 07:18:00'),(16,1,21,'2011-06-21 06:47:08','2011-06-21 06:47:08'),(17,1,21,'2011-06-21 07:40:49','2011-06-21 07:40:49'),(18,1,21,'2011-06-21 07:52:28','2011-06-21 07:52:28');
 /*!40000 ALTER TABLE `ip_users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -506,6 +507,36 @@ LOCK TABLES `ips` WRITE;
 /*!40000 ALTER TABLE `ips` DISABLE KEYS */;
 INSERT INTO `ips` VALUES (1,'127.0.0.1','2011-05-28 06:46:53','2011-05-28 06:46:53'),(2,'75.142.87.198','2011-06-10 00:04:58','2011-06-10 00:04:58'),(3,'80.101.61.113','2011-06-12 18:28:30','2011-06-12 18:28:30');
 /*!40000 ALTER TABLE `ips` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `logos`
+--
+
+DROP TABLE IF EXISTS `logos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `logos` (
+  `id` int(11) NOT NULL auto_increment,
+  `picture_file_name` varchar(255) default NULL,
+  `picture_content_type` varchar(255) default NULL,
+  `image_remote_url` varchar(255) default NULL,
+  `picture_file_size` int(11) default NULL,
+  `picture_updated_at` datetime default NULL,
+  `position` int(11) default NULL,
+  `link` varchar(255) default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `logos`
+--
+
+LOCK TABLES `logos` WRITE;
+/*!40000 ALTER TABLE `logos` DISABLE KEYS */;
+INSERT INTO `logos` VALUES (1,'logo_blank.png','image/png',NULL,3209,'2011-06-21 06:20:59',1,''),(2,'logo_blank.png','image/png',NULL,3209,'2011-06-21 06:21:28',2,''),(3,'logo_blank.png','image/png',NULL,3209,'2011-06-21 06:21:37',3,''),(4,'logo_steelseries.png','image/png',NULL,19200,'2011-06-21 06:27:41',4,'http://steelseries.com/home');
+/*!40000 ALTER TABLE `logos` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -637,6 +668,7 @@ CREATE TABLE `permissions` (
   `can_manage_tvs` tinyint(1) default '0',
   `can_manage_albums` tinyint(1) default '0',
   `can_manage_photos` tinyint(1) default '0',
+  `can_manage_logos` tinyint(1) default '0',
   PRIMARY KEY  (`id`),
   KEY `index_permissions_on_category_id` (`category_id`),
   KEY `index_permissions_on_forum_id` (`forum_id`),
@@ -650,7 +682,7 @@ CREATE TABLE `permissions` (
 
 LOCK TABLES `permissions` WRITE;
 /*!40000 ALTER TABLE `permissions` DISABLE KEYS */;
-INSERT INTO `permissions` VALUES (1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,NULL,NULL,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1),(2,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,2,6,NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(3,1,1,0,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,3,6,NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,10,NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,1,NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(10,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,1,NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(11,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,1,NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,4,NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(17,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,4,NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(18,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,4,NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(19,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,4,NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(20,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,5,NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(21,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,5,NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(22,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,5,NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(23,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,5,NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(24,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,6,NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(25,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,6,NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(26,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,7,NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(27,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,7,NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(28,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,7,NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(29,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,7,NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(30,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,8,NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,8,NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(32,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,8,NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(33,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,8,NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(34,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,9,NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(35,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,9,NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(36,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,9,NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(37,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,9,NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(38,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,10,NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(39,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,10,NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(40,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,10,NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(41,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,3,NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(42,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,3,NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+INSERT INTO `permissions` VALUES (1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,NULL,NULL,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1),(2,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,2,NULL,NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(3,1,1,0,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,3,NULL,NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
 /*!40000 ALTER TABLE `permissions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -711,7 +743,7 @@ CREATE TABLE `posts` (
   PRIMARY KEY  (`id`),
   KEY `index_posts_on_id_and_topic_id` (`id`,`topic_id`),
   KEY `index_posts_on_ip_id` (`ip_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -720,6 +752,7 @@ CREATE TABLE `posts` (
 
 LOCK TABLES `posts` WRITE;
 /*!40000 ALTER TABLE `posts` DISABLE KEYS */;
+INSERT INTO `posts` VALUES (2,'2 circlets + claws = win?','2011-06-21 07:52:28','2011-06-21 07:52:28',21,10,NULL,NULL,NULL,0,1,1);
 /*!40000 ALTER TABLE `posts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -760,7 +793,7 @@ CREATE TABLE `read_topics` (
   `user_id` int(11) default NULL,
   `topic_id` int(11) default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -769,6 +802,7 @@ CREATE TABLE `read_topics` (
 
 LOCK TABLES `read_topics` WRITE;
 /*!40000 ALTER TABLE `read_topics` DISABLE KEYS */;
+INSERT INTO `read_topics` VALUES (1,21,10),(2,14,10);
 /*!40000 ALTER TABLE `read_topics` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -819,7 +853,7 @@ CREATE TABLE `schema_migrations` (
 
 LOCK TABLES `schema_migrations` WRITE;
 /*!40000 ALTER TABLE `schema_migrations` DISABLE KEYS */;
-INSERT INTO `schema_migrations` VALUES ('20110208041343'),('20110305234452'),('20110309033857'),('20110311033550'),('20110311033658'),('20110311034344'),('20110311034613'),('20110311034701'),('20110311034728'),('20110311034754'),('20110311034819'),('20110313053909'),('20110313055459'),('20110313234136'),('20110317043848'),('20110318022847'),('20110319172923'),('20110319185652'),('20110319190536'),('20110319200455'),('20110320000019'),('20110320015854'),('20110320022154'),('20110321024912'),('20110326220645'),('20110331025227'),('20110331043556'),('20110412015334'),('20110412024236'),('20110412025822'),('20110413034003'),('20110414013444'),('20110415032407'),('20110418182740'),('20110418192732'),('20110420014711'),('20110423231927'),('20110424004352'),('20110424005722'),('20110424023530'),('20110424023648'),('20110429020835'),('20110429224047'),('20110430221851'),('20110430225147'),('20110510033424'),('20110510043921'),('20110529032030'),('20110529221930');
+INSERT INTO `schema_migrations` VALUES ('20110208041343'),('20110305234452'),('20110309033857'),('20110311033550'),('20110311033658'),('20110311034344'),('20110311034613'),('20110311034701'),('20110311034728'),('20110311034754'),('20110311034819'),('20110313053909'),('20110313055459'),('20110313234136'),('20110317043848'),('20110318022847'),('20110319172923'),('20110319185652'),('20110319190536'),('20110319200455'),('20110320000019'),('20110320015854'),('20110320022154'),('20110321024912'),('20110326220645'),('20110331025227'),('20110331043556'),('20110412015334'),('20110412024236'),('20110412025822'),('20110413034003'),('20110414013444'),('20110415032407'),('20110418182740'),('20110418192732'),('20110420014711'),('20110423231927'),('20110424004352'),('20110424005722'),('20110424023530'),('20110424023648'),('20110429020835'),('20110429224047'),('20110430221851'),('20110430225147'),('20110510033424'),('20110510043921'),('20110529032030'),('20110529221930'),('20110618051506'),('20110620030040'),('20110621022746'),('20110621024552'),('20110621040107'),('20110621040941');
 /*!40000 ALTER TABLE `schema_migrations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -839,7 +873,7 @@ CREATE TABLE `subscriptions` (
   `created_at` datetime default NULL,
   `updated_at` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -848,6 +882,7 @@ CREATE TABLE `subscriptions` (
 
 LOCK TABLES `subscriptions` WRITE;
 /*!40000 ALTER TABLE `subscriptions` DISABLE KEYS */;
+INSERT INTO `subscriptions` VALUES (1,21,10,0,NULL,'2011-06-21 07:52:28','2011-06-21 07:52:29');
 /*!40000 ALTER TABLE `subscriptions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -870,7 +905,7 @@ CREATE TABLE `taggings` (
   PRIMARY KEY  (`id`),
   KEY `index_taggings_on_tag_id` (`tag_id`),
   KEY `index_taggings_on_taggable_id_and_taggable_type_and_context` (`taggable_id`,`taggable_type`,`context`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -879,7 +914,7 @@ CREATE TABLE `taggings` (
 
 LOCK TABLES `taggings` WRITE;
 /*!40000 ALTER TABLE `taggings` DISABLE KEYS */;
-INSERT INTO `taggings` VALUES (3,1,3,'Album',NULL,NULL,'tags','2011-06-14 05:20:26'),(4,2,3,'Album',NULL,NULL,'tags','2011-06-14 05:20:26'),(5,1,4,'Album',NULL,NULL,'tags','2011-06-14 05:29:28'),(6,2,4,'Album',NULL,NULL,'tags','2011-06-14 05:29:28'),(9,1,6,'Album',NULL,NULL,'tags','2011-06-14 06:28:03'),(10,2,6,'Album',NULL,NULL,'tags','2011-06-14 06:28:03'),(12,1,5,'Album',NULL,NULL,'tags','2011-06-14 06:41:26'),(13,2,5,'Album',NULL,NULL,'tags','2011-06-14 06:41:26'),(14,1,1,'Tv',NULL,NULL,'tags','2011-06-16 17:34:33'),(15,1,2,'Tv',NULL,NULL,'tags','2011-06-16 17:45:34'),(16,1,3,'Tv',NULL,NULL,'tags','2011-06-16 17:57:09'),(17,1,1,'Download',NULL,NULL,'tags','2011-06-16 19:34:28'),(18,1,2,'Download',NULL,NULL,'tags','2011-06-16 19:51:03'),(19,1,3,'Download',NULL,NULL,'tags','2011-06-16 19:53:50'),(22,4,5,'Download',NULL,NULL,'tags','2011-06-16 20:17:06'),(25,1,5,'Download',NULL,NULL,'tags','2011-06-16 20:20:54');
+INSERT INTO `taggings` VALUES (3,1,3,'Album',NULL,NULL,'tags','2011-06-14 05:20:26'),(4,2,3,'Album',NULL,NULL,'tags','2011-06-14 05:20:26'),(5,1,4,'Album',NULL,NULL,'tags','2011-06-14 05:29:28'),(6,2,4,'Album',NULL,NULL,'tags','2011-06-14 05:29:28'),(9,1,6,'Album',NULL,NULL,'tags','2011-06-14 06:28:03'),(10,2,6,'Album',NULL,NULL,'tags','2011-06-14 06:28:03'),(12,1,5,'Album',NULL,NULL,'tags','2011-06-14 06:41:26'),(13,2,5,'Album',NULL,NULL,'tags','2011-06-14 06:41:26'),(14,1,1,'Tv',NULL,NULL,'tags','2011-06-16 17:34:33'),(15,1,2,'Tv',NULL,NULL,'tags','2011-06-16 17:45:34'),(16,1,3,'Tv',NULL,NULL,'tags','2011-06-16 17:57:09'),(17,1,1,'Download',NULL,NULL,'tags','2011-06-16 19:34:28'),(18,1,2,'Download',NULL,NULL,'tags','2011-06-16 19:51:03'),(19,1,3,'Download',NULL,NULL,'tags','2011-06-16 19:53:50'),(22,4,5,'Download',NULL,NULL,'tags','2011-06-16 20:17:06'),(25,1,5,'Download',NULL,NULL,'tags','2011-06-16 20:20:54'),(26,1,6,'Download',NULL,NULL,'tags','2011-06-17 03:50:20'),(27,4,7,'Download',NULL,NULL,'tags','2011-06-18 04:39:34'),(28,1,7,'Download',NULL,NULL,'tags','2011-06-18 04:40:53'),(29,1,4,'Tv',NULL,NULL,'tags','2011-06-21 01:01:31'),(30,1,5,'Tv',NULL,NULL,'tags','2011-06-21 01:05:28');
 /*!40000 ALTER TABLE `taggings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -962,7 +997,7 @@ CREATE TABLE `tickers` (
 
 LOCK TABLES `tickers` WRITE;
 /*!40000 ALTER TABLE `tickers` DISABLE KEYS */;
-INSERT INTO `tickers` VALUES (1,'1on1 with Grubby',' by SteelSeries','1on1 With Grubby from SteelSeries','Grubby goes in depth about his career with the producer of gaming best weapons of virtual war, SteelSeries.  SteelSeries Covers going solo, Team Grubby support, the future, and much more!','1on1 With Grubby','20110614_1on1-with-grubby.jpg','image/jpeg',113478,'2011-06-14 07:22:53',1,'http://steelseries.com/gaming/teams/grubby/player-interviews/1on1-with-grubby'),(2,'Event Update','NASL','NASL Victory over Korean ledgend, Rainbow','In the last day of Division qualifiers, Grubby fights for pride and honor in this intense series.  Be sure you don’t miss out the VoDs!','Event Update: NASL','20110614_nasl_update.jpg','image/jpeg',178032,'2011-06-14 08:33:00',2,'http://nasl.tv/Match/Details/grubby-vs-rainbow-season-1-week-9-match-5'),(3,'Grubby Jersey','Give Away','EGS Tournament Grubby Jersey give away','Congratulations to Eli, winner of the Grubby Jersey Give-Away Cup! He took it home in spectacular fashion, coming back from a 0-2 deficit against Sleeep, making it 3-2 and thus becoming the first ever winner of a Grubby / EGS tournament','EGS Tournament','20110614_egs_update2.jpg','image/jpeg',155680,'2011-06-14 10:28:46',3,'http://www.egsonline.eu/tournament/pc/starcraft-2/Grubby-Jersey-Give-away-Cup-21'),(4,'Warcraft Commentaries','#2 Released','Grubby\'s Warcraft Commentaries Episode 2','It\'s here! The second episode of Grubby\'s retrospective commentaries is ready for viewing. ','Warcraft Commentaries #2','20110615_war3_commentary.jpg','image/jpeg',182148,'2011-06-17 02:23:30',4,'');
+INSERT INTO `tickers` VALUES (1,'1on1 with Grubby',' by SteelSeries','1on1 With Grubby from SteelSeries','Grubby goes in depth about his career with the producer of gaming best weapons of virtual war, SteelSeries.  SteelSeries Covers going solo, Team Grubby support, the future, and much more!','1on1 With Grubby','20110614_1on1-with-grubby.jpg','image/jpeg',113478,'2011-06-14 07:22:53',1,'http://steelseries.com/gaming/teams/grubby/player-interviews/1on1-with-grubby'),(2,'Event Update','NASL','NASL Victory over Korean ledgend, Rainbow','In the last day of Division qualifiers, Grubby fights for pride and honor in this intense series.  Be sure you don’t miss out the VoDs!','Event Update: NASL','20110614_nasl_update.jpg','image/jpeg',178032,'2011-06-14 08:33:00',2,'http://nasl.tv/Match/Details/grubby-vs-rainbow-season-1-week-9-match-5'),(3,'Grubby Jersey','Give Away','EGS Tournament Grubby Jersey give away','Congratulations to Eli, winner of the Grubby Jersey Give-Away Cup! He took it home in spectacular fashion, coming back from a 0-2 deficit against Sleeep, making it 3-2 and thus becoming the first ever winner of a Grubby / EGS tournament','EGS Tournament','20110614_egs_update2.jpg','image/jpeg',155680,'2011-06-14 10:28:46',3,'http://www.egsonline.eu/tournament/pc/starcraft-2/Grubby-Jersey-Give-away-Cup-21'),(4,'Warcraft Commentaries','#2 Released','Grubby\'s Warcraft Commentaries Episode 2','It\'s here! The second episode of Grubby\'s retrospective commentaries is ready for viewing. ','Warcraft Commentaries #2','20110615_war3_commentary.jpg','image/jpeg',182148,'2011-06-17 03:33:06',4,' http://followgrubby.com/articles/2');
 /*!40000 ALTER TABLE `tickers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -992,7 +1027,7 @@ CREATE TABLE `topics` (
   PRIMARY KEY  (`id`),
   KEY `index_topics_on_id_and_forum_id` (`id`,`forum_id`),
   KEY `index_topics_on_ip_id` (`ip_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1001,7 +1036,7 @@ CREATE TABLE `topics` (
 
 LOCK TABLES `topics` WRITE;
 /*!40000 ALTER TABLE `topics` DISABLE KEYS */;
-INSERT INTO `topics` VALUES (2,1,'Warcraft Commentaries #2 Discussion',3,'2011-06-17 03:04:18',0,0,0,NULL,NULL,0,1,0,NULL,1),(3,1,'Warcraft Commentaries pt 2 Discussion',3,'2011-06-17 03:21:44',0,0,0,NULL,NULL,0,1,0,NULL,2);
+INSERT INTO `topics` VALUES (2,1,'Warcraft Commentaries #2 Discussion',3,'2011-06-17 03:04:18',0,0,0,NULL,NULL,0,1,0,NULL,1),(3,1,'Warcraft Commentaries pt 2 Discussion',3,'2011-06-17 03:21:44',0,0,0,NULL,NULL,0,1,0,NULL,2),(4,1,'Test Discussion',3,'2011-06-18 07:10:29',0,0,0,NULL,NULL,0,1,0,NULL,3),(5,1,'test Discussion',3,'2011-06-19 00:21:08',0,0,0,NULL,NULL,0,1,0,NULL,4),(6,1,'Crap Discussion',3,'2011-06-19 00:27:09',0,0,0,NULL,NULL,0,1,0,NULL,5),(7,1,'Article Discussion',3,'2011-06-19 00:29:00',0,0,0,NULL,NULL,0,1,0,NULL,6),(8,1,'Test Discussion',3,'2011-06-19 00:41:19',0,0,0,NULL,NULL,0,1,0,NULL,7),(9,1,'Error Discussion',3,'2011-06-19 00:56:49',0,0,0,NULL,NULL,0,1,0,NULL,8),(10,11,'Bladmaster',21,'2011-06-21 07:52:28',0,2,0,2,NULL,0,1,0,NULL,NULL);
 /*!40000 ALTER TABLE `topics` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1030,8 +1065,9 @@ CREATE TABLE `tvs` (
   `thumb_content_type` varchar(255) collate utf8_unicode_ci default NULL,
   `thumb_file_size` int(11) default NULL,
   `thumb_updated_at` datetime default NULL,
+  `image_remote_url` varchar(255) collate utf8_unicode_ci default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1040,7 +1076,7 @@ CREATE TABLE `tvs` (
 
 LOCK TABLES `tvs` WRITE;
 /*!40000 ALTER TABLE `tvs` DISABLE KEYS */;
-INSERT INTO `tvs` VALUES (1,'Grubby','Grubby\'s Warcraft 3 retrospective part 2','You Tube','Warcraft 3','2011-06-16 11:00:00',3,'WC3 Retro pt. 2','2011-06-16 17:34:33','2011-06-17 01:40:27','<iframe width=\"425\" height=\"349\" src=\"http://www.youtube.com/embed/aN4bYGRS-p0\" frameborder=\"0\" allowfullscreen></iframe>','','http://youtu.be/aN4bYGRS-p0','thmvid_grubby_wc3.png','image/png',18259,'2011-06-17 01:40:27'),(2,'SteelSeries','Grubby\'s first StarCraft II grand slam event on US soil, at MLG Dallas 2011.','You Tube','Starcraft 2','2011-05-16 11:00:00',1,'Grubby at MLG Dallas 2011','2011-06-16 17:45:34','2011-06-16 21:37:22','<iframe width=\"560\" height=\"349\" src=\"http://www.youtube.com/embed/8tsQmtzb1k0\" frameborder=\"0\" allowfullscreen></iframe>','','http://youtu.be/8tsQmtzb1k0','thmvid_grubby_face_mlgcolumbus.png','image/png',16062,'2011-06-16 17:45:34'),(3,'Grubby','Grubby\'s Warcraft 3 retrospective part 1','JustinTV','Starcraft 2','2011-04-13 11:00:00',1,'WC3 Retro pt. 1','2011-06-16 17:57:09','2011-06-17 01:40:03','<object type=\"application/x-shockwave-flash\" height=\"300\" width=\"400\" id=\"clip_embed_player_flash\" data=\"http://www.justin.tv/widgets/archive_embed_player.swf\" bgcolor=\"#000000\"><param name=\"movie\" value=\"http://www.justin.tv/widgets/archive_embed_player.swf\" /><param name=\"allowScriptAccess\" value=\"always\" /><param name=\"allowNetworking\" value=\"all\" /><param name=\"allowFullScreen\" value=\"true\" /><param name=\"flashvars\" value=\"auto_play=false&start_volume=25&title=Episode 1 of \\&quot;Grubby\\\'s WarCraft III Commentaries\\&quot;&channel=followgrubby&archive_id=283644804\" /></object><br /><a href=\"http://www.justin.tv/followgrubby#r=-rid-&amp;s=em\" class=\"trk\" style=\"padding:2px 0px 4px; display:block; width: 320px; font-weight:normal; font-size:10px; text-decoration:underline; text-align:center;\">Watch live video from FollowGrubby on Justin.tv</a> ','<iframe frameborder=\"0\" scrolling=\"no\" id=\"chat_embed\" src=\"http://www.justin.tv/chat/embed?channel=followgrubby&amp;default_chat=jtv&amp;popout_chat=true#r=-rid-&amp;s=em\" height=\"500\" width=\"300\"></iframe> ','http://justin.tv/followgrubby/b/283644804','thmvid_grubby_wc3.png','image/png',18259,'2011-06-17 01:40:03');
+INSERT INTO `tvs` VALUES (1,'Grubby','Grubby\'s Warcraft 3 retrospective part 2','You Tube','Warcraft 3','2011-06-16 11:00:00',3,'WC3 Retro pt. 2','2011-06-16 17:34:33','2011-06-17 01:40:27','<iframe width=\"425\" height=\"349\" src=\"http://www.youtube.com/embed/aN4bYGRS-p0\" frameborder=\"0\" allowfullscreen></iframe>','','http://youtu.be/aN4bYGRS-p0','thmvid_grubby_wc3.png','image/png',18259,'2011-06-17 01:40:27',NULL),(2,'SteelSeries','Grubby\'s first StarCraft II grand slam event on US soil, at MLG Dallas 2011.','You Tube','Starcraft 2','2011-05-16 11:00:00',1,'Grubby at MLG Dallas 2011','2011-06-16 17:45:34','2011-06-16 21:37:22','<iframe width=\"560\" height=\"349\" src=\"http://www.youtube.com/embed/8tsQmtzb1k0\" frameborder=\"0\" allowfullscreen></iframe>','','http://youtu.be/8tsQmtzb1k0','thmvid_grubby_face_mlgcolumbus.png','image/png',16062,'2011-06-16 17:45:34',NULL),(3,'Grubby','Grubby\'s Warcraft 3 retrospective part 1','JustinTV','Starcraft 2','2011-04-13 11:00:00',1,'WC3 Retro pt. 1','2011-06-16 17:57:09','2011-06-17 01:40:03','<object type=\"application/x-shockwave-flash\" height=\"300\" width=\"400\" id=\"clip_embed_player_flash\" data=\"http://www.justin.tv/widgets/archive_embed_player.swf\" bgcolor=\"#000000\"><param name=\"movie\" value=\"http://www.justin.tv/widgets/archive_embed_player.swf\" /><param name=\"allowScriptAccess\" value=\"always\" /><param name=\"allowNetworking\" value=\"all\" /><param name=\"allowFullScreen\" value=\"true\" /><param name=\"flashvars\" value=\"auto_play=false&start_volume=25&title=Episode 1 of \\&quot;Grubby\\\'s WarCraft III Commentaries\\&quot;&channel=followgrubby&archive_id=283644804\" /></object><br /><a href=\"http://www.justin.tv/followgrubby#r=-rid-&amp;s=em\" class=\"trk\" style=\"padding:2px 0px 4px; display:block; width: 320px; font-weight:normal; font-size:10px; text-decoration:underline; text-align:center;\">Watch live video from FollowGrubby on Justin.tv</a> ','<iframe frameborder=\"0\" scrolling=\"no\" id=\"chat_embed\" src=\"http://www.justin.tv/chat/embed?channel=followgrubby&amp;default_chat=jtv&amp;popout_chat=true#r=-rid-&amp;s=em\" height=\"500\" width=\"300\"></iframe> ','http://justin.tv/followgrubby/b/283644804','thmvid_grubby_wc3.png','image/png',18259,'2011-06-17 01:40:03',NULL),(4,'Sett','Interesting interview with the Sett from Finland.','You Tube','Starcraft 2','2011-06-19 11:00:00',1,'Sett Interveiw - Dreamhack','2011-06-21 01:01:30','2011-06-21 12:05:20','<iframe width=\"560\" height=\"349\" src=\"http://www.youtube.com/embed/Z2w_D_fW1UE\" frameborder=\"0\" allowfullscreen></iframe>','','http://youtu.be/Z2w_D_fW1UE','thmvid_sett.png','image/png',14984,'2011-06-21 01:01:30',NULL),(5,'Grubby','4K^Grubby vs WE.suhO @ World E-sport Festival 2006 in China, Game 1 of Semi Finals. \r\n\r\n','You Tube','Warcraft 3','2011-06-20 11:00:00',NULL,'Grubby\'s WarCraft III Commentaries - Episode 3','2011-06-21 01:05:28','2011-06-21 01:05:28','<iframe width=\"560\" height=\"349\" src=\"http://www.youtube.com/embed/e68zPYgbhZ8\" frameborder=\"0\" allowfullscreen></iframe>','','http://youtu.be/e68zPYgbhZ8','thmvid_grubby_wc3.png','image/png',18259,'2011-06-21 01:05:28',NULL);
 /*!40000 ALTER TABLE `tvs` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1110,7 +1146,7 @@ CREATE TABLE `users` (
   `avatar_file_size` int(11) default NULL,
   `identifier` varchar(255) collate utf8_unicode_ci default NULL,
   `uid` text collate utf8_unicode_ci,
-  `avatar_file` varchar(255) collate utf8_unicode_ci default 'default',
+  `avatar_file` varchar(255) collate utf8_unicode_ci default 'default.png',
   `activated` tinyint(1) NOT NULL default '0',
   `reset_code` varchar(255) collate utf8_unicode_ci default '',
   `activation_code` varchar(255) collate utf8_unicode_ci default '',
@@ -1118,7 +1154,7 @@ CREATE TABLE `users` (
   KEY `index_users_on_id_and_user_level_id` (`id`,`user_level_id`),
   KEY `index_users_on_login` (`login`),
   KEY `index_users_on_login_time` (`login_time`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1127,7 +1163,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (3,'admiral','admin@followgrubby.com','c973f499b544d5dce8f16b44d9a739b90ebc9ada','95423de99761123fa12ff99a0572f3ddafb37cf4','2011-05-28 06:46:53','2011-06-14 05:58:23',NULL,NULL,NULL,NULL,'2011-06-14 05:58:23',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,1,NULL,'127.0.0.1','%d %B %Y','%I:%M:%S%P',30,NULL,NULL,NULL,'admiral',1,NULL,NULL,NULL,'administrator',NULL,'default',1,'',NULL),(4,'anonymous','anonymous@rboard.com','ac528f7209f9454b5a1332a7e663a3c3c07954cf','fecf40b398988d4c3e940f6c964d2ef5ca2087cb','2011-05-28 06:46:53','2011-05-28 06:46:53',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,NULL,1,NULL,'%d %B %Y','%I:%M:%S%P',30,NULL,NULL,NULL,'anonymous',1,NULL,NULL,NULL,'anonymous',NULL,'default',0,'','cf58be50beac2df3037246cc48be2653a8afc8f7'),(11,'ewpeters','ewpeters85@gmail.com','8dbc6c8294e9cb50420a818524ef5a855bfd2c4d','36c364566e0536b222c0e031d0926e4695addbd5','2011-05-28 07:57:10','2011-05-29 04:47:43',NULL,NULL,NULL,NULL,'2011-05-29 04:47:43',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,1,1,'127.0.0.1','%d %B %Y','%I:%M:%S%P',30,NULL,NULL,'ewpeters','ewpeters',1,NULL,NULL,NULL,NULL,NULL,'default',1,'a4ab808e915a74413a027803973dc87351fe463f',NULL),(12,'100000917177182',NULL,'a10af8315e747f0b492280cf080c834ad3f79293','55f2ae9f2d3b3ef665e09c4d745f772201da71dc','2011-06-01 03:37:45','2011-06-01 04:34:26',NULL,NULL,NULL,NULL,'2011-06-01 04:34:26',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,1,1,'127.0.0.1','%d %B %Y','%I:%M:%S%P',30,NULL,NULL,'Hyacinthe','hyacinthe',1,NULL,NULL,NULL,NULL,'100000917177182','default',1,'',NULL),(13,'501387606','','14ddbea49fe5a22b9aa2cc92897f2cb568114493','7c13f5c9d8e82e0c4783c5fa7e7e2c9f0ad90b00','2011-06-01 05:16:53','2011-06-01 05:17:32',NULL,NULL,NULL,'','2011-06-01 05:17:32',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,1,1,'127.0.0.1','%d %B %Y','%I:%M:%S%P',30,NULL,'International Date Line West','Princess','princess',1,NULL,NULL,NULL,NULL,'501387606','sc_t_marine.jpg',1,'',NULL),(14,'Raihn','Raihnazure@hotmail.com','cf59fa47e5f4a6a7c6d27c6e1d77c433041aa6ed','b3a0324b1d5ffe0752078b2fae5ace56f84bfb6b','2011-06-02 04:58:07','2011-06-17 03:32:11','50b030603472979fe6048b8a4a7e568500659056','2011-07-01 01:06:25',NULL,'','2011-06-17 03:32:11',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,1,1,'127.0.0.1','%d %B %Y','%I:%M:%S%P',30,NULL,'International Date Line West','Raihn','raihn',1,NULL,NULL,NULL,NULL,NULL,'sc_t_raynor.jpg',1,'',NULL),(15,'PeterMcBeater','erik.w.petersen86@gmail.com','e6210a10db4d12d52e2e081b692022a59336726c','6e9fbd834e6903c4693d75b786fd74599f2416b6','2011-06-02 05:04:04','2011-06-17 03:27:43',NULL,NULL,NULL,NULL,'2011-06-17 03:27:43',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,1,1,'127.0.0.1','%d %B %Y','%I:%M:%S%P',30,NULL,NULL,'PeterMcBeater','petermcbeater',1,NULL,NULL,NULL,NULL,NULL,'default',0,NULL,'fd90204679b1cc53089d0921e9526401dee2ba32'),(16,'Sayhi','gr.ubbymanuel@gmail.com','23cc9158d5c4dd17b396b642f1dc2bc99050bf65','f84a3b16abff06b521404ac218316d1186c3e958','2011-06-12 18:25:53','2011-06-12 18:33:38',NULL,NULL,NULL,NULL,'2011-06-12 18:33:38',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,1,1,'127.0.0.1','%d %B %Y','%I:%M:%S%P',30,NULL,NULL,'Blabla:D','blabla-d',1,NULL,NULL,NULL,NULL,NULL,'default',1,'',NULL),(17,'Bobo','gru.bbymanuel@gmail.com','5e7b4c0929bfe98457a895b2865d4d04530b27c3','47b554a54ade0bb7358d35de9ed6a993f308a32b','2011-06-12 18:27:44','2011-06-16 11:05:37','8ff5ac9a03bc79fa784321311670bf84f72d51a0','2011-06-30 11:05:18',NULL,'','2011-06-16 11:05:37',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,1,1,'80.101.61.113','%d %B %Y','%I:%M:%S%P',30,NULL,'International Date Line West','baba','baba',1,NULL,NULL,NULL,NULL,NULL,'sc_z_hydra.jpg',1,'',NULL),(18,'shagrath','mighty_honour_korea@hotmail.co.uk','f5cdff55dda51bb8b1990092fb54b18e11f10ff0','27a4a0bb4d9be5c2bed48b0079f7343530e34d7c','2011-06-16 16:49:15','2011-06-16 20:45:46','7d374257fa0aec348d9faa4e78cb0b4f90545f1e','2011-06-30 17:59:26',NULL,NULL,'2011-06-16 20:45:46',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,1,1,'127.0.0.1','%d %B %Y','%I:%M:%S%P',30,NULL,NULL,'shagrath','shagrath',1,NULL,NULL,NULL,NULL,NULL,'default',1,'',NULL);
+INSERT INTO `users` VALUES (3,'admiral','admin@followgrubby.com','c973f499b544d5dce8f16b44d9a739b90ebc9ada','95423de99761123fa12ff99a0572f3ddafb37cf4','2011-05-28 06:46:53','2011-06-18 19:33:59',NULL,NULL,NULL,NULL,'2011-06-14 05:58:23',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,1,NULL,'127.0.0.1','%d %B %Y','%I:%M:%S%P',30,NULL,NULL,NULL,'admiral',1,NULL,NULL,NULL,'administrator',NULL,'default.jpg',1,'',NULL),(4,'anonymous','anonymous@rboard.com','ac528f7209f9454b5a1332a7e663a3c3c07954cf','fecf40b398988d4c3e940f6c964d2ef5ca2087cb','2011-05-28 06:46:53','2011-06-18 19:33:59',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,NULL,1,NULL,'%d %B %Y','%I:%M:%S%P',30,NULL,NULL,NULL,'anonymous',1,NULL,NULL,NULL,'anonymous',NULL,'default.jpg',0,'','cf58be50beac2df3037246cc48be2653a8afc8f7'),(11,'ewpeters','ewpeters85@gmail.com','8dbc6c8294e9cb50420a818524ef5a855bfd2c4d','36c364566e0536b222c0e031d0926e4695addbd5','2011-05-28 07:57:10','2011-06-18 19:33:59',NULL,NULL,NULL,NULL,'2011-05-29 04:47:43',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,1,1,'127.0.0.1','%d %B %Y','%I:%M:%S%P',30,NULL,NULL,'ewpeters','ewpeters',1,NULL,NULL,NULL,NULL,NULL,'default.jpg',1,'a4ab808e915a74413a027803973dc87351fe463f',NULL),(12,'100000917177182',NULL,'a10af8315e747f0b492280cf080c834ad3f79293','55f2ae9f2d3b3ef665e09c4d745f772201da71dc','2011-06-01 03:37:45','2011-06-18 19:33:59',NULL,NULL,NULL,NULL,'2011-06-01 04:34:26',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,1,1,'127.0.0.1','%d %B %Y','%I:%M:%S%P',30,NULL,NULL,'Hyacinthe','hyacinthe',1,NULL,NULL,NULL,NULL,'100000917177182','default.jpg',1,'',NULL),(13,'501387606','','14ddbea49fe5a22b9aa2cc92897f2cb568114493','7c13f5c9d8e82e0c4783c5fa7e7e2c9f0ad90b00','2011-06-01 05:16:53','2011-06-01 05:17:32',NULL,NULL,NULL,'','2011-06-01 05:17:32',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,1,1,'127.0.0.1','%d %B %Y','%I:%M:%S%P',30,NULL,'International Date Line West','Princess','princess',1,NULL,NULL,NULL,NULL,'501387606','sc_t_marine.jpg',1,'',NULL),(14,'Raihn','Raihnazure@hotmail.com','cf59fa47e5f4a6a7c6d27c6e1d77c433041aa6ed','b3a0324b1d5ffe0752078b2fae5ace56f84bfb6b','2011-06-02 04:58:07','2011-06-21 19:41:22',NULL,NULL,NULL,'','2011-06-21 19:41:22',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,1,1,'127.0.0.1','%d %B %Y','%I:%M:%S%P',30,NULL,'International Date Line West','Raihn','raihn',1,NULL,NULL,NULL,NULL,NULL,'wc_hu_pally.png',1,'',NULL),(15,'PeterMcBeater','erik.w.petersen86@gmail.com','e6210a10db4d12d52e2e081b692022a59336726c','6e9fbd834e6903c4693d75b786fd74599f2416b6','2011-06-02 05:04:04','2011-06-21 07:57:06',NULL,NULL,NULL,NULL,'2011-06-21 07:57:06',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,1,1,'127.0.0.1','%d %B %Y','%I:%M:%S%P',30,NULL,NULL,'PeterMcBeater','petermcbeater',1,NULL,NULL,NULL,NULL,NULL,'default.jpg',1,NULL,NULL),(16,'Sayhi','gr.ubbymanuel@gmail.com','23cc9158d5c4dd17b396b642f1dc2bc99050bf65','f84a3b16abff06b521404ac218316d1186c3e958','2011-06-12 18:25:53','2011-06-18 19:33:59',NULL,NULL,NULL,NULL,'2011-06-12 18:33:38',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,1,1,'127.0.0.1','%d %B %Y','%I:%M:%S%P',30,NULL,NULL,'Blabla:D','blabla-d',1,NULL,NULL,NULL,NULL,NULL,'default.jpg',1,'',NULL),(17,'Bobo','gru.bbymanuel@gmail.com','5e7b4c0929bfe98457a895b2865d4d04530b27c3','47b554a54ade0bb7358d35de9ed6a993f308a32b','2011-06-12 18:27:44','2011-06-16 11:05:37','8ff5ac9a03bc79fa784321311670bf84f72d51a0','2011-06-30 11:05:18',NULL,'','2011-06-16 11:05:37',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,1,1,'80.101.61.113','%d %B %Y','%I:%M:%S%P',30,NULL,'International Date Line West','baba','baba',1,NULL,NULL,NULL,NULL,NULL,'sc_z_hydra.jpg',1,'',NULL),(18,'shagrath','mighty_honour_korea@hotmail.co.uk','f5cdff55dda51bb8b1990092fb54b18e11f10ff0','27a4a0bb4d9be5c2bed48b0079f7343530e34d7c','2011-06-16 16:49:15','2011-06-21 17:01:18','5ed6755e266feb8467e6eccb53a412eb4cd2d41d','2011-07-05 17:00:54',NULL,NULL,'2011-06-21 17:01:18',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,1,1,'127.0.0.1','%d %B %Y','%I:%M:%S%P',30,NULL,NULL,'shagrath','shagrath',1,NULL,NULL,NULL,NULL,NULL,'default.jpg',1,'',NULL),(19,'100001670522320','','261c3076941cfedbc5ec4ca17a16b413ce383827','74606510f1304885b55c3003957abb7179a5805d','2011-06-18 07:08:13','2011-06-20 01:24:23',NULL,NULL,NULL,'','2011-06-20 01:24:23',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,1,1,'127.0.0.1','%d %B %Y','%I:%M:%S%P',30,NULL,'International Date Line West','Crap','crap',1,NULL,NULL,NULL,NULL,'100001670522320','wc_hu_bloodmage.png',1,'',NULL),(20,'725895160',NULL,'d0230c17c540faf7a46d0d2758330e6006e396d0','a35f4f8c9924ccd5bfe677368d3aa2fbb4480096','2011-06-18 07:18:00','2011-06-20 05:25:38',NULL,NULL,NULL,NULL,'2011-06-20 05:25:38',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,1,1,'127.0.0.1','%d %B %Y','%I:%M:%S%P',30,NULL,NULL,'Joshua','joshua',1,NULL,NULL,NULL,NULL,'725895160','default.jpg',1,'',NULL),(21,'random','ewpeters85@gmail.com','5c27a9f4ba0fa472b5626e2d795c133f5491ed13','736d93ce24b9350192593d3811d66c9b970190ac','2011-06-21 06:46:36','2011-06-21 07:53:39',NULL,NULL,NULL,NULL,'2011-06-21 07:53:39',NULL,NULL,NULL,0,NULL,NULL,NULL,NULL,1,1,'127.0.0.1','%d %B %Y','%I:%M:%S%P',30,NULL,NULL,'random','random',1,NULL,NULL,NULL,NULL,NULL,'default.png',1,'',NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -1140,4 +1176,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2011-06-16 22:32:36
+-- Dump completed on 2011-06-21 21:04:29

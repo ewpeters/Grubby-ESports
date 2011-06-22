@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110621040107) do
+ActiveRecord::Schema.define(:version => 20110622031122) do
 
   create_table "albums", :force => true do |t|
     t.string   "title"
@@ -107,6 +107,7 @@ ActiveRecord::Schema.define(:version => 20110621040107) do
     t.datetime "wallpaper_three_updated_at"
     t.text     "url"
     t.string   "icon_link"
+    t.string   "icon_image_link"
   end
 
   create_table "edits", :force => true do |t|
@@ -431,6 +432,9 @@ ActiveRecord::Schema.define(:version => 20110621040107) do
     t.string   "thumb_content_type"
     t.integer  "thumb_file_size"
     t.datetime "thumb_updated_at"
+    t.string   "image_remote_url"
+    t.string   "icon_image_link"
+    t.string   "thumbnail_image_link"
   end
 
   create_table "user_levels", :id => false, :force => true do |t|

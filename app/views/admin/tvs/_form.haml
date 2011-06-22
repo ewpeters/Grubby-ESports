@@ -24,10 +24,7 @@
     %div{:class => "field"}
       %div= f.label :chat_code
       %div= " (for You tube leave blank)"
-      %div= f.text_area :chat_code, :size => "40x4"    
-    %div{:class => "field"}
-      %div= f.label :game
-      %div= select(:tv, :game, Tv::GAMES)
+      %div= f.text_area :chat_code, :size => "40x4"
     %div{:class => "field"}
       %div= f.label :video_type
       %div= select(:tv, :video_type, Tv::VIDEO_TYPE)
@@ -44,10 +41,10 @@
       %h1= f.label :thumb
       %span 133x69 for thumbnail
       %div= f.file_field  :thumb
-    %h3 or link 133x69 again
+    %h3 or url MAKE SURE ITS THE RIGHT SIZE
     %div{:class => "field"}
-      %div= f.label :image_url
-      %div= f.text_field  :image_url
+      %div= f.label :thumbnail_image_link
+      %div= f.text_field  :thumbnail_image_link
     %div{:class => "actions"}
       %div= f.submit
     %h1 Instructions

@@ -35,12 +35,9 @@
               .map
                 = image_tag("/images/#{media.game.gsub(' ', '_')}.png")
               .download
-                %a{:href => media.media_file.path}
-                  - if media.icon_link
-                    = image_tag(icon_link)
-                  -else
-                    = image_tag("media/#{media.game}_download.png")
-      
+                - link = media.media_file.nil? ? media.url : media.media_file.path
+                %a{:href => link}
+                  = image_tag(media.icon_image_link)    
       - else
         .media_item.wallpaper
           %span.side_date= media.display_date.strftime('%d.%m.%Y')
@@ -54,9 +51,12 @@
                   %div.summary= media.summary
                   %div.links
                     %a.link{:href => media.wallpaper_one.url}
-                    %span.ratio= media.wallpaper_one_label
+                    %a.ratio{:href => media.wallpaper_one.url}
+                      %span= media.wallpaper_one_label
                     %a.link{:href => media.wallpaper_two.url}
-                    %span.ratio= media.wallpaper_two_label
+                    %a.ratio{:href => media.wallpaper_two.url}
+                      %span= media.wallpaper_two_label
                     %a.link{:href => media.wallpaper_three.url}
-                    %span.ratio= media.wallpaper_three_label
+                    %a.ratio{:href => media.wallpaper_three.url}
+                      %span= media.wallpaper_three_label
 = render :partial => "features/features"
