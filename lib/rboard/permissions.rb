@@ -12,17 +12,13 @@ module Rboard::Permissions
       # Objects at the moment are forum and category, but there is room to add more.
       # If the object is a forum or category it will find the ancestors for these and
       # then work its way up to the top. The top-most permission takes precendence.
-      def permissions_for(thing = nil, single = false, action = "")
+      def permissions_for(thing = nil, single = false)
         return {} if thing.nil?
         association = "#{thing.class.to_s.downcase}_id"
         conditions = "permissions.#{association} = '#{thing.id}'"
         permission = permissions.first(:conditions => conditions)
         if permission.nil?
-          # if !can?(:access_admin_section) 
-          #   return {"can_#{action}" => false}
-          # else
-          {}
-          # end
+         {}
         else
           attributes = permission.attributes
           unless single
@@ -38,23 +34,20 @@ module Rboard::Permissions
 
       # Takes the global permissions and merges it with the permissions for an object.
       # The #permissions_for permissions will take precedence over the global permissions.
-      def overall_permissions(thing, action="")
-        global_permissions.merge!(permissions_for(thing, false, action))
+      def overall_permissions(thing)
+        puts login
+        puts thing
+        puts permissions_for(thing)
+        puts global_permissions
+        global_permissions.merge!(permissions_for(thing))
       end
 
       # Can the user do this action?
       # If no object is given checks global permissions.
       # If no permissions set for that user then it defaults to false.
       def can?(action, thing = nil)
-        if action == :see_forum
-          if (thing.groups.collect{|g| g.users}.flatten.member?(self))
-            return true
-          else
-            return false
-          end
-        else
-          !!overall_permissions(thing, action)["can_#{action}"]
-        end
+        puts  "can"
+        !!overall_permissions(thing)["can_#{action}"]
       end
 
       # Instead of having a multi if-statement line, use this.

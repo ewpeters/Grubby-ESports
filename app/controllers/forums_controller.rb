@@ -15,7 +15,7 @@ class ForumsController < ApplicationController
       # FIXME: I have worked too long on this.
       # HELP: I need fresh eyes.
       @categories = Category.without_parent.select { |c| current_user.can?(:see_category, c) }
-      @forums = Forum.without_category.without_parent.select { |f| current_user.can?(:see_forum, f) }
+      @forums = Forum.without_category.without_parent.select{ |f| current_user.can?(:see_forum, f) }
     end
     @lusers = User.recent.map { |u| u.to_s }.to_sentence
     # Remove one for anonymous

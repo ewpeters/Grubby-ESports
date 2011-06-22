@@ -34,7 +34,7 @@
   %div If you want to create a new article click the check box below, if you want to link to an existing article paste the url into the link field above
   = check_box_tag("Article", "Attach Article", false, :onClick => "$('#article').toggle()")
   %div#article{:style => "display:none;"}
-    = f.fields_for :article, @article do |builder|
+    - f.fields_for :article, @article do |builder|
       %div{:class => "field"}
         %div= builder.label :title
         %div= builder.text_field :title

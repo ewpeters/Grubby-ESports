@@ -120,8 +120,12 @@
         %div#logo_box
           = image_tag "grubby_header_logo.png", :class => "logo"
           - @logos.each_with_index do |logo, i|
-            %a.sponsor{:href => logo.link, :target => "_blank", :style => "left: #{500 + (i * 124)}px"}
-              = image_tag logo.picture.url
+            - if logo.link.blank?
+              %span.sponsor{:style => "left: #{500 + (i * 124)}px"}
+                = image_tag logo.picture.url
+            -else
+              %a.sponsor{:href => logo.link, :target => "_blank", :style => "left: #{500 + (i * 124)}px"}
+                = image_tag logo.picture.url
         = navigation [:home, "Home"], [:tvs, "GrubbyTV"], [:downloads, "Downloads"], [:albums, "Gallery"], [:shop, "Shop"], [:forums, "Discussions"], [:welcome, "Welcome"], [:partners, "Pylons"]
       #content
         #main

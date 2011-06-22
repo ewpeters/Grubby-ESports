@@ -222,8 +222,9 @@ img {
 
 #logo_box {
   position: absolute;
-  top: 26px;
-  z-index: -1; }
+  top: 31px;
+  z-index: -1;
+  margin-left: 20px; }
 
 .sponsor {
   position: absolute;

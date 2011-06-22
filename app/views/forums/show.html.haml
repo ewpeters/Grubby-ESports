@@ -1,6 +1,4 @@
 - @title = t(:Viewing_forum, :forum => @forum)
-- content_for :feed do
-  %link{:href => forum_url(@forum, :format => :rss), :rel => "alternate", :title => "#{@forum.title} Feed", :type => "application/rss+xml"}/
 %span.breadcrumbs
   = link_to(t(:Forums), forums_path)
   \&raquo;
@@ -15,7 +13,7 @@
 %h2= t(:Viewing_forum, :forum => @forum)
 = will_paginate @topics
 = render :partial => "topics/new_button"
-= form_tag moderator_topics_path do
+- form_tag moderator_topics_path do
   %ul.topics.listing
     - if @forum.topics.exists?
       - for topic in @topics

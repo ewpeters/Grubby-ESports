@@ -41,9 +41,13 @@
       %span (optional)
       %div= f.text_field :link
     %div{:class => "field"}
-      %div= f.label :thumb
+      %h1= f.label :thumb
       %span 133x69 for thumbnail
       %div= f.file_field  :thumb
+    %h3 or link 133x69 again
+    %div{:class => "field"}
+      %div= f.label :image_url
+      %div= f.text_field  :image_url
     %div{:class => "actions"}
       %div= f.submit
     %h1 Instructions
