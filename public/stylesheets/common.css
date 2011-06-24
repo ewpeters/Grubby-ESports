@@ -12,8 +12,7 @@
 
 @font-face {
   font-family: "cgoth";
-  font-family-src: url("/fonts/gothic-webfont.eot");
-  font-family-src: local("☺"), url("/fonts/gothic-webfont.woff") format("woff"),  url("/fonts/gothic-webfont.otf") format("opentype"),  url("/fonts/gothic-webfont.svg#gothic-webfont") format("svg"); }
+  src: url("/fonts/gothic-webfont.eot?") format("eot"), url("/fonts/gothic-webfont.woff") format("woff"),  url("/fonts/gothic-webfont.otf") format("opentype"),  url("/fonts/gothic-webfont.svg#gothic-webfont") format("svg"); }
 
 @font-face {
   font-family: "cgothi";
@@ -22,8 +21,7 @@
 
 @font-face {
   font-family: "cgothb";
-  src: url("/fonts/gothicb-webfont.eot");
-  src: local("☺"),  url("/fonts/gothicb-webfont.woff") format("woff"),  url("/fonts/gothicb-webfont.otf") format("opentype"),  url("/fonts/gothicb-webfont.svg#gothicb-webfont") format("svg"); }
+  src: url("/fonts/gothicb-webfont.eot?") format("eot"), url("/fonts/gothicb-webfont.woff") format("woff"),  url("/fonts/gothicb-webfont.otf") format("opentype"),  url("/fonts/gothicb-webfont.svg#gothicb-webfont") format("svg"); }
 
 @font-face {
   font-family: "cgothbi";
@@ -135,7 +133,7 @@ img {
     color: black;
     font-size: 16px;
     color: black;
-    font-weight: bold;
+    font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif;
     font-size: 16px;
     height: 20px;
     line-height: 19px;
@@ -191,7 +189,7 @@ img {
       background-color: white;
       color: black;
       font-size: 16px;
-      font-weight: bold;
+      font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif;
       position: absolute;
       top: 30px;
       line-height: 14px;
@@ -247,6 +245,32 @@ img {
   padding-top: 20px;
   padding-bottom: 35px; }
 
+.status_box {
+  background-color: #030303;
+  background: -moz-linear-gradient(top left,  #363636,  #030303);
+  background: -webkit-gradient(linear, left top, right bottom, from(#363636), to(#030303));
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px;
+  font-size: 14px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
+  height: 75px;
+  width: 178px;
+  margin-top: 15px;
+  position: relative; }
+  .status_box .inner_status_box {
+    vertical-align: middle;
+    position: absolute;
+    padding: 7px;
+    font-size: 11px;
+    top: 12.5px;
+    width: 164px;
+    height: 36px;
+    background: -moz-linear-gradient(top left,  #454545,  #2D2D2D);
+    background: -webkit-gradient(linear, left top, right bottom, from(#454545), to(#2D2D2D)); }
+
 #content {
   width: 1011px;
   background-image: url("/images/content_bg.png");
@@ -295,7 +319,7 @@ img {
         width: 170px; }
         #content #side_bar .box .inner_box .follow {
           color: #656565;
-          font-weight: bold;
+          font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif;
           margin-left: -6px; }
         #content #side_bar .box .inner_box img {
           -moz-border-radius: 5px 5px 5px 5px;
@@ -333,7 +357,7 @@ img {
   -webkit-box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
   color: white;
-  font-weight: bold;
+  font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif;
   position: relative; }
   #news #loading {
     position: absolute;
@@ -358,7 +382,7 @@ img {
     top: 15px; }
   #news .news_item {
     font-size: 12px;
-    font-weight: bold;
+    font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif;
     height: 32px;
     line-height: 32px;
     padding-left: 30px;
@@ -368,7 +392,7 @@ img {
     width: 177px; }
   #news .news_item.selected a {
     color: white;
-    font-weight: bold; }
+    font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif; }
   #news .arrow {
     width: 12px;
     height: 10px;
@@ -385,12 +409,12 @@ img {
     padding-left: 25px;
     padding-top: 10px; }
     #news .summary .title {
-      font-weight: bold;
+      font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif;
       color: #06264b;
       font-size: 22px;
       margin-bottom: 10px; }
     #news .summary .body {
-      font-weight: bold;
+      font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif;
       line-height: 18px;
       color: white; }
 
@@ -419,7 +443,7 @@ img {
     font-size: 11px;
     letter-spacing: 1px;
     color: #010101;
-    font-weight: bold; }
+    font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif; }
     #features .feature .overlay {
       position: absolute;
       top: 0px;
@@ -479,7 +503,7 @@ ul#nav_bar {
     ul#nav_bar li a {
       width: 100px;
       color: #ade2f5;
-      font-weight: bold;
+      font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif;
       font-size: 23px;
       text-decoration: none;
       text-align: center;
@@ -641,7 +665,7 @@ ul#nav_bar {
       border: 0;
       width: 105px;
       font-size: 14px;
-      font-weight: bold;
+      font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif;
       text-align: center; }
   #media_container #filters {
     position: absolute;
@@ -943,7 +967,7 @@ thead tr {
       border: 0;
       width: 105px;
       font-size: 14px;
-      font-weight: bold;
+      font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif;
       text-align: center; }
   #tv_container #filters {
     position: absolute;

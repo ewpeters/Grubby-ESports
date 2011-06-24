@@ -37,16 +37,14 @@
   
 @font-face
   font-family: "cgoth" 
-    src: url("/fonts/gothic-webfont.eot")
-    src: local("☺"), url("/fonts/gothic-webfont.woff") format("woff"),  url("/fonts/gothic-webfont.otf") format("opentype"),  url("/fonts/gothic-webfont.svg#gothic-webfont") format("svg")
+  src: url("/fonts/gothic-webfont.eot?") format("eot"), url("/fonts/gothic-webfont.woff") format("woff"),  url("/fonts/gothic-webfont.otf") format("opentype"),  url("/fonts/gothic-webfont.svg#gothic-webfont") format("svg")
 @font-face 
   font-family: "cgothi" 
   src: url("/fonts/gothici-webfont.eot") 
   src: local("☺"),  url("/fonts/gothici-webfont.woff") format("woff"), url("/fonts/gothici-webfont.otf") format("opentype"), url("/fonts/gothici-webfont.svg#gothici-webfont") format("svg")
 @font-face 
   font-family: "cgothb" 
-  src: url("/fonts/gothicb-webfont.eot") 
-  src: local("☺"),  url("/fonts/gothicb-webfont.woff") format("woff"),  url("/fonts/gothicb-webfont.otf") format("opentype"),  url("/fonts/gothicb-webfont.svg#gothicb-webfont") format("svg")
+  src: url("/fonts/gothicb-webfont.eot?") format("eot"), url("/fonts/gothicb-webfont.woff") format("woff"),  url("/fonts/gothicb-webfont.otf") format("opentype"),  url("/fonts/gothicb-webfont.svg#gothicb-webfont") format("svg")
 @font-face 
   font-family: "cgothbi" 
   src: url("fonts/gothicbi-webfont.eot") 
@@ -58,6 +56,9 @@
 
 =blue 
   color:  #74aed3
+
+=bold
+  font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif
 
 =grey 
   color:  #878787
@@ -154,7 +155,7 @@ img
     border-radius:  10px
     +button
     color: black
-    font-weight: bold
+    +bold
     font-size: 16px
     height:  20px
     line-height:  19px
@@ -200,7 +201,7 @@ img
       font-family: verdana,arial,helvetica,sans-serif
     #submit 
       +button
-      font-weight: bold
+      +bold
       position:  absolute
       top:  30px
       line-height:  14px
@@ -259,6 +260,31 @@ img
   padding-top: 20px
   padding-bottom: 35px
 
+.status_box
+  background-color:  #030303
+  background:  -moz-linear-gradient(top left,  #363636,  #030303)
+  background:  -webkit-gradient(linear, left top, right bottom, from(#363636), to(#030303))
+  -moz-border-radius:  10px 10px 10px 10px
+  -webkit-border-radius:  10px
+  font-size: 14px
+  border-radius:  10px
+  +drop_shadow
+  height: 75px
+  width: 178px
+  margin-top: 15px
+  position: relative
+  .inner_status_box
+    vertical-align: middle
+    position: absolute
+    padding: 7px
+    font-size: 11px
+    top: 12.5px
+    width: 164px
+    height: 36px
+    background:  -moz-linear-gradient(top left,  #454545,  #2D2D2D) 
+    background:  -webkit-gradient(linear, left top, right bottom, from(#454545), to(#2D2D2D))
+    
+  
 #content 
   width: 1011px
   background-image:  url("/images/content_bg.png")
@@ -305,7 +331,7 @@ img
         width: 170px
         .follow 
           color:  #656565
-          font-weight:  bold
+          +bold
           margin-left: -6px
         
         img 
@@ -350,7 +376,7 @@ img
   -webkit-box-shadow:  0 6px 10px rgba(0, 0, 0, 0.5)
   -moz-box-shadow:  0 6px 10px rgba(0, 0, 0, 0.5)
   color:  white
-  font-weight: bold
+  +bold
   position:  relative
   #loading 
     position:  absolute
@@ -380,7 +406,7 @@ img
   
   .news_item 
     font-size: 12px
-    font-weight: bold
+    +bold
     height: 32px
     line-height: 32px
     padding-left: 30px
@@ -392,7 +418,7 @@ img
   .news_item.selected 
     a
       color:  white
-      font-weight: bold
+      +bold
   .arrow 
     width:  12px
     height:  10px
@@ -410,13 +436,13 @@ img
     padding-left:  25px
     padding-top:  10px
     .title  
-      font-weight:  bold
+      +bold
       color: #06264b
       font-size:  22px
       margin-bottom:  10px
     
     .body 
-      font-weight: bold
+      +bold
       line-height: 18px
       color: white
     
@@ -441,7 +467,7 @@ img
     font-size:  11px
     letter-spacing:  1px
     color:  #010101
-    font-weight:  bold
+    +bold
     .overlay 
       position:  absolute
       top:  0px
@@ -510,7 +536,7 @@ ul#nav_bar
     a 
       width: 100px
       color: #ade2f5
-      font-weight: bold
+      +bold
       font-size: 23px
       text-decoration:  none
       text-align: center
@@ -673,7 +699,7 @@ ul#nav_bar
         border:  0
         width:  105px
         font-size:  14px
-        font-weight:  bold
+        +bold
         text-align:  center
       
     
@@ -1000,7 +1026,7 @@ thead
         border:  0
         width:  105px
         font-size:  14px
-        font-weight:  bold
+        +bold
         text-align:  center
       
     

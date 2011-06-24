@@ -22,6 +22,7 @@ class ApplicationController < ActionController::Base
 
   before_filter :get_events
   before_filter :get_logos
+  before_filter :get_status
   
   def check_page_value
     params[:page] = params[:page].to_i <= 0 ? "1" : params[:page]
@@ -43,6 +44,10 @@ class ApplicationController < ActionController::Base
   
   def get_logos
     @logos = Logo.find(:all, :limit => 4)
+  end
+  
+  def get_status
+    @status = Status.first
   end
   
   protected

@@ -2,7 +2,7 @@ class Feature < ActiveRecord::Base
   validates_presence_of :title, :tag_line, :summary, :picture_file_name
   
   has_one :article
-  accepts_nested_attributes_for
+  accepts_nested_attributes_for :article
   acts_as_list
   has_attached_file :picture,
     :styles => {

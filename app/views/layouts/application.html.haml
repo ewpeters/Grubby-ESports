@@ -2,23 +2,11 @@
 %html
   %head
     / = csrf_meta_tag
-    %link{:href=>"/stylesheets/jquery-ui.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}
-    %link{:href=>"/stylesheets/common.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}
-    %link{:href=>"/stylesheets/style.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}
-    %link{:href=>"/stylesheets/jquery.wysiwyg.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}
     %link{:rel => "shortcut icon", :href=>"/favicon.ico"}
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
-    <script src="/javascripts/application.js"></script>
-    <script src="/javascripts/rails.js"></script>
-    <script src="/javascripts/jquery.wysiwyg.js"></script>
-    <script src="/javascripts/wysiwyg.image.js"></script>
-    <script src="/javascripts/wysiwyg.table.js"></script>
-    <script src="/javascripts/wysiwyg.link.js"></script>
-    <script src="/javascripts/date.format.js"></script>
-    <script src="/javascripts/jquery.idletimer.js"></script>
-    <script src="/javascripts/jquery.idletimeout.js"></script>
-    <script src="/javascripts/jquery.cycle.all.min.js"></script>
+    = include_stylesheets :common
+    = include_javascripts :common
     = yield :head
   %title FollowGrubby.com
   - if Rails.env == 'production'
@@ -149,6 +137,9 @@
                 = image_tag("yt_button.png")
               %center
                 %div.follow FOLLOW GRUBBY
+          %div.status_box
+            - if @status
+              %div.inner_status_box= @status.message
           %div.calendar
             %div#events.hidden= @events.collect{|e| [e.date.year, e.date.month, e.date.day]}.to_json
             %center

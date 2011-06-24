@@ -1,0 +1,12 @@
+- form_for [:admin, @status], :html => { :multipart => true } do |f|
+  - if @status.errors.any?
+    %div{:id => "errorExplanation"}
+    %h2= "#{pluralize(@status.errors.count, "error")} prohibited this post from being saved:"
+    %ul
+      - @status.errors.full_messages.each do |msg|
+        %li= msg 
+  %div{:class => "field"}
+    %div= f.label :message
+    %div= f.text_area :message
+  %div{:class => "actions"}
+    %div= f.submit

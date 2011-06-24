@@ -1,9 +1,22 @@
-package_assets:         on          # (on, off, always)
-embed_assets:           on          # (on, off, datauri)
-compress_assets:        on          # (on, off)
-gzip_assets:            on 
+package_assets:         always
+embed_assets:           on
+compress_assets:        on
+gzip_assets:            on
+javascript_compressor:  yui
 
 stylesheets:
   common:
     - public/stylesheets/*.css
 
+javascripts:
+  common:
+    - public/javascripts/application.js
+    - public/javascripts/rails.js
+    - public/javascripts/jquery.wysiwyg.js
+    - public/javascripts/wysiwyg.image.js
+    - public/javascripts/wysiwyg.table.js
+    - public/javascripts/wysiwyg.link.js
+    - public/javascripts/date.format.js
+    - public/javascripts/jquery.idletimer.js
+    - public/javascripts/jquery.idletimeout.js
+    - public/javascripts/jquery.cycle.all.min.js

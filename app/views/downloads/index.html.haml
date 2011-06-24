@@ -18,7 +18,7 @@
   #media_box
     - @medias.each do |media|
       - if !media.tag_list.member?("wallpaper")
-        .media_item{:game => media.game.gsub(' ', '_').downcase}
+        .media_item
           %span.side_date= media.display_date.strftime('%d.%m.%Y')
           .media_item_outer
             .media_item_inner
@@ -33,7 +33,7 @@
               %div.meta= media.title
               %div.desc= media.summary
               .map
-                = image_tag("/images/#{media.game.gsub(' ', '_')}.png")
+                / = image_tag("/images/#{media.game.gsub(' ', '_')}.png")
               .download
                 - link = media.media_file.nil? ? media.url : media.media_file.path
                 %a{:href => link}

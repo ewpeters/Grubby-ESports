@@ -1,4 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
+  Jammit::Routes.draw(map)
   map.login 'login', :controller => 'users', :action => 'login'
   map.fb_login 'fb_login', :controller => 'users', :action => 'fb_login'
   map.logout 'logout', :controller => 'users', :action => 'logout'
@@ -34,6 +35,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :events
     admin.resources :features, :member => { :move_up => :put, :move_down => :put, :move_to_top => :put, :move_to_bottom => :put }
     admin.resources :tickers, :member => { :move_up => :put, :move_down => :put, :move_to_top => :put, :move_to_bottom => :put }
+    admin.resources :statuses, :member => { :move_up => :put, :move_down => :put, :move_to_top => :put, :move_to_bottom => :put }
     
     
     admin.resources :categories, :member => { :move_up => :put, :move_down => :put, :move_to_top => :put, :move_to_bottom => :put } do |category|
