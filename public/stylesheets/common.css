@@ -397,10 +397,13 @@ img {
   font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif;
   position: relative; }
   #news #loading {
+    background-image: url("/images/newsticker_backgroundlogo_fullopacity2.png");
     position: absolute;
-    left: 60px;
-    top: 18px;
-    opacity: 0; }
+    width: 207px;
+    height: 137px;
+    left: 15px;
+    top: 15px;
+    opacity: 1; }
   #news .title_box {
     position: absolute;
     left: 25px;

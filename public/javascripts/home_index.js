@@ -1,43 +1,66 @@
 var current_news_ndx = 0;
 var interval_id = null;
 var ticker_time = 7000;
+
+var animating = false;
 $.idleTimer(600000);  
 $(document).bind("idle.idleTimer", function(){
  // function you want to fire when the user goes idle
- $("#loading").stop();
- clearInterval(interval_id);
+ stop();
 });
 $(document).bind("active.idleTimer", function(){
  // function you want to fire when the user becomes active again
- // fader();
- // interval_id = setInterval('next_news()', ticker_time);
 });
 $(document).ready(function() {
   list_events();
-  interval_id = setInterval('next_news()', ticker_time);
-  fader();
-  $("#news").hover(function() {
-  }, function() {
-    fader();
-    interval_id = setInterval('next_news()', ticker_time);
-  });
+  start();
 });
 
-function fader() {
-  if (parseInt($("#news").attr('total')) > 1) {
-   $("#loading").animate({opacity: 0}, {duration: 10})
-   $("#loading").animate({opacity: 1.0}, {duration: ticker_time, complete: fader})
+function stop() {
+  animating = false;
+  $("#loading").stop();
+  $("#loading").css('opacity', 1);
+  animating = false;
+  clearInterval(interval_id)
+}
+
+function animationFinished() {
+  stop();
+  $("#loading").css('opacity', 1);
+  next_news();
+  start();
+}
+function start() {
+  if (!animating && parseInt($("#news").attr('total')) > 1) {
+    $("#loading").css('opacity', 0);
+    interval_id = setInterval('animate()');
   }
 }
 
+function animate() {
+  if (!animating) {
+    animating = true;
+    $("#loading").css('opacity', 0);
+    $("#loading").animate({opacity: 1.0}, {duration: ticker_time, complete: animationFinished});
+  }
+}
+
+
+
+
 function list_events() {
   $(".news_item").hover(function() {
+    stop();
     var current_ndx = parseInt($(".title_box.carousel:visible").attr('position'));
     var next_ndx = $(this).attr('position');
     move_news(current_ndx, next_ndx);
-    $("#loading").stop();
-    clearInterval(interval_id);
   }, function () {
+  });
+  
+  $("#news").hover(function() {
+    
+  }, function() {
+    start();
   });
 }
 

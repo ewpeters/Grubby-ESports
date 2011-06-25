@@ -1,5 +1,6 @@
 #news{:total => news.size}
-  = image_tag "newsticker_backgroundlogo_fullopacity.png", :id => "loading"
+  / = image_tag "newsticker_backgroundlogo_fullopacity.png", :id => "loading"
+  %div#loading
   - news.each_with_index do |item, ndx|
     - if (item.link && !item.link.blank?) || item.article
       %div.title_box.carousel{:class => "#{item == news.first ? 'selected' : 'hidden' }", :position => ndx}
