@@ -1,4 +1,4 @@
-%div.reply_box
+%div.reply_box{:style => "height: 300px"}
   - if params[:action] == "new" && params[:controller] == "topics"
     %div= f.label 'subject', "Topic Subject"
     %div= f.text_field 'subject'
@@ -20,5 +20,5 @@
   %div.reply_text
     - fields_for @post do |post|
       = post.text_area 'text', :cols => 80, :rows => 10
-    = submit_tag "Create"
+    = submit_tag "Create", :style => "position: absolute; right: 120px; bottom: -15px"
 
