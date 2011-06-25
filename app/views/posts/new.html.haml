@@ -1,13 +1,10 @@
-- if @posts.present?
-  .posts.listing
-    = render :partial => @posts
-= error_messages_for 'post'
-- form_for [@topic, @post] do |f|
-  = hidden_field_tag("quote", params[:quote])
-  %div.action-box{:cellpadding => "2", :cellspacing => "0"}
-    %div= "#{t(:Replying_to_topic)} : #{@topic.subject}"
-    %br
-    = f.text_area("text", :cols => 85, :rows => 10)
-    %br
-    = submit_tag(t(:Create), :style => "color:white")
-
+#forum_body
+  #header
+    %span.left_header
+      = "#{t(:Replying_to_topic)} : #{@topic.subject}"
+  #forums_body
+    = error_messages_for 'post'  
+    #quick-reply  
+      - form_for [@topic, @post] do |f|
+        = hidden_field_tag("quote", params[:quote])
+        = render :partial => "form", :locals => { :f => f, :cols => 70, :rows => 20, :label => true }

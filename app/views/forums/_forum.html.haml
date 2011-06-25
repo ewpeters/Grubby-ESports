@@ -1,25 +1,30 @@
 - unless forum.title == "Article Discussion"
-  %li{ :class => stripe }
-    %h2= link_to(h(forum.title), forum_path(forum))
-    = h(forum.description)
-    - if forum.children.exists?
+  %div.forum_box
+    .background_image
+      - if forum.background_image
+        = image_tag(forum.background_image)
+    %div.forum_title= h(forum.title).upcase
+    %div.box_body
+      %div.forum_description= h(forum.description)
+      - if forum.children.exists?
+        - forum.children.each do |f|
+          %a{:href => forum_path(f)}
+            %div.subforum_title
+              %span.dots= ".: "
+              %span.title=  "#{f.title}"
+          %div.subforum_info= "#{pluralize(f.topics_count, 'topic')}, #{pluralize(f.posts_count, 'post')}"
+
       %br
-      = t(:Subforums)
-      \:
-      = forum.children(Configuration['subforums_display'].to_i).collect{|subforum| link_to(h(subforum.title), forum_path(subforum))}.join(', ')
-    %br
-    == #{t(:topics_count, :count => forum.topics.count)}, #{t(:posts_count, :count => forum.posts.count)}
-    %br
-    - if !forum.last_post.nil?
-      Last post was
-      = time_ago_in_words(forum.last_post.created_at)
-      = t(:ago)
-      = t(:by)
-      = link_to(h(forum.last_post.user), forum.last_post.user)
-      = t(:in)
-      = link_to(h(forum.last_post.topic.subject), forum_topic_path(forum,forum.last_post.topic))
-      - if !forum.last_post_forum.nil?
-        = t(:in)
-        = link_to(h(forum.last_post_forum), forum_path(forum.last_post_forum))
-    - else
-      = t(:None)
+      - if !forum.last_post.nil?
+        %div.last_post
+          Last post was
+          = time_ago_in_words(forum.last_post.created_at)
+          = t(:ago)
+          = t(:by)
+          = link_to(h(forum.last_post.user), forum.last_post.user)
+          = t(:in)
+          = link_to(h(forum.last_post.topic.subject), forum_topic_path(forum,forum.last_post.topic))
+          - if !forum.last_post_forum.nil?
+            = t(:in)
+            = link_to(h(forum.last_post_forum), forum_path(forum.last_post_forum))
+/       == #{t(:topics_count, :count => forum.topics.count)}, #{t(:posts_count, :count => forum.posts.count)}

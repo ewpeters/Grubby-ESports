@@ -7,8 +7,9 @@ class Admin::DownloadsController < Admin::ApplicationController
     end  
   end
   def index
-    @featured =  Download.tagged_with("featured").paginate(:page => params[:page], :per_page => per_page)
-    @archived =  Download.tagged_with("archived").paginate(:page => params[:page], :per_page => per_page)
+    @featured   =  Download.tagged_with("featured").paginate(:page => params[:page], :per_page => per_page)
+    @archived   =  Download.tagged_with("archived").paginate(:page => params[:page], :per_page => per_page)
+    @wallpapers = Download.tagged_with("wallpaper").paginate(:page => params[:page], :per_page => per_page)
     @other    =  Download.all - @featured - @archived
   end
 

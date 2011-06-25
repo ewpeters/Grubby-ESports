@@ -53,10 +53,15 @@ module ApplicationHelper
     breadcrumb = ''
     if forum.parent.nil?
       breadcrumb += link_to(forum.category.name, category_forums_path(forum.category)) + raw(" &raquo;") if forum.category
-      breadcrumb += ' ' + link_to(forum.title, forum_path(forum))
+      breadcrumb += ' ' + forum.title
     else
       breadcrumb += " #{breadcrumb(forum.parent)}" + raw(" &raquo;")
-      breadcrumb += ' ' + link_to(forum.title, forum_path(forum))
+      if @forum == forum && params[:controller] != "topics"
+        style = "current"
+      else
+        style = ""
+      end
+      breadcrumb += ' ' + link_to(forum.title, forum_path(forum), :class => style)
     end
     breadcrumb.html_safe.strip
   end

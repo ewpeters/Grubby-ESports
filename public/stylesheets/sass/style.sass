@@ -51,8 +51,6 @@
 
   
 .white-submit 
-  background-color:  white
-  color:  black
   font-size:  16px
   
   
@@ -67,7 +65,6 @@ textarea, table
   
 
 a 
-  color:  #ADE2F5
   text-decoration:  none
 
   
@@ -100,7 +97,6 @@ form
 
 .translation_missing 
   background:  #000000
-  color:  red
   padding:  5px
   font-weight:  bold
 
@@ -119,7 +115,6 @@ form
   
 
 .menu-bar 
-  color:  #6e9ec8
   text-shadow:  0 1px #beebff
   background-color:  #B0CFFF
   border-top:  1px solid #beebff
@@ -129,7 +124,6 @@ form
 
 
 .search 
-  color:  #6e9ec8
   position:  absolute
   top:  60px
   right:  5px
@@ -157,10 +151,6 @@ form
   left:  0
   width:  100%
 
-.breadcrumbs 
-  color:  #84bef0
-  margin-top:  .8em
-
 #moderated_topics_count 
   font-size:  9pt
 
@@ -170,15 +160,12 @@ form
   a 
     padding:  .1em .2em
     text-decoration:  none
-    color:  black
     &: hover, &: focus 
       text-decoration:  underline
     
   
   span 
     padding:  .1em .2em
-    &.disabled 
-      color:  #bbb
     
     &.current 
       font-weight:  bold
@@ -229,11 +216,10 @@ table.listing
   
 
 ul.listing 
-  color:  white
   list-style-type:  none
   padding:  0px
   margin:  0px
-  width:  728px
+  width:  708px
   
   
   li 
@@ -261,10 +247,6 @@ ul.listing
 .topics 
   .status 
     padding-right:  5px
-  
-  li 
-    color:  #71AFEB
-  
   input, .status 
     float:  left
   
@@ -297,17 +279,18 @@ ul.listing
   input[type='submit'] 
     font-size:  16px
   
+.user_info 
+  width:  18%
+  font-size:  10px
+
+  .post_user 
+    font-size:  16px
+    font-weight:  bold
 
 .post 
   +black-box
-  color:  white
   margin-bottom:  1.5em
-  margin:  0.5em auto
   overflow:  auto
-
-  div, pre 
-    padding:  5px
-  
 
   pre 
     background:  white
@@ -319,7 +302,7 @@ ul.listing
   
   .user_info 
     width:  18%
-    font-size:  12px
+    font-size:  10px
     
     .post_user 
       font-size:  16px
@@ -333,22 +316,37 @@ ul.listing
     min-height:  10.5em
   
   .details 
-    
+    font-size: 10px
+    color: grey
+    margin-top: -13px
   
   .actions 
-    float:  right
+    font-size: 10px
+    position: absolute
+    bottom: 10px
+    right: 10px
+    color: grey
     a 
-      +button
-      color:  black
-      background-color:  white
+      color: grey
     
   
+.post
+  position: relative
+  width: 680px
 
-
-form .post 
+form .post
+ 
   padding:  5px
 
+.breadcrumbs
+  a
+    color: #7F7F7F
+  a:visited
+    color: #7F7F7F
+  font-size: 12px
+  color: #7F7F7F
 
+.bre
 #quick-reply 
   padding:  5px
   margin:  0.5em auto
@@ -387,8 +385,9 @@ ul#navlist
   margin:  0
   padding:  0
 
+.posts
+  color: #a9aaab
 .edit-note 
-  color:  #4F93CF
   font-size:  9pt
 
 .quote 

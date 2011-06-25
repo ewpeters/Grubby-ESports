@@ -1,19 +1,24 @@
-%p 
-  - if label
-    = f.label 'text', t(:Text)
+%div.reply_box
+  .user_info
+    %span.post_user
+      = link_to(h(current_user), current_user)
     %br
-  = f.text_area 'text', :cols => 80, :rows => 10
-- if current_user.can?(:edit_posts, @forum) && !@post.new_record?
-  %p
-    = f.label 'edit_reason', t(:edit_reason)
-    = f.text_field 'edit_reason'
-  %p
-    = check_box_tag 'silent_edit'
-    = label_tag 'silent_edit', t(:Edit_silently?)
-%p
+    - if current_user.has_avatar?
+      = image_tag current_user.avatar
+    - elsif current_user.uid
+      = image_tag("http://graph.facebook.com/#{current_user.uid}/picture")
+    = current_user.rank
+    %br
+    == #{current_user.online? ? t(:Online) : t(:Offline)} - #{current_user.posts.count} #{t(:posts)}
+    %br
+    == #{t(:Since)} #{current_user.created_at.strftime(date_display)}
+    %br
+    ==
+  %div.reply_text
+    = f.text_area 'text', :cols => 80, :rows => 10
   - if local_assigns[:submit]
-    = submit_tag(t(local_assigns[:submit].to_sym))
+    = submit_tag("post")
   - elsif @post.new_record?
-    = submit_tag(t(:Create))
+    = submit_tag("post")
   - else
     = submit_tag(t(:Update))

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110624173936) do
+ActiveRecord::Schema.define(:version => 20110625001725) do
 
   create_table "albums", :force => true do |t|
     t.string   "title"
@@ -162,6 +162,7 @@ ActiveRecord::Schema.define(:version => 20110624173936) do
     t.integer "category_id"
     t.boolean "active",               :default => true
     t.boolean "open",                 :default => true
+    t.string  "background_image"
   end
 
   add_index "forums", ["category_id"], :name => "index_forums_on_category_id"

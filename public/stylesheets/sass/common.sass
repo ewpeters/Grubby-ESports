@@ -99,8 +99,26 @@ input
 
 ul 
   margin:  0
-  padding:  0
+  
+  
+.ui-dialog 
+  background-color: black
+  +rounded_corners
+  border: solid medium white
+  
+.ui-dialog-content  
 
+  color: white !important
+  input[type="submit"]
+    background-color: white
+    color: black
+    font-size: 10px
+    font-weight: normal 
+  input[type="reset"] 
+    +button
+    background-color: white
+    color: black
+    font-size: 10px
 a
   color: #74AED3
   text-decoration:  none
@@ -1318,5 +1336,3 @@ thead
   
 #footer
   margin-top: 25px
-  
-  

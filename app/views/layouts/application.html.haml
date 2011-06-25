@@ -27,7 +27,14 @@
     var event_data = $.parseJSON($("#events").html());
     var dates = [];
     $(document).ready(function() {
-      $('#post_text').wysiwyg();
+      $('#post_text').wysiwyg({
+        css: '/stylesheets/editor.css',
+        iFrameClass: 'wysiframe',
+        controls: {
+          insertTable: false,
+          insertImage: false
+        }
+      });
       
       $("#upcoming_events").click(function() {
         $('.upcoming').show();

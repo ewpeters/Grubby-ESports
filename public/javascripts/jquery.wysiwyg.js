@@ -393,7 +393,7 @@
 			autoload: {"css": ["jquery.wysiwyg.css", "jquery.wysiwyg.modal.css"]},
 			autoSave: true,
 			brIE: true,					// http://code.google.com/p/jwysiwyg/issues/detail?id=15
-			formHeight: 270,
+			formHeight: 440,
 			formWidth: 440,
 			i18n: false,
 			iFrameClass: null,

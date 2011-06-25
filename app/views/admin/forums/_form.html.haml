@@ -3,6 +3,9 @@
     %td= f.label :title, t(:Title)
     %td= f.text_field "title"
   %tr
+    %td= f.label :background_image
+    %td= f.text_field "background_image"  
+  %tr
     %td{:valign => "top"}= f.label :description, t(:Description)
     %td= f.text_area "description", :cols => 40, :rows => 5
   - unless @forums.empty?

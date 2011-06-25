@@ -2,7 +2,7 @@ class Post < ActiveRecord::Base
   # default_scope :order => "posts.number ASC"
   
   acts_as_list :column => "number", :scope => :topic_id
-
+  TIME_BETWEEN_POSTS = 3.second
   # For distance_of_time_in_words
   include ActionView::Helpers::DateHelper
   belongs_to :user

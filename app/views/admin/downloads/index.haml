@@ -22,6 +22,16 @@
   %br
 = will_paginate(@archived)
 %br
+%h3 Wallpapers:
+- @wallpapers.each do |item|
+  %span= item.title
+  |
+  = link_to "Edit Download Item", edit_admin_download_path(item)
+  |
+  = link_to "Delete Download Item", admin_download_path(item), :method => :delete, :confirm => t(:confirm_deletion, :thing => "Download Item")
+  %br
+= will_paginate(@wallpapers)
+%br
 %h3 Not tagged:
 - @other.each do |item|
   %span= item.title

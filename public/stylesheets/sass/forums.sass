@@ -1,0 +1,187 @@
+=rounded_corners(!top=5px, !right=5px, !bottom=5px, !left=5px) 
+  -moz-border-radius =  "#{!top} #{!right} #{!bottom} #{!left}"
+  border-top-left-radius = "#{!top}"
+  border-top-right-radius =  "#{!right}"
+  border-bottom-right-radius =  "#{!bottom}"
+  border-bottom-left-radius =  "#{!left}"
+  border-radius =  "#{!top} #{!right} #{!bottom} #{!left}"
+  
+=drop_shadow(!color=rgba(0, 0, 0, 0.5), !values=0px 6px 10px)
+  box-shadow         = "#{!color} #{!values}"
+  -webkit-box-shadow = "#{!color} #{!values}"
+  -moz-box-shadow    = "#{!color} #{!values}"
+#forum_body
+  #header 
+    background:  -moz-linear-gradient(top left,  #1C1C1C,  #030303)
+    background:  -webkit-gradient(linear, left top, right bottom, from(#1C1C1C), to(#030303))
+    width:  740px
+    height:  71px
+    color: #3F3F3F
+    +rounded_corners(15px, 15px, 0px, 0px)
+    position: relative
+    line-height: 110px
+    text-align: center
+    .top_header
+      position: absolute
+      color: white
+      top: -20px
+      left: 5p
+    .right_header
+      position: absolute
+      right: 5px
+      font-size: 12px
+      a
+        color: #7F7F7F
+      a:visited
+        color: #7F7F7F
+      color: #7F7F7F
+    .left_header
+      position: absolute
+      left: 5px
+  #forums_body 
+    position: relative
+    +rounded_corners(0px, 0px, 15px, 15px)
+    +drop_shadow
+    color: black
+    width:  730px
+    height:  100%
+    font-size:  14px
+    padding-left:  10px
+    padding-top: 15px
+    padding-bottom: 15px
+    background-image:  url("/images/forum_background.png")
+    .forum_box
+      position: relative
+      background-color:  #030303
+      background:  -moz-linear-gradient(top left,  #363636,  #030303)
+      background:  -webkit-gradient(linear, left top, right bottom, from(#363636), to(#030303))
+      width: 708px
+      +rounded_corners(10px, 10px, 10px, 10px)
+      .background_image
+        z-index: 1
+        position: absolute
+        right: 0px
+        top: 0px
+      margin-bottom:  15px
+      -webkit-box-shadow:  0 6px 10px rgba(0, 0, 0, 0.5)
+      -moz-box-shadow:  0 6px 10px rgba(0, 0, 0, 0.5)
+      .forum_title
+        color: #99999B
+        -moz-transform:  rotate(90deg)
+        -moz-transform-origin:  50% 50%
+        -webkit-transform:  rotate(90deg)
+        -webkit-transform-origin:  50% 50%
+        font-family: 'cgothb' 
+        font-size: 36px 
+        left: -110px 
+        position: absolute 
+        top: 110px
+        width: 250px 
+        a
+          color: #656766 !important
+        
+      .box_body
+        position: relative
+        z-index: 2
+        color: grey
+        margin-left: 100px
+        min-height: 230px
+        padding-top: 20px
+        .forum_description
+          font-size: 18px
+          color: #99999B
+          margin-bottom: 5px
+        .subforum_title
+          font-size: 16px
+          .dots
+            color: grey
+          .title
+            color: #638DBF
+        .subforum_info
+          font-size: 10px
+      .last_post
+        position: absolute
+        bottom: 5px
+        left: 20%
+        font-size: 10px
+
+/* topic list*/
+.topic_buttons
+  position: absolute
+  right: 22px
+  top: 15px
+  .add_topic
+    img
+      position: relative
+      top: 4px
+    a
+      color: #6C9DD7 !important
+      font-family: 'cgothb'
+    background-color:  #E3E3E3
+    background:  -moz-linear-gradient(top left,  #E3E3E3,  #C9C9C9)
+    background:  -webkit-gradient(linear, left top, right bottom, from(#E3E3E3), to(#C9C9C9))
+    +drop_shadow
+    +rounded_corners
+    color: #6C9DD7 !important
+    background-color: white
+    padding: 5px
+    font-size: 12px
+    margin-right: 5px
+    font-family: 'cgothb' !important
+.topic
+  color: grey
+  padding-top: 5px
+  margin-top: 15px
+  position: relative
+  background-color:  #030303
+  background:  -moz-linear-gradient(top left,  #363636,  #030303)
+  background:  -webkit-gradient(linear, left top, right bottom, from(#363636), to(#030303))
+  width: 660px
+  +rounded_corners(10px, 10px, 10px, 10px)
+  height: 50px
+  padding-left: 50px
+  .status
+    position: absolute 
+    left: 20px
+    top: 15.5px
+  .topic_title
+    a
+      color: #638DBF
+      font-size: 18px
+  .topic_info
+    font-size: 10px
+  .topic_check
+    position: absolute 
+    left: 0px
+    top: 15.5px
+
+.reply_box
+  color: #A9AAAB
+  background-color:  #D2D2D2
+  background:  -moz-linear-gradient(top left,  #DBDBDB,  #D2D2D2)
+  background:  -webkit-gradient(linear, left top, right bottom, from(#DBDBDB), to(#D2D2D2))
+  width: 675px
+  padding-left: 15px
+  padding-top: 3px
+  padding-right: 15px
+  height: 250px
+  position: relative
+  +rounded_corners(10px, 10px, 10px, 10px)
+  .reply_text
+    position: relative
+    top: -135px
+    left: 107px
+  input[type='submit'] 
+    color: #74AED3
+    background: transparent
+    position: absolute
+    bottom: 15px
+    right: 35px
+    font-size: 12px
+    
+.current
+  color: #1C60B1 !important
+.current:visited
+  color: #1C60B1 !important
+
+
