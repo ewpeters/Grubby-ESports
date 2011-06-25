@@ -92,6 +92,7 @@
       padding-top: 20px; }
       #forum_body #forums_body .forum_box .box_body .forum_description {
         font-size: 18px;
+        padding-right: 10px;
         color: #99999B;
         margin-bottom: 5px; }
       #forum_body #forums_body .forum_box .box_body .subforum_title {
@@ -154,6 +155,9 @@
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
   border-radius: 10px 10px 10px 10px;
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
   height: 50px;
   padding-left: 50px; }
   .topic .status {
@@ -181,6 +185,9 @@
   padding-right: 15px;
   height: 250px;
   position: relative;
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
   -moz-border-radius: 10px 10px 10px 10px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
