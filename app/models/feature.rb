@@ -2,13 +2,14 @@ class Feature < ActiveRecord::Base
   validates_presence_of :title, :tag_line, :summary, :picture_file_name
   
   has_one :article
-  accepts_nested_attributes_for :article
+  accepts_nested_attributes_for :article, :reject_if => :reject_articles
   acts_as_list
   has_attached_file :picture,
     :styles => {
       :original => ["394x126!", :png]
     },
     :convert_options => {:original => Proc.new{self.convert_options}}
+    
   validates_attachment_content_type :picture, :content_type => 'image/png'
     def self.convert_options
         trans = ""
@@ -18,5 +19,8 @@ class Feature < ActiveRecord::Base
         trans << "\\( +clone -flip \\) -compose Multiply -composite "
         trans << "\\( +clone -flop \\) -compose Multiply -composite "
         trans << "\\) +matte -compose CopyOpacity -composite "
+  end
+  def reject_articles(attributed)
+    attributed['title'].blank? || attributed['article_type'].blank? || attributed['author'].blank? || attributed['html'].nil?
   end
 end

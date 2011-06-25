@@ -36,8 +36,11 @@
                 / = image_tag("/images/#{media.game.gsub(' ', '_')}.png")
               .download
                 - link = media.media_file.nil? ? media.url : media.media_file.path
-                %a{:href => link}
-                  = image_tag(media.icon_image_link)    
+                %a{:href => link, :taget => "_blank"}
+                  - if media.image_icon_file_file_name
+                    = image_tag(media.image_icon_file(:icon).url)
+                  - else
+                    = image_tag(media.icon_image_link)                    
       - else
         .media_item.wallpaper
           %span.side_date= media.display_date.strftime('%d.%m.%Y')
@@ -50,13 +53,13 @@
                   %div.title= media.title
                   %div.summary= media.summary
                   %div.links
-                    %a.link{:href => media.wallpaper_one.url}
-                    %a.ratio{:href => media.wallpaper_one.url}
+                    %a.link{:href => media.wallpaper_one.url, :taget => "_blank"}
+                    %a.ratio{:href => media.wallpaper_one.url, :taget => "_blank"}
                       %span= media.wallpaper_one_label
-                    %a.link{:href => media.wallpaper_two.url}
-                    %a.ratio{:href => media.wallpaper_two.url}
+                    %a.link{:href => media.wallpaper_two.url, :taget => "_blank"}
+                    %a.ratio{:href => media.wallpaper_two.url, :taget => "_blank"}
                       %span= media.wallpaper_two_label
-                    %a.link{:href => media.wallpaper_three.url}
-                    %a.ratio{:href => media.wallpaper_three.url}
+                    %a.link{:href => media.wallpaper_three.url, :taget => "_blank"}
+                    %a.ratio{:href => media.wallpaper_three.url, :taget => "_blank"}
                       %span= media.wallpaper_three_label
 = render :partial => "features/features"

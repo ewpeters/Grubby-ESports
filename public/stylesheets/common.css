@@ -1,3 +1,9 @@
+ul {
+  padding: 0; }
+
+input[type="file"] {
+  color: white; }
+
 .button {
   -moz-border-radius: 5px 5px 5px 5px;
   -webkit-border-radius: 5px;
@@ -931,6 +937,10 @@ thead tr {
   box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
   -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
   -moz-box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px; }
+  #tv_container #tv_logo {
+    position: absolute;
+    left: 30px;
+    top: 5px; }
   #tv_container #live_link {
     background-image: url("/images/grubby_tv_livebutton.png");
     width: 157px;

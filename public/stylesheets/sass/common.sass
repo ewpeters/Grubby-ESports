@@ -1,3 +1,7 @@
+ul
+  padding: 0
+input[type="file"]
+  color: white
 =opacity(!value)
   opacity= "#{!value}"
   ms-filter:  "progid: DXImageTransform.Microsoft.Alpha(Opacity=#{!value}*100)"
@@ -990,6 +994,10 @@ thead
   background-image:  url("/images/grubbytv_background.png")
   position:  relative
   +drop_shadow
+  #tv_logo
+    position: absolute
+    left: 30px
+    top: 5px
   #live_link 
     background-image:  url("/images/grubby_tv_livebutton.png")
     width:  157px

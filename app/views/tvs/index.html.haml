@@ -1,4 +1,6 @@
 #tv_container
+  #tv_logo
+    = image_tag("grubby_tv_logo.png")
   - if @live
     %a#live_link.embed_video{:embed_source => "#{@live.embeded}", :title => "Title: #{@live.title}", :summary => "Description: #{@live.summary}", :type => "#{@live.video_type}", :chat_code => tv_path(@live), :class => "#{@live.video_type.gsub(' ', '_').downcase} #{@live.tag_list.memeber?('on')}"}
     #header
