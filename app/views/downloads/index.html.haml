@@ -35,7 +35,7 @@
               .map
                 / = image_tag("/images/#{media.game.gsub(' ', '_')}.png")
               .download
-                - link = media.media_file.nil? ? media.url : media.media_file.path
+                - link = media.media_file.nil? ? media.url : media.media_file.url
                 %a{:href => link, :taget => "_blank"}
                   - if media.image_icon_file_file_name
                     = image_tag(media.image_icon_file(:icon).url)
