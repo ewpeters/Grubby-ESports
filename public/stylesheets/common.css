@@ -298,6 +298,7 @@ img {
   margin-top: 15px;
   position: relative; }
   .status_box .inner_status_box {
+    text-align: center;
     vertical-align: middle;
     position: absolute;
     padding: 7px;
