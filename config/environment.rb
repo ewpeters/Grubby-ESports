@@ -76,7 +76,6 @@ CONFIG = Rails::Initializer.run do |config|
  
   config.middleware.use 'Rack::RawUpload', :paths => ['/admin/albums/uploader', '/admin/features/uploader', '/admin/tickers/uploader', '/admin/articles/uploader']
   
-  
   config.active_record.observers = [:user_observer]
 end
 

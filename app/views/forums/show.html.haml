@@ -8,7 +8,11 @@
     %div.topic_buttons
       = render :partial => "topics/new_button"
       = link_to("View your profile", "/users/#{current_user}/edit", :class => "add_topic")
-    - form_tag moderator_topics_path do
+    - form_tag "/moderator/topics/moderate" do
+      - if current_user.can_moderate_topics?
+        %br
+        %br
+        = render :partial => "topics/buttons"
       - if @forum.topics.exists?
         - for topic in @topics
           - style = topic == @topics.first ? "margin-top: 45px" : ""
@@ -16,10 +20,10 @@
             - if current_user.can_moderate_topics?
               - if !topic.moved?
                 %span.topic_check
-                  = link_to check_box_tag("moderated_topics[]", topic.id, !topic.moderations.for_user(current_user).empty?, :id => "topic_#{topic.id}_moderated"), moderator_topic_moderations_path(topic), :remote => true, :method => :post
+                  = link_to check_box_tag("moderated_topics[]", topic.id, !topic.moderations.for_user(current_user).empty?, :id => "topic_#{topic.id}_moderated"), moderator_topic_moderations_path(topic), 'data-remote' => true, :method => :post
               - else
                 %span.topic_check
-                  = link_to check_box_tag("moderated_topics[]", topic.moved_to.id, !topic.moved_to.moderations.for_user(current_user).empty?, :id => "topic_#{topic.moved_to.id}_moderated"), moderator_topic_moderations_path(topic.moved_to), :remote => true, :method => :post
+                  = link_to check_box_tag("moderated_topics[]", topic.moved_to.id, !topic.moved_to.moderations.for_user(current_user).empty?, :id => "topic_#{topic.moved_to.id}_moderated"), moderator_topic_moderations_path(topic.moved_to), 'data-remote' => true, :method => :post
             %div.status
               - if topic.sticky?
                 = theme_image_tag("sticky.jpg", :alt => "Sticky")
@@ -65,6 +69,5 @@
         - unless @moderated_topics_count.zero?
           = pluralize(@moderated_topics_count, "topic")
           = t(:selected_for_moderation)
-      %br
-      = render :partial => "topics/buttons"
+          %br
   = will_paginate @topics

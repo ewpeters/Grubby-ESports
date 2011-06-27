@@ -40,7 +40,7 @@ input[type='submit'] {
   -webkit-border-radius: 5px;
   cursor: pointer;
   display: inline-block;
-  font-weight: bold;
+  font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif;
   padding: 2px 7px 2px 6px;
   text-align: center;
   border: 0 none;
@@ -66,7 +66,7 @@ form p label {
 .translation_missing {
   background: #000000;
   padding: 5px;
-  font-weight: bold; }
+  font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif; }
 
 .center {
   text-align: center; }
@@ -105,7 +105,7 @@ form p label {
   background: #a4d5ff none repeat scroll 0;
   border: 2px solid white;
   font-size: 16pt;
-  font-weight: bold;
+  font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif;
   margin-top: 100px;
   padding: 5px;
   text-align: center;
@@ -128,7 +128,7 @@ form p label {
   .pagination span {
     padding: .1em .2em; }
     .pagination span.current {
-      font-weight: bold;
+      font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif;
       background-color: #bbb; }
 
 .icon {
@@ -138,7 +138,7 @@ form p label {
   border: 0px; }
 
 table.listing thead tr td {
-  font-weight: bold;
+  font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif;
   border-right: 1px solid #B5C8DF;
   border-bottom: 1px solid #9CACC0;
   border-top: 1px solid #9CACC0;
@@ -196,7 +196,7 @@ ul.listing {
   -webkit-border-radius: 5px;
   cursor: pointer;
   display: inline-block;
-  font-weight: bold;
+  font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif;
   padding: 2px 7px 2px 6px;
   text-align: center;
   border: 0 none;
@@ -211,7 +211,7 @@ ul.listing {
   background: #fde181;
   border: 1px solid #fece26;
   padding: .6em;
-  font-weight: bold; }
+  font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif; }
 
 .action-box, .user {
   background-color: #030303;
@@ -234,7 +234,7 @@ ul.listing {
   font-size: 10px; }
   .user_info .post_user {
     font-size: 16px;
-    font-weight: bold; }
+    font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif; }
 
 .post {
   background-color: #030303;
@@ -261,7 +261,7 @@ ul.listing {
     font-size: 10px; }
     .post .user_info .post_user {
       font-size: 16px;
-      font-weight: bold; }
+      font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif; }
   .post .body {
     float: right;
     clear: both;
@@ -272,10 +272,17 @@ ul.listing {
     color: grey;
     margin-top: -13px; }
   .post .actions {
+    background-image: url("/images/post_modify_highlight.png");
+    background-position: right center;
+    background-repeat: no-repeat;
     font-size: 10px;
     position: absolute;
     bottom: 10px;
-    right: 10px;
+    right: 0px;
+    width: 165px;
+    height: 18px;
+    line-height: 18px;
+    padding-right: 10px;
     color: grey; }
     .post .actions a {
       color: grey; }
@@ -315,7 +322,7 @@ ul#navlist {
     -webkit-border-radius: 5px;
     cursor: pointer;
     display: inline-block;
-    font-weight: bold;
+    font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif;
     padding: 2px 7px 2px 6px;
     text-align: center;
     border: 0 none;
@@ -324,7 +331,7 @@ ul#navlist {
     font-size: 16px; }
     ul#navlist a.selected {
       background-color: white;
-      font-weight: bold;
+      font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif;
       color: black; }
 
 #admin-page, #moderator-page {

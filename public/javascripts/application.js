@@ -1,5 +1,6 @@
 // Place your application-specific JavaScript functions and classes here
 // This file is automatically included by javascript_include_tag :defaults
+( function($) {
 function isBlank(str) {
     return (!str || /^\s*$/.test(str));
 }
@@ -8,32 +9,39 @@ String.prototype.trim = function() {
 	return this.replace(/^\s+|\s+$/g,"");
 }
 
+
 function inputClear(selector) {
-  var og_name = $(selector).val()
+  if ($(selector)) {
+    var og_name = $(selector).val()
   
-  $(selector).focusin(function() {
-    if ($(this).val().trim() == og_name.trim()) {
-      $(this).val('');
-    }
-  });
+    $(selector).focusin(function() {
+      if ($(this).val().trim() == og_name.trim()) {
+        $(this).val('');
+      }
+    });
   
-  $(selector).focusout(function() {
-    if (isBlank($(this).val())) {
-      $(this).val(og_name);
-    }
-  });
+    $(selector).focusout(function() {
+      if (isBlank($(this).val())) {
+        $(this).val(og_name);
+      }
+    });
   
-  return og_name;
+    return og_name;
+  }
 }
 
 $(document).ready(function() {
-  $("#Article").removeAttr("checked"); 
+  if ($("#Article")) {
+    $("#Article").removeAttr("checked"); 
+  }
   inputClear("#search_input");
-  $("#login").focus(function() {
-    $("#password_div").removeClass("hidden");
-    $("#password").removeClass("hidden");
-    $("#login-form").addClass("shown");
-  });
+  if ($("login")) {
+    $("#login").focus(function() {
+      $("#password_div").removeClass("hidden");
+      $("#password").removeClass("hidden");
+      $("#login-form").addClass("shown");
+    });
+  }
   
   $('body').click(function(event) {
       if (!$(event.target).closest('#login-form').length) {
@@ -108,6 +116,7 @@ function fb_connect() {
     }
   });
 }
+} ) ( jQuery );
 function popitup(url) {
 	newwindow=window.open(url,'name','height=500,width=500');
 	if (window.focus) {newwindow.focus()}

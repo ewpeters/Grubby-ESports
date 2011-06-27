@@ -35,10 +35,6 @@ module Rboard::Permissions
       # Takes the global permissions and merges it with the permissions for an object.
       # The #permissions_for permissions will take precedence over the global permissions.
       def overall_permissions(thing)
-        puts login
-        puts thing
-        puts permissions_for(thing)
-        puts global_permissions
         global_permissions.merge!(permissions_for(thing))
       end
 
@@ -46,7 +42,6 @@ module Rboard::Permissions
       # If no object is given checks global permissions.
       # If no permissions set for that user then it defaults to false.
       def can?(action, thing = nil)
-        puts  "can"
         !!overall_permissions(thing)["can_#{action}"]
       end
 

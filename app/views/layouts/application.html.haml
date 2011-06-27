@@ -1,10 +1,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 %html
   %head
-    / = csrf_meta_tag
+    = csrf_meta_tag
     %link{:rel => "shortcut icon", :href=>"/favicon.ico"}
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+    <script src="/javascripts/jquery.js"></script>
+    <script src="/javascripts/rails.js"></script>    
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>    
     = include_stylesheets :common
     = include_javascripts :common
     = yield :head
@@ -24,18 +25,22 @@
           return "0" + this
         }
       }
-    var event_data = $.parseJSON($("#events").html());
+    var event_data;
     var dates = [];
+    ( function($) {
     $(document).ready(function() {
-      $('#post_text').wysiwyg({
-        css: '/stylesheets/editor.css',
-        iFrameClass: 'wysiframe',
-        controls: {
-          insertTable: false,
-          insertImage: false
-        }
-      });
-      
+      if ($("#post_text").length != 0) {
+        $('#post_text').wysiwyg({
+          css: '/stylesheets/editor.css',
+          iFrameClass: 'wysiframe',
+          controls: {
+            insertTable: false,
+            insertImage: false
+          }
+        });
+        
+      }
+      event_data = $.parseJSON($("#events").html());
       $("#upcoming_events").click(function() {
         $('.upcoming').show();
       });
@@ -66,7 +71,7 @@
       }
       return [true, ''];
     }
-    
+    } ) ( jQuery );
   %body
     %div#fb-root
     %script{:src => "http://connect.facebook.net/en_US/all.js"}
@@ -88,10 +93,10 @@
           - unless logged_in?
             = image_tag ("login_icon_facebook.png", :id => "fb_connect")
             - form_tag "/login", :action => :post, :id => "login-form" do
-              %span{:style => "font-weight: bold;"} Login
+              %span.cgoth_b Login
               = text_field_tag 'login'
               %div#password_div.hidden
-                %span{:style => "font-weight: bold;"} Password
+                %span.cgoth_b Password
                 = password_field_tag 'password'
                 %span#remember_label Remember Me:
                 = check_box_tag "remember_me"

@@ -7,7 +7,7 @@
     %tbody
       - if @user.errors.size > 0
         %tr
-          %td.error{:colspan => "2", :style => "font-weight:bold; font-size: 20px"} The following errors prevented your profile from being saved:
+          %td.error.cgoth_b{:colspan => "2", :style => "font-size: 20px"} The following errors prevented your profile from being saved:
         - @user.errors.full_messages.each do |msg|
           %tr
             %td.error= msg

@@ -18,6 +18,7 @@ class Moderator::ModerationsController < Moderator::ApplicationController
       forum = @thing.forum
       moderations.create(:user => current_user, :forum => forum)
       @moderated_topics_count = forum.moderations.topics.for_user(current_user).count
+      redirect_back_or_default(forums_path)
     else
       destroy
       render :action => :destroy

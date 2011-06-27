@@ -30,7 +30,7 @@
 				visible: true,
 				tags: ["b", "strong"],
 				css: {
-					fontWeight: "bold"
+					fontFamily: 'cgothb'
 				},
 				tooltip: "Bold",
 				hotkey: {"ctrl": 1, "key": 66}
