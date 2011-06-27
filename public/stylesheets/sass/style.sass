@@ -3,11 +3,10 @@
   ms-filter:  "progid: DXImageTransform.Microsoft.Alpha(Opacity=#!value*100)"
   filter:  "aplha(opacity=#!value * 100)"
 
+@import util.sass
   
 =black-box 
-  background-color:  #030303
-  background:  -moz-linear-gradient(top left,  #363636,  #030303)
-  background:  -webkit-gradient(linear, left top, right bottom, from(#363636), to(#030303))
+  +gradient(#363636,  #030303)
   -moz-border-radius:  10px 10px 10px 10px
   -webkit-border-radius:  10px
   border-radius:  10px
@@ -18,9 +17,7 @@
 
 
 =light-box 
-  background-color:  #030303
-  background:  -moz-linear-gradient(top right,  #4e4f4f,  #e6e6e6)
-  background:  -webkit-gradient(linear,  right top, left bottom, from(#4e4f4f), to(#e6e6e6))
+  +gradient(#4e4f4f,  #e6e6e6)
   -moz-border-radius:  10px 10px 10px 10px
   -webkit-border-radius:  10px
   border-radius:  10px
@@ -223,9 +220,7 @@ ul.listing
   
   
   li 
-    background-color:  #030303
-    background:  -moz-linear-gradient(top left,  #363636,  #030303)
-    background:  -webkit-gradient(linear, left top, right bottom, from(#363636), to(#030303))
+    +gradient(#363636,  #030303)
     -moz-border-radius:  10px 10px 10px 10px
     -webkit-border-radius:  10px
     border-radius:  10px
@@ -320,7 +315,7 @@ ul.listing
     color: grey
     margin-top: -13px
   
-  .actions 
+  .actions
     background-image: url("/images/post_modify_highlight.png")
     background-position: right center
     background-repeat: no-repeat
@@ -335,8 +330,10 @@ ul.listing
     color: grey
     a 
       color: grey
-    
-  
+
+.ie8 .actions
+  a
+    color: white !important
 .post
   position: relative
   width: 680px

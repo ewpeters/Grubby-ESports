@@ -19,4 +19,5 @@ javascripts:
     - public/javascripts/jquery.idletimer.js
     - public/javascripts/jquery.idletimeout.js
     - public/javascripts/jquery.cycle.all.min.js
-    
+    - public/javascripts/jquery.round.js
+    - public/javascripts/browser.js

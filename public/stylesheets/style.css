@@ -1,7 +1,8 @@
 .light-box {
-  background-color: #030303;
-  background: -moz-linear-gradient(top right,  #4e4f4f,  #e6e6e6);
-  background: -webkit-gradient(linear,  right top, left bottom, from(#4e4f4f), to(#e6e6e6));
+  background-color: #e6e6e6;
+  background: -moz-linear-gradient(top left,  #4e4f4f,  #e6e6e6);
+  background: -webkit-gradient(linear, left top, right bottom, from(#4e4f4f), to(#e6e6e6));
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4e4f4f', endColorstr='#e6e6e6');
   -moz-border-radius: 10px 10px 10px 10px;
   -webkit-border-radius: 10px;
   border-radius: 10px;
@@ -14,6 +15,7 @@
   background-color: #030303;
   background: -moz-linear-gradient(top left,  #363636,  #030303);
   background: -webkit-gradient(linear, left top, right bottom, from(#363636), to(#030303));
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#363636', endColorstr='#030303');
   -moz-border-radius: 10px 10px 10px 10px;
   -webkit-border-radius: 10px;
   border-radius: 10px;
@@ -166,6 +168,7 @@ ul.listing {
     background-color: #030303;
     background: -moz-linear-gradient(top left,  #363636,  #030303);
     background: -webkit-gradient(linear, left top, right bottom, from(#363636), to(#030303));
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#363636', endColorstr='#030303');
     -moz-border-radius: 10px 10px 10px 10px;
     -webkit-border-radius: 10px;
     border-radius: 10px;
@@ -217,6 +220,7 @@ ul.listing {
   background-color: #030303;
   background: -moz-linear-gradient(top left,  #363636,  #030303);
   background: -webkit-gradient(linear, left top, right bottom, from(#363636), to(#030303));
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#363636', endColorstr='#030303');
   -moz-border-radius: 10px 10px 10px 10px;
   -webkit-border-radius: 10px;
   border-radius: 10px;
@@ -240,6 +244,7 @@ ul.listing {
   background-color: #030303;
   background: -moz-linear-gradient(top left,  #363636,  #030303);
   background: -webkit-gradient(linear, left top, right bottom, from(#363636), to(#030303));
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#363636', endColorstr='#030303');
   -moz-border-radius: 10px 10px 10px 10px;
   -webkit-border-radius: 10px;
   border-radius: 10px;
@@ -286,6 +291,9 @@ ul.listing {
     color: grey; }
     .post .actions a {
       color: grey; }
+
+.ie8 .actions a {
+  color: white !important; }
 
 .post {
   position: relative;
@@ -338,6 +346,7 @@ ul#navlist {
   background-color: #030303;
   background: -moz-linear-gradient(top left,  #363636,  #030303);
   background: -webkit-gradient(linear, left top, right bottom, from(#363636), to(#030303));
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#363636', endColorstr='#030303');
   -moz-border-radius: 10px 10px 10px 10px;
   -webkit-border-radius: 10px;
   border-radius: 10px;

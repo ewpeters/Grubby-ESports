@@ -13,16 +13,24 @@ input[type="file"]
   border-top-right-radius =  "#{!right}"
   border-bottom-right-radius =  "#{!bottom}"
   border-bottom-left-radius =  "#{!left}"
+  -khtml-border-radius =  "#{!top} #{!right} #{!bottom} #{!left}"
+  -o-border-radius =  "#{!top} #{!right} #{!bottom} #{!left}"
   border-radius =  "#{!top} #{!right} #{!bottom} #{!left}"
 
+=gradient(!from=#363636, !to=#030303)
+  background-color = "#{!to}"
+  filter = "progid:DXImageTransform.Microsoft.gradient(startColorstr='#{!from}', endColorstr='#{!to}')"
+  background =  "-moz-linear-gradient(top left,  #{!from},  #{!to})"
+  background = "-webkit-gradient(linear, left top, right bottom, from(#{!from}), to(#{!to}))"
+  
 =dark_gradient
-  background:  -moz-linear-gradient(top left,  #363636,  #030303)
-  background:  -webkit-gradient(linear, left top, right bottom, from(#363636), to(#030303))
+  +gradient(#363636,  #030303)
 
 =drop_shadow(!color=rgba(0, 0, 0, 0.5), !values=0px 6px 10px)
   box-shadow         = "#{!color} #{!values}"
   -webkit-box-shadow = "#{!color} #{!values}"
   -moz-box-shadow    = "#{!color} #{!values}"
+  -ms-filter         = "progid:DXImageTransform.Microsoft.dropShadow(offX=5, offY=5, positive=true)"
 
 =button
   -moz-border-radius:  5px 5px 5px 5px
@@ -41,14 +49,16 @@ input[type="file"]
   
 @font-face
   font-family: "cgoth" 
-  src: url("/fonts/gothic-webfont.eot?") format("eot"), url("/fonts/gothic-webfont.woff") format("woff"),  url("/fonts/gothic-webfont.otf") format("opentype"),  url("/fonts/gothic-webfont.svg#gothic-webfont") format("svg")
+  src: url("/fonts/gothic-webfont.woff") format("woff"),  url("/fonts/gothic-webfont.otf") format("opentype"),  url("/fonts/gothic-webfont.svg#gothic-webfont") format("svg")
+  src: url("/fonts/gothic-webfont.eot")
 @font-face 
   font-family: "cgothi" 
   src: url("/fonts/gothici-webfont.eot") 
   src: local("☺"),  url("/fonts/gothici-webfont.woff") format("woff"), url("/fonts/gothici-webfont.otf") format("opentype"), url("/fonts/gothici-webfont.svg#gothici-webfont") format("svg")
 @font-face 
   font-family: "cgothb" 
-  src: url("/fonts/gothicb-webfont.eot?") format("eot"), url("/fonts/gothicb-webfont.woff") format("woff"),  url("/fonts/gothicb-webfont.otf") format("opentype"),  url("/fonts/gothicb-webfont.svg#gothicb-webfont") format("svg")
+  src: url("/fonts/gothicb-webfont.woff") format("woff"),  url("/fonts/gothicb-webfont.otf") format("opentype"),  url("/fonts/gothicb-webfont.svg#gothicb-webfont") format("svg")
+  src: url("/fonts/gothicb-webfont.eot")
 @font-face 
   font-family: "cgothbi" 
   src: url("fonts/gothicbi-webfont.eot") 
@@ -171,8 +181,7 @@ img
   a.signup 
     vertical-align:  middle
     color:  white
-    background:  -moz-linear-gradient(top left,  #e8ebed ,  #aba7a9)
-    background:  -webkit-gradient(linear, left bottom, right top, from(#e8ebed ), to(#aba7a9))
+    +gradient(#e8ebed ,  #aba7a9)
     -moz-border-radius:  10px 10px 10px 10px
     -webkit-border-radius:  10px
     border-radius:  10px
@@ -270,9 +279,8 @@ img
   top:  18px
 
 .box 
+  +gradient(#4E4E4E,  #030303)
   background-color:  #030303
-  background:  -moz-linear-gradient(top left,  #4E4E4E,  #030303) 
-  background:  -webkit-gradient(linear, left top, right bottom, from(#4E4E4E), to(#030303))
   -moz-border-radius:  10px 10px 10px 10px
   -webkit-border-radius:  10px
   font-size: 14px
@@ -284,9 +292,7 @@ img
   padding-bottom: 35px
 
 .status_box
-  background-color:  #030303
-  background:  -moz-linear-gradient(top left,  #363636,  #030303)
-  background:  -webkit-gradient(linear, left top, right bottom, from(#363636), to(#030303))
+  +gradient(#363636,  #030303)
   -moz-border-radius:  10px 10px 10px 10px
   -webkit-border-radius:  10px
   font-size: 14px
@@ -305,10 +311,8 @@ img
     top: 12.5px
     width: 164px
     height: 36px
-    background:  -moz-linear-gradient(top left,  #454545,  #2D2D2D) 
-    background:  -webkit-gradient(linear, left top, right bottom, from(#454545), to(#2D2D2D))
-    
-  
+    +gradient(#454545,  #2D2D2D)
+
 #content 
   width: 1011px
   background-image:  url("/images/content_bg.png")
@@ -338,9 +342,7 @@ img
       height:  162px
       width:  177px
       padding: 0
-      background-color:  #030303
-      background:  -moz-linear-gradient(top left,  #363636,  #030303)
-      background:  -webkit-gradient(linear, left top, right bottom, from(#363636), to(#030303))
+      +gradient(#363636,  #030303)
       -moz-border-radius:  10px 10px 10px 10px
       -webkit-border-radius:  10px
       border-radius:  10px
@@ -374,9 +376,7 @@ img
       margin-top:  20px
       padding-top:  15px
       position:  relative
-      background-color:  #030303
-      background:  -moz-linear-gradient(top left,  #363636,  #030303)
-      background:  -webkit-gradient(linear, left top, right bottom, from(#363636), to(#030303))
+      +gradient
       -moz-border-radius:  10px 10px 10px 10px
       -webkit-border-radius:  10px
       border-radius:  10px
@@ -546,6 +546,10 @@ img
   top:  0px
   font-size:  18px  
 
+.ie7 ul#nav_bar
+  li
+    img
+      top: 0px !important
 ul#nav_bar 
   width:  1011px
   list-style-type: none
@@ -764,8 +768,7 @@ ul#nav_bar
     
   
   .true 
-    background:  -moz-linear-gradient(top,  #0097fc,  #39b0ff)
-    background:  -webkit-gradient(linear,  left top, left bottom, from(#0097fc), to(#39b0ff))
+    +gradient(#0097fc,  #39b0ff)
     +opacity(0.8)
   
   ::-webkit-scrollbar 
@@ -796,7 +799,7 @@ ul#nav_bar
   
   #media_box 
     width:  596px
-    height:  460px
+    height:  448px
     overflow-y:  auto
     overflow-x: hidden
     position:  absolute
@@ -1093,9 +1096,8 @@ thead
       background-position:  0px 0px
     
   
-  .true 
-    background:  -moz-linear-gradient(top,  #447362,  #2c6651)
-    background:  -webkit-gradient(linear,  left top, left bottom, from(#447362), to(#2c6651))
+  .true
+    +gradient(#447362,  #2c6651)
     +opacity(0.8)
   
   ::-webkit-scrollbar 
@@ -1126,7 +1128,7 @@ thead
   
   #tv_box 
     width:  596px
-    height:  476px
+    height:  456px
     overflow-y:  auto
     overflow-x: hidden
     position:  absolute
@@ -1294,7 +1296,14 @@ thead
   top:  37px
   color:  #CDD4DC
   font-size:  14px
-
+.ie8 .side_date
+  top: 5px !important
+  left: 555px !important
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1)
+.ie9 .side_date
+  top: 5px !important
+  left: 555px !important
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1)
 
 .avatar_picker 
   height:  15px

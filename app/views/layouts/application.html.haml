@@ -29,6 +29,12 @@
     var dates = [];
     ( function($) {
     $(document).ready(function() {
+      initCssBrowserIdentifer();
+      if (jQuery.browser.msie) {
+        $('.signup').corner('7px');
+        $('#header').corner('top');
+        $('.box').corner('top');
+      }
       if ($("#post_text").length != 0) {
         $('#post_text').wysiwyg({
           css: '/stylesheets/editor.css',
