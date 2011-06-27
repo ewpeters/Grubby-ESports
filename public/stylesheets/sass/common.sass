@@ -50,18 +50,26 @@ input[type="file"]
 
 @font-face
   font-family: "cgoth" 
-  src: url("/fonts/gothic-webfont.eot?") format('eot'), url("/fonts/gothic-webfont.woff") format("woff"),  url("/fonts/gothic-webfont.otf") format("opentype"),  url("/fonts/gothic-webfont.svg#gothic-webfont") format("svg")
+  src: url("/fonts/gothic-webfont.woff") format("woff"),  url("/fonts/gothic-webfont.otf") format("opentype"),  url("/fonts/gothic-webfont.svg#gothic-webfont") format("svg")
   
 @font-face 
   font-family: "cgothb" 
-  src: url('../fonts/gothicb-webfont.eot?') format('eot'), url('../fonts/gothicb-webfont.woff') format('woff'), url('../fonts/gothicb-webfont.ttf') format('truetype'), url('../fonts/gothicb-webfont.svg#webfontKWmDqtHl') format('svg')
+  src: url('../fonts/gothicb-webfont.woff') format('woff'), url('../fonts/gothicb-webfont.ttf') format('truetype'), url('../fonts/gothicb-webfont.svg#webfontKWmDqtHl') format('svg')
 
 .ie8 @font-face
   font-family: "cgoth"
   src: url("/fonts/gothic-webfont.eot")
 
 .ie8 @font-face
+  font-family: "cgothb"
+  src: url("/fonts/gothicb-webfont.eot")  
+
+.ie9 @font-face
   font-family: "cgoth"
+  src: url("/fonts/gothic-webfont.eot")
+
+.ie9 @font-face
+  font-family: "cgothb"
   src: url("/fonts/gothicb-webfont.eot")  
 
 .add_more 
@@ -86,7 +94,16 @@ input[type="file"]
 
 =grey_bg 
   background-color:  #878787
-
+  
+input[type="checkbox"]
+  margin: 0
+  padding: 0
+  border: 0
+  font-size: 100%
+  font: inherit
+  vertical-align: baseline
+  background-color: transparent !important
+  
 body  
   background-color:  #101010
   font-family: 'cgoth', 'century gothic', verdana,arial,helvetica,sans-serif
@@ -281,7 +298,6 @@ img
   +gradient(#4E4E4E,  #030303)
   background-color:  #030303
   +rounded_corners(10px, 10px, 10px, 10px)
-  border-ra
   font-size: 14px
   +drop_shadow
   padding-left:  35px
@@ -340,10 +356,9 @@ img
       height:  162px
       width:  177px
       padding: 0
+      
+      +rounded_corners(10px, 10px, 10px, 10px)
       +gradient(#363636,  #030303)
-      -moz-border-radius:  10px 10px 10px 10px
-      -webkit-border-radius:  10px
-      border-radius:  10px
       +drop_shadow
 
       margin-top: 15px
@@ -751,6 +766,7 @@ ul#nav_bar
       margin-left:  8px
       background-image:  url('/images/media_filter_game_icons.png')
       background-repeat:  no-repeat
+      background-color: transparent
     
     .warcraft 
       background-position:  -75px -82px
@@ -1080,7 +1096,8 @@ thead
       width:  82px
       background-image:  url('/images/grubbytv_filter_game_icons.png')
       background-repeat:  no-repeat
-    
+      background-color: transparent
+      
     .warcraft 
       background-position:  -75px -82px
     

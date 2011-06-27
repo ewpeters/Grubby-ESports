@@ -18,18 +18,26 @@ input[type="file"] {
 
 @font-face {
   font-family: "cgoth";
-  src: url("/fonts/gothic-webfont.eot?") format('eot'), url("/fonts/gothic-webfont.woff") format("woff"),  url("/fonts/gothic-webfont.otf") format("opentype"),  url("/fonts/gothic-webfont.svg#gothic-webfont") format("svg"); }
+  src: url("/fonts/gothic-webfont.woff") format("woff"),  url("/fonts/gothic-webfont.otf") format("opentype"),  url("/fonts/gothic-webfont.svg#gothic-webfont") format("svg"); }
 
 @font-face {
   font-family: "cgothb";
-  src: url('../fonts/gothicb-webfont.eot?') format('eot'), url('../fonts/gothicb-webfont.woff') format('woff'), url('../fonts/gothicb-webfont.ttf') format('truetype'), url('../fonts/gothicb-webfont.svg#webfontKWmDqtHl') format('svg'); }
+  src: url('../fonts/gothicb-webfont.woff') format('woff'), url('../fonts/gothicb-webfont.ttf') format('truetype'), url('../fonts/gothicb-webfont.svg#webfontKWmDqtHl') format('svg'); }
 
 .ie8 @font-face {
   font-family: "cgoth";
   src: url("/fonts/gothic-webfont.eot"); }
 
 .ie8 @font-face {
+  font-family: "cgothb";
+  src: url("/fonts/gothicb-webfont.eot"); }
+
+.ie9 @font-face {
   font-family: "cgoth";
+  src: url("/fonts/gothic-webfont.eot"); }
+
+.ie9 @font-face {
+  font-family: "cgothb";
   src: url("/fonts/gothicb-webfont.eot"); }
 
 .add_more {
@@ -43,6 +51,15 @@ input[type="file"] {
   background-color: white;
   color: black;
   font-size: 16px; }
+
+input[type="checkbox"] {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  background-color: transparent !important; }
 
 body {
   background-color: #101010;
@@ -356,13 +373,17 @@ img {
       height: 162px;
       width: 177px;
       padding: 0;
+      -moz-border-radius: 10px 10px 10px 10px;
+      -khtml-border-radius: 10px 10px 10px 10px;
+      -o-border-radius: 10px 10px 10px 10px;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+      border-bottom-left-radius: 10px;
       background-color: #030303;
       filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#363636', endColorstr='#030303');
       background: -moz-linear-gradient(top left,  #363636,  #030303);
       background: -webkit-gradient(linear, left top, right bottom, from(#363636), to(#030303));
-      -moz-border-radius: 10px 10px 10px 10px;
-      -webkit-border-radius: 10px;
-      border-radius: 10px;
       box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
       -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
       -moz-box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
@@ -752,7 +773,8 @@ ul#nav_bar {
       width: 82px;
       margin-left: 8px;
       background-image: url('/images/media_filter_game_icons.png');
-      background-repeat: no-repeat; }
+      background-repeat: no-repeat;
+      background-color: transparent; }
     #media_container #filters .warcraft {
       background-position: -75px -82px; }
     #media_container #filters .starcraft {
@@ -1068,7 +1090,8 @@ thead tr {
       height: 82px;
       width: 82px;
       background-image: url('/images/grubbytv_filter_game_icons.png');
-      background-repeat: no-repeat; }
+      background-repeat: no-repeat;
+      background-color: transparent; }
     #tv_container #filters .warcraft {
       background-position: -75px -82px; }
     #tv_container #filters .starcraft {
