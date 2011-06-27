@@ -41,7 +41,7 @@ CONFIG = Rails::Initializer.run do |config|
   config.gem 'by_star', :version => '0.6.3'
   config.gem 'chronic'
   config.gem 'coderay'
-  config.gem 'i18n', :version => '0.4.0'
+  config.gem 'i18n'
   # config.gem 'dotiw'
   config.gem 'escape_utils', :version => '0.2.3'
   config.gem 'haml', :version => "2.2.21"

@@ -7,7 +7,7 @@ class UserMailer < ActionMailer::Base
   
   def activation(user)
     setup_email(user)
-    @subject    += 'Your account has been activated!'
+    @subject    += 'Your account \"#{user.login}\" has been activated!'
     @url  = "www.followgrubby.com"
     content_type = "text/html"
   end

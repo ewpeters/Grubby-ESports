@@ -1,14 +1,18 @@
-.topic.light-box
-  %center
-    %h2= @topic.subject
-  = pagination = will_paginate(@posts)
-  .posts.listing
-    = render :partial => @posts, :locals => { :show_topic => false }
-  - if current_user.can?(:reply)
-    #quick-reply{:cellpadding => "2", :cellspacing => "0", :width => "100%"}
-      %h3 Say Something
-      - form_for [@topic, @post] do |f|
-        = render :partial => "posts/form", :locals => { :f => f, :rows => 10, :cols => 70, :submit => "Reply", :label => false }
-  =raw pagination
-  %a#Bottom
+#forum_body
+  #header
+    %center
+      %span= @topic.subject
+  #forums_body    
+    - if @posts.size == 0
+      %center
+        %h1 Nobody has commented on this yet
+    = pagination = will_paginate(@posts)
+    .posts.listing
+      = render :partial => @posts, :locals => { :show_topic => false }
+    - if current_user.can?(:reply)
+      #quick-reply{:cellpadding => "2", :cellspacing => "0", :width => "100%"}
+        - form_for [@topic, @post] do |f|
+          = render :partial => "posts/form", :locals => { :f => f, :rows => 10, :cols => 70, :submit => "Reply", :label => false }
+    =raw pagination
+    %a#Bottom
 
