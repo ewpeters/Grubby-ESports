@@ -18,23 +18,19 @@ input[type="file"] {
 
 @font-face {
   font-family: "cgoth";
-  src: url("/fonts/gothic-webfont.woff") format("woff"),  url("/fonts/gothic-webfont.otf") format("opentype"),  url("/fonts/gothic-webfont.svg#gothic-webfont") format("svg");
-  src: url("/fonts/gothic-webfont.eot"); }
-
-@font-face {
-  font-family: "cgothi";
-  src: url("/fonts/gothici-webfont.eot");
-  src: local("☺"),  url("/fonts/gothici-webfont.woff") format("woff"), url("/fonts/gothici-webfont.otf") format("opentype"), url("/fonts/gothici-webfont.svg#gothici-webfont") format("svg"); }
+  src: url("/fonts/gothic-webfont.eot?") format('eot'), url("/fonts/gothic-webfont.woff") format("woff"),  url("/fonts/gothic-webfont.otf") format("opentype"),  url("/fonts/gothic-webfont.svg#gothic-webfont") format("svg"); }
 
 @font-face {
   font-family: "cgothb";
-  src: url("/fonts/gothicb-webfont.woff") format("woff"),  url("/fonts/gothicb-webfont.otf") format("opentype"),  url("/fonts/gothicb-webfont.svg#gothicb-webfont") format("svg");
-  src: url("/fonts/gothicb-webfont.eot"); }
+  src: url('../fonts/gothicb-webfont.eot?') format('eot'), url('../fonts/gothicb-webfont.woff') format('woff'), url('../fonts/gothicb-webfont.ttf') format('truetype'), url('../fonts/gothicb-webfont.svg#webfontKWmDqtHl') format('svg'); }
 
-@font-face {
-  font-family: "cgothbi";
-  src: url("fonts/gothicbi-webfont.eot");
-  src: local("☺"),  url("/fonts/gothicbi-webfont.woff") format("woff"),  url("/fonts/gothicbi-webfont.otf") format("opentype"), url("/fonts/gothicbi-webfont.svg#gothicbi-webfont") format("svg"); }
+.ie8 @font-face {
+  font-family: "cgoth";
+  src: url("/fonts/gothic-webfont.eot"); }
+
+.ie8 @font-face {
+  font-family: "cgoth";
+  src: url("/fonts/gothicb-webfont.eot"); }
 
 .add_more {
   -moz-border-radius: 5px 5px 5px 5px;
@@ -78,13 +74,12 @@ ul {
 .ui-dialog {
   background-color: black;
   -moz-border-radius: 5px 5px 5px 5px;
+  -khtml-border-radius: 5px 5px 5px 5px;
+  -o-border-radius: 5px 5px 5px 5px;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
-  -khtml-border-radius: 5px 5px 5px 5px;
-  -o-border-radius: 5px 5px 5px 5px;
-  border-radius: 5px 5px 5px 5px;
   border: solid medium white; }
 
 .ui-dialog-content {
@@ -212,13 +207,12 @@ img {
     margin-right: 10px;
     border: 1px transparent solid;
     -moz-border-radius: 5px 5px 5px 5px;
+    -khtml-border-radius: 5px 5px 5px 5px;
+    -o-border-radius: 5px 5px 5px 5px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
-    border-bottom-left-radius: 5px;
-    -khtml-border-radius: 5px 5px 5px 5px;
-    -o-border-radius: 5px 5px 5px 5px;
-    border-radius: 5px 5px 5px 5px; }
+    border-bottom-left-radius: 5px; }
     #user_nav form input {
       width: 140px;
       color: white;
@@ -284,9 +278,13 @@ img {
   background: -webkit-gradient(linear, left top, right bottom, from(#4e4e4e), to(#030303));
   background-color: #030303;
   -moz-border-radius: 10px 10px 10px 10px;
-  -webkit-border-radius: 10px;
+  -khtml-border-radius: 10px 10px 10px 10px;
+  -o-border-radius: 10px 10px 10px 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
   font-size: 14px;
-  border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
   -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
   -moz-box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
@@ -489,13 +487,12 @@ img {
   padding-top: 30px;
   background: url("/images/scales.jpg") no-repeat scroll 0 0 #000000;
   -moz-border-radius: 0px 0px 10px 10px;
+  -khtml-border-radius: 0px 0px 10px 10px;
+  -o-border-radius: 0px 0px 10px 10px;
   border-top-left-radius: 0px;
   border-top-right-radius: 0px;
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
-  -khtml-border-radius: 0px 0px 10px 10px;
-  -o-border-radius: 0px 0px 10px 10px;
-  border-radius: 0px 0px 10px 10px;
   box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
   -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
   -moz-box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
@@ -603,13 +600,12 @@ ul#nav_bar {
     height: 71px;
     background-color: black;
     -moz-border-radius: 15px 15px 0px 0px;
+    -khtml-border-radius: 15px 15px 0px 0px;
+    -o-border-radius: 15px 15px 0px 0px;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 0px;
     border-bottom-left-radius: 0px;
-    -khtml-border-radius: 15px 15px 0px 0px;
-    -o-border-radius: 15px 15px 0px 0px;
-    border-radius: 15px 15px 0px 0px;
     position: relative; }
     #article_content #header #left_content {
       font-size: 30px;
@@ -661,13 +657,12 @@ ul#nav_bar {
     height: 100%;
     padding-bottom: 45px;
     -moz-border-radius: 0px 0px 10px 10px;
+    -khtml-border-radius: 0px 0px 10px 10px;
+    -o-border-radius: 0px 0px 10px 10px;
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
     border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    -khtml-border-radius: 0px 0px 10px 10px;
-    -o-border-radius: 0px 0px 10px 10px;
-    border-radius: 0px 0px 10px 10px; }
+    border-bottom-left-radius: 10px; }
 
 #time_now {
   color: #7c7c7c !important;
@@ -846,13 +841,12 @@ ul#nav_bar {
     position: relative; }
     #media_container .media_item .media_item_outer {
       -moz-border-radius: 10px 10px 10px 10px;
+      -khtml-border-radius: 10px 10px 10px 10px;
+      -o-border-radius: 10px 10px 10px 10px;
       border-top-left-radius: 10px;
       border-top-right-radius: 10px;
       border-bottom-right-radius: 10px;
       border-bottom-left-radius: 10px;
-      -khtml-border-radius: 10px 10px 10px 10px;
-      -o-border-radius: 10px 10px 10px 10px;
-      border-radius: 10px 10px 10px 10px;
       border: 2px white solid;
       width: 555px;
       height: 87px;
@@ -862,13 +856,12 @@ ul#nav_bar {
         height: 73px;
         border: 1px #333f45 solid;
         -moz-border-radius: 10px 10px 10px 10px;
+        -khtml-border-radius: 10px 10px 10px 10px;
+        -o-border-radius: 10px 10px 10px 10px;
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
         border-bottom-right-radius: 10px;
         border-bottom-left-radius: 10px;
-        -khtml-border-radius: 10px 10px 10px 10px;
-        -o-border-radius: 10px 10px 10px 10px;
-        border-radius: 10px 10px 10px 10px;
         position: absolute;
         top: 7.5px;
         left: 7.5px; }
@@ -958,13 +951,12 @@ thead tr {
   margin-right: 25px;
   margin-bottom: 25px;
   -moz-border-radius: 10px 10px 10px 10px;
+  -khtml-border-radius: 10px 10px 10px 10px;
+  -o-border-radius: 10px 10px 10px 10px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
-  -khtml-border-radius: 10px 10px 10px 10px;
-  -o-border-radius: 10px 10px 10px 10px;
-  border-radius: 10px 10px 10px 10px;
   background-color: black;
   box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
   -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
@@ -1119,13 +1111,12 @@ thead tr {
     top: 25px; }
   #tv_container .box {
     -moz-border-radius: 10px 10px 10px 10px;
+    -khtml-border-radius: 10px 10px 10px 10px;
+    -o-border-radius: 10px 10px 10px 10px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
-    -khtml-border-radius: 10px 10px 10px 10px;
-    -o-border-radius: 10px 10px 10px 10px;
-    border-radius: 10px 10px 10px 10px;
     border: 3px #4d8e5e solid;
     width: 575px;
     height: 355px;
@@ -1136,13 +1127,12 @@ thead tr {
       vertical-align: middle; }
   #tv_container .dialog {
     -moz-border-radius: 10px 10px 10px 10px;
+    -khtml-border-radius: 10px 10px 10px 10px;
+    -o-border-radius: 10px 10px 10px 10px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
-    -khtml-border-radius: 10px 10px 10px 10px;
-    -o-border-radius: 10px 10px 10px 10px;
-    border-radius: 10px 10px 10px 10px;
     border: 3px #4d8e5e solid;
     width: 575px;
     height: 95px;
@@ -1154,13 +1144,12 @@ thead tr {
       height: 80px;
       border: 2px #182c1d solid;
       -moz-border-radius: 10px 10px 10px 10px;
+      -khtml-border-radius: 10px 10px 10px 10px;
+      -o-border-radius: 10px 10px 10px 10px;
       border-top-left-radius: 10px;
       border-top-right-radius: 10px;
       border-bottom-right-radius: 10px;
       border-bottom-left-radius: 10px;
-      -khtml-border-radius: 10px 10px 10px 10px;
-      -o-border-radius: 10px 10px 10px 10px;
-      border-radius: 10px 10px 10px 10px;
       position: absolute;
       top: 6.5px;
       left: 6.5px; }
@@ -1181,13 +1170,12 @@ thead tr {
     position: relative; }
     #tv_container .tv_item .tv_item_outer {
       -moz-border-radius: 10px 10px 10px 10px;
+      -khtml-border-radius: 10px 10px 10px 10px;
+      -o-border-radius: 10px 10px 10px 10px;
       border-top-left-radius: 10px;
       border-top-right-radius: 10px;
       border-bottom-right-radius: 10px;
       border-bottom-left-radius: 10px;
-      -khtml-border-radius: 10px 10px 10px 10px;
-      -o-border-radius: 10px 10px 10px 10px;
-      border-radius: 10px 10px 10px 10px;
       border: 2px #4d8e5e solid;
       width: 555px;
       height: 87px;
@@ -1197,13 +1185,12 @@ thead tr {
         height: 73px;
         border: 1px #182c1d solid;
         -moz-border-radius: 10px 10px 10px 10px;
+        -khtml-border-radius: 10px 10px 10px 10px;
+        -o-border-radius: 10px 10px 10px 10px;
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
         border-bottom-right-radius: 10px;
         border-bottom-left-radius: 10px;
-        -khtml-border-radius: 10px 10px 10px 10px;
-        -o-border-radius: 10px 10px 10px 10px;
-        border-radius: 10px 10px 10px 10px;
         position: absolute;
         top: 7.5px;
         left: 7.5px; }

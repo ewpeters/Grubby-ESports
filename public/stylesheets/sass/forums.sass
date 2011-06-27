@@ -1,12 +1,11 @@
-
-
 =rounded_corners(!top=5px, !right=5px, !bottom=5px, !left=5px) 
   -moz-border-radius =  "#{!top} #{!right} #{!bottom} #{!left}"
+  -khtml-border-radius =  "#{!top} #{!right} #{!bottom} #{!left}"
+  -o-border-radius =  "#{!top} #{!right} #{!bottom} #{!left}"
   border-top-left-radius = "#{!top}"
   border-top-right-radius =  "#{!right}"
   border-bottom-right-radius =  "#{!bottom}"
   border-bottom-left-radius =  "#{!left}"
-  border-radius =  "#{!top} #{!right} #{!bottom} #{!left}"
   
 =drop_shadow(!color=rgba(0, 0, 0, 0.5), !values=0px 6px 10px)
   box-shadow         = "#{!color} #{!values}"

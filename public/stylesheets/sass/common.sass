@@ -9,13 +9,13 @@ input[type="file"]
 
 =rounded_corners(!top=5px, !right=5px, !bottom=5px, !left=5px) 
   -moz-border-radius =  "#{!top} #{!right} #{!bottom} #{!left}"
+  -khtml-border-radius =  "#{!top} #{!right} #{!bottom} #{!left}"
+  -o-border-radius =  "#{!top} #{!right} #{!bottom} #{!left}"
   border-top-left-radius = "#{!top}"
   border-top-right-radius =  "#{!right}"
   border-bottom-right-radius =  "#{!bottom}"
   border-bottom-left-radius =  "#{!left}"
-  -khtml-border-radius =  "#{!top} #{!right} #{!bottom} #{!left}"
-  -o-border-radius =  "#{!top} #{!right} #{!bottom} #{!left}"
-  border-radius =  "#{!top} #{!right} #{!bottom} #{!left}"
+
 
 =gradient(!from=#363636, !to=#030303)
   background-color = "#{!to}"
@@ -46,24 +46,23 @@ input[type="file"]
 
 .button 
   +button
-  
+
+
 @font-face
   font-family: "cgoth" 
-  src: url("/fonts/gothic-webfont.woff") format("woff"),  url("/fonts/gothic-webfont.otf") format("opentype"),  url("/fonts/gothic-webfont.svg#gothic-webfont") format("svg")
-  src: url("/fonts/gothic-webfont.eot")
-@font-face 
-  font-family: "cgothi" 
-  src: url("/fonts/gothici-webfont.eot") 
-  src: local("☺"),  url("/fonts/gothici-webfont.woff") format("woff"), url("/fonts/gothici-webfont.otf") format("opentype"), url("/fonts/gothici-webfont.svg#gothici-webfont") format("svg")
+  src: url("/fonts/gothic-webfont.eot?") format('eot'), url("/fonts/gothic-webfont.woff") format("woff"),  url("/fonts/gothic-webfont.otf") format("opentype"),  url("/fonts/gothic-webfont.svg#gothic-webfont") format("svg")
+  
 @font-face 
   font-family: "cgothb" 
-  src: url("/fonts/gothicb-webfont.woff") format("woff"),  url("/fonts/gothicb-webfont.otf") format("opentype"),  url("/fonts/gothicb-webfont.svg#gothicb-webfont") format("svg")
-  src: url("/fonts/gothicb-webfont.eot")
-@font-face 
-  font-family: "cgothbi" 
-  src: url("fonts/gothicbi-webfont.eot") 
-  src: local("☺"),  url("/fonts/gothicbi-webfont.woff") format("woff"),  url("/fonts/gothicbi-webfont.otf") format("opentype"), url("/fonts/gothicbi-webfont.svg#gothicbi-webfont") format("svg")
-  
+  src: url('../fonts/gothicb-webfont.eot?') format('eot'), url('../fonts/gothicb-webfont.woff') format('woff'), url('../fonts/gothicb-webfont.ttf') format('truetype'), url('../fonts/gothicb-webfont.svg#webfontKWmDqtHl') format('svg')
+
+.ie8 @font-face
+  font-family: "cgoth"
+  src: url("/fonts/gothic-webfont.eot")
+
+.ie8 @font-face
+  font-family: "cgoth"
+  src: url("/fonts/gothicb-webfont.eot")  
 
 .add_more 
   +button
@@ -281,10 +280,9 @@ img
 .box 
   +gradient(#4E4E4E,  #030303)
   background-color:  #030303
-  -moz-border-radius:  10px 10px 10px 10px
-  -webkit-border-radius:  10px
+  +rounded_corners(10px, 10px, 10px, 10px)
+  border-ra
   font-size: 14px
-  border-radius:  10px
   +drop_shadow
   padding-left:  35px
   padding-right: 35px
