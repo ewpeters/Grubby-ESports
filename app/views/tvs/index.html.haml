@@ -30,9 +30,9 @@
       .dialog
         .inner
           %div.controls
-            %span#chat{:style => 'left:15px; top: 0px;', :onClick => "popitup($(this).attr('chat_code') + '?chat=#{true}')"} Chat
+            %span#chat{:style => 'left:15px; top: 0px;cursor: pointer;', :onClick => "popitup($(this).attr('chat_code') + '?chat=#{true}')"} Chat
             %span#video_type{:style => 'left:45%; top: 0px;'}
-            %span#pop_up{:style => 'right:15px; top: 0px;', :onClick => "popitup($(this).attr('chat_code') + '?chat=#{false}')"} Pop Up
+            %span#pop_up{:style => 'right:15px; top: 0px; cursor: pointer;', :onClick => "popitup($(this).attr('chat_code') + '?chat=#{false}')"} Pop Out
           %div.video_title
           %div.video_summary
     - @tvs.each do |tv|

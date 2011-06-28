@@ -35,7 +35,7 @@
       = text_area_tag :tags, @tv.tag_list.join(',')
     %div{:class => "field"}
       %div= f.label :link 
-      %span (optional)
+      %span (optional) ONLY use this if you don't want the icon to open inline
       %div= f.text_field :link
     %div{:class => "field"}
       %h1= f.label :thumb

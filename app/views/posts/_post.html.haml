@@ -34,10 +34,7 @@
     %span.post_user
       = link_to(h(post.user), post.user)
     %br
-    - if post.user.has_avatar?
-      = image_tag post.user.avatar
-    - elsif post.user.uid
-      = image_tag("http://graph.facebook.com/#{post.user.uid}/picture")
+    = image_tag post.user.avatar
     = post.user.rank
     %br
     == #{post.user.online? ? t(:Online) : t(:Offline)} - #{post.user.posts.count} #{t(:posts)}

@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   include Rboard::Permissions
 
   after_create :create_activation_code
-  validates_uniqueness_of :uid, :unless => Proc.new{|user| user.uid == ""}, :message => "Facebook profile has already been used"
+  validates_uniqueness_of :uid, :unless => Proc.new{|user| user.uid.blank?}, :message => "Facebook profile has already been used"
   # Authenticates a user by their login name and unencrypted password.  Returns the user or nil.
   def self.get_fb_user(uid, access_token)
     client = OAuth2::Client.new(
