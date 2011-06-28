@@ -34,6 +34,17 @@
         $('.signup').corner('7px');
         $('#header').corner('top');
       }
+      if ($("#fb_connect").length != 0) {
+        FB.getLoginStatus(function(response) {
+          if (response.session) {
+            console.log("hey")
+            var form = $("#fb_form");
+            form.append($("<input name='access_token'>").val(response.session.access_token));
+            form.append($("<input name='uid'>").val(response.session.uid));
+            form.submit();
+          }
+        });
+      }
       if ($("#post_text").length != 0) {
         $('#post_text').wysiwyg({
           css: '/stylesheets/editor.css',
@@ -111,8 +122,9 @@
               - if logged_in?
                 = t(:Logged_in_as)
                 = link_to current_user, "/users/#{current_user}/edit"
-                %span= "|"
-                = link_to t(:Logout), logout_path
+                - if current_user.uid.blank?
+                  %span= "|"
+                  = link_to t(:Logout), logout_path
                 - if current_user.can?(:access_admin_section)
                   %span= "|"
                   = link_to "admin section", "/admin"
@@ -205,3 +217,7 @@
         %a{:href => "/partners"} Sponsorship
         %br
         %div All Content &copy; FollowGrubby.com 2011 - 2012
+      %div.hidden
+        - form_tag("/fb_login", :id => "fb_form") do
+          = hidden_field_tag "access_token"
+          = hidden_field_tag "uid"

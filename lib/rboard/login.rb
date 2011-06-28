@@ -72,10 +72,10 @@ module Rboard::Login
     end
     if logged_in?    
       flash[:notice] = t(:logged_in_successfully)
-      redirect_back_or_default('/home') and return false
+      redirect_to(:back) and return false
     else
       flash[:notice] = t(:username_or_password_incorrect)
-      redirect_back_or_default('/home')
+      redirect_to(:back)
     end
   end
 

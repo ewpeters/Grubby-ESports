@@ -27,10 +27,14 @@ class User < ActiveRecord::Base
     u && u.authenticated?(password) && u.activated ? u : nil
   end
   
-  def self.fb_authenticate(uid, access_token, user)
+  def self.fb_authenticate(uid, access_token)
     u = find_by_uid(uid)
     if u
-     return u
+     if get_fb_user(uid, access_token)
+       return u
+     else
+       return nil
+     end
     else
       return nil
     end

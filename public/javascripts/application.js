@@ -107,6 +107,9 @@ function toggleItems(game) {
 }
 
 
+function try_fb_login() {
+  
+}
 
 function fb_connect() {
   FB.login(function(response) {
