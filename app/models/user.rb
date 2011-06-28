@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   include Rboard::Permissions
 
   after_create :create_activation_code
+  validates_uniqueness_of :uid, :unless => Proc.new{|user| user.uid == ""}, :message => "Facebook profile has already been used"
   # Authenticates a user by their login name and unencrypted password.  Returns the user or nil.
   def self.get_fb_user(uid, access_token)
     client = OAuth2::Client.new(
@@ -26,30 +27,15 @@ class User < ActiveRecord::Base
     u && u.authenticated?(password) && u.activated ? u : nil
   end
   
-  def self.fb_authenticate(uid, access_token)
-    u = find_by_login(uid)
+  def self.fb_authenticate(uid, access_token, user)
+    u = find_by_uid(uid)
     if u
-      get_fb_user(uid, access_token) ? u : nil
+     return u
     else
-      new_fb_user(uid, access_token)
+      return nil
     end
   end
 
-  def self.new_fb_user(uid, access_token)
-    fb_user = get_fb_user(uid, access_token)
-    if fb_user
-      password = rand(36**32).to_s(36)
-      User.create(:login => uid,
-                  :uid => uid,
-                  :display_name => fb_user['first_name'],
-                  :password => password,
-                  :password_confirmation => password,
-                  :activated => true
-                  )
-    else
-      nil
-    end
-  end
   # Encrypts some data with the salt.
   def self.encrypt(password, salt)
     Digest::SHA1.hexdigest("--#{salt}--#{password}--")

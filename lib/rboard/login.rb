@@ -9,8 +9,6 @@ module Rboard::Login
     if logged_in?
       # #remember_me calls save internally, so don't bother saving it twice
       if params[:remember_me] == "1"
-        Rails.logger.info("*" * 20)
-        Rails.logger.info("Logged in")
         self.current_user.remember_me
         cookies[:auth_token] = { :value => self.current_user.remember_token , :expires => self.current_user.remember_token_expires_at }
         Rails.logger.info(cookies[:auth_token])
@@ -32,15 +30,40 @@ module Rboard::Login
     if logged_in?
       flash[:notice] = t(:already_logged_in)
       redirect_back_or_default('/')
+    else
+      @user = User.new
+      if !params[:uid].blank? && !params[:access_token].blank?
+        existing_user = User.authenticate(params[:user][:login], params[:user][:password])
+        if existing_user
+          @user = existing_user
+          @user.uid = params[:uid]
+        else
+          @user = User.new(params[:user])
+          @user.display_name = @user.login
+          @user.uid = params[:uid]
+        end
+      else
+        @user = User.new(params[:user])
+        @user.display_name = @user.login
+      end
+      if request.post?
+        if @user.save
+          if @user.uid.blank?
+            flash[:notice] = t(:thanks_for_signing_up)
+          else
+            self.current_user = @user
+          end
+          flash[:notice] = t(:thanks_for_signing_up)
+          redirect_to(:controller => "home", :action => "index")
+        else
+          if params[:fb]
+            render :action => "signup"
+          else
+            render :action => "signup"
+          end
+        end
+      end
     end
-    crap = User.new(params[:user])
-    crap.display_name = crap.login
-    return unless request.post?
-    crap.save!
-    redirect_to(:controller => "home", :action => "index")
-    flash[:notice] = t(:thanks_for_signing_up)
-  rescue ActiveRecord::RecordNotSaved, ActiveRecord::RecordInvalid
-    flash[:notice] = t(:problem_during_signup)
   end
   
   def fb_login

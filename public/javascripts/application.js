@@ -67,9 +67,9 @@ $(document).ready(function() {
     $('#video_player').toggleClass('hidden');    
   });
   
-  $('#fb_connect').click(function(){
-    fb_connect();
-  });
+  // $('#fb_connect').click(function(){
+  //   fb_connect();
+  // });
   
   $('.icon.warcraft').click(function(){
     $(this).toggleClass('true');
@@ -105,6 +105,8 @@ $(document).ready(function() {
 function toggleItems(game) {
   $("div[game="+game+"]").toggleClass('hidden');
 }
+
+
 
 function fb_connect() {
   FB.login(function(response) {

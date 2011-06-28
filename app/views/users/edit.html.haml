@@ -14,6 +14,12 @@
       %tr
         %td
           %br
+      - if @user.uid.blank?
+        %tr
+          %td{:colspan => "2"}
+            %a{:href => "/users/signup?fb=1"}
+              %span Connect your account with Facebook: 
+              = image_tag ("login_icon_facebook.png", :style => "position: relative; top:8px")      
       %tr
         %td{:colspan => "2", :valign => "top"}
           %h3= t(:New, :thing => "password")

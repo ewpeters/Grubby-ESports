@@ -1,20 +1,51 @@
-= error_messages_for :user
-%h2= t(:Signup)
-- form_for :user do |f|
-  %p
-    = f.label :login, "User Name"
-    %br
-    = f.text_field :login
-  %p
-    = f.label :email, t(:Email)
-    %br
-    = f.text_field :email
-  %p
-    = f.label :password, t(:Password)
-    %br
-    = f.password_field :password
-  %p
-    = f.label :password_confirmation, t(:Confirm_Password)
-    %br
-    = f.password_field :password_confirmation
-  %p= submit_tag t(:Signup)
+%div.jobs.box
+  %center
+    %h2= t(:Signup)
+  - if params[:fb] == "1"
+    %div Already have a FollowGrubby.com account? 
+    %div Just enter the login and password below to connect it to your Facebook profile
+    :javascript
+      FB.login(function(response) {
+        if (response.session) {
+          FB.login(function(response) {
+            if (response.session) {
+              var loginForm = $('#user_form');
+              loginForm.find("#access_token").val(response.session.access_token);
+              loginForm.find("#uid").val(response.session.uid);
+            }
+          });
+        }
+      });
+      FB.getLoginStatus(function(response) {
+        if (response.session) {
+          var loginForm = $('#user_form');
+          loginForm.find("#access_token").val(response.session.access_token);
+          loginForm.find("#uid").val(response.session.uid);
+        } else {
+        }
+      });
+  - else
+    %a{:href => "/users/signup?fb=1"}
+      %span Signup with Facebook: 
+      = image_tag ("login_icon_facebook.png", :style => "position: relative; top:8px")      
+  - form_for :user, :url => { :action => :signup, :fb => params[:fb] }, :html => {:id => "user_form"} do |f|
+    = error_messages_for 'user'
+    %p
+      = f.label :login, "Username"
+      %br
+      = f.text_field :login
+    %p
+      = f.label :email, t(:Email)
+      %br
+      = f.text_field :email
+    %p
+      = f.label :password, t(:Password)
+      %br
+      = f.password_field :password
+    %p
+      = f.label :password_confirmation, t(:Confirm_Password)
+      %br
+      = f.password_field :password_confirmation
+    = hidden_field_tag :access_token
+    = hidden_field_tag :uid
+    %p= submit_tag t(:Signup)

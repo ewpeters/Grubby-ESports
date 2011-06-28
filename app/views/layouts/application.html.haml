@@ -92,11 +92,9 @@
         .wrapper
           %span.grey
           %div.hidden
-            - form_tag("/fb_login", :id => 'fb_form') do
-              = text_field_tag 'access_token'
-              = text_field_tag 'uid'
           - unless logged_in?
-            = image_tag ("login_icon_facebook.png", :id => "fb_connect")
+            %a{:href => "/users/signup?fb=1"}
+              = image_tag ("login_icon_facebook.png", :id => "fb_connect")
             - form_tag "/login", :action => :post, :id => "login-form" do
               %span.cgoth_b Login
               = text_field_tag 'login'
