@@ -32,6 +32,7 @@
       %div Tag List (comma seperated list)
       %div For the live link add the tags 'special_live' and 'on' or 'off' depending on the state
       %div Currently supported tags: (featured, archived, real_life)
+      %div Tag with anything else you want to show up when searched for
       = text_area_tag :tags, @tv.tag_list.join(',')
     %div{:class => "field"}
       %div= f.label :link 

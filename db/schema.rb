@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110625025456) do
+ActiveRecord::Schema.define(:version => 20110629031005) do
 
   create_table "albums", :force => true do |t|
     t.string   "title"
@@ -111,6 +111,7 @@ ActiveRecord::Schema.define(:version => 20110625025456) do
     t.string   "image_icon_file_file_name"
     t.string   "image_icon_file_content_type"
     t.integer  "image_icon_file_file_size"
+    t.string   "map_image_link"
   end
 
   create_table "edits", :force => true do |t|

@@ -17,8 +17,10 @@
     %div.warcraft.icon.true
   #media_box
     - @medias.each do |media|
+      - sc = media.tag_list.member?("starcraft")
+      - wc = media.tag_list.member?("warcraft")
       - if !media.tag_list.member?("wallpaper")
-        .media_item
+        .media_item{:sc => "#{sc}", :wc => "#{wc}"}
           %span.side_date= media.display_date.strftime('%d.%m.%Y')
           .media_item_outer
             .media_item_inner
@@ -33,7 +35,8 @@
               %div.meta= media.title
               %div.desc= media.summary
               .map
-                / = image_tag("/images/#{media.game.gsub(' ', '_')}.png")
+                - if media.map_image_link
+                  = image_tag(media.map_image_link)
               .download
                 - link = media.media_file.nil? ? media.url : media.media_file.url
                 %a{:href => link}

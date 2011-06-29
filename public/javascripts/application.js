@@ -73,11 +73,11 @@ $(document).ready(function() {
   
   $('.icon.warcraft').click(function(){
     $(this).toggleClass('true');
-    toggleItems("warcraft_3");
+    toggleWC();
   });
   $('.icon.starcraft').click(function(){
     $(this).toggleClass('true');
-    toggleItems("starcraft_2");
+    toggleSC();
   });
   
   $(".add_more").click(function() {
@@ -102,8 +102,11 @@ $(document).ready(function() {
   
 });
 
-function toggleItems(game) {
-  $("div[game="+game+"]").toggleClass('hidden');
+function toggleWC() {
+  $("div[wc='true']").toggleClass('hidden');
+}
+function toggleSC() {
+  $("div[sc='true']").toggleClass('hidden');
 }
 
 

@@ -29,7 +29,10 @@
       %div= select(:download, :player_two_race, Download::RACES)
     %div{:class => "field"}
       %div Tag List (comma seperated list)
-      %div Currently supported tags: (featured, archived, wallpaper)
+      %div Currently supported tags: (featured, archived)
+      %div Must mark wallpapers as 'wallpaper'
+      %div Game filter use 'warcraft' and 'starcraft'
+      %div Tag with anything else you want to show up when searched for
       = text_area_tag :tags, @media.tag_list.join(',')
     %h3 67x55 you have been warned.....
     %div{:class => "field"}
@@ -38,7 +41,13 @@
     %div or
     %div{:class => "field"}
       %div= f.label :image_icon_file
-      %div= f.file_field  :image_icon_file
+      %div= f.file_field  :image_icon_file      
+    %div Defaults (size 186x68):
+    %div Starcraft http://followgrubby.com/images/Starcraft_2.png
+    %div Warcraft http://followgrubby.com/images/Warcraft_3.png       
+    %div{:class => "field"}
+      %div= f.label :map_image_link
+      %div= f.text_field  :map_image_link
     %h1 File (upload a file or link to one)
     %div{:class => "field"}
       %div= f.label :media_file

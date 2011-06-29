@@ -2,7 +2,6 @@
   background-color: #030303;
   background: -moz-linear-gradient(top left,  #1c1c1c,  #030303);
   background: -webkit-gradient(linear, left top, right bottom, from(#1c1c1c), to(#030303));
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1c1c1c', endColorstr='#030303');
   width: 740px;
   height: 71px;
   color: #3F3F3F;
@@ -58,7 +57,6 @@
     background-color: #030303;
     background: -moz-linear-gradient(top left,  #363636,  #030303);
     background: -webkit-gradient(linear, left top, right bottom, from(#363636), to(#030303));
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#363636', endColorstr='#030303');
     width: 708px;
     -moz-border-radius: 10px 10px 10px 10px;
     -khtml-border-radius: 10px 10px 10px 10px;
@@ -124,7 +122,6 @@
     background-color: #c9c9c9;
     background: -moz-linear-gradient(top left,  #e3e3e3,  #c9c9c9);
     background: -webkit-gradient(linear, left top, right bottom, from(#e3e3e3), to(#c9c9c9));
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e3e3e3', endColorstr='#c9c9c9');
     box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
     -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
     -moz-box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
@@ -156,7 +153,6 @@
   background-color: #030303;
   background: -moz-linear-gradient(top left,  #363636,  #030303);
   background: -webkit-gradient(linear, left top, right bottom, from(#363636), to(#030303));
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#363636', endColorstr='#030303');
   width: 660px;
   -moz-border-radius: 10px 10px 10px 10px;
   -khtml-border-radius: 10px 10px 10px 10px;
@@ -189,7 +185,6 @@
   background-color: #d2d2d2;
   background: -moz-linear-gradient(top left,  #dbdbdb,  #d2d2d2);
   background: -webkit-gradient(linear, left top, right bottom, from(#dbdbdb), to(#d2d2d2));
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#dbdbdb', endColorstr='#d2d2d2');
   width: 675px;
   padding-left: 15px;
   padding-top: 3px;

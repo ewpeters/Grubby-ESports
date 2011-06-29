@@ -36,7 +36,9 @@
           %div.video_title
           %div.video_summary
     - @tvs.each do |tv|
-      .tv_item{:game => tv.game.gsub(' ', '_').downcase}
+      - sc = tv.tag_list.member?("starcraft")
+      - wc = tv.tag_list.member?("warcraft")
+      .tv_item{:sc => "#{sc}", :wc => "#{wc}"}
         %span.side_date= tv.display_date.strftime('%d.%m.%Y')
         .tv_item_outer
           .tv_item_inner

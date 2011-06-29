@@ -14,7 +14,8 @@
       %div= f.text_area :description, :size => "27x4"
     %div{:class => "field"}
       %div Tag List (comma seperated list)
-      %div Currently supported tags: (featured, archived, real_life)
+      %div Filters use: featured, archived, real_life
+      %div Tag with anything else you want to show up when searched for
       = text_area_tag :tags, @album.tag_list.join(',')  
     %div{:class => "actions"}
       %br
