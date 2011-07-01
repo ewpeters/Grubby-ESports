@@ -14,12 +14,12 @@
       %tr
         %td
           %br
-      - if @user.uid.blank?
+      - if true
         %tr
-          %td{:colspan => "2"}
-            %a{:href => "/users/signup?fb=1"}
-              %span Connect your account with Facebook: 
-              = image_tag ("login_icon_facebook.png", :style => "position: relative; top:8px")      
+          %td{:valign => "top",:colspan => "2"} Since you are a new Facebook user, you are able to change your user name once if you wish
+        %tr
+          %td.label{:valign => "top"}= f.label "login", t(:New, :thing => "Username" )
+          %td.input= f.text_field "login", :value => ""     
       %tr
         %td{:colspan => "2", :valign => "top"}
           %h3= t(:New, :thing => "password")

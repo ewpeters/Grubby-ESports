@@ -203,7 +203,7 @@
   border-bottom-left-radius: 10px; }
   .reply_box .reply_text {
     position: relative;
-    top: -135px;
+    top: -142px;
     left: 107px; }
   .reply_box input[type='submit'] {
     background-image: url("/images/post_create_highlight.png");

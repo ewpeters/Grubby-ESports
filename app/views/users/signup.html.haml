@@ -1,33 +1,6 @@
 %div.jobs.box
   %center
-    %h2= t(:Signup)
-  - if params[:fb] == "1"
-    %div Already have a FollowGrubby.com account? 
-    %div Just enter the login and password below to connect it to your Facebook profile
-    :javascript
-      FB.login(function(response) {
-        if (response.session) {
-          FB.login(function(response) {
-            if (response.session) {
-              var loginForm = $('#user_form');
-              loginForm.find("#access_token").val(response.session.access_token);
-              loginForm.find("#uid").val(response.session.uid);
-            }
-          });
-        }
-      });
-      FB.getLoginStatus(function(response) {
-        if (response.session) {
-          var loginForm = $('#user_form');
-          loginForm.find("#access_token").val(response.session.access_token);
-          loginForm.find("#uid").val(response.session.uid);
-        } else {
-        }
-      });
-  - else
-    %a{:href => "/users/signup?fb=1"}
-      %span Signup with Facebook: 
-      = image_tag ("login_icon_facebook.png", :style => "position: relative; top:8px")      
+    %h2= t(:Signup) 
   - form_for :user, :url => { :action => :signup, :fb => params[:fb] }, :html => {:id => "user_form"} do |f|
     = error_messages_for 'user'
     %p
