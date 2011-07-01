@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_filter :store_location, :only => [:index]
   before_filter :login_required, :only => [:edit, :update, :index]
   
-  skip_filter filter_chain, :only => [:deauth]
+  skip_filter filter_chain, :only => [:deauth, :check]
 
   include Rboard::Login
   
@@ -92,13 +92,13 @@ class UsersController < ApplicationController
   def send_email
     flash[:notice] = "Your email has been sent."
     UserMailer.delay.deliver_contact_email(params[:name], params[:email], params[:message])
-    redirect_back_or_default('/home')
+    redirect_to :controller => "users", :action => "contact"
   end
   
   def jobs_email
     flash[:notice] = "Your email has been sent."
     UserMailer.delay.deliver_jobs_email(params[:name], params[:email], params[:message])
-    redirect_back_or_default('/home')
+    redirect_to :controller => "users", :action => "jobs"
   end
   
   def contact
@@ -121,6 +121,14 @@ class UsersController < ApplicationController
     end
     render :nothing => true
   end
+  
+  def check
+    @success = false
+    if params[:uid]
+      @success = User.find_by_uid(params[:uid]) ? true : false
+    end
+  end
+  
   private
   def facebook_signed_request?(signed_request)
       #decode data

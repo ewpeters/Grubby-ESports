@@ -53,7 +53,7 @@ input[type="file"]
   
 @font-face 
   font-family: "cgothb" 
-  src: url('../fonts/gothicb-webfont.woff') format('woff'), url('../fonts/gothicb-webfont.ttf') format('truetype'), url('../fonts/gothicb-webfont.svg#webfontKWmDqtHl') format('svg')
+  src: url('/fonts/gothicb-webfont.woff') format('woff'), url('/fonts/gothicb-webfont.ttf') format('truetype'), url('/fonts/gothicb-webfont.svg#webfontKWmDqtHl') format('svg')
 
 .ie8 @font-face
   font-family: "cgoth"
@@ -78,7 +78,7 @@ input[type="file"]
   color:  #74aed3
 
 =bold
-  font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif
+  font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif 
 
 =grey 
   color:  #878787
@@ -106,6 +106,7 @@ input[type="checkbox"]
 body  
   background-color:  #101010
   font-family: 'cgoth', 'century gothic', verdana,arial,helvetica,sans-serif
+  -webkit-font-smoothing: antialiased
   color:  white
   .wrapper 
     width:  1011px
@@ -311,7 +312,7 @@ img
   font-size: 14px
   border-radius:  10px
   +drop_shadow
-  height: 75px
+  height: 85px
   width: 178px
   margin-top: 15px
   position: relative
@@ -323,7 +324,7 @@ img
     font-size: 11px
     top: 12.5px
     width: 164px
-    height: 36px
+    height: 46px
     +gradient(#454545,  #2D2D2D)
 
 #content 
@@ -651,6 +652,7 @@ ul#nav_bar
   
   #article_body 
     +drop_shadow
+    +rounded_corners(0px, 0px, 10px, 10px)
     color: black
     width:  721px
     height:  100%

@@ -34,17 +34,23 @@
         $('.signup').corner('7px');
         $('#header').corner('top');
       }
-      if ($("#fb_connect").length != 0) {
+      $("#fb_connect").click(function() {
         FB.getLoginStatus(function(response) {
           if (response.session) {
-            console.log("hey")
-            var form = $("#fb_form");
-            form.append($("<input name='access_token'>").val(response.session.access_token));
-            form.append($("<input name='uid'>").val(response.session.uid));
-            form.submit();
+            $.get('/users/check?uid=' + response.session.uid, function(data) {
+              var success = $.parseJSON(data).success
+              if (success) {
+                var form = $("#fb_form");
+                form.append($("<input name='access_token'>").val(response.session.access_token));
+                form.append($("<input name='uid'>").val(response.session.uid));
+                form.submit();
+              }
+            });
+          } else {
+            window.top.location.href = "http://followgrubby.com/signup?fb=1"
           }
         });
-      }
+      });
       if ($("#post_text").length != 0) {
         $('#post_text').wysiwyg({
           css: '/stylesheets/editor.css',
@@ -104,8 +110,7 @@
           %span.grey
           %div.hidden
           - unless logged_in?
-            %a{:href => "/users/signup?fb=1"}
-              = image_tag ("login_icon_facebook.png", :id => "fb_connect")
+            = image_tag ("login_icon_facebook.png", :id => "fb_connect")
             - form_tag "/login", :action => :post, :id => "login-form" do
               %span.cgoth_b Login
               = text_field_tag 'login'
@@ -122,9 +127,8 @@
               - if logged_in?
                 = t(:Logged_in_as)
                 = link_to current_user, "/users/#{current_user}/edit"
-                - if current_user.uid.blank?
-                  %span= "|"
-                  = link_to t(:Logout), logout_path
+                %span= "|"
+                = link_to t(:Logout), logout_path
                 - if current_user.can?(:access_admin_section)
                   %span= "|"
                   = link_to "admin section", "/admin"
@@ -166,7 +170,7 @@
                 %div.follow FOLLOW GRUBBY
           %div.status_box
             - if @status
-              %div.inner_status_box= @status.message
+              %div.inner_status_box= auto_link(@status.message, :html => { :target => '_blank' })
           %div.calendar
             %div#events.hidden= @events.collect{|e| [e.date.year, e.date.month, e.date.day]}.to_json
             %center
@@ -179,6 +183,7 @@
                 - css_class = "upcoming"
               %div.event_info{:date_text => event.date.strftime('%m/%d/%Y'), :class => css_class}
                 %a{:href => url_for (event.link), :target => external_target(event.link)}
+                  %span= event.date.strftime("%b").upcase
                   %span.event_day= event.date.day
                   %span.suffix= event.date.day.ordinalize.gsub(/\d/, '')
                   %span -

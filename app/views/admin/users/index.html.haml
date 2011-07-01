@@ -4,18 +4,12 @@
   - if @object
     %span== &raquo; #{t(:for)} #{@object.class.to_s}: #{@object}
 %h2= t(:Users)
-= will_paginate(@users)
 - if @object.is_a?(Group)
-  - content_for :head do
-    = javascript_include_tag 'jquery.autocomplete'
-  = link_to_function t(:Add_new_user), "jQuery('#assign_user').show()"
-  %span#assign_user{:style => "display:none;"}
-    = form_tag admin_group_members_path do
+  %span#assign_user
+    - form_tag admin_group_members_path do
       = text_field_tag :user
       = submit_tag t(:Add_to_group)
-      :javascript
-        jQuery("#user").autocomplete("/admin/users/search")
-%table.users.listing{:cellpadding => "3", :cellspacing => "0", :rules => "groups", :width => "100%"}
+%table.users.listing{:cellpadding => "3", :cellspacing => "0", :rules => "groups", :width => "100%", :style => "height: 1000px"}
   %thead
     %tr
       %td &nbsp;
@@ -31,11 +25,11 @@
   %tbody
     - if @users.empty?
       - if @object
-        %tr{ :class => stripe }
+        %tr
           %td{:colspan => "9"}= t(:No_users_in, :thing => @object)
     - else
       - for user in @users
-        %tr{ :class => stripe }
+        %tr
           %td.icon
             - if @object.is_a?(Group)
               = link_to theme_image_tag("delete.png", :alt => t(:Remove_user_from_group), :title => t(:Remove_user_from_group)), admin_group_member_path(@object, user), :method => :delete,  :confirm => t(:confirm_user_removal_from_group, :group => @object.to_s, :user => user)
@@ -60,4 +54,3 @@
             - else
               %a{:href => "users/demote/#{user.id}"} Demote
   %tfoot
-= will_paginate(@users)

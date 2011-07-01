@@ -22,7 +22,7 @@ input[type="file"] {
 
 @font-face {
   font-family: "cgothb";
-  src: url('../fonts/gothicb-webfont.woff') format('woff'), url('../fonts/gothicb-webfont.ttf') format('truetype'), url('../fonts/gothicb-webfont.svg#webfontKWmDqtHl') format('svg'); }
+  src: url('/fonts/gothicb-webfont.woff') format('woff'), url('/fonts/gothicb-webfont.ttf') format('truetype'), url('/fonts/gothicb-webfont.svg#webfontKWmDqtHl') format('svg'); }
 
 .ie8 @font-face {
   font-family: "cgoth";
@@ -64,6 +64,7 @@ input[type="checkbox"] {
 body {
   background-color: #101010;
   font-family: 'cgoth', 'century gothic', verdana,arial,helvetica,sans-serif;
+  -webkit-font-smoothing: antialiased;
   color: white; }
   body .wrapper {
     width: 1011px;
@@ -321,7 +322,7 @@ img {
   -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
   -moz-box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
   -ms-filter: progid:DXImageTransform.Microsoft.dropShadow(offX=5, offY=5, positive=true);
-  height: 75px;
+  height: 85px;
   width: 178px;
   margin-top: 15px;
   position: relative; }
@@ -333,7 +334,7 @@ img {
     font-size: 11px;
     top: 12.5px;
     width: 164px;
-    height: 36px;
+    height: 46px;
     background-color: #2d2d2d;
     background: -moz-linear-gradient(top left,  #454545,  #2d2d2d);
     background: -webkit-gradient(linear, left top, right bottom, from(#454545), to(#2d2d2d)); }
@@ -652,6 +653,13 @@ ul#nav_bar {
     -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
     -moz-box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
     -ms-filter: progid:DXImageTransform.Microsoft.dropShadow(offX=5, offY=5, positive=true);
+    -moz-border-radius: 0px 0px 10px 10px;
+    -khtml-border-radius: 0px 0px 10px 10px;
+    -o-border-radius: 0px 0px 10px 10px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
     color: black;
     width: 721px;
     height: 100%;

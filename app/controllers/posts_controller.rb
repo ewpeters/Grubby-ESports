@@ -128,7 +128,7 @@ class PostsController < ApplicationController
     end
 
     def create_ip
-      @ip = Ip.find_or_create_by_ip(request.remote_addr)
+      @ip = Ip.find_or_create_by_ip(request.env["HTTP_X_FORWARDED_FOR"] || request.remote_addr)
       IpUser.find_or_create_by_ip_id_and_user_id(@ip.id, current_user.id)
       @ip
     end

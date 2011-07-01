@@ -1,10 +1,17 @@
-= flash[:notice]
-- form_tag :controller => "users", :action => "send_email" do
-  %div Your Email:
-  = text_field_tag("email")
-  %div Your Name:
-  = text_field_tag("name")
-  %div Message:
-  = text_area_tag ("message", nil, :cols => 40, :rows => 5)
+%div.jobs.box{:style => "margin-top: 25px; height: 332px;"}
+  = image_tag("jobs_bg_emblem.png", :style => "position: absolute; left:0; top:0; z-index: 0")
+  %div{:style => "position: relative; z-index: 1"} Questions, feedback, problems? 
+  %div{:style => "position: relative; z-index: 1"} Send us an email!
   %br
-  = submit_tag "Send"
+  %div{:style => "position: relative; z-index: 1"} A staff member will read it and get back to you in a few days.
+  %br
+  %div{:style => "position: relative; z-index: 1"}
+    - form_tag :controller => "users", :action => "send_email" do
+      %div Your Email:
+      = text_field_tag("email")
+      %div Your Name:
+      = text_field_tag("name")
+      %div Message:
+      = text_area_tag ("message", nil, :cols => 40, :rows => 5)
+      %br
+      = submit_tag "Send"

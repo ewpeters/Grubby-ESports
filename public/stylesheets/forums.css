@@ -223,16 +223,15 @@
   color: #1C60B1 !important; }
 
 .quote_box {
-  background: none repeat scroll 0 50% #A4D5FF;
-  border: 1px solid #84AFD3;
   padding: 5px; }
-  .quote_box .quote_header {
-    font-size: 16px;
-    color: black;
-    font-family: 'cgothb'; }
   .quote_box .quote_body {
-    color: white;
-    width: 100%;
+    background-image: url(/images/quotes_bottom.png),  url(/images/quotes_top.png);
+    background-repeat: repeat repeat-x;
+    color: #77797b;
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 395px;
     height: 18px;
     line-height: 18px; }
 

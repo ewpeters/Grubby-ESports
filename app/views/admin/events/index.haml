@@ -3,7 +3,7 @@
   %div
     %span= event.title
     %span= event.link
-    %span= event.date
+    %span= event.date.strftime("%d/%m/%Y %H:%M")
     = link_to "Edit Event", edit_admin_event_path(event)
     |
     = link_to "Delete Event", admin_event_path(event), :method => :delete, :confirm => t(:confirm_deletion, :thing => "event")

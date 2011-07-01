@@ -4,8 +4,8 @@ module Rboard::Auth
     return if new_user.nil?
     new_user.previous_login = current_user.login_time
     new_user.login_time = Time.now
-    new_user.ip = request.remote_addr
-    ip = Ip.find_or_create_by_ip(request.remote_addr)
+    new_user.ip = request.env["HTTP_X_FORWARDED_FOR"] || request.remote_addr
+    ip = Ip.find_or_create_by_ip(request.env["HTTP_X_FORWARDED_FOR"] || request.remote_addr)
     ip.users << new_user unless ip.users.include?(new_user)
     new_user.save
     session[:user] = new_user.id
@@ -47,7 +47,7 @@ module Rboard::Auth
 
   def ip_banned?
     @ips = BannedIp.find(:all, :conditions => ["ban_time > ?",Time.now]).select do |ip|
-      !Regexp.new(ip.ip).match(request.remote_addr).nil? unless ip.nil?
+      !Regexp.new(ip.ip).match(request.env["HTTP_X_FORWARDED_FOR"] || request.remote_addr).nil? unless ip.nil?
     end
     flash[:ip] = @ips.first unless @ips.empty?
   end

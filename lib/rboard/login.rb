@@ -37,10 +37,12 @@ module Rboard::Login
         if existing_user
           @user = existing_user
           @user.uid = params[:uid]
+          @user.activated = true
         else
           @user = User.new(params[:user])
           @user.display_name = @user.login
           @user.uid = params[:uid]
+          @user.activated = true
         end
       else
         @user = User.new(params[:user])
@@ -69,6 +71,8 @@ module Rboard::Login
   def fb_login
     if params[:access_token] && params[:uid]
       self.current_user = @user = User.fb_authenticate(params[:uid], params[:access_token])
+      self.current_user.remember_me
+      cookies[:auth_token] = { :value => self.current_user.remember_token , :expires => self.current_user.remember_token_expires_at }
     end
     if logged_in?    
       flash[:notice] = t(:logged_in_successfully)
