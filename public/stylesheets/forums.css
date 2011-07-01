@@ -1,3 +1,7 @@
+.ff3 #forum_body .forum_title {
+  font-family: 'cgoth', 'century gothic', verdana,arial,helvetica,sans-serif !important;
+  font-weight: bold !important; }
+
 #forum_body #header {
   background-color: #030303;
   background: -moz-linear-gradient(top left,  #1c1c1c,  #030303);
@@ -79,7 +83,7 @@
       -moz-transform-origin: 50% 50%;
       -webkit-transform: rotate(90deg);
       -webkit-transform-origin: 50% 50%;
-      font-family: 'cgothb';
+      font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif;
       font-size: 36px;
       left: -110px;
       top: 110px;
@@ -114,6 +118,13 @@
       font-size: 10px; }
 
 /* topic list */
+.ff3 topic_buttons .add_topic {
+  font-family: 'cgoth', 'century gothic', verdana,arial,helvetica,sans-serif !important;
+  font-weight: bold !important; }
+  .ff3 topic_buttons .add_topic a {
+    font-family: 'cgoth', 'century gothic', verdana,arial,helvetica,sans-serif !important;
+    font-weight: bold !important; }
+
 .topic_buttons {
   position: absolute;
   right: 22px;
@@ -137,13 +148,13 @@
     padding: 5px;
     font-size: 12px;
     margin-right: 5px;
-    font-family: 'cgothb' !important; }
+    font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif; }
     .topic_buttons .add_topic img {
       position: relative;
       top: 4px; }
     .topic_buttons .add_topic a {
       color: #6C9DD7 !important;
-      font-family: 'cgothb'; }
+      font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif; }
 
 .topic {
   color: grey;
@@ -179,6 +190,12 @@
     position: absolute;
     left: 0px;
     top: 15.5px; }
+  .topic .pagination {
+    background: transparent;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    margin-top: 0px; }
 
 .reply_box {
   color: #A9AAAB;
@@ -225,14 +242,13 @@
 .quote_box {
   padding: 5px; }
   .quote_box .quote_body {
-    background-image: url(/images/quotes_bottom.png),  url(/images/quotes_top.png);
-    background-repeat: repeat repeat-x;
+    background-image: url(/images/quote_fade.png);
+    background-repeat: repeat;
     color: #77797b;
     padding: 5px;
     padding-left: 15px;
     padding-right: 15px;
     width: 395px;
-    height: 18px;
     line-height: 18px; }
 
 .ie8 .forum_title {

@@ -1,3 +1,4 @@
+@import util.sass
 ul
   padding: 0
 input[type="file"]
@@ -6,15 +7,6 @@ input[type="file"]
   opacity= "#{!value}"
   ms-filter:  "progid: DXImageTransform.Microsoft.Alpha(Opacity=#{!value}*100)"
   filter: "aplha(opacity=#{!value} * 100)"
-
-=rounded_corners(!top=5px, !right=5px, !bottom=5px, !left=5px) 
-  -moz-border-radius =  "#{!top} #{!right} #{!bottom} #{!left}"
-  -khtml-border-radius =  "#{!top} #{!right} #{!bottom} #{!left}"
-  -o-border-radius =  "#{!top} #{!right} #{!bottom} #{!left}"
-  border-top-left-radius = "#{!top}"
-  border-top-right-radius =  "#{!right}"
-  border-bottom-right-radius =  "#{!bottom}"
-  border-bottom-left-radius =  "#{!left}"
 
 
 =gradient(!from=#363636, !to=#030303)
@@ -77,8 +69,6 @@ input[type="file"]
 =blue 
   color:  #74aed3
 
-=bold
-  font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif 
 
 =grey 
   color:  #878787
@@ -130,8 +120,9 @@ input
 ul 
   margin:  0
 .cgoth_b
-  font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif
-  
+  +bold
+.ff3 .cgoth_b
+  +ff_bold
 .ui-dialog 
   background-color: black
   +rounded_corners
@@ -173,6 +164,12 @@ img
   position
 .notice
   font-size: 16px
+.ff3 #user_nav
+  a.signup
+    +ff_bold
+  form
+    #submit
+      +ff_bold
 #user_nav 
   position:  absolute 
   left: 0px
@@ -327,6 +324,13 @@ img
     height: 46px
     +gradient(#454545,  #2D2D2D)
 
+
+#content
+  #side_bar
+    .box
+      .inner_box
+        .follow
+          +ff_bold
 #content 
   width: 1011px
   background-image:  url("/images/content_bg.png")
@@ -385,7 +389,7 @@ img
     
     .calendar 
       width:  180px
-      height:  350px
+      height:  365px
       margin-top:  20px
       padding-top:  15px
       position:  relative
@@ -400,12 +404,25 @@ img
         margin-bottom: 10px
       
       .event_info
+        font-size: 12px
         padding-left: 10px
         padding-right: 10px
         text-align: center
     
   
 
+.ff3 #news
+  +ff_bold
+  .news_item
+    +ff_bold
+  .news_item.selected 
+    a  
+      +ff_bold
+  .summary
+    .title
+      +ff_bold
+    .body
+      +ff_bold
 #news 
   background-image:  url("/images/ticker_background_fix2.png")
   width:  750px
@@ -489,7 +506,9 @@ img
     
   
 
-
+.ff3 #features
+  .feature
+    +ff_bold
 #features 
   margin-left:  -10px
   width:  749px
@@ -563,6 +582,11 @@ img
   li
     img
       top: 0px !important
+      
+.ff3 ul#nav_bar
+  li
+    a
+      +ff_bold
 ul#nav_bar 
   width:  1011px
   list-style-type: none
@@ -699,7 +723,11 @@ ul#nav_bar
   a 
     color:  white
   
-
+.ff3 #media_container
+  #search
+    form
+      input
+        +ff_bold
 #media_container 
   height:  550px
   width:  750px
@@ -1010,7 +1038,11 @@ thead
     color:  white
   
 
-
+.ff3 #tv_container
+  #search
+    form
+      input
+        +ff_bold
 #tv_container 
   height:  550px
   width:  750px
@@ -1131,13 +1163,13 @@ thead
   
 
   ::-webkit-scrollbar-track-piece 
-    background-color:  #78bba3 
+    background-color:  #596673 
     -webkit-border-radius:  3px
   
 
   ::-webkit-scrollbar-thumb:vertical 
     height:  10px
-    background-color: #596673  
+    background-color: #78bba3
     -webkit-border-radius:  3px
   
 

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110629031005) do
+ActiveRecord::Schema.define(:version => 20110701200743) do
 
   create_table "albums", :force => true do |t|
     t.string   "title"
@@ -299,6 +299,7 @@ ActiveRecord::Schema.define(:version => 20110629031005) do
     t.boolean "can_manage_photos",                :default => false
     t.boolean "can_manage_logos",                 :default => false
     t.boolean "can_manage_statuses",              :default => false
+    t.boolean "can_manage_members",               :default => false
   end
 
   add_index "permissions", ["category_id"], :name => "index_permissions_on_category_id"
@@ -495,6 +496,7 @@ ActiveRecord::Schema.define(:version => 20110629031005) do
     t.boolean  "activated",                               :default => false,         :null => false
     t.string   "reset_code",                              :default => ""
     t.string   "activation_code",                         :default => ""
+    t.integer  "name_change",                             :default => 0
   end
 
   add_index "users", ["id", "user_level_id"], :name => "index_users_on_id_and_user_level_id"

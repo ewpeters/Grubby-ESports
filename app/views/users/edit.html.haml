@@ -14,12 +14,12 @@
       %tr
         %td
           %br
-      - if true
+      - if !@user.uid.blank? && @user.name_change == 1
         %tr
           %td{:valign => "top",:colspan => "2"} Since you are a new Facebook user, you are able to change your user name once if you wish
         %tr
           %td.label{:valign => "top"}= f.label "login", t(:New, :thing => "Username" )
-          %td.input= f.text_field "login", :value => ""     
+          %td.input= f.text_field "display_name", :value => ""     
       %tr
         %td{:colspan => "2", :valign => "top"}
           %h3= t(:New, :thing => "password")

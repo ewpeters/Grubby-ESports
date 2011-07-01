@@ -13,15 +13,16 @@
         - else
           = link_to(t(:Subscribe), topic_subscriptions_path(@topic), :method => :post)
   #forums_body
-    = pagination = will_paginate(@posts)
+    - pagination = will_paginate(@posts)
     - if current_user.can?(:view_reports, @forum)
       .warning
         = t(:Topic_has_been_reported, :count => @topic.reports.count)
         = link_to t(:See_reports), moderator_topic_reports_path(@topic)
     .posts.listing
       = render :partial => @posts, :locals => { :show_topic => false }
+    %center
+      =raw pagination  
     - if current_user.can?(:reply)
       #quick-reply{:cellpadding => "2", :cellspacing => "0", :width => "100%"}
         - form_for [@topic, @post] do |f|
           = render :partial => "posts/form", :locals => { :f => f, :rows => 10, :cols => 70, :submit => "Reply", :label => false }
-    =raw pagination

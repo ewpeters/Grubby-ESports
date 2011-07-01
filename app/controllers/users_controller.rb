@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     @posts_percentage = Post.count > 0 ? @user.posts.count.to_f / Post.count.to_f * 100 : 0
     rescue ActiveRecord::RecordNotFound 
       flash[:notice] = t(:not_found, :thing => "user")
-      redirect_back_or_default(users_path)
+      redirect_to :controller => "home", :action => "index"
   end
 
   def edit
@@ -30,12 +30,21 @@ class UsersController < ApplicationController
       flash[:notice] = t(:password_has_been_changed)
     end
     
-    @user = User.find_by_permalink!(params[:id]) 
+    @user = User.find_by_permalink!(params[:id])
     if @user.update_attributes(params[:user])
+      
       flash[:notice] = t(:updated, :thing => "profile")
-      redirect_to @user
+      if !params[:user][:display_name].blank?
+        @user.name_change = 0
+      end
+      if @user.save
+        redirect_to @user
+      else
+        flash[:notice] = t(:not_updated, :thing => "profile")
+        render :action => "edit"
+      end
     else
-      flash.now[:notice] = t(:not_updated, :thing => "profile")
+      flash[:notice] = t(:not_updated, :thing => "profile")
       render :action => "edit"
     end 
   end
@@ -57,7 +66,7 @@ class UsersController < ApplicationController
       else
         flash[:notice] = "#{params[:user][:email]} does not exist in system"
       end
-      redirect_back_or_default('/home')
+      redirect_to :controller => "home", :action => "index"
     end
   end
   
@@ -68,7 +77,7 @@ class UsersController < ApplicationController
         self.current_user = @user
         @user.delete_reset_code
         flash[:notice] = "Password reset successfully for #{@user.email}"
-        redirect_back_or_default('/home')
+        redirect_to :controller => "home", :action => "index"
       else
         render :action => :reset
       end
@@ -82,7 +91,7 @@ class UsersController < ApplicationController
       if @user.update_attributes(:activated => true)
         self.current_user = @user
         flash[:notice] = "Account activated!"
-        redirect_back_or_default('/home')
+        redirect_to :controller => "home", :action => "index"
       else
         render :action => :activate
       end

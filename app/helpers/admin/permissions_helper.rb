@@ -15,7 +15,17 @@ module Admin::PermissionsHelper
      :posts,
      :ranks,
      :themes,
-     :topics]
+     :topics,
+     :tickers,
+     :features,
+     :articles,
+     :events,
+     :downloads,
+     :tvs,
+     :albums,
+     :logos,
+     :statuses,
+     :configurations]
   end
 
   def break_row(count)

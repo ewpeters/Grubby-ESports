@@ -6,8 +6,6 @@
     - if (post.belongs_to?(current_user) && current_user.can?(:edit_own_posts, @forum)) || current_user.can?(:edit_posts, @forum)
       = link_to t(:Edit), edit_topic_post_path(post.topic, post), :style => "cursor: pointer; float: right"
       %span{:style => "float: right; "}= "&nbsp;-&nbsp;"
-    - if current_user.can?(:split_topics, @forum)
-      = link_to t(:Split), split_moderator_topic_post_path(post.topic, post)
     - if current_user.can?(:reply_to_topics, @forum)      
       = link_to t(:Quote), reply_topic_post_path(post.topic, post), :style => "cursor: pointer; float: right"
       %span{:style => "float: right"}= "&nbsp;-&nbsp;"

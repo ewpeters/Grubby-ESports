@@ -14,6 +14,9 @@
   
 @import util.sass
 
+.ff3 #forum_body
+  .forum_title
+    +ff_bold
 #forum_body
   #header 
     +gradient(#1C1C1C,  #030303)
@@ -72,7 +75,7 @@
         -moz-transform-origin:  50% 50%
         -webkit-transform:  rotate(90deg)
         -webkit-transform-origin:  50% 50%        
-        font-family: 'cgothb' 
+        +bold
         font-size: 36px 
         left: -110px 
         top: 110px
@@ -109,6 +112,11 @@
         font-size: 10px
 
 /* topic list*/
+.ff3 topic_buttons
+  .add_topic
+    +ff_bold
+    a
+      +ff_bold
 .topic_buttons
   position: absolute
   right: 22px
@@ -119,7 +127,7 @@
       top: 4px
     a
       color: #6C9DD7 !important
-      font-family: 'cgothb'
+      +bold
     +gradient(#E3E3E3,  #C9C9C9)
     +drop_shadow
     +rounded_corners
@@ -128,7 +136,7 @@
     padding: 5px
     font-size: 12px
     margin-right: 5px
-    font-family: 'cgothb' !important
+    +bold
 .topic
   color: grey
   padding-top: 5px
@@ -154,7 +162,12 @@
     position: absolute 
     left: 0px
     top: 15.5px
-
+  .pagination
+    background: transparent
+    position: absolute
+    top: 0px
+    right: 0px
+    margin-top: 0px
 .reply_box
   color: #A9AAAB
   +gradient(#DBDBDB,  #D2D2D2)
@@ -190,14 +203,13 @@
   padding: 5px
   .quote_header
   .quote_body
-    background-image: url(/images/quotes_bottom.png),  url(/images/quotes_top.png)
-    background-repeat: repeat repeat-x
+    background-image: url(/images/quote_fade.png)
+    background-repeat: repeat
     color: #77797b
     padding: 5px
     padding-left: 15px
     padding-right: 15px
     width: 395px
-    height: 18px
     line-height: 18px
 .ie8 .forum_title
   top: 15px !important

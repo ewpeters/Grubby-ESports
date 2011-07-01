@@ -19,7 +19,7 @@
           %td{ :class => stripe }= permission.label "can_access_#{section}_section", t("can_access_#{section}_section?")
         - for management in managements[0..2]
           = render :partial => "admin/permissions/management", :locals => { :management => management, :permission => permission }
-    - managements[2..-1].in_groups_of(5, false) do |managements|
+    - managements.in_groups_of(5, false) do |managements|
       %tr
         - for management in managements
           = render :partial => "admin/permissions/management", :locals => { :management => management, :permission => permission }

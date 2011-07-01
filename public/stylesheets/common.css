@@ -89,6 +89,10 @@ ul {
 .cgoth_b {
   font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif; }
 
+.ff3 .cgoth_b {
+  font-family: 'cgoth', 'century gothic', verdana,arial,helvetica,sans-serif !important;
+  font-weight: bold !important; }
+
 .ui-dialog {
   background-color: black;
   -moz-border-radius: 5px 5px 5px 5px;
@@ -149,6 +153,13 @@ img {
 
 .notice {
   font-size: 16px; }
+
+.ff3 #user_nav a.signup {
+  font-family: 'cgoth', 'century gothic', verdana,arial,helvetica,sans-serif !important;
+  font-weight: bold !important; }
+.ff3 #user_nav form #submit {
+  font-family: 'cgoth', 'century gothic', verdana,arial,helvetica,sans-serif !important;
+  font-weight: bold !important; }
 
 #user_nav {
   position: absolute;
@@ -339,6 +350,10 @@ img {
     background: -moz-linear-gradient(top left,  #454545,  #2d2d2d);
     background: -webkit-gradient(linear, left top, right bottom, from(#454545), to(#2d2d2d)); }
 
+#content #side_bar .box .inner_box .follow {
+  font-family: 'cgoth', 'century gothic', verdana,arial,helvetica,sans-serif !important;
+  font-weight: bold !important; }
+
 #content {
   width: 1011px;
   background-image: url("/images/content_bg.png");
@@ -404,7 +419,7 @@ img {
           -moz-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5); }
     #content #side_bar .calendar {
       width: 180px;
-      height: 350px;
+      height: 365px;
       margin-top: 20px;
       padding-top: 15px;
       position: relative;
@@ -420,9 +435,26 @@ img {
         width: 175px;
         margin-bottom: 10px; }
       #content #side_bar .calendar .event_info {
+        font-size: 12px;
         padding-left: 10px;
         padding-right: 10px;
         text-align: center; }
+
+.ff3 #news {
+  font-family: 'cgoth', 'century gothic', verdana,arial,helvetica,sans-serif !important;
+  font-weight: bold !important; }
+  .ff3 #news .news_item {
+    font-family: 'cgoth', 'century gothic', verdana,arial,helvetica,sans-serif !important;
+    font-weight: bold !important; }
+  .ff3 #news .news_item.selected a {
+    font-family: 'cgoth', 'century gothic', verdana,arial,helvetica,sans-serif !important;
+    font-weight: bold !important; }
+  .ff3 #news .summary .title {
+    font-family: 'cgoth', 'century gothic', verdana,arial,helvetica,sans-serif !important;
+    font-weight: bold !important; }
+  .ff3 #news .summary .body {
+    font-family: 'cgoth', 'century gothic', verdana,arial,helvetica,sans-serif !important;
+    font-weight: bold !important; }
 
 #news {
   background-image: url("/images/ticker_background_fix2.png");
@@ -496,6 +528,10 @@ img {
       line-height: 18px;
       color: white; }
 
+.ff3 #features .feature {
+  font-family: 'cgoth', 'century gothic', verdana,arial,helvetica,sans-serif !important;
+  font-weight: bold !important; }
+
 #features {
   margin-left: -10px;
   width: 749px;
@@ -568,6 +604,10 @@ img {
 
 .ie7 ul#nav_bar li img {
   top: 0px !important; }
+
+.ff3 ul#nav_bar li a {
+  font-family: 'cgoth', 'century gothic', verdana,arial,helvetica,sans-serif !important;
+  font-weight: bold !important; }
 
 ul#nav_bar {
   width: 1011px;
@@ -694,6 +734,10 @@ ul#nav_bar {
   height: 30px; }
 
 /* Media index */
+.ff3 #media_container #search form input {
+  font-family: 'cgoth', 'century gothic', verdana,arial,helvetica,sans-serif !important;
+  font-weight: bold !important; }
+
 #media_container {
   height: 550px;
   width: 750px;
@@ -993,6 +1037,10 @@ thead tr {
   -moz-box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
   -ms-filter: progid:DXImageTransform.Microsoft.dropShadow(offX=5, offY=5, positive=true); }
 
+.ff3 #tv_container #search form input {
+  font-family: 'cgoth', 'century gothic', verdana,arial,helvetica,sans-serif !important;
+  font-weight: bold !important; }
+
 #tv_container {
   height: 550px;
   width: 750px;
@@ -1117,11 +1165,11 @@ thead tr {
   #tv_container ::-webkit-scrollbar-button:vertical:increment {
     background-color: transparent; }
   #tv_container ::-webkit-scrollbar-track-piece {
-    background-color: #78bba3;
+    background-color: #596673;
     -webkit-border-radius: 3px; }
   #tv_container ::-webkit-scrollbar-thumb:vertical {
     height: 10px;
-    background-color: #596673;
+    background-color: #78bba3;
     -webkit-border-radius: 3px; }
   #tv_container #tv_box {
     width: 596px;

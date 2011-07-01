@@ -27,6 +27,20 @@ class User < ActiveRecord::Base
     u && u.authenticated?(password) && u.activated ? u : nil
   end
   
+  def self.new_fb_user(uid, access_token)
+    u = User.new
+    fb_user = get_fb_user(uid, access_token)
+    if fb_user
+      u.uid = uid
+      u.login = uid
+      u.name_change = 1
+      u.password = u.password_confirmation = uid
+      u.display_name = fb_user['name']
+    end
+    
+    return u
+  end
+  
   def self.fb_authenticate(uid, access_token)
     u = find_by_uid(uid)
     if u
@@ -72,7 +86,11 @@ class User < ActiveRecord::Base
   end
   
   def avatar
-    "/images/avatars/#{self.avatar_file}"
+    if self.rank
+      "/images/#{self.rank}.png"
+    else
+      "/images/avatars/#{self.avatar_file}"
+    end
   end
 
   def create_reset_code

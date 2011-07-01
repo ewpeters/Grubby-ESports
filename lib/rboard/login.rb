@@ -11,7 +11,6 @@ module Rboard::Login
       if params[:remember_me] == "1"
         self.current_user.remember_me
         cookies[:auth_token] = { :value => self.current_user.remember_token , :expires => self.current_user.remember_token_expires_at }
-        Rails.logger.info(cookies[:auth_token])
         # session[:auth_token] = { :value => self.current_user.remember_token , :expires => self.current_user.remember_token_expires_at }
         # Rails.logger.info(session[:auth_token])
       else
@@ -29,43 +28,34 @@ module Rboard::Login
   def signup
     if logged_in?
       flash[:notice] = t(:already_logged_in)
-      redirect_back_or_default('/')
-    else
-      @user = User.new
-      if !params[:uid].blank? && !params[:access_token].blank?
-        existing_user = User.authenticate(params[:user][:login], params[:user][:password])
-        if existing_user
-          @user = existing_user
-          @user.uid = params[:uid]
-          @user.activated = true
-        else
-          @user = User.new(params[:user])
-          @user.display_name = @user.login
-          @user.uid = params[:uid]
-          @user.activated = true
-        end
-      else
-        @user = User.new(params[:user])
-        @user.display_name = @user.login
-      end
-      if request.post?
-        if @user.save
-          if @user.uid.blank?
-            flash[:notice] = t(:thanks_for_signing_up)
-          else
-            self.current_user = @user
-          end
-          flash[:notice] = t(:thanks_for_signing_up)
-          redirect_to(:controller => "home", :action => "index")
-        else
-          if params[:fb]
-            render :action => "signup"
-          else
-            render :action => "signup"
-          end
-        end
-      end
+      redirect_back_or_default(forums_path)
     end
+    @user = User.new(params[:user])
+    return unless request.post?
+    @user.save!
+    redirect_back_or_default(forums_path)
+    flash[:notice] = "Account created. An activation email will arrive soon."
+  rescue ActiveRecord::RecordNotSaved, ActiveRecord::RecordInvalid
+    flash[:notice] = t(:problem_during_signup)
+  end
+  
+  def fb_signup
+    if params[:access_token] && params[:uid]
+      @user = User.new_fb_user(params[:uid], params[:access_token])
+    else
+      flash[:notice] = "Couldn't authenicate Facebook account."
+      redirect_to(:back)
+    end
+    
+    if @user.save
+      self.current_user = @user
+      self.current_user.remember_me
+      cookies[:auth_token] = { :value => self.current_user.remember_token , :expires => self.current_user.remember_token_expires_at }
+      flash[:notice] = t(:thanks_for_signing_up)
+    else
+      flash[:notice] = "There was a problem making your Facebook account"
+    end
+    redirect_to(:back)
   end
   
   def fb_login
@@ -78,7 +68,7 @@ module Rboard::Login
       flash[:notice] = t(:logged_in_successfully)
       redirect_to(:back) and return false
     else
-      flash[:notice] = t(:username_or_password_incorrect)
+      flash[:notice] = "Couldn't authenicate Facebook account."
       redirect_to(:back)
     end
   end

@@ -67,9 +67,9 @@ $(document).ready(function() {
     $('#video_player').toggleClass('hidden');    
   });
   
-  // $('#fb_connect').click(function(){
-  //   fb_connect();
-  // });
+  $('#fb_connect').click(function(){
+    fb_connect();
+  });
   
   $('.icon.warcraft').click(function(){
     $(this).toggleClass('true');
@@ -115,12 +115,43 @@ function try_fb_login() {
 }
 
 function fb_connect() {
-  FB.login(function(response) {
+  FB.getLoginStatus(function(response) {
     if (response.session) {
-      var loginForm = $('#fb_form');
-      loginForm.find("#access_token").val(response.session.access_token);
-      loginForm.find("#uid").val(response.session.uid);
-      loginForm.submit();
+      $.get('/users/check?uid=' + response.session.uid, function(data) {
+        var success = $.parseJSON(data).success
+        if (success) {
+          var form = $("#fb_form");
+          form.append($("<input name='access_token'>").val(response.session.access_token));
+          form.append($("<input name='uid'>").val(response.session.uid));
+          form.submit();
+        } else {
+          var form = $("#fb_form");
+          form.attr('action', '/fb_signup')
+          form.append($("<input name='access_token'>").val(response.session.access_token));
+          form.append($("<input name='uid'>").val(response.session.uid));
+          form.submit();
+        }
+      });
+    } else {
+      FB.login(function(response) {
+        if (response.session) {
+          $.get('/users/check?uid=' + response.session.uid, function(data) {
+            var success = $.parseJSON(data).success
+            if (success) {
+              var form = $("#fb_form");
+              form.append($("<input name='access_token'>").val(response.session.access_token));
+              form.append($("<input name='uid'>").val(response.session.uid));
+              form.submit();
+            } else {
+              var form = $("#fb_form");
+              form.attr('action', '/fb_signup')
+              form.append($("<input name='access_token'>").val(response.session.access_token));
+              form.append($("<input name='uid'>").val(response.session.uid));
+              form.submit();
+            }
+          });
+        }
+      });
     }
   });
 }

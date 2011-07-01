@@ -1,13 +1,13 @@
 .wysiwyg {
   background: transparent !important;
   border: 0 !important;
-  color: #2c2c2c;
+  color: #A9AAAB;
   padding: 5px;
-  font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif; }
+  font-weight: bold; }
 
 .wysiframe {
   width: 535px;
-  color: #2c2c2c; }
+  color: #A9AAAB; }
 
 div.wysiwyg ul.toolbar li {
   border: 0 !important; }
@@ -15,15 +15,17 @@ div.wysiwyg ul.toolbar li {
 div.wysiwyg ul.toolbar {
   border: 0 !important; }
 
+p {
+  margin: 0; }
+
 .quote_box {
   padding: 5px; }
   .quote_box .quote_body {
-    background-image: url(/images/quotes_bottom.png),  url(/images/quotes_top.png);
-    background-repeat: repeat repeat-x;
+    background-image: url(/images/quote_fade_invert.png);
+    background-repeat: repeat;
     color: #77797b;
     padding: 5px;
     padding-left: 15px;
     padding-right: 15px;
     width: 395px;
-    height: 18px;
     line-height: 18px; }

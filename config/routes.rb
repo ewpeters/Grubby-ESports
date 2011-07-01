@@ -2,6 +2,7 @@ ActionController::Routing::Routes.draw do |map|
   Jammit::Routes.draw(map)
   map.login 'login', :controller => 'users', :action => 'login'
   map.fb_login 'fb_login', :controller => 'users', :action => 'fb_login',  :conditions => { :method => :post }
+  map.fb_login 'fb_signup', :controller => 'users', :action => 'fb_signup',  :conditions => { :method => :post }
   map.fb_login 'fb_deauth', :controller => 'users', :action => 'deauth',  :conditions => { :method => :post, :canvas=> false }
   map.fb_login 'users/check', :controller => 'users', :action => 'check',  :conditions => {:canvas=> false }
   map.logout 'logout', :controller => 'users', :action => 'logout'

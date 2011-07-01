@@ -1,3 +1,4 @@
+@import util.sass
 body, textarea, table
   font-family: "Myriad Pro", "Trebuchet MS", sans-serif
   font-size: 11pt
@@ -31,7 +32,7 @@ form
   background: #000000
   color: red
   padding: 5px
-  font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif
+  +bold
 
 .center
   text-align: center
@@ -73,7 +74,7 @@ form
   background: #a4d5ff none repeat scroll 0
   border: 2px solid #white
   font-size: 16pt
-  font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif
+  +bold
   margin-top: 100px
   padding: 5px
   text-align: center
@@ -109,7 +110,7 @@ form
     &.disabled
       color: #bbb
     &.current
-      font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif
+      +bold
       background-color: #bbb
 
 .icon
@@ -129,7 +130,7 @@ table.listing
   thead
     tr
       td
-        font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif
+        +bold
         border-right: 1px solid #B5C8DF
         border-bottom: 1px solid #9CACC0
         border-top: 1px solid #9CACC0
@@ -209,7 +210,7 @@ ul.listing
   background: #fde181
   border: 1px solid #fece26
   padding: .6em
-  font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif
+  +bold
 
 .action-box, .user
   background: #aad8ff
@@ -244,6 +245,7 @@ ul.listing
     border-left: 1px solid white
     width: 78%
     min-height: 10.5em
+    padding: 5px
 
   .details
     border-bottom: 1px solid white
@@ -284,7 +286,7 @@ ul#navlist
     &.selected
       border: 2px solid #336699
       border-bottom: 0
-      font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif
+      +bold
 
 #admin-page, #moderator-page
   background: #b8dcfc
@@ -319,7 +321,7 @@ ul#navlist
   width: 90%
 
 .term
-  font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif
+  +bold
 
 .ban-box
   background: #DE0000 none repeat scroll 0

@@ -26,11 +26,11 @@
                   = link_to check_box_tag("moderated_topics[]", topic.moved_to.id, !topic.moved_to.moderations.for_user(current_user).empty?, :id => "topic_#{topic.moved_to.id}_moderated"), moderator_topic_moderations_path(topic.moved_to), 'data-remote' => true, :method => :post
             %div.status
               - if topic.sticky?
-                = theme_image_tag("sticky.jpg", :alt => "Sticky")
+                = theme_image_tag("sticky.png", :alt => "Sticky")
               - elsif topic.moved?
-                = theme_image_tag("moved.jpg", :alt => "Moved")
+                = theme_image_tag("moved.png", :alt => "Moved")
               - elsif topic.locked?
-                = theme_image_tag("locked.jpg", :alt => "Locked")
+                = theme_image_tag("locked.png", :alt => "Locked")
               - elsif logged_in? && !topic.readers.include?(current_user)
                 = theme_image_tag("new.png", :alt => "New")
               - else
