@@ -20,7 +20,5 @@
         %td= !user.ban_time.nil? && user.ban_time > Time.now ? t(:Yes) : t(:No)
         %td= user.ban_time.nil? ? t(:Never) : time_ago_in_words(user.ban_time)
         %td= user.ban_times
-        - if current_user.can?(:manage_users)
-          %td= user.ip
   %tfoot
 = will_paginate @users

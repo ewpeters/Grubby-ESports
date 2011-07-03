@@ -1,4 +1,4 @@
-- form_for current_user, :html => { :multipart => true } do |f|
+- form_for @user, :html => { :multipart => true } do |f|
   %table.action-box{:cellpadding => "2", :cellspacing => "0", :width => "100%"}
     %thead
       %tr
@@ -33,7 +33,11 @@
         %td{:colspan => "2", :valign => "top"}
           %h3= t(:Forum_information)
       %tr
-        %td.label{:valign => "top"}= f.label "signature", t(:Signature)
+        %td.label{:valign => "top"}
+          %div= f.label "signature", t(:Signature)
+          %div{:style => "font-size: 10px; font-style: italic"} 255 character limit
+          %div{:style => "font-size: 10px; font-style: italic"} Inappropriate material in signature
+          %div{:style => "font-size: 10px; font-style: italic"} will result in an immediate ban
         %td.input= f.text_area "signature", :cols => 40, :rows => 5
       %tr
         %td.label{:valign => "top"}= f.label "email", t(:Email)
@@ -59,7 +63,7 @@
         %td.label{:valign => "top"}
           = label_tag "current_avatar", t(:Current_avatar)
         %td.input
-          = image_tag current_user.avatar
+          = image_tag @user.avatar
       %tr
         %td.label{:valign => "top"} Pick Avatar
       %tr
@@ -68,7 +72,7 @@
           %div#avatars{:style => "width: 700px"}
             - Dir.glob("#{Rails.root}/public/images/avatars/*").each do |file|
               - name = file.match(/\/(\w+\..*$)/)[1]
-              = f.radio_button 'avatar_file', "#{name}", {:checked => current_user.avatar_file == "#{name}", :class => "avatar_picker"}
+              = f.radio_button 'avatar_file', "#{name}", {:checked => @user.avatar_file == "#{name}", :class => "avatar_picker"}
               = image_tag("/images/avatars/#{name}", :size => "#{size}")
     %tfoot
       %tr

@@ -1,6 +1,6 @@
 %div.jobs.box
   %center
-    %h2= t(:Signup) 
+    %h2= t(:Signup)
   - form_for :user, :url => { :action => :signup, :fb => params[:fb] }, :html => {:id => "user_form"} do |f|
     = error_messages_for 'user'
     %p

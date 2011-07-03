@@ -4,14 +4,17 @@ module Rboard::UserExtension
     klass.class_eval do
       named_scope :recent, lambda { { :conditions => ["login_time > ?", 15.minutes.ago] } }
       validates_presence_of     :login
+      validates_presence_of     :email, :if => Proc.new{|user| user.uid.blank?}
       validates_presence_of     :password,                   :if => :password_required?
       validates_presence_of     :password_confirmation,      :if => :password_required?
       validates_length_of       :password, :within => 4..40, :if => :password_required?
+      validates_length_of :signature, :maximum => 255, :allow_nil => true
       validates_confirmation_of :password,                   :if => :password_required?
       validates_length_of       :login,    :within => 3..40
       # validates_length_of       :email,    :within => 3..100
       # validates_uniqueness_of   :login, :email, :case_sensitive => false
       validates_uniqueness_of   :login, :case_sensitive => false
+      validates_uniqueness_of :email, :if => Proc.new{|user| user.uid.blank?}
       validates_uniqueness_of   :display_name, :allow_nil => true
 
       validate :display_name_is_not_other_login_name
@@ -34,7 +37,7 @@ module Rboard::UserExtension
       has_many :subscribed_topics, :through => :subscriptions
       has_many :topics
       has_many :unread_messages, :class_name => "Message", :foreign_key => "to_id", :conditions => ["to_read = ? AND to_deleted = ?", false, false]
-
+    
       belongs_to :banned_by, :class_name => "User", :foreign_key => "banned_by"
       belongs_to :rank
       belongs_to :style
@@ -119,9 +122,6 @@ module Rboard::UserExtension
         end
       end
 
-      def set_permalink
-        self.permalink = to_s.parameterize
-      end
       
       def avatar
         

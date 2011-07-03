@@ -21,7 +21,10 @@
         %a.album_thumb.column{:id => a.id, :href => "/albums/#{a.id}"}
           %div.photo_holder
             %center
-              = image_tag(a.cover.picture.url(:thumb))
+              - if a.cover
+                = image_tag(a.cover.picture.url(:thumb))
+              -elsif a.photos.first
+                = image_tag(a.photos.first.picture.url(:thumb))
           %div.title{:style => "overflow:hidden;"}= a.title
 = render :partial => "features/features"
                 

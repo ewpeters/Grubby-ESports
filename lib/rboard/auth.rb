@@ -14,8 +14,7 @@ module Rboard::Auth
 
   #Per Page value for paginated sections of the forums,
   def per_page
-    return 3
-    # logged_in? ? current_user.per_page : PER_PAGE
+    logged_in? ? current_user.per_page : PER_PAGE
   end
 
   #how the user has selected they want to display the time

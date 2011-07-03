@@ -113,7 +113,7 @@ class TopicsController < ApplicationController
 
   def find_topic(topics=Topic)
     topic_options = { :include => [:reports, :posts] }
-    return topics.find(params[:id], topic_options)
+    return Topic.find(params[:id], topic_options)
   rescue ActiveRecord::RecordNotFound
     not_found
   end

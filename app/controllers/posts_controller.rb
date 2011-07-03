@@ -7,7 +7,11 @@ class PostsController < ApplicationController
   before_filter :create_ip, :only => [:create, :update]
 
   def index
-    @posts = @user.posts.paginate :per_page => per_page, :page => params[:page], :include => { :topic => :forum }
+    if !@user.nil?
+      @posts = @user.posts.paginate :per_page => per_page, :page => params[:page], :include => { :topic => :forum }
+    else
+      @posts = @topic.posts.paginate :per_page => per_page, :page => params[:page], :include => { :topic => :forum }
+    end
   end
 
   def new

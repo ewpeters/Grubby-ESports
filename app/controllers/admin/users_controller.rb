@@ -10,8 +10,7 @@ class Admin::UsersController < Admin::ApplicationController
     if @object
       @users = @object.users
     else
-      @users = User.all
-      # @users = User.paginate(:order => "login ASC", :page => params[:page], :per_page => per_page)
+      @users = User.paginate(:order => "login ASC", :page => params[:page], :per_page => per_page)
     end
   end
 

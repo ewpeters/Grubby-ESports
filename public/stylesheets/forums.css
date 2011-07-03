@@ -97,7 +97,8 @@
       color: grey;
       margin-left: 100px;
       min-height: 230px;
-      padding-top: 20px; }
+      padding-top: 20px;
+      padding-bottom: 25px; }
       #forum_body #forums_body .forum_box .box_body .forum_description {
         font-size: 18px;
         padding-right: 10px;
@@ -114,7 +115,7 @@
     #forum_body #forums_body .forum_box .last_post {
       position: absolute;
       bottom: 5px;
-      left: 20%;
+      left: 0px;
       font-size: 10px; }
 
 /* topic list */

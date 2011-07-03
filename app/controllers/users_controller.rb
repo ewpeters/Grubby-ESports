@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
   before_filter :store_location, :only => [:index]
   before_filter :login_required, :only => [:edit, :update, :index]
-  
   skip_filter filter_chain, :only => [:deauth, :check]
 
+
+  layout :resolve_layout
   include Rboard::Login
   
   def index
@@ -30,7 +31,7 @@ class UsersController < ApplicationController
       flash[:notice] = t(:password_has_been_changed)
     end
     
-    @user = User.find_by_permalink!(params[:id])
+    @user = current_user
     if @user.update_attributes(params[:user])
       
       flash[:notice] = t(:updated, :thing => "profile")
@@ -199,5 +200,13 @@ class UsersController < ApplicationController
         number = s[i].to_s(16)
         (s[i] < 16) ? ('0' + number) : number
       end.join
+  end
+  
+  def resolve_layout
+    if action_name == "check"
+      nil
+    else
+      "application"
+    end
   end
 end
