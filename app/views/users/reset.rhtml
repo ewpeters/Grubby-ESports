@@ -1,4 +1,7 @@
 <%= error_messages_for :user %>
+<div style="color:red">
+  <%= flash[:error] %>
+</div>
 <% form_for :user do |f| -%>
 <table id="newedit">
     <thead>

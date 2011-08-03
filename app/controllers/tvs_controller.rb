@@ -1,6 +1,5 @@
 class TvsController < ApplicationController
   def index
-    @features = Feature.find(:all, :limit => 5)
     params[:game] ||= ""
     params[:filter] ||= "featured"
     @live = Tv.tagged_with("special_live").first

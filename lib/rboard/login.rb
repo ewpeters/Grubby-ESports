@@ -17,11 +17,11 @@ module Rboard::Login
         current_user.save
       end
       flash[:notice] = t(:logged_in_successfully)
-      redirect_to('/home') and return false
+      redirect_to(:back) and return false
     else
       # flash[:notice] = t(:username_or_password_incorrect)
       flash[:notice] = "Username or password incorrect. <a href='/forgot'>Reset Password</a>".html_safe
-      redirect_to('/home')
+      redirect_to(:back)
     end
   end
 
@@ -79,6 +79,6 @@ module Rboard::Login
     cookies.delete :auth_token
     session[:user] = nil
     flash[:notice] = t(:you_have_been_logged_out)
-    redirect_to('/home')
+    redirect_to(:back)
   end
 end

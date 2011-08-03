@@ -1,5 +1,5 @@
 class Topic < ActiveRecord::Base
-  default_scope :order => "sticky desc"
+  default_scope :order => "sticky DESC"
 
   belongs_to :user
   belongs_to :ip  
@@ -19,7 +19,7 @@ class Topic < ActiveRecord::Base
   has_many :subscribers, :through => :subscriptions, :class_name => "User"
   has_many :users, :through => :posts
 
-  named_scope :sorted, :order => "posts.created_at DESC, sticky DESC", :include => [:last_post, :readers]
+  named_scope :sorted,:order => "sticky DESC, posts.updated_at DESC", :include => [:last_post, :readers]
 
   #makes error_messages_for return the wrong number of errors.
   validates_associated :posts, :message => nil
@@ -64,6 +64,8 @@ class Topic < ActiveRecord::Base
   def update_last_post
     unless frozen? || moved
       update_attributes(:last_post_id => posts.last ? posts.last.id : nil)
+      self.readers = []
+      self.save
     end
     forum.update_last_post
   end

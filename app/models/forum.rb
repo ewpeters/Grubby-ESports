@@ -10,7 +10,7 @@ class Forum < ActiveRecord::Base
 
   has_many :moderations
   has_many :posts, :through => :topics, :source => :posts, :order => "posts.created_at desc"
-  has_many :topics, :order => "topics.created_at desc", :dependent => :destroy
+  has_many :topics, :order => "topics.sticky DESC", :dependent => :destroy
   has_many :permissions
   has_many :groups, :through => :permissions
 

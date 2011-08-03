@@ -4,11 +4,13 @@
   #header
     %span Team Grubby Forums
     - if logged_in?
-      %span{:style => "position:absolute; right: 10px; font-size: 12px"}= "#{t(:topics_count, :count => @topics)} - #{t(:posts_count, :count => @posts)} - #{t(:users_count, :count => @topics)}"
+      %span{:style => "position:absolute; right: 10px; font-size: 12px"}= "#{t(:topics_count, :count => @topics)} - #{t(:posts_count, :count => @posts)} - #{t(:users_count, :count => @users)}"
   #forums_body
     - unless @forums.empty?
       = render :partial => @forums
-
+    %div.powered_by
+      %span Forums powered by 
+      %a{:href => "https://github.com/radar/rboard", :target => "_blank"} rBoard
 
 / - if @category.nil?
 /   - for category in @categories

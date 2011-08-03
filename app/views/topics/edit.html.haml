@@ -12,3 +12,6 @@
         %div= f.text_field 'subject'
         = render :partial => "form", :locals => { :f => f }      
         = submit_tag "Create"
+    %div.powered_by
+      %span Forums powered by 
+      %a{:href => "https://github.com/radar/rboard", :target => "_blank"} rBoard    

@@ -1,6 +1,5 @@
 class HomeController < ApplicationController
   def index
-    @news = Ticker.find(:all, :order => 'position ASC')
-    @features = Feature.find(:all, :limit => 5)
+    @news = Ticker.find(:all, :limit => 10, :order => 'position ASC')
   end
 end

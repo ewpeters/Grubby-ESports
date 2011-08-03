@@ -26,5 +26,7 @@
   %div{:style => "background-color: black; bottom: 50px; height: 65px; position: absolute; right: 15px; width: 600px;; color: grey"}
     %a{:href => albums_path, :style => "float:left"}
       = image_tag("/images/gallery_backtogallery_icon.png")
-    %div= "#{@album.title}"
+    %div
+      %div= "#{@album.title}"
+      %div= @album.description
   

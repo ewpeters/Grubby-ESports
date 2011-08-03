@@ -74,13 +74,19 @@ class UsersController < ApplicationController
   def reset
     @user = User.find_by_reset_code(params[:reset_code]) unless params[:reset_code].nil?
     if request.post?
-      if @user.update_attributes(:password => params[:user][:password], :password_confirmation => params[:user][:password_confirmation])
-        self.current_user = @user
-        @user.delete_reset_code
-        flash[:notice] = "Password reset successfully for #{@user.email}"
-        redirect_to :controller => "home", :action => "index"
-      else
+      if params[:user][:password] != params[:user][:password_confirmation]
+        flash[:error] = "Passwords don't match"
         render :action => :reset
+      else
+        @user.crypted_password = @user.encrypt(params[:user][:password])
+        if @user.save
+          self.current_user = @user
+          @user.delete_reset_code
+          flash[:notice] = "Password reset successfully for #{@user.email}"
+          redirect_to :controller => "home", :action => "index"
+        else
+          render :action => :reset
+        end
       end
     end
   end

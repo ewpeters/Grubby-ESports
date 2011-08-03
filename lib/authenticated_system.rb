@@ -24,9 +24,6 @@ module AuthenticatedSystem
   def login_from_cookie
     # return unless session[:auth_token] && !logged_in?
     return unless cookies[:auth_token] && !logged_in?
-    Rails.logger.info("*" * 20)
-    Rails.logger.info("Here")
-    Rails.logger.info(cookies[:auth_token])
     # user = User.find_by_remember_token(session[:auth_token])
     user = User.find_by_remember_token(cookies[:auth_token])
     if user && user.remember_token?

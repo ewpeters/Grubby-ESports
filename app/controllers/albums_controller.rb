@@ -1,7 +1,7 @@
 class AlbumsController < ApplicationController
   before_filter :set_tag_filter
   def index
-    @features = Feature.find(:all, :limit => 5)
+    @features = Feature.find(:all, :limit => 7, :order => 'position ASC')
     @albums = []
     if params[:filter] == "search"
       search_condition = "%" + params[:query] + "%"
@@ -20,7 +20,7 @@ class AlbumsController < ApplicationController
   end
   
   def slide
-    @features = Feature.find(:all, :limit => 5)
+    @features = Feature.find(:all, :limit => 7, :order => 'position ASC')
     @album = Album.find(params[:id])
     @position = params[:position]
     respond_to do |format|

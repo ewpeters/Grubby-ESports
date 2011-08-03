@@ -28,9 +28,14 @@
           %a{:href => article_path(item.article)}
             %div.title= item.title
             %div.body= item.summary
-      %div.news_item{:class => "#{item == news.first ? 'selected' : '' }", :style => "top: #{(32 * ndx) + 152}px", :position => ndx}
+      %div.news_item{:class => "#{item == news.first ? 'selected' : '' }", :style => "top: #{(32 * ndx) + 152}px; overflow: hidden", :position => ndx}
         %div.arrow
         - if item.link && !item.link.blank?
           %a{:href => item.link, :target => external_target(item.link)}= item.title_list
         - elsif item.article
           %a{:href => article_path(item.article)}= item.title_list
+%center
+  %br
+  %a.cgoth_b{:href => "/archives" , :style => "color:#74AED3; font-size: 18px;"} View Archived Articles
+  %br
+  %br

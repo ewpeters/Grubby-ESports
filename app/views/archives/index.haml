@@ -1,0 +1,16 @@
+#article_content
+  #header.partner{:style => "margin-top: 5px"}
+    %center
+      %span Archived News Items
+  #partner_body
+    %br
+    - @tickers.each do |item|
+      %div{:style => "margin-left: 25px"}
+        - if item.link && !item.link.blank?
+          %a{:href => item.link, :target => external_target(item.link)}= item.title_list
+        - elsif item.title
+          %a{:href => article_path(item.article)}= item.title
+        %br
+        %div{:style => "color: white; padding-left: 25px;padding-right: 25px"}= item.summary
+      %center
+        %div{:style => "width: 90%; height: 1px; background-color: white; margin-bottom: 15px; margin-top: 15px;"}

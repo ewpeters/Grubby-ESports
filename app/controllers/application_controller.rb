@@ -23,6 +23,8 @@ class ApplicationController < ActionController::Base
   before_filter :get_events
   before_filter :get_logos
   before_filter :get_status
+  before_filter :set_ads
+  before_filter :get_features
   
   def check_page_value
     params[:page] = params[:page].to_i <= 0 ? "1" : params[:page]
@@ -42,6 +44,10 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  def get_features
+    @features = Feature.find(:all, :limit => 7, :order => 'position ASC')
+  end
+  
   def get_logos
     @logos = Logo.find(:all, :limit => 4)
   end
@@ -50,6 +56,15 @@ class ApplicationController < ActionController::Base
     @status = Status.first
   end
   
+  def set_ads
+    if Time.now.to_i % 2 == 0
+      @banner_ad = "/ads/SteelSeries-7H_grubby_728x90.swf"
+      @side_ad   = "/ads/SteelSeries-ikari_grubby_160x600.swf"
+    else
+      @banner_ad = "/ads/SteelSeries-ikari_grubby_728x90.swf"
+      @side_ad   = "/ads/SteelSeries-7H_grubby_160x600.swf"
+    end
+  end
   protected
   # Borrowed from http://rpheath.com/posts/304-tabbed-nav … refactored
     def set_active_tab

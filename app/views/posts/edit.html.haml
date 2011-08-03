@@ -9,3 +9,6 @@
       - form_for [@topic, @post] do |f|
         = hidden_field_tag("quote", params[:quote])
         = render :partial => "form", :locals => { :f => f, :cols => 70, :rows => 20, :label => true }
+    %div.powered_by
+      %span Forums powered by 
+      %a{:href => "https://github.com/radar/rboard", :target => "_blank"} rBoard

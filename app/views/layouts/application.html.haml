@@ -16,6 +16,11 @@
       $(document).ajaxSend(function(event, xhr, settings){ 
       _gaq.push(['_trackPageview', settings.url]);
       });
+      $(document).ready(function() {
+        $(".ad").click(function(e) {
+          _gaq.push(['_trackEvent', "ad_click", "position",  e.pageX + "," + e.pageY]);
+        })
+      });
       })(jQuery);   
   :javascript
     String.prototype.append_zero = function () {
@@ -28,7 +33,7 @@
     var event_data;
     var dates = [];
     ( function($) {
-    $(document).ready(function() {
+    $(document).ready(function() {      
       initCssBrowserIdentifer();
       if (jQuery.browser.msie) {
         $('.signup').corner('7px');
@@ -44,6 +49,9 @@
           controls: {
             insertTable: false,
             insertImage: false
+          },
+          messages: {
+            nonSelection: "Select the text you wish to link"
           }
         });
         
@@ -112,7 +120,7 @@
             %span{ :id => "logged-in-as", :style => "position: relative; left: 10px; top: 3px;"}
               - if logged_in?
                 = t(:Logged_in_as)
-                = link_to current_user, "/users/#{current_user}/edit"
+                = link_to h(current_user), edit_user_path(current_user)
                 %span= "|"
                 = link_to t(:Logout), logout_path
                 - if current_user.can?(:access_admin_section)
@@ -137,7 +145,7 @@
           %span#ad_banner.ad
             %object{:width => 728, :height => 90, :classid => "clsid:D27CDB6E-AE6D-11cf-96B8-444553540000", :codebase => "http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0"}
               %param{:name => "movie", :value => "/ads/xai_review_728x90.swf"}
-              %embed{:src => "/ads/xai_review_728x90.swf", :width => 728, :height => 90, :pluginspage => "http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash", :type => "application/x-shockwave-flash"}
+              %embed{:src => @banner_ad, :width => 728, :height => 90, :pluginspage => "http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash", :type => "application/x-shockwave-flash"}
           = yield
         #side_bar
           %div.box
@@ -176,13 +184,20 @@
                   %span.event_title= event.title
                   %span.event_hour{:class => "#{event.show_time ? "" : "hidden"}"}= event.date.strftime('%H:%M')
           %div.ad{:style => "margin-top: 15px; margin-left:10px; width: 160px; height: 600px;"}
-            %object{:width => 160, :height => 600, :classid => "clsid:D27CDB6E-AE6D-11cf-96B8-444553540000", :codebase => "http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0"}
-              %param{:name => "movie", :value => "/ads/xai_review_160x600.swf"}
-              %embed{:src => "/ads/xai_review_160x600.swf", :width => 160, :height => 600, :pluginspage => "http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash", :type => "application/x-shockwave-flash"}
+            :javascript
+              google_ad_client = "ca-pub-8728388090671471";
+              /* FollowGrubby.com Vertical */
+              google_ad_slot = "4523455690";
+              google_ad_width = 160;
+              google_ad_height = 600;
+              google_ad_format = "skyscraper"
+            %script{:type => "text/javascript", :src => "http://pagead2.googlesyndication.com/pagead/show_ads.js"}
+            %a{:href => "/users/jobs"}
+              = image_tag("recruit.jpg")
           %div.ad{:style => "margin-top: 15px; margin-left:10px; width: 160px; height: 600px;"}
             %object{:width => 160, :height => 600, :classid => "clsid:D27CDB6E-AE6D-11cf-96B8-444553540000", :codebase => "http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0"}
               %param{:name => "movie", :value => "/ads/xai_review_160x600.swf"}
-              %embed{:src => "/ads/xai_review_160x600.swf", :width => 160, :height => 600, :pluginspage => "http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash", :type => "application/x-shockwave-flash"}
+              %embed{:src => @side_ad, :width => 160, :height => 600, :pluginspage => "http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash", :type => "application/x-shockwave-flash"}
     
     - if Rails.env == "production"
       :javascript

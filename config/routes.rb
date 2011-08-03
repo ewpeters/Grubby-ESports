@@ -148,6 +148,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :features, :only => :show
   map.resources :admin
   map.resources :home, :only => :index
+  map.resources :archives, :only => :index
   map.resources :tvs, :only => [:index, :show]
   map.resources :downloads, :only => :index
   map.resources :albums, :only => [:index, :show]

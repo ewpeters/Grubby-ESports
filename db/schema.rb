@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110701200743) do
+ActiveRecord::Schema.define(:version => 20110706175915) do
 
   create_table "albums", :force => true do |t|
     t.string   "title"
@@ -41,6 +41,12 @@ ActiveRecord::Schema.define(:version => 20110701200743) do
   end
 
   add_index "banned_ips", ["ban_time"], :name => "index_banned_ips_on_ban_time"
+
+  create_table "browsers", :force => true do |t|
+    t.text     "agent"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "categories", :force => true do |t|
     t.string  "name"
@@ -449,6 +455,11 @@ ActiveRecord::Schema.define(:version => 20110701200743) do
     t.string   "image_remote_url"
     t.string   "icon_image_link"
     t.string   "thumbnail_image_link"
+  end
+
+  create_table "user_browsers", :force => true do |t|
+    t.integer "user_id"
+    t.integer "browser_id"
   end
 
   create_table "user_levels", :id => false, :force => true do |t|

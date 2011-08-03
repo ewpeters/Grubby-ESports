@@ -8,7 +8,7 @@ class Admin::UsersController < Admin::ApplicationController
   def index
     @users = []
     if @object
-      @users = @object.users
+      @users = @object.users.paginate(:order => "login ASC", :page => params[:page], :per_page => per_page)
     else
       @users = User.paginate(:order => "login ASC", :page => params[:page], :per_page => per_page)
     end

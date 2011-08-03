@@ -6,13 +6,19 @@
     - if @posts.size == 0
       %center
         %h1 Nobody has commented on this yet
-    = pagination = will_paginate(@posts)
+    %center    
+      %div{:style => "margin-bottom: 5px;"}
+        = pagination = will_paginate(@posts)      
     .posts.listing
       = render :partial => @posts, :locals => { :show_topic => false }
     - if current_user.can?(:reply)
+      %center
+        =raw pagination
       #quick-reply{:cellpadding => "2", :cellspacing => "0", :width => "100%"}
         - form_for [@topic, @post] do |f|
           = render :partial => "posts/form", :locals => { :f => f, :rows => 10, :cols => 70, :submit => "Reply", :label => false }
-    =raw pagination
+    
     %a#Bottom
-
+    %div.powered_by
+      %span Forums powered by 
+      %a{:href => "https://github.com/radar/rboard", :target => "_blank"} rBoard

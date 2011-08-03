@@ -27,6 +27,8 @@ module Rboard::UserExtension
       has_many :inbox_messages, :class_name => "Message", :foreign_key => "to_id", :conditions => ["to_deleted = ?", false], :order => "id DESC"
       has_many :ip_users
       has_many :ips, :through => :ip_users, :order => "ips.updated_at DESC"
+      has_many :user_browsers
+      has_many :browsers, :through => :user_browsers
       has_many :outbox_messages, :class_name => "Message", :foreign_key => "from_id", :conditions => ["from_deleted = ?", false], :order => "id DESC"
       has_many :moderations
       has_many :permissions, :through => :groups
@@ -109,6 +111,9 @@ module Rboard::UserExtension
 
       def set_permalink
         self.permalink = to_s.parameterize
+        if self.permalink.to_s == ""
+          errors.add(:login, "Username contains invalid characters") and return false
+        end
       end
 
       def set_theme

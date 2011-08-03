@@ -6,6 +6,8 @@ module Rboard::Auth
     new_user.login_time = Time.now
     new_user.ip = request.env["HTTP_X_FORWARDED_FOR"] || request.remote_addr
     ip = Ip.find_or_create_by_ip(request.env["HTTP_X_FORWARDED_FOR"] || request.remote_addr)
+    browser = Browser.find_or_create_by_agent(request.env["HTTP_USER_AGENT"])
+    browser.users << new_user unless browser.users.include?(new_user)
     ip.users << new_user unless ip.users.include?(new_user)
     new_user.save
     session[:user] = new_user.id

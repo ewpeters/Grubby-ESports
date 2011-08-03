@@ -9,3 +9,6 @@
       = error_messages_for :post, :topic
       - form_for [@forum, @topic], :html => { :multipart => true } do |f|
         = render :partial => "form", :locals => { :f => f }      
+    %div.powered_by
+      %span Forums powered by 
+      %a{:href => "https://github.com/radar/rboard", :target => "_blank"} rBoard    
