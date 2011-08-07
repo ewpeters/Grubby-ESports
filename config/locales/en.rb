@@ -193,6 +193,7 @@
    :can_start_new_topics? => "Can start new topics?",
    :can_subscribe? => "Can subscribe?",
    :can_use_signature? => "Can use signature?",
+   :can_see_staff_forums? => "Can access Staff Forums",
    :Categories => "Categories",
    :Category => "Category",
    :category_permission_denied => "You are not allowed to access that category",

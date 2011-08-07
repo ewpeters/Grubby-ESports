@@ -112,6 +112,10 @@ class User < ActiveRecord::Base
     self.attributes = {:reset_code => nil}
     save(false)
   end
+  
+  def can_see_staff_forum?
+    permissions.first.can_see_staff_forums
+  end
 
   protected
   def encrypt_password

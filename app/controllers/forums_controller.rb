@@ -44,7 +44,7 @@ class ForumsController < ApplicationController
     def find_forum
       @forums = current_user.can?(:see_inactive_forums) ? Forum : Forum.active
       @forum = @forums.find(params[:id], :include => [{ :topics => :posts }, :moderations, :permissions])
-      if !current_user.can?(:see_forum, @forum)
+      if !current_user.can?(:see_forum, @forum) 
         flash[:notice] = t(:forum_permission_denied)
         redirect_to forums_path
       end

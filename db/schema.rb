@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110706175915) do
+ActiveRecord::Schema.define(:version => 20110807023650) do
 
   create_table "albums", :force => true do |t|
     t.string   "title"
@@ -306,6 +306,7 @@ ActiveRecord::Schema.define(:version => 20110706175915) do
     t.boolean "can_manage_logos",                 :default => false
     t.boolean "can_manage_statuses",              :default => false
     t.boolean "can_manage_members",               :default => false
+    t.boolean "can_see_staff_forums",             :default => false
   end
 
   add_index "permissions", ["category_id"], :name => "index_permissions_on_category_id"
