@@ -96,12 +96,19 @@
     }
 :javascript
   $(document).ready(function(){
+    var pos = parseInt($('#album_box').attr('position'))
+    $("#link").attr('href', 'http://followgrubby.com/albums/slide/#{@album.id}?position='+ pos) 
+    $("#link").html('http://followgrubby.com/albums/slide/#{@album.id}?position='+ pos)
     $('#slidesContainer').cycle({
         fx:     'scrollHorz',
         prev:   '#leftControl',
         next:   '#rightControl',
         timeout: 0,
-        startingSlide: parseInt($('#album_box').attr('position'))
+        startingSlide: parseInt($('#album_box').attr('position')),
+        onPrevNextEvent: function(isNext, zeroBasedSlideIndex, slideElement) {
+          $("#link").attr('href', 'http://followgrubby.com/albums/slide/#{@album.id}?position='+ zeroBasedSlideIndex) 
+          $("#link").html('http://followgrubby.com/albums/slide/#{@album.id}?position='+ zeroBasedSlideIndex)
+        }
     });
     console.log("wut");
   });
@@ -123,6 +130,9 @@
   %div.bottom_bar
     %a{:href => album_path(@album), :style => "position: absolute; left: 0px; z-index: 2;"}
       = image_tag("/images/gallery_backtoalbum_icon.png")
+%div{:style => "      bottom: 20px; left: 215px; position: absolute;"}
+  %span{:style => "color: #1D74D6"} Link:
+  %a#link{:href => "", :style => "color: grey"}
 
             
 
