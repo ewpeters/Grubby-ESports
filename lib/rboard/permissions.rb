@@ -42,7 +42,7 @@ module Rboard::Permissions
       # If no object is given checks global permissions.
       # If no permissions set for that user then it defaults to false.
       def can?(action, thing = nil)
-        if thing && thing == Forum.find_by_title("Staff Forum")
+        if thing && (thing == Forum.find_by_title("Staff Forum") || thing.parent == Forum.find_by_title("Staff Forum"))
           return self.can_see_staff_forum?
         else
           return !!overall_permissions(thing)["can_#{action}"]
