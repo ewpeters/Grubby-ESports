@@ -392,7 +392,7 @@ img {
     float: right;
     width: 200px; }
     #content #side_bar .box {
-      height: 162px;
+      height: 175px;
       width: 177px;
       padding: 0;
       -moz-border-radius: 10px 10px 10px 10px;
@@ -1415,3 +1415,29 @@ thead tr {
 
 #footer {
   margin-top: 25px; }
+
+#welcome_box {
+  width: 728px;
+  height: 640px;
+  display: block;
+  background-image: url("/images/welcome_bg.png");
+  position: relative; }
+  #welcome_box .container {
+    position: absolute;
+    top: 375px;
+    left: 20px; }
+    #welcome_box .container .bullet {
+      width: 15px;
+      height: 15px;
+      display: block;
+      background-color: white;
+      float: left;
+      margin-top: 5px; }
+    #welcome_box .container .header {
+      margin-left: 50px;
+      color: #9ccfe6;
+      font-size: 21px; }
+    #welcome_box .container .body {
+      margin-left: 50px;
+      color: white;
+      font-size: 11px; }

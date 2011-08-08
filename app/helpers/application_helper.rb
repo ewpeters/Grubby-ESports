@@ -116,6 +116,11 @@ module ApplicationHelper
     end
   end
   
+  
+  def like_button(url)
+    url_escaped = url.gsub('/', '%2F').gsub(':', '%3A') + "&amp"
+    '<iframe src="http://www.facebook.com/plugins/like.php?app_id=262191330458299&amp;href='+ url_escaped +';send=false&amp;layout=button_count&amp;width=97&amp;show_faces=true&amp;action=like&amp;colorscheme=light&amp;font=verdana&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:97px; height:21px;" allowTransparency="true"></iframe>'
+  end
   def csrf_meta_tag
     if protect_against_forgery?
       out = %(<meta name="csrf-param" content="%s"/>\n)

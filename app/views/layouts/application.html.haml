@@ -161,6 +161,7 @@
               %a{:href => "http://www.youtube.com/user/FollowGrubby", :target => "_blank"}
                 = image_tag("yt_button.png")
               %center
+                %div= like_button("http://followgrubby.com")
                 %div.follow FOLLOW GRUBBY
           %div.status_box
             - if @status
