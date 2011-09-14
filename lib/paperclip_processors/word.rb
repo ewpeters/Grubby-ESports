@@ -22,7 +22,6 @@ module Paperclip
       puts spaces_gone
       while (line = @file.gets)
         temp_line = CGI::unescape(line)
-        
         if temp_line.match(/#{match}_files/)
           puts "Temp Line: #{temp_line}"
           new_line = temp_line.gsub(/#{match}_files/, "/html_files/#{spaces_gone}")

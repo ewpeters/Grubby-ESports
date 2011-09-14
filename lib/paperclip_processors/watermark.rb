@@ -19,9 +19,6 @@ module Paperclip
        @current_format   = File.extname(@file.path)
        @basename         = File.basename(@file.path, @current_format)
      end
-     
-     # TODO: extend watermark
-     
      # Returns true if the +target_geometry+ is meant to crop.
       def crop?
         @crop
