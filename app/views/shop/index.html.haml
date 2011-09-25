@@ -1,16 +1,18 @@
 %script{:id => "googlecart-script", :type => "text/javascript", :src => "http://checkout.google.com/seller/gsc/v2/cart.js?mid=123028218263690", :currency => "USD",  'post-cart-to-sandbox' => "true"}
-
-%center
-  = image_tag("shop_coming_soon.png")
-%div#shop{:style => "color:white"}
-  %div.align-cart{:id => "googlecart-widget"}
-  %table
-    %tr.product
-      %td
-        %img.product-image{:src => "http://code.google.com/apis/checkout/developer/files/google_tshirt.jpg"}
-      %td.data-cell
-        %div.product-title Google T-Shirt
-        %div.product-price Price: $12.99
-        %div.product-shipping Shipping: $4.99
-        %div.googlecart-add-button{:role => "button", :alt => "Add to car", :tabindex => "0", }
+- if @items.empty?
+  %center
+    = image_tag("shop_coming_soon.png")
+- else
+  %div#shop{:style => "color:white"}
+    %div.align-cart{:id => "googlecart-widget"}
+    - @items.each do |i|
+      %table
+        %tr.product
+          %td
+            %img.product-image{:src => "http://code.google.com/apis/checkout/developer/files/google_tshirt.jpg"}
+          %td.data-cell
+            %div.product-title= i.title
+            %div.product-price= "Price: $#{i.price}"
+            %div.product-shipping= "Shipping: $#{i.shipping}"
+            %div.googlecart-add-button{:role => "button", :alt => "Add to cart", :tabindex => "0", }
 
