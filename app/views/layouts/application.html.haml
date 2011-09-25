@@ -138,9 +138,9 @@
                 = image_tag logo.picture.url
             -else
               %a.sponsor{:href => logo.link, :target => "_blank", :style => "left: #{500 + (i * 124)}px"}
-                = image_tag logo.picture.url
-        = navigation [:home, "News"], [:tvs, "GrubbyTV"], [:downloads, "Downloads"], [:albums, "Gallery"], [:shop, "Shop"], [:forums, "Discussions"], [:welcome, "Welcome"], [:partners, "Pylon"]
+                = image_tag logo.picture.url        
       #content
+        = navigation [:home, "Home"], [:tidings, "News"], [:tvs, "VODs"], [:downloads, "Files"], [:albums, "Gallery"],  [:forums, "Forums"], [:shop, "Shop"], [:gss, "GSS"], [:partners, "Pylon"]
         #main
           %span#ad_banner.ad
             %object{:width => 728, :height => 90, :classid => "clsid:D27CDB6E-AE6D-11cf-96B8-444553540000", :codebase => "http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0"}

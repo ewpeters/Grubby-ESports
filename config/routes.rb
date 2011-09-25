@@ -156,6 +156,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :discussions, :only => :index
   map.resources :welcome, :only => :index
   map.resources :partners, :only => :index
+  map.resources :tidings, :only => :index
+  map.resources :gss, :only => :index
 
   map.root :controller => "home", :action => "index"
 end

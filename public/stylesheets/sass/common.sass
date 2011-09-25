@@ -8,11 +8,6 @@ input[type="file"]
   ms-filter:  "progid: DXImageTransform.Microsoft.Alpha(Opacity=#{!value}*100)"
   filter: "aplha(opacity=#{!value} * 100)"
 
-
-=gradient(!from=#363636, !to=#030303)
-  background-color = "#{!to}"
-  background =  "-moz-linear-gradient(top left,  #{!from},  #{!to})"
-  background = "-webkit-gradient(linear, left top, right bottom, from(#{!from}), to(#{!to}))"
   
 =dark_gradient
   +gradient(#363636,  #030303)
@@ -99,7 +94,7 @@ body
   -webkit-font-smoothing: antialiased
   color:  white
   .wrapper 
-    width:  1011px
+    width:  1300px
     margin:  0 auto
 
 #background 
@@ -339,21 +334,38 @@ img
       .inner_box
         .follow
           +ff_bold
+#latest
+  width: 1100px
+  div
+    +gradient(#363636,  #030303)
+    -moz-border-radius:  10px 10px 10px 10px
+    -webkit-border-radius:  10px
+    font-size: 14px
+    border-radius:  10px
+    +drop_shadow
+    background-color: white
+    float: left
+    height: 100px
+    width: 325px
+    margin-left: 25px
+    .title
+      color: #99999B
+      font-size: 18px
+iframe
+  color: white
 #content 
-  width: 1011px
-  background-image:  url("/images/content_bg.png")
-  background-repeat:  repeat-y
-  background-position:  center
+  width: 1300px
+  border: solid medium black
   min-height:  2000px
   margin:  0 auto
-  padding-top: 10px
   padding-bottom:  30px
   display:  table
   #main 
     float:  left
-    padding-left: 40px
+    padding-left: 30px
     width: 740px
     #ad_banner 
+      margin-left: 150px
       height:  90px
       width:  728px
       display:  block
@@ -431,6 +443,8 @@ img
       +ff_bold
     .body
       +ff_bold
+#stream
+  margin-left: 110px
 #news 
   background-image:  url("/images/ticker_background_fix2.png")
   width:  750px
@@ -596,23 +610,23 @@ img
     a
       +ff_bold
 ul#nav_bar 
-  width:  1011px
+  width:  1300px
   list-style-type: none
   height:  45px
-  background-image:  url("/images/nav_bar_bg.png")
-  background-repeat:  no-repeat
+  +gradient(#2A2F35, #0C1219)
+  margin-bottom: 10px
   img  
     display:  inline
   
   li 
-    margin-left:  27px
+    margin-left:  66px
     line-height: 45px
     display:  inline
     vertical-align: top
     position:  relative
     a 
       width: 100px
-      color: #ade2f5
+      color: #FF6B00
       +bold
       font-size: 23px
       text-decoration:  none

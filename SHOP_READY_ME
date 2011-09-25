@@ -1,0 +1,11 @@
+sku (required) - Unique identifier (stock-keeping unit) - e.g., 16543
+title (required) - Name of product - e.g., Flashing Yo-Yo
+price (required) - Price of an item - e.g., $10
+description - Description of the product - e.g., A Yo-Yo with LEDs inside
+quantity - Number of items in stock, leave blank to specify unlimited quantity - e.g., 5
+image_link - Link to a picture of the product - e.g., http://www.example.com/images/yoyo.jpg
+option_name - Category of the product options - e.g., Size:
+option - Product options, separated by commas - e.g., S, M, L, XL
+digital - Digital product delivery - e.g., set to true for digital products or leave blank otherwise.
+weight - Specify item's shipping weight in pounds to be used with Carrier Calculated Shiping option. Do not specify units. [?] - e.g., for 2 oz specify 0.125, for 2.5 lbs specify 2.5
+shipping - Fill in a number, to specify per-item shipping cost. Leave blank, to use the shipping options configured in your account. [?] - e.g., 3

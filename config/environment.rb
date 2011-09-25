@@ -58,8 +58,9 @@ CONFIG = Rails::Initializer.run do |config|
   config.gem 'exceptional' 
   config.gem 'mysql', :version => '2.8.1'
   # config.gem 'thinking-sphinx', :lib => 'thinking_sphinx'
-  config.gem 'will_paginate'
+  config.gem 'will_paginate', :version => '2.3.16'
   config.gem 'delayed_job', :version => '2.0.7'
+  config.gem 'httparty', :version => '0.8.0'
   # config.gem 'oa-oauth'
   # config.gem 'always_verify_ssl_certificates'
   # AlwaysVerifySSLCertificates.ca_file = "/etc/ssl/certs/ca-certificates.crt"  

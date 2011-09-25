@@ -1,11 +1,11 @@
 .ff3 #forum_body .forum_title {
-  font-family: 'cgoth', 'century gothic', verdana,arial,helvetica,sans-serif !important;
+  font-family: Verdana,arial,helvetica,sans-serif !important;
   font-weight: bold !important; }
 
 #forum_body #header {
   background-color: #030303;
   background: -moz-linear-gradient(top left,  #1c1c1c,  #030303);
-  background: -webkit-gradient(linear, left top, right bottom, from(#1c1c1c), to(#030303));
+  background: -webkit-gradient(linear, right top, right bottom, from(#1c1c1c), to(#030303));
   width: 740px;
   height: 71px;
   color: #3F3F3F;
@@ -69,7 +69,7 @@
     position: relative;
     background-color: #030303;
     background: -moz-linear-gradient(top left,  #363636,  #030303);
-    background: -webkit-gradient(linear, left top, right bottom, from(#363636), to(#030303));
+    background: -webkit-gradient(linear, right top, right bottom, from(#363636), to(#030303));
     width: 708px;
     -moz-border-radius: 10px 10px 10px 10px;
     -khtml-border-radius: 10px 10px 10px 10px;
@@ -92,7 +92,8 @@
       -moz-transform-origin: 50% 50%;
       -webkit-transform: rotate(90deg);
       -webkit-transform-origin: 50% 50%;
-      font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif;
+      font-family: Verdana,arial,helvetica,sans-serif;
+      font-weight: bold;
       font-size: 36px;
       left: -110px;
       top: 110px;
@@ -129,10 +130,10 @@
 
 /* topic list */
 .ff3 topic_buttons .add_topic {
-  font-family: 'cgoth', 'century gothic', verdana,arial,helvetica,sans-serif !important;
+  font-family: Verdana,arial,helvetica,sans-serif !important;
   font-weight: bold !important; }
   .ff3 topic_buttons .add_topic a {
-    font-family: 'cgoth', 'century gothic', verdana,arial,helvetica,sans-serif !important;
+    font-family: Verdana,arial,helvetica,sans-serif !important;
     font-weight: bold !important; }
 
 .topic_buttons {
@@ -142,7 +143,7 @@
   .topic_buttons .add_topic {
     background-color: #c9c9c9;
     background: -moz-linear-gradient(top left,  #e3e3e3,  #c9c9c9);
-    background: -webkit-gradient(linear, left top, right bottom, from(#e3e3e3), to(#c9c9c9));
+    background: -webkit-gradient(linear, right top, right bottom, from(#e3e3e3), to(#c9c9c9));
     box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
     -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
     -moz-box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
@@ -158,13 +159,15 @@
     padding: 5px;
     font-size: 12px;
     margin-right: 5px;
-    font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif; }
+    font-family: Verdana,arial,helvetica,sans-serif;
+    font-weight: bold; }
     .topic_buttons .add_topic img {
       position: relative;
       top: 4px; }
     .topic_buttons .add_topic a {
       color: #6C9DD7 !important;
-      font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif; }
+      font-family: Verdana,arial,helvetica,sans-serif;
+      font-weight: bold; }
 
 .topic {
   color: grey;
@@ -173,7 +176,7 @@
   position: relative;
   background-color: #030303;
   background: -moz-linear-gradient(top left,  #363636,  #030303);
-  background: -webkit-gradient(linear, left top, right bottom, from(#363636), to(#030303));
+  background: -webkit-gradient(linear, right top, right bottom, from(#363636), to(#030303));
   width: 660px;
   -moz-border-radius: 10px 10px 10px 10px;
   -khtml-border-radius: 10px 10px 10px 10px;
@@ -211,7 +214,7 @@
   color: #A9AAAB;
   background-color: #d2d2d2;
   background: -moz-linear-gradient(top left,  #dbdbdb,  #d2d2d2);
-  background: -webkit-gradient(linear, left top, right bottom, from(#dbdbdb), to(#d2d2d2));
+  background: -webkit-gradient(linear, right top, right bottom, from(#dbdbdb), to(#d2d2d2));
   width: 675px;
   padding-left: 15px;
   padding-top: 3px;

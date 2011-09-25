@@ -67,7 +67,7 @@ body {
   -webkit-font-smoothing: antialiased;
   color: white; }
   body .wrapper {
-    width: 1011px;
+    width: 1300px;
     margin: 0 auto; }
 
 #background {
@@ -95,10 +95,11 @@ ul {
   margin: 0; }
 
 .cgoth_b {
-  font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif; }
+  font-family: Verdana,arial,helvetica,sans-serif;
+  font-weight: bold; }
 
 .ff3 .cgoth_b {
-  font-family: 'cgoth', 'century gothic', verdana,arial,helvetica,sans-serif !important;
+  font-family: Verdana,arial,helvetica,sans-serif !important;
   font-weight: bold !important; }
 
 .ui-dialog {
@@ -163,10 +164,10 @@ img {
   font-size: 16px; }
 
 .ff3 #user_nav a.signup {
-  font-family: 'cgoth', 'century gothic', verdana,arial,helvetica,sans-serif !important;
+  font-family: Verdana,arial,helvetica,sans-serif !important;
   font-weight: bold !important; }
 .ff3 #user_nav form #submit {
-  font-family: 'cgoth', 'century gothic', verdana,arial,helvetica,sans-serif !important;
+  font-family: Verdana,arial,helvetica,sans-serif !important;
   font-weight: bold !important; }
 .ff3 #user_nav #password {
   left: 15px !important; }
@@ -197,7 +198,7 @@ img {
     color: white;
     background-color: #aba7a9;
     background: -moz-linear-gradient(top left,  #e8ebed,  #aba7a9);
-    background: -webkit-gradient(linear, left top, right bottom, from(#e8ebed), to(#aba7a9));
+    background: -webkit-gradient(linear, right top, right bottom, from(#e8ebed), to(#aba7a9));
     -moz-border-radius: 10px 10px 10px 10px;
     -webkit-border-radius: 10px;
     border-radius: 10px;
@@ -212,7 +213,8 @@ img {
     color: black;
     font-size: 16px;
     color: black;
-    font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif;
+    font-family: Verdana,arial,helvetica,sans-serif;
+    font-weight: bold;
     font-size: 16px;
     height: 20px;
     line-height: 19px;
@@ -269,7 +271,8 @@ img {
       background-color: white;
       color: black;
       font-size: 16px;
-      font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif;
+      font-family: Verdana,arial,helvetica,sans-serif;
+      font-weight: bold;
       position: absolute;
       top: 30px;
       line-height: 14px;
@@ -312,7 +315,7 @@ img {
 .box {
   background-color: #030303;
   background: -moz-linear-gradient(top left,  #4e4e4e,  #030303);
-  background: -webkit-gradient(linear, left top, right bottom, from(#4e4e4e), to(#030303));
+  background: -webkit-gradient(linear, right top, right bottom, from(#4e4e4e), to(#030303));
   background-color: #030303;
   -moz-border-radius: 10px 10px 10px 10px;
   -khtml-border-radius: 10px 10px 10px 10px;
@@ -334,7 +337,7 @@ img {
 .status_box {
   background-color: #030303;
   background: -moz-linear-gradient(top left,  #363636,  #030303);
-  background: -webkit-gradient(linear, left top, right bottom, from(#363636), to(#030303));
+  background: -webkit-gradient(linear, right top, right bottom, from(#363636), to(#030303));
   -moz-border-radius: 10px 10px 10px 10px;
   -webkit-border-radius: 10px;
   font-size: 14px;
@@ -358,27 +361,51 @@ img {
     height: 62px;
     background-color: #2d2d2d;
     background: -moz-linear-gradient(top left,  #454545,  #2d2d2d);
-    background: -webkit-gradient(linear, left top, right bottom, from(#454545), to(#2d2d2d)); }
+    background: -webkit-gradient(linear, right top, right bottom, from(#454545), to(#2d2d2d)); }
 
 #content #side_bar .box .inner_box .follow {
-  font-family: 'cgoth', 'century gothic', verdana,arial,helvetica,sans-serif !important;
+  font-family: Verdana,arial,helvetica,sans-serif !important;
   font-weight: bold !important; }
 
+#latest {
+  width: 1100px; }
+  #latest div {
+    background-color: #030303;
+    background: -moz-linear-gradient(top left,  #363636,  #030303);
+    background: -webkit-gradient(linear, right top, right bottom, from(#363636), to(#030303));
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px;
+    font-size: 14px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
+    -moz-box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
+    -ms-filter: progid:DXImageTransform.Microsoft.dropShadow(offX=5, offY=5, positive=true);
+    background-color: white;
+    float: left;
+    height: 100px;
+    width: 325px;
+    margin-left: 25px; }
+    #latest div .title {
+      color: #99999B;
+      font-size: 18px; }
+
+iframe {
+  color: white; }
+
 #content {
-  width: 1011px;
-  background-image: url("/images/content_bg.png");
-  background-repeat: repeat-y;
-  background-position: center;
+  width: 1300px;
+  border: solid medium black;
   min-height: 2000px;
   margin: 0 auto;
-  padding-top: 10px;
   padding-bottom: 30px;
   display: table; }
   #content #main {
     float: left;
-    padding-left: 40px;
+    padding-left: 30px;
     width: 740px; }
     #content #main #ad_banner {
+      margin-left: 150px;
       height: 90px;
       width: 728px;
       display: block;
@@ -404,7 +431,7 @@ img {
       border-bottom-left-radius: 10px;
       background-color: #030303;
       background: -moz-linear-gradient(top left,  #363636,  #030303);
-      background: -webkit-gradient(linear, left top, right bottom, from(#363636), to(#030303));
+      background: -webkit-gradient(linear, right top, right bottom, from(#363636), to(#030303));
       box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
       -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
       -moz-box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
@@ -419,7 +446,8 @@ img {
         width: 170px; }
         #content #side_bar .box .inner_box .follow {
           color: #656565;
-          font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif;
+          font-family: Verdana,arial,helvetica,sans-serif;
+          font-weight: bold;
           margin-left: -6px; }
         #content #side_bar .box .inner_box img {
           -moz-border-radius: 5px 5px 5px 5px;
@@ -435,7 +463,7 @@ img {
       position: relative;
       background-color: #030303;
       background: -moz-linear-gradient(top left,  #363636,  #030303);
-      background: -webkit-gradient(linear, left top, right bottom, from(#363636), to(#030303));
+      background: -webkit-gradient(linear, right top, right bottom, from(#363636), to(#030303));
       -moz-border-radius: 10px 10px 10px 10px;
       -webkit-border-radius: 10px;
       border-radius: 10px;
@@ -451,20 +479,23 @@ img {
         text-align: center; }
 
 .ff3 #news {
-  font-family: 'cgoth', 'century gothic', verdana,arial,helvetica,sans-serif !important;
+  font-family: Verdana,arial,helvetica,sans-serif !important;
   font-weight: bold !important; }
   .ff3 #news .news_item {
-    font-family: 'cgoth', 'century gothic', verdana,arial,helvetica,sans-serif !important;
+    font-family: Verdana,arial,helvetica,sans-serif !important;
     font-weight: bold !important; }
   .ff3 #news .news_item.selected a {
-    font-family: 'cgoth', 'century gothic', verdana,arial,helvetica,sans-serif !important;
+    font-family: Verdana,arial,helvetica,sans-serif !important;
     font-weight: bold !important; }
   .ff3 #news .summary .title {
-    font-family: 'cgoth', 'century gothic', verdana,arial,helvetica,sans-serif !important;
+    font-family: Verdana,arial,helvetica,sans-serif !important;
     font-weight: bold !important; }
   .ff3 #news .summary .body {
-    font-family: 'cgoth', 'century gothic', verdana,arial,helvetica,sans-serif !important;
+    font-family: Verdana,arial,helvetica,sans-serif !important;
     font-weight: bold !important; }
+
+#stream {
+  margin-left: 110px; }
 
 #news {
   background-image: url("/images/ticker_background_fix2.png");
@@ -474,7 +505,8 @@ img {
   -webkit-box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
   color: white;
-  font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif;
+  font-family: Verdana,arial,helvetica,sans-serif;
+  font-weight: bold;
   position: relative; }
   #news #loading {
     background-image: url("/images/newsticker_backgroundlogo_fullopacity2.png");
@@ -502,7 +534,8 @@ img {
     top: 15px; }
   #news .news_item {
     font-size: 12px;
-    font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif;
+    font-family: Verdana,arial,helvetica,sans-serif;
+    font-weight: bold;
     height: 32px;
     line-height: 32px;
     padding-left: 30px;
@@ -512,7 +545,8 @@ img {
     width: 177px; }
   #news .news_item.selected a {
     color: white;
-    font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif; }
+    font-family: Verdana,arial,helvetica,sans-serif;
+    font-weight: bold; }
   #news .arrow {
     width: 12px;
     height: 10px;
@@ -529,17 +563,19 @@ img {
     padding-left: 25px;
     padding-top: 10px; }
     #news .summary .title {
-      font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif;
+      font-family: Verdana,arial,helvetica,sans-serif;
+      font-weight: bold;
       color: #06264b;
       font-size: 22px;
       margin-bottom: 10px; }
     #news .summary .body {
-      font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif;
+      font-family: Verdana,arial,helvetica,sans-serif;
+      font-weight: bold;
       line-height: 18px;
       color: white; }
 
 .ff3 #features .feature {
-  font-family: 'cgoth', 'century gothic', verdana,arial,helvetica,sans-serif !important;
+  font-family: Verdana,arial,helvetica,sans-serif !important;
   font-weight: bold !important; }
 
 #features {
@@ -569,7 +605,8 @@ img {
     font-size: 11px;
     letter-spacing: 1px;
     color: #010101;
-    font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif; }
+    font-family: Verdana,arial,helvetica,sans-serif;
+    font-weight: bold; }
     #features .feature .overlay {
       position: absolute;
       top: 0px;
@@ -616,27 +653,30 @@ img {
   top: 0px !important; }
 
 .ff3 ul#nav_bar li a {
-  font-family: 'cgoth', 'century gothic', verdana,arial,helvetica,sans-serif !important;
+  font-family: Verdana,arial,helvetica,sans-serif !important;
   font-weight: bold !important; }
 
 ul#nav_bar {
-  width: 1011px;
+  width: 1300px;
   list-style-type: none;
   height: 45px;
-  background-image: url("/images/nav_bar_bg.png");
-  background-repeat: no-repeat; }
+  background-color: #0c1219;
+  background: -moz-linear-gradient(top left,  #2a2f35,  #0c1219);
+  background: -webkit-gradient(linear, right top, right bottom, from(#2a2f35), to(#0c1219));
+  margin-bottom: 10px; }
   ul#nav_bar img {
     display: inline; }
   ul#nav_bar li {
-    margin-left: 27px;
+    margin-left: 66px;
     line-height: 45px;
     display: inline;
     vertical-align: top;
     position: relative; }
     ul#nav_bar li a {
       width: 100px;
-      color: #ade2f5;
-      font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif;
+      color: #FF6B00;
+      font-family: Verdana,arial,helvetica,sans-serif;
+      font-weight: bold;
       font-size: 23px;
       text-decoration: none;
       text-align: center;
@@ -745,7 +785,7 @@ ul#nav_bar {
 
 /* Media index */
 .ff3 #media_container #search form input {
-  font-family: 'cgoth', 'century gothic', verdana,arial,helvetica,sans-serif !important;
+  font-family: Verdana,arial,helvetica,sans-serif !important;
   font-weight: bold !important; }
 
 #media_container {
@@ -813,7 +853,8 @@ ul#nav_bar {
       border: 0;
       width: 105px;
       font-size: 14px;
-      font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif;
+      font-family: Verdana,arial,helvetica,sans-serif;
+      font-weight: bold;
       text-align: center; }
   #media_container #filters {
     position: absolute;
@@ -842,7 +883,7 @@ ul#nav_bar {
   #media_container .true {
     background-color: #39b0ff;
     background: -moz-linear-gradient(top left,  #0097fc,  #39b0ff);
-    background: -webkit-gradient(linear, left top, right bottom, from(#0097fc), to(#39b0ff));
+    background: -webkit-gradient(linear, right top, right bottom, from(#0097fc), to(#39b0ff));
     opacity: 0.8;
     ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=0.8*100)";
     filter: "aplha(opacity=0.8 * 100)"; }
@@ -1018,7 +1059,7 @@ thead tr {
 .album_pic {
   background-color: #030303;
   background: -moz-linear-gradient(top left,  #363636,  #030303);
-  background: -webkit-gradient(linear, left top, right bottom, from(#363636), to(#030303));
+  background: -webkit-gradient(linear, right top, right bottom, from(#363636), to(#030303));
   float: left;
   cursor: pointer;
   line-height: 98px;
@@ -1048,7 +1089,7 @@ thead tr {
   -ms-filter: progid:DXImageTransform.Microsoft.dropShadow(offX=5, offY=5, positive=true); }
 
 .ff3 #tv_container #search form input {
-  font-family: 'cgoth', 'century gothic', verdana,arial,helvetica,sans-serif !important;
+  font-family: Verdana,arial,helvetica,sans-serif !important;
   font-weight: bold !important; }
 
 #tv_container {
@@ -1132,7 +1173,8 @@ thead tr {
       border: 0;
       width: 105px;
       font-size: 14px;
-      font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif;
+      font-family: Verdana,arial,helvetica,sans-serif;
+      font-weight: bold;
       text-align: center; }
   #tv_container #filters {
     position: absolute;
@@ -1161,7 +1203,7 @@ thead tr {
   #tv_container .true {
     background-color: #2c6651;
     background: -moz-linear-gradient(top left,  #447362,  #2c6651);
-    background: -webkit-gradient(linear, left top, right bottom, from(#447362), to(#2c6651));
+    background: -webkit-gradient(linear, right top, right bottom, from(#447362), to(#2c6651));
     opacity: 0.8;
     ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=0.8*100)";
     filter: "aplha(opacity=0.8 * 100)"; }

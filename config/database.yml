@@ -5,6 +5,7 @@ development:
   encoding: utf8
   database: followg1_dev
   username: root
+  password: root
   pool: 5
 
 
