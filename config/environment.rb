@@ -53,7 +53,7 @@ CONFIG = Rails::Initializer.run do |config|
   config.gem 'rack-raw-upload', :lib => "rack/raw_upload"
   config.gem 'rbbcode', :version => '0.1.11'
   config.gem 'RedCloth'
-  config.gem 'rmagick', :lib => "RMagick2",  :version => '2.13.1'
+#  config.gem 'rmagick', :lib => "RMagick2",  :version => '2.13.1'
   # config.gem "sqlite3-ruby", :lib => "sqlite3", :version => "1.3.1"
   config.gem 'exceptional' 
   config.gem 'mysql', :version => '2.8.1'
@@ -65,6 +65,7 @@ CONFIG = Rails::Initializer.run do |config|
   # AlwaysVerifySSLCertificates.ca_file = "/etc/ssl/certs/ca-certificates.crt"  
   # lol actionwebservice
   # lol activeresource
+  config.gem 'geoip', :version => '1.1.1'
   config.frameworks -= [:action_web_service, :activeresource]
 
   config.action_controller.session = {:key => '_sessions_test', :secret  => 'whatever'}
@@ -93,12 +94,12 @@ Find.find(RAILS_ROOT + "/public/themes") do |path|
   Find.prune
 end
 
-# Needs to be set for paperclip to find the identify command with Passenger.
 begin
   require 'paperclip'
   Paperclip.options[:command_path] = "/usr/local/bin"
 rescue LoadError
 end
+
 
 
 # require 'sass'
