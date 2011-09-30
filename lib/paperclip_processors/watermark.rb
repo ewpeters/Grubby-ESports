@@ -1,8 +1,10 @@
+# from http://github.com/ng/paperclip-watermarking-app with modifications
+
 module Paperclip
   class Watermark < Processor
-    # Handles watermarking of images that are uploaded.    
+    # Handles watermarking of images that are uploaded.
     attr_accessor :current_geometry, :target_geometry, :format, :whiny, :convert_options, :watermark_path, :overlay, :position
-    
+
     def initialize file, options = {}, attachment = nil
        super
        geometry          = options[:geometry]
@@ -19,6 +21,9 @@ module Paperclip
        @current_format   = File.extname(@file.path)
        @basename         = File.basename(@file.path, @current_format)
      end
+
+     # TODO: extend watermark
+
      # Returns true if the +target_geometry+ is meant to crop.
       def crop?
         @crop
@@ -37,14 +42,18 @@ module Paperclip
 
         if watermark_path
           command = "composite"
-          params = "-gravity #{@position} #{watermark_path} #{fromfile} #{transformation_command} #{tofile(dst)}"
+          params = %W[-gravity #{@position} #{watermark_path} #{fromfile}]
+          params += transformation_command
+          params << tofile(dst)
         else
           command = "convert"
-          params = "#{fromfile} #{transformation_command} #{tofile(dst)}"
+          params = [fromfile]
+          params += transformation_command
+          params << tofile(dst)
         end
 
         begin
-          success = Paperclip.run(command, params)
+          success = Paperclip.run(command, *params)
         rescue PaperclipCommandLineError
           raise PaperclipError, "There was an error processing the watermark for #{@basename}" if @whiny
         end
@@ -53,23 +62,20 @@ module Paperclip
       end
 
       def fromfile
-        "\"#{ File.expand_path(@file.path) }[0]\""
+        File.expand_path(@file.path)
       end
 
       def tofile(destination)
-        "\"#{ File.expand_path(destination.path) }[0]\""
-      end    
+        File.expand_path(destination.path)
+      end
 
       def transformation_command
         scale, crop = @current_geometry.transformation_to(@target_geometry, crop?)
-        trans = "-resize \"#{scale}\""
-        trans << " -crop \"#{crop}\" +repage" if crop
-        trans << " #{convert_options}" if convert_options?
+        trans = %W[-resize #{scale}]
+        trans += %W[-crop #{crop} +repage] if crop
+        trans << convert_options if convert_options?
         trans
       end
-
-
   end
-
 end
 
