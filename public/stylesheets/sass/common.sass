@@ -1,4 +1,3 @@
-@import util.sass
 ul
   padding: 0
 input[type="file"]
@@ -8,20 +7,22 @@ input[type="file"]
   ms-filter:  "progid: DXImageTransform.Microsoft.Alpha(Opacity=#{!value}*100)"
   filter: "aplha(opacity=#{!value} * 100)"
 
+=rounded_corners(!top=5px, !right=5px, !bottom=5px, !left=5px) 
+  -moz-border-radius =  "#{!top} #{!right} #{!bottom} #{!left}"
+  border-top-left-radius = "#{!top}"
+  border-top-right-radius =  "#{!right}"
+  border-bottom-right-radius =  "#{!bottom}"
+  border-bottom-left-radius =  "#{!left}"
+  border-radius =  "#{!top} #{!right} #{!bottom} #{!left}"
 
-=gradient(!from=#363636, !to=#030303)
-  background-color = "#{!to}"
-  background =  "-moz-linear-gradient(top left,  #{!from},  #{!to})"
-  background = "-webkit-gradient(linear, left top, right bottom, from(#{!from}), to(#{!to}))"
-  
 =dark_gradient
-  +gradient(#363636,  #030303)
+  background:  -moz-linear-gradient(top left,  #363636,  #030303)
+  background:  -webkit-gradient(linear, left top, right bottom, from(#363636), to(#030303))
 
 =drop_shadow(!color=rgba(0, 0, 0, 0.5), !values=0px 6px 10px)
   box-shadow         = "#{!color} #{!values}"
   -webkit-box-shadow = "#{!color} #{!values}"
   -moz-box-shadow    = "#{!color} #{!values}"
-  -ms-filter         = "progid:DXImageTransform.Microsoft.dropShadow(offX=5, offY=5, positive=true)"
 
 =button
   -moz-border-radius:  5px 5px 5px 5px
@@ -37,31 +38,22 @@ input[type="file"]
 
 .button 
   +button
-
-
+  
 @font-face
   font-family: "cgoth" 
-  src: url("/fonts/gothic-webfont.woff") format("woff"),  url("/fonts/gothic-webfont.otf") format("opentype"),  url("/fonts/gothic-webfont.svg#gothic-webfont") format("svg")
-  
+  src: url("/fonts/gothic-webfont.eot?") format("eot"), url("/fonts/gothic-webfont.woff") format("woff"),  url("/fonts/gothic-webfont.otf") format("opentype"),  url("/fonts/gothic-webfont.svg#gothic-webfont") format("svg")
+@font-face 
+  font-family: "cgothi" 
+  src: url("/fonts/gothici-webfont.eot") 
+  src: local("☺"),  url("/fonts/gothici-webfont.woff") format("woff"), url("/fonts/gothici-webfont.otf") format("opentype"), url("/fonts/gothici-webfont.svg#gothici-webfont") format("svg")
 @font-face 
   font-family: "cgothb" 
-  src: url('/fonts/gothicb-webfont.woff') format('woff'), url('/fonts/gothicb-webfont.ttf') format('truetype'), url('/fonts/gothicb-webfont.svg#webfontKWmDqtHl') format('svg')
-
-.ie8 @font-face
-  font-family: "cgoth"
-  src: url("/fonts/gothic-webfont.eot")
-
-.ie8 @font-face
-  font-family: "cgothb"
-  src: url("/fonts/gothicb-webfont.eot")  
-
-.ie9 @font-face
-  font-family: "cgoth"
-  src: url("/fonts/gothic-webfont.eot")
-
-.ie9 @font-face
-  font-family: "cgothb"
-  src: url("/fonts/gothicb-webfont.eot")  
+  src: url("/fonts/gothicb-webfont.eot?") format("eot"), url("/fonts/gothicb-webfont.woff") format("woff"),  url("/fonts/gothicb-webfont.otf") format("opentype"),  url("/fonts/gothicb-webfont.svg#gothicb-webfont") format("svg")
+@font-face 
+  font-family: "cgothbi" 
+  src: url("fonts/gothicbi-webfont.eot") 
+  src: local("☺"),  url("/fonts/gothicbi-webfont.woff") format("woff"),  url("/fonts/gothicbi-webfont.otf") format("opentype"), url("/fonts/gothicbi-webfont.svg#gothicbi-webfont") format("svg")
+  
 
 .add_more 
   +button
@@ -69,6 +61,8 @@ input[type="file"]
 =blue 
   color:  #74aed3
 
+=bold
+  font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif
 
 =grey 
   color:  #878787
@@ -83,20 +77,10 @@ input[type="file"]
 
 =grey_bg 
   background-color:  #878787
-  
-input[type="checkbox"]
-  margin: 0
-  padding: 0
-  border: 0
-  font-size: 100%
-  font: inherit
-  vertical-align: baseline
-  background-color: transparent !important
-  
+
 body  
   background-color:  #101010
   font-family: 'cgoth', 'century gothic', verdana,arial,helvetica,sans-serif
-  -webkit-font-smoothing: antialiased
   color:  white
   .wrapper 
     width:  1011px
@@ -112,12 +96,7 @@ body
   margin:  0 auto
   padding-top:  183px
 
-a:link  
-  text-decoration: none !important
-  text-underline: none !important
-span.MsoHyperlink 
-  text-decoration: none !important
-  text-underline: none !important
+
 input 
   font-family: 'cgoth', 'century gothic', verdana,arial,helvetica,sans-serif
 
@@ -125,9 +104,8 @@ input
 ul 
   margin:  0
 .cgoth_b
-  +bold
-.ff3 .cgoth_b
-  +ff_bold
+  font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif
+  
 .ui-dialog 
   background-color: black
   +rounded_corners
@@ -169,15 +147,6 @@ img
   position
 .notice
   font-size: 16px
-.ff3 #user_nav
-  a.signup
-    +ff_bold
-  form
-    #submit
-      +ff_bold
-  #password
-    left: 15px !important
-      
 #user_nav 
   position:  absolute 
   left: 0px
@@ -202,7 +171,8 @@ img
   a.signup 
     vertical-align:  middle
     color:  white
-    +gradient(#e8ebed ,  #aba7a9)
+    background:  -moz-linear-gradient(top left,  #e8ebed ,  #aba7a9)
+    background:  -webkit-gradient(linear, left bottom, right top, from(#e8ebed ), to(#aba7a9))
     -moz-border-radius:  10px 10px 10px 10px
     -webkit-border-radius:  10px
     border-radius:  10px
@@ -300,10 +270,13 @@ img
   top:  18px
 
 .box 
-  +gradient(#4E4E4E,  #030303)
   background-color:  #030303
-  +rounded_corners(10px, 10px, 10px, 10px)
+  background:  -moz-linear-gradient(top left,  #4E4E4E,  #030303) 
+  background:  -webkit-gradient(linear, left top, right bottom, from(#4E4E4E), to(#030303))
+  -moz-border-radius:  10px 10px 10px 10px
+  -webkit-border-radius:  10px
   font-size: 14px
+  border-radius:  10px
   +drop_shadow
   padding-left:  35px
   padding-right: 35px
@@ -311,13 +284,15 @@ img
   padding-bottom: 35px
 
 .status_box
-  +gradient(#363636,  #030303)
+  background-color:  #030303
+  background:  -moz-linear-gradient(top left,  #363636,  #030303)
+  background:  -webkit-gradient(linear, left top, right bottom, from(#363636), to(#030303))
   -moz-border-radius:  10px 10px 10px 10px
   -webkit-border-radius:  10px
   font-size: 14px
   border-radius:  10px
   +drop_shadow
-  height: 102px
+  height: 75px
   width: 178px
   margin-top: 15px
   position: relative
@@ -329,16 +304,11 @@ img
     font-size: 11px
     top: 12.5px
     width: 164px
-    height: 62px
-    +gradient(#454545,  #2D2D2D)
-
-
-#content
-  #side_bar
-    .box
-      .inner_box
-        .follow
-          +ff_bold
+    height: 36px
+    background:  -moz-linear-gradient(top left,  #454545,  #2D2D2D) 
+    background:  -webkit-gradient(linear, left top, right bottom, from(#454545), to(#2D2D2D))
+    
+  
 #content 
   width: 1011px
   background-image:  url("/images/content_bg.png")
@@ -365,12 +335,15 @@ img
     float:  right
     width:  200px
     .box 
-      height:  175px
+      height:  162px
       width:  177px
       padding: 0
-      
-      +rounded_corners(10px, 10px, 10px, 10px)
-      +gradient(#363636,  #030303)
+      background-color:  #030303
+      background:  -moz-linear-gradient(top left,  #363636,  #030303)
+      background:  -webkit-gradient(linear, left top, right bottom, from(#363636), to(#030303))
+      -moz-border-radius:  10px 10px 10px 10px
+      -webkit-border-radius:  10px
+      border-radius:  10px
       +drop_shadow
 
       margin-top: 15px
@@ -397,11 +370,13 @@ img
     
     .calendar 
       width:  180px
-      height:  365px
+      height:  350px
       margin-top:  20px
       padding-top:  15px
       position:  relative
-      +gradient
+      background-color:  #030303
+      background:  -moz-linear-gradient(top left,  #363636,  #030303)
+      background:  -webkit-gradient(linear, left top, right bottom, from(#363636), to(#030303))
       -moz-border-radius:  10px 10px 10px 10px
       -webkit-border-radius:  10px
       border-radius:  10px
@@ -412,25 +387,12 @@ img
         margin-bottom: 10px
       
       .event_info
-        font-size: 12px
         padding-left: 10px
         padding-right: 10px
         text-align: center
     
   
 
-.ff3 #news
-  +ff_bold
-  .news_item
-    +ff_bold
-  .news_item.selected 
-    a  
-      +ff_bold
-  .summary
-    .title
-      +ff_bold
-    .body
-      +ff_bold
 #news 
   background-image:  url("/images/ticker_background_fix2.png")
   width:  750px
@@ -514,9 +476,7 @@ img
     
   
 
-.ff3 #features
-  .feature
-    +ff_bold
+
 #features 
   margin-left:  -10px
   width:  749px
@@ -586,15 +546,6 @@ img
   top:  0px
   font-size:  18px  
 
-.ie7 ul#nav_bar
-  li
-    img
-      top: 0px !important
-      
-.ff3 ul#nav_bar
-  li
-    a
-      +ff_bold
 ul#nav_bar 
   width:  1011px
   list-style-type: none
@@ -684,7 +635,6 @@ ul#nav_bar
   
   #article_body 
     +drop_shadow
-    +rounded_corners(0px, 0px, 10px, 10px)
     color: black
     width:  721px
     height:  100%
@@ -731,11 +681,7 @@ ul#nav_bar
   a 
     color:  white
   
-.ff3 #media_container
-  #search
-    form
-      input
-        +ff_bold
+
 #media_container 
   height:  550px
   width:  750px
@@ -771,7 +717,7 @@ ul#nav_bar
   
   #search 
     position:  absolute
-    top:  191px
+    top:  193px
     left:  20px
     form
       input
@@ -803,7 +749,6 @@ ul#nav_bar
       margin-left:  8px
       background-image:  url('/images/media_filter_game_icons.png')
       background-repeat:  no-repeat
-      background-color: transparent
     
     .warcraft 
       background-position:  -75px -82px
@@ -819,7 +764,8 @@ ul#nav_bar
     
   
   .true 
-    +gradient(#0097fc,  #39b0ff)
+    background:  -moz-linear-gradient(top,  #0097fc,  #39b0ff)
+    background:  -webkit-gradient(linear,  left top, left bottom, from(#0097fc), to(#39b0ff))
     +opacity(0.8)
   
   ::-webkit-scrollbar 
@@ -850,7 +796,7 @@ ul#nav_bar
   
   #media_box 
     width:  596px
-    height:  448px
+    height:  460px
     overflow-y:  auto
     overflow-x: hidden
     position:  absolute
@@ -1046,11 +992,7 @@ thead
     color:  white
   
 
-.ff3 #tv_container
-  #search
-    form
-      input
-        +ff_bold
+
 #tv_container 
   height:  550px
   width:  750px
@@ -1106,7 +1048,7 @@ thead
   
   #search 
     position:  absolute
-    top:  191px
+    top:  193px
     left:  20px
     form 
       input
@@ -1137,8 +1079,7 @@ thead
       width:  82px
       background-image:  url('/images/grubbytv_filter_game_icons.png')
       background-repeat:  no-repeat
-      background-color: transparent
-      
+    
     .warcraft 
       background-position:  -75px -82px
     
@@ -1152,8 +1093,9 @@ thead
       background-position:  0px 0px
     
   
-  .true
-    +gradient(#447362,  #2c6651)
+  .true 
+    background:  -moz-linear-gradient(top,  #447362,  #2c6651)
+    background:  -webkit-gradient(linear,  left top, left bottom, from(#447362), to(#2c6651))
     +opacity(0.8)
   
   ::-webkit-scrollbar 
@@ -1171,20 +1113,20 @@ thead
   
 
   ::-webkit-scrollbar-track-piece 
-    background-color:  #596673 
+    background-color:  #78bba3 
     -webkit-border-radius:  3px
   
 
   ::-webkit-scrollbar-thumb:vertical 
     height:  10px
-    background-color: #78bba3
+    background-color: #596673  
     -webkit-border-radius:  3px
   
 
   
   #tv_box 
     width:  596px
-    height:  456px
+    height:  476px
     overflow-y:  auto
     overflow-x: hidden
     position:  absolute
@@ -1194,24 +1136,26 @@ thead
   .box 
     +rounded_corners(10px, 10px, 10px, 10px)
     border:  3px #4d8e5e solid
-    width:  565px
+    width:  575px
     height:  355px
     background-color:  'transparent'
-    padding: 0
-
+    display:  table
+    #cell 
+      display: table-cell 
+      vertical-align: middle
+        
   
   
   .dialog 
     +rounded_corners(10px, 10px, 10px, 10px)
     border:  3px #4d8e5e solid
-    width:  565px
+    width:  575px
     height:  95px
-    font-size: 12px
     margin-top:  5px
     background-color:  'transparent'
     position:  relative
     .inner 
-      width:  550px
+      width:  560px
       height:  80px
       border:  2px #182c1d solid
       +rounded_corners(10px, 10px, 10px, 10px)
@@ -1350,14 +1294,7 @@ thead
   top:  37px
   color:  #CDD4DC
   font-size:  14px
-.ie8 .side_date
-  top: 5px !important
-  left: 555px !important
-  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1)
-.ie9 .side_date
-  top: 5px !important
-  left: 555px !important
-  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1)
+
 
 .avatar_picker 
   height:  15px
@@ -1372,7 +1309,7 @@ thead
   display: inline-block 
   left: 150px 
   position: absolute 
-  top: 580px 
+  top: 500px 
   width: 200px 
   height: 175px
 .headset
@@ -1380,21 +1317,21 @@ thead
   height: 150px 
   left: 505px 
   position: absolute 
-  top: 670px 
+  top: 550px 
   width: 100px 
 .keyboard
   display: inline-block 
   height: 100px 
   left: 360px 
   position: absolute 
-  top: 585px 
+  top: 465px 
   width: 200px 
 .mouse
   display: inline-block 
   height: 100px 
   left: 330px 
   position: absolute 
-  top: 765px 
+  top: 615px 
   width: 145px 
 
 .jobs
@@ -1413,31 +1350,3 @@ thead
   
 #footer
   margin-top: 25px
-
-#welcome_box
-  width: 728px
-  height: 640px
-  display: block
-  background-image: url("/images/welcome_bg.png")
-  position: relative
-  .container
-    position: absolute
-    top: 375px
-    left: 20px
-    .bullet
-      width: 15px
-      height: 15px
-      display: block
-      background-color: white
-      float: left
-      margin-top: 5px
-    .header
-      margin-left: 50px
-      color: #9ccfe6
-      font-size: 21px
-    .body
-      margin-left: 50px
-      color: white
-      font-size: 11px
-  
-  

@@ -3,10 +3,11 @@
   ms-filter:  "progid: DXImageTransform.Microsoft.Alpha(Opacity=#!value*100)"
   filter:  "aplha(opacity=#!value * 100)"
 
-@import util.sass
   
 =black-box 
-  +gradient(#363636,  #030303)
+  background-color:  #030303
+  background:  -moz-linear-gradient(top left,  #363636,  #030303)
+  background:  -webkit-gradient(linear, left top, right bottom, from(#363636), to(#030303))
   -moz-border-radius:  10px 10px 10px 10px
   -webkit-border-radius:  10px
   border-radius:  10px
@@ -17,7 +18,9 @@
 
 
 =light-box 
-  +gradient(#4e4f4f,  #e6e6e6)
+  background-color:  #030303
+  background:  -moz-linear-gradient(top right,  #4e4f4f,  #e6e6e6)
+  background:  -webkit-gradient(linear,  right top, left bottom, from(#4e4f4f), to(#e6e6e6))
   -moz-border-radius:  10px 10px 10px 10px
   -webkit-border-radius:  10px
   border-radius:  10px
@@ -31,7 +34,7 @@
   -webkit-border-radius:  5px
   cursor:  pointer
   display:  inline-block
-  +bold
+  font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif
   padding:  2px 7px 2px 6px
   text-align:  center
   border:  0 none
@@ -91,12 +94,11 @@ form
   margin:  0px
   padding:  0px*/
 
-.ff3 .translation_missing
-  +ff_bold
+
 .translation_missing 
   background:  #000000
   padding:  5px
-  +bold
+  font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif
 
 .center 
   text-align:  center
@@ -136,13 +138,11 @@ form
   padding:  1em 0
   min-width:  960px
 
-.ff3 .flash
-  +ff_bold
 .flash
   background:  #a4d5ff none repeat scroll 0
   border:  2px solid white
   font-size:  16pt
-  +bold
+  font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif
   margin-top:  100px
   padding:  5px
   text-align:  center
@@ -157,10 +157,6 @@ form
 .pagination
   padding:  .3em
   font-size:  10pt
-  display: table
-  margin-top: -10px
-  +gradient(#363636,  #030303)
-  +rounded_corners(5px, 5px, 5px, 5px)
   a 
     padding:  .1em .2em
     text-decoration:  none
@@ -168,13 +164,11 @@ form
       text-decoration:  underline
     
   
-  span.disabled
-    color: #7F7F7F
   span 
     padding:  .1em .2em
     
     &.current 
-      +bold
+      font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif
       background-color:  #bbb
     
   
@@ -187,16 +181,11 @@ form
     border:  0px 
   
 
-.ff3 table.listing
-  thead
-    tr
-      td
-        +ff_bold
 table.listing
   thead 
     tr
       td
-        +bold
+        font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif
         border-right:  1px solid #B5C8DF
         border-bottom:  1px solid #9CACC0
         border-top:  1px solid #9CACC0
@@ -234,7 +223,9 @@ ul.listing
   
   
   li 
-    +gradient(#363636,  #030303)
+    background-color:  #030303
+    background:  -moz-linear-gradient(top left,  #363636,  #030303)
+    background:  -webkit-gradient(linear, left top, right bottom, from(#363636), to(#030303))
     -moz-border-radius:  10px 10px 10px 10px
     -webkit-border-radius:  10px
     border-radius:  10px
@@ -274,13 +265,11 @@ ul.listing
 .topic_actions 
   float:  right
 
-.ff3 .warning
-  +ff_bold
 .warning 
   background:  #fde181
   border:  1px solid #fece26
   padding:  .6em
-  +bold
+  font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif
 
 .action-box, .user 
   +black-box
@@ -289,22 +278,15 @@ ul.listing
   
   input[type='submit'] 
     font-size:  16px
-
-.ff3 .user_info
-  .post_user
-    +ff_bold
+  
 .user_info 
   width:  18%
   font-size:  10px
 
   .post_user 
     font-size:  16px
-    +bold
+    font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif
 
-.ff3 .post
-  .user_info
-    .post_user
-      +ff_bold
 .post 
   +black-box
   margin-bottom:  1.5em
@@ -324,7 +306,7 @@ ul.listing
     
     .post_user 
       font-size:  16px
-      +bold
+      font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif
     
   
   .body 
@@ -332,14 +314,13 @@ ul.listing
     clear:  both
     width:  78%
     min-height:  10.5em
-    padding: 5px
   
   .details 
     font-size: 10px
     color: grey
     margin-top: -13px
   
-  .actions
+  .actions 
     background-image: url("/images/post_modify_highlight.png")
     background-position: right center
     background-repeat: no-repeat
@@ -354,10 +335,8 @@ ul.listing
     color: grey
     a 
       color: grey
-
-.ie8 .actions
-  a
-    color: white !important
+    
+  
 .post
   position: relative
   width: 680px
@@ -386,10 +365,6 @@ form .post
   
 
 ul#navlist
-  a
-    &.selected 
-      +ff_bold
-ul#navlist
   margin:  0px
   padding:  0
   li 
@@ -400,7 +375,7 @@ ul#navlist
     +button
     &.selected 
       background-color:  white
-      +bold
+      font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif
       color:  black
   
 

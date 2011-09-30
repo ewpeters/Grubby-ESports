@@ -1,25 +1,19 @@
 =rounded_corners(!top=5px, !right=5px, !bottom=5px, !left=5px) 
   -moz-border-radius =  "#{!top} #{!right} #{!bottom} #{!left}"
-  -khtml-border-radius =  "#{!top} #{!right} #{!bottom} #{!left}"
-  -o-border-radius =  "#{!top} #{!right} #{!bottom} #{!left}"
   border-top-left-radius = "#{!top}"
   border-top-right-radius =  "#{!right}"
   border-bottom-right-radius =  "#{!bottom}"
   border-bottom-left-radius =  "#{!left}"
+  border-radius =  "#{!top} #{!right} #{!bottom} #{!left}"
   
 =drop_shadow(!color=rgba(0, 0, 0, 0.5), !values=0px 6px 10px)
   box-shadow         = "#{!color} #{!values}"
   -webkit-box-shadow = "#{!color} #{!values}"
   -moz-box-shadow    = "#{!color} #{!values}"
-  
-@import util.sass
-
-.ff3 #forum_body
-  .forum_title
-    +ff_bold
 #forum_body
   #header 
-    +gradient(#1C1C1C,  #030303)
+    background:  -moz-linear-gradient(top left,  #1C1C1C,  #030303)
+    background:  -webkit-gradient(linear, left top, right bottom, from(#1C1C1C), to(#030303))
     width:  740px
     height:  71px
     color: #3F3F3F
@@ -54,20 +48,13 @@
     font-size:  14px
     padding-left:  10px
     padding-top: 15px
-    padding-bottom: 25px
+    padding-bottom: 15px
     background-image:  url("/images/forum_background.png")
-    .powered_by
-      position: absolute
-      bottom: 1px
-      color: #030303
-      left: 18px
-      font-size: 12px
-      padding: 5px
-      a
-        color: #1D74D6
     .forum_box
       position: relative
-      +gradient(#363636,  #030303)
+      background-color:  #030303
+      background:  -moz-linear-gradient(top left,  #363636,  #030303)
+      background:  -webkit-gradient(linear, left top, right bottom, from(#363636), to(#030303))
       width: 708px
       +rounded_corners(10px, 10px, 10px, 10px)
       .background_image
@@ -83,13 +70,12 @@
         -moz-transform:  rotate(90deg)
         -moz-transform-origin:  50% 50%
         -webkit-transform:  rotate(90deg)
-        -webkit-transform-origin:  50% 50%        
-        +bold
+        -webkit-transform-origin:  50% 50%
+        font-family: 'cgothb' 
         font-size: 36px 
         left: -110px 
-        top: 110px
         position: absolute 
-        
+        top: 110px
         width: 250px 
         a
           color: #656766 !important
@@ -101,7 +87,6 @@
         margin-left: 100px
         min-height: 230px
         padding-top: 20px
-        padding-bottom: 25px
         .forum_description
           font-size: 18px
           padding-right: 10px
@@ -118,15 +103,10 @@
       .last_post
         position: absolute
         bottom: 5px
-        left: 0px
+        left: 20%
         font-size: 10px
 
 /* topic list*/
-.ff3 topic_buttons
-  .add_topic
-    +ff_bold
-    a
-      +ff_bold
 .topic_buttons
   position: absolute
   right: 22px
@@ -137,8 +117,10 @@
       top: 4px
     a
       color: #6C9DD7 !important
-      +bold
-    +gradient(#E3E3E3,  #C9C9C9)
+      font-family: 'cgothb'
+    background-color:  #E3E3E3
+    background:  -moz-linear-gradient(top left,  #E3E3E3,  #C9C9C9)
+    background:  -webkit-gradient(linear, left top, right bottom, from(#E3E3E3), to(#C9C9C9))
     +drop_shadow
     +rounded_corners
     color: #6C9DD7 !important
@@ -146,13 +128,15 @@
     padding: 5px
     font-size: 12px
     margin-right: 5px
-    +bold
+    font-family: 'cgothb' !important
 .topic
   color: grey
   padding-top: 5px
   margin-top: 15px
   position: relative
-  +gradient(#363636,  #030303)
+  background-color:  #030303
+  background:  -moz-linear-gradient(top left,  #363636,  #030303)
+  background:  -webkit-gradient(linear, left top, right bottom, from(#363636), to(#030303))
   width: 660px
   +rounded_corners(10px, 10px, 10px, 10px)
   +drop_shadow
@@ -172,15 +156,12 @@
     position: absolute 
     left: 0px
     top: 15.5px
-  .pagination
-    background: transparent
-    position: absolute
-    top: 0px
-    right: 0px
-    margin-top: 0px
+
 .reply_box
   color: #A9AAAB
-  +gradient(#DBDBDB,  #D2D2D2)
+  background-color:  #D2D2D2
+  background:  -moz-linear-gradient(top left,  #DBDBDB,  #D2D2D2)
+  background:  -webkit-gradient(linear, left top, right bottom, from(#DBDBDB), to(#D2D2D2))
   width: 675px
   padding-left: 15px
   padding-top: 3px
@@ -191,7 +172,7 @@
   +rounded_corners(10px, 10px, 10px, 10px)
   .reply_text
     position: relative
-    top: -142px
+    top: -135px
     left: 107px
   input[type='submit']
     background-image: url("/images/post_create_highlight.png")
@@ -210,26 +191,15 @@
   color: #1C60B1 !important
 
 .quote_box
+  background: none repeat scroll 0 50% #A4D5FF
+  border: 1px solid #84AFD3
   padding: 5px
   .quote_header
+    font-size: 16px
+    color: black
+    font-family: 'cgothb'
   .quote_body
-    background-image: url(/images/quote_fade.png)
-    background-repeat: repeat
-    color: #77797b
-    padding: 5px
-    padding-left: 15px
-    padding-right: 15px
-    width: 395px
+    color: white
+    width: 100%
+    height: 18px
     line-height: 18px
-.ie8 .forum_title
-  top: 15px !important
-  left: -10px !important
-  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1)
-.ie9 .forum_title
-  top: 15px !important
-  left: -10px !important
-  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1)
-.ie7 .forum_title
-  top: 15px !important
-  left: -10px !important
-  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1)

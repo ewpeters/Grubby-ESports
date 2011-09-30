@@ -40,10 +40,10 @@
 			}
 
 			formLinkHtml = '<form class="wysiwyg"><fieldset><legend>' + formTextLegend + '</legend>' +
-				'<label>' + formTextUrl + ': <input type="text" name="linkhref" value=""/></label><br>' +
-				'<label class="hidden">' + formTextTitle + ': <input type="text" name="linktitle" value=""/></label>' +
-				'<label class="hidden">' + formTextTarget + ': <input type="text" name="linktarget" value=""/></label>' +
-				'<input type="submit" value="' + formTextSubmit + '"/> ' +
+				'<label>' + formTextUrl + ': <input type="text" name="linkhref" value=""/></label>' +
+				'<label>' + formTextTitle + ': <input type="text" name="linktitle" value=""/></label>' +
+				'<label>' + formTextTarget + ': <input type="text" name="linktarget" value=""/></label>' +
+				'<input type="submit" class="button" value="' + formTextSubmit + '"/> ' +
 				'<input type="reset" value="' + formTextReset + '"/></fieldset></form>';
 
 			a = {
@@ -73,8 +73,8 @@
 
 				dialog.dialog({
 					modal: true,
-					width: 300,
-					height:200,
+					width: Wysiwyg.defaults.formWidth,
+					height: Wysiwyg.defaults.formHeight,
 					open: function (ev, ui) {
 						$("input:submit", dialog).click(function (e) {
 							e.preventDefault();

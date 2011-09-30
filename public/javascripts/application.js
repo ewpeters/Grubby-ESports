@@ -73,11 +73,11 @@ $(document).ready(function() {
   
   $('.icon.warcraft').click(function(){
     $(this).toggleClass('true');
-    toggleWC();
+    toggleItems("warcraft_3");
   });
   $('.icon.starcraft').click(function(){
     $(this).toggleClass('true');
-    toggleSC();
+    toggleItems("starcraft_2");
   });
   
   $(".add_more").click(function() {
@@ -102,56 +102,17 @@ $(document).ready(function() {
   
 });
 
-function toggleWC() {
-  $("div[wc='true']").toggleClass('hidden');
-}
-function toggleSC() {
-  $("div[sc='true']").toggleClass('hidden');
-}
-
-
-function try_fb_login() {
-  
+function toggleItems(game) {
+  $("div[game="+game+"]").toggleClass('hidden');
 }
 
 function fb_connect() {
-  FB.getLoginStatus(function(response) {
+  FB.login(function(response) {
     if (response.session) {
-      $.get('/users/check?uid=' + response.session.uid, function(data) {
-        var success = $.parseJSON(data).success
-        if (success) {
-          var form = $("#fb_form");
-          form.append($("<input name='access_token'>").val(response.session.access_token));
-          form.append($("<input name='uid'>").val(response.session.uid));
-          form.submit();
-        } else {
-          var form = $("#fb_form");
-          form.attr('action', '/fb_signup')
-          form.append($("<input name='access_token'>").val(response.session.access_token));
-          form.append($("<input name='uid'>").val(response.session.uid));
-          form.submit();
-        }
-      });
-    } else {
-      FB.login(function(response) {
-        if (response.session) {
-          $.get('/users/check?uid=' + response.session.uid, function(data) {
-            var success = $.parseJSON(data).success
-            if (success) {
-              var form = $("#fb_form");
-              form.append($("<input name='access_token'>").val(response.session.access_token));
-              form.append($("<input name='uid'>").val(response.session.uid));
-              form.submit();
-            } else {
-              var form = $("#fb_form");
-              form.attr('action', '/fb_signup')
-              form.append($("<input name='access_token'>").val(response.session.access_token));
-              form.append($("<input name='uid'>").val(response.session.uid));
-              form.submit();
-            }
-          });
-        }
-      });
+      var loginForm = $('#fb_form');
+      loginForm.find("#access_token").val(response.session.access_token);
+      loginForm.find("#uid").val(response.session.uid);
+      loginForm.submit();
     }
   });
 }

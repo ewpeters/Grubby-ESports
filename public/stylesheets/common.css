@@ -18,27 +18,21 @@ input[type="file"] {
 
 @font-face {
   font-family: "cgoth";
-  src: url("/fonts/gothic-webfont.woff") format("woff"),  url("/fonts/gothic-webfont.otf") format("opentype"),  url("/fonts/gothic-webfont.svg#gothic-webfont") format("svg"); }
+  src: url("/fonts/gothic-webfont.eot?") format("eot"), url("/fonts/gothic-webfont.woff") format("woff"),  url("/fonts/gothic-webfont.otf") format("opentype"),  url("/fonts/gothic-webfont.svg#gothic-webfont") format("svg"); }
+
+@font-face {
+  font-family: "cgothi";
+  src: url("/fonts/gothici-webfont.eot");
+  src: local("☺"),  url("/fonts/gothici-webfont.woff") format("woff"), url("/fonts/gothici-webfont.otf") format("opentype"), url("/fonts/gothici-webfont.svg#gothici-webfont") format("svg"); }
 
 @font-face {
   font-family: "cgothb";
-  src: url('/fonts/gothicb-webfont.woff') format('woff'), url('/fonts/gothicb-webfont.ttf') format('truetype'), url('/fonts/gothicb-webfont.svg#webfontKWmDqtHl') format('svg'); }
+  src: url("/fonts/gothicb-webfont.eot?") format("eot"), url("/fonts/gothicb-webfont.woff") format("woff"),  url("/fonts/gothicb-webfont.otf") format("opentype"),  url("/fonts/gothicb-webfont.svg#gothicb-webfont") format("svg"); }
 
-.ie8 @font-face {
-  font-family: "cgoth";
-  src: url("/fonts/gothic-webfont.eot"); }
-
-.ie8 @font-face {
-  font-family: "cgothb";
-  src: url("/fonts/gothicb-webfont.eot"); }
-
-.ie9 @font-face {
-  font-family: "cgoth";
-  src: url("/fonts/gothic-webfont.eot"); }
-
-.ie9 @font-face {
-  font-family: "cgothb";
-  src: url("/fonts/gothicb-webfont.eot"); }
+@font-face {
+  font-family: "cgothbi";
+  src: url("fonts/gothicbi-webfont.eot");
+  src: local("☺"),  url("/fonts/gothicbi-webfont.woff") format("woff"),  url("/fonts/gothicbi-webfont.otf") format("opentype"), url("/fonts/gothicbi-webfont.svg#gothicbi-webfont") format("svg"); }
 
 .add_more {
   -moz-border-radius: 5px 5px 5px 5px;
@@ -52,19 +46,9 @@ input[type="file"] {
   color: black;
   font-size: 16px; }
 
-input[type="checkbox"] {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-  background-color: transparent !important; }
-
 body {
   background-color: #101010;
   font-family: 'cgoth', 'century gothic', verdana,arial,helvetica,sans-serif;
-  -webkit-font-smoothing: antialiased;
   color: white; }
   body .wrapper {
     width: 1011px;
@@ -80,14 +64,6 @@ body {
   margin: 0 auto;
   padding-top: 183px; }
 
-a:link {
-  text-decoration: none !important;
-  text-underline: none !important; }
-
-span.MsoHyperlink {
-  text-decoration: none !important;
-  text-underline: none !important; }
-
 input {
   font-family: 'cgoth', 'century gothic', verdana,arial,helvetica,sans-serif; }
 
@@ -97,19 +73,14 @@ ul {
 .cgoth_b {
   font-family: 'cgothb', 'century gothic', verdana,arial,helvetica,sans-serif; }
 
-.ff3 .cgoth_b {
-  font-family: 'cgoth', 'century gothic', verdana,arial,helvetica,sans-serif !important;
-  font-weight: bold !important; }
-
 .ui-dialog {
   background-color: black;
   -moz-border-radius: 5px 5px 5px 5px;
-  -khtml-border-radius: 5px 5px 5px 5px;
-  -o-border-radius: 5px 5px 5px 5px;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
+  border-radius: 5px 5px 5px 5px;
   border: solid medium white; }
 
 .ui-dialog-content {
@@ -162,15 +133,6 @@ img {
 .notice {
   font-size: 16px; }
 
-.ff3 #user_nav a.signup {
-  font-family: 'cgoth', 'century gothic', verdana,arial,helvetica,sans-serif !important;
-  font-weight: bold !important; }
-.ff3 #user_nav form #submit {
-  font-family: 'cgoth', 'century gothic', verdana,arial,helvetica,sans-serif !important;
-  font-weight: bold !important; }
-.ff3 #user_nav #password {
-  left: 15px !important; }
-
 #user_nav {
   position: absolute;
   left: 0px;
@@ -195,9 +157,8 @@ img {
   #user_nav a.signup {
     vertical-align: middle;
     color: white;
-    background-color: #aba7a9;
-    background: -moz-linear-gradient(top left,  #e8ebed,  #aba7a9);
-    background: -webkit-gradient(linear, left top, right bottom, from(#e8ebed), to(#aba7a9));
+    background: -moz-linear-gradient(top left,  #e8ebed ,  #aba7a9);
+    background: -webkit-gradient(linear, left bottom, right top, from(#e8ebed ), to(#aba7a9));
     -moz-border-radius: 10px 10px 10px 10px;
     -webkit-border-radius: 10px;
     border-radius: 10px;
@@ -245,12 +206,11 @@ img {
     margin-right: 10px;
     border: 1px transparent solid;
     -moz-border-radius: 5px 5px 5px 5px;
-    -khtml-border-radius: 5px 5px 5px 5px;
-    -o-border-radius: 5px 5px 5px 5px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
-    border-bottom-left-radius: 5px; }
+    border-bottom-left-radius: 5px;
+    border-radius: 5px 5px 5px 5px; }
     #user_nav form input {
       width: 140px;
       color: white;
@@ -311,21 +271,15 @@ img {
 
 .box {
   background-color: #030303;
-  background: -moz-linear-gradient(top left,  #4e4e4e,  #030303);
-  background: -webkit-gradient(linear, left top, right bottom, from(#4e4e4e), to(#030303));
-  background-color: #030303;
+  background: -moz-linear-gradient(top left,  #4E4E4E,  #030303);
+  background: -webkit-gradient(linear, left top, right bottom, from(#4E4E4E), to(#030303));
   -moz-border-radius: 10px 10px 10px 10px;
-  -khtml-border-radius: 10px 10px 10px 10px;
-  -o-border-radius: 10px 10px 10px 10px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 10px;
+  -webkit-border-radius: 10px;
   font-size: 14px;
+  border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
   -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
   -moz-box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
-  -ms-filter: progid:DXImageTransform.Microsoft.dropShadow(offX=5, offY=5, positive=true);
   padding-left: 35px;
   padding-right: 35px;
   padding-top: 20px;
@@ -342,8 +296,7 @@ img {
   box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
   -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
   -moz-box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
-  -ms-filter: progid:DXImageTransform.Microsoft.dropShadow(offX=5, offY=5, positive=true);
-  height: 102px;
+  height: 75px;
   width: 178px;
   margin-top: 15px;
   position: relative; }
@@ -355,14 +308,9 @@ img {
     font-size: 11px;
     top: 12.5px;
     width: 164px;
-    height: 62px;
-    background-color: #2d2d2d;
-    background: -moz-linear-gradient(top left,  #454545,  #2d2d2d);
-    background: -webkit-gradient(linear, left top, right bottom, from(#454545), to(#2d2d2d)); }
-
-#content #side_bar .box .inner_box .follow {
-  font-family: 'cgoth', 'century gothic', verdana,arial,helvetica,sans-serif !important;
-  font-weight: bold !important; }
+    height: 36px;
+    background: -moz-linear-gradient(top left,  #454545,  #2D2D2D);
+    background: -webkit-gradient(linear, left top, right bottom, from(#454545), to(#2D2D2D)); }
 
 #content {
   width: 1011px;
@@ -386,29 +334,23 @@ img {
       margin-bottom: 10px;
       box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
       -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
-      -moz-box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
-      -ms-filter: progid:DXImageTransform.Microsoft.dropShadow(offX=5, offY=5, positive=true); }
+      -moz-box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px; }
   #content #side_bar {
     float: right;
     width: 200px; }
     #content #side_bar .box {
-      height: 175px;
+      height: 162px;
       width: 177px;
       padding: 0;
-      -moz-border-radius: 10px 10px 10px 10px;
-      -khtml-border-radius: 10px 10px 10px 10px;
-      -o-border-radius: 10px 10px 10px 10px;
-      border-top-left-radius: 10px;
-      border-top-right-radius: 10px;
-      border-bottom-right-radius: 10px;
-      border-bottom-left-radius: 10px;
       background-color: #030303;
       background: -moz-linear-gradient(top left,  #363636,  #030303);
       background: -webkit-gradient(linear, left top, right bottom, from(#363636), to(#030303));
+      -moz-border-radius: 10px 10px 10px 10px;
+      -webkit-border-radius: 10px;
+      border-radius: 10px;
       box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
       -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
       -moz-box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
-      -ms-filter: progid:DXImageTransform.Microsoft.dropShadow(offX=5, offY=5, positive=true);
       margin-top: 15px;
       position: relative; }
       #content #side_bar .box .inner_box {
@@ -429,7 +371,7 @@ img {
           -moz-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5); }
     #content #side_bar .calendar {
       width: 180px;
-      height: 365px;
+      height: 350px;
       margin-top: 20px;
       padding-top: 15px;
       position: relative;
@@ -445,26 +387,9 @@ img {
         width: 175px;
         margin-bottom: 10px; }
       #content #side_bar .calendar .event_info {
-        font-size: 12px;
         padding-left: 10px;
         padding-right: 10px;
         text-align: center; }
-
-.ff3 #news {
-  font-family: 'cgoth', 'century gothic', verdana,arial,helvetica,sans-serif !important;
-  font-weight: bold !important; }
-  .ff3 #news .news_item {
-    font-family: 'cgoth', 'century gothic', verdana,arial,helvetica,sans-serif !important;
-    font-weight: bold !important; }
-  .ff3 #news .news_item.selected a {
-    font-family: 'cgoth', 'century gothic', verdana,arial,helvetica,sans-serif !important;
-    font-weight: bold !important; }
-  .ff3 #news .summary .title {
-    font-family: 'cgoth', 'century gothic', verdana,arial,helvetica,sans-serif !important;
-    font-weight: bold !important; }
-  .ff3 #news .summary .body {
-    font-family: 'cgoth', 'century gothic', verdana,arial,helvetica,sans-serif !important;
-    font-weight: bold !important; }
 
 #news {
   background-image: url("/images/ticker_background_fix2.png");
@@ -538,10 +463,6 @@ img {
       line-height: 18px;
       color: white; }
 
-.ff3 #features .feature {
-  font-family: 'cgoth', 'century gothic', verdana,arial,helvetica,sans-serif !important;
-  font-weight: bold !important; }
-
 #features {
   margin-left: -10px;
   width: 749px;
@@ -549,16 +470,14 @@ img {
   padding-top: 30px;
   background: url("/images/scales.jpg") no-repeat scroll 0 0 #000000;
   -moz-border-radius: 0px 0px 10px 10px;
-  -khtml-border-radius: 0px 0px 10px 10px;
-  -o-border-radius: 0px 0px 10px 10px;
   border-top-left-radius: 0px;
   border-top-right-radius: 0px;
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
+  border-radius: 0px 0px 10px 10px;
   box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
   -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
   -moz-box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
-  -ms-filter: progid:DXImageTransform.Microsoft.dropShadow(offX=5, offY=5, positive=true);
   padding-bottom: 15px; }
   #features .feature {
     position: relative;
@@ -612,13 +531,6 @@ img {
   top: 0px;
   font-size: 18px; }
 
-.ie7 ul#nav_bar li img {
-  top: 0px !important; }
-
-.ff3 ul#nav_bar li a {
-  font-family: 'cgoth', 'century gothic', verdana,arial,helvetica,sans-serif !important;
-  font-weight: bold !important; }
-
 ul#nav_bar {
   width: 1011px;
   list-style-type: none;
@@ -666,12 +578,11 @@ ul#nav_bar {
     height: 71px;
     background-color: black;
     -moz-border-radius: 15px 15px 0px 0px;
-    -khtml-border-radius: 15px 15px 0px 0px;
-    -o-border-radius: 15px 15px 0px 0px;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 0px;
     border-bottom-left-radius: 0px;
+    border-radius: 15px 15px 0px 0px;
     position: relative; }
     #article_content #header #left_content {
       font-size: 30px;
@@ -702,14 +613,6 @@ ul#nav_bar {
     box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
     -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
     -moz-box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
-    -ms-filter: progid:DXImageTransform.Microsoft.dropShadow(offX=5, offY=5, positive=true);
-    -moz-border-radius: 0px 0px 10px 10px;
-    -khtml-border-radius: 0px 0px 10px 10px;
-    -o-border-radius: 0px 0px 10px 10px;
-    border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
     color: black;
     width: 721px;
     height: 100%;
@@ -730,12 +633,11 @@ ul#nav_bar {
     height: 100%;
     padding-bottom: 45px;
     -moz-border-radius: 0px 0px 10px 10px;
-    -khtml-border-radius: 0px 0px 10px 10px;
-    -o-border-radius: 0px 0px 10px 10px;
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
     border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px; }
+    border-bottom-left-radius: 10px;
+    border-radius: 0px 0px 10px 10px; }
 
 #time_now {
   color: #7c7c7c !important;
@@ -744,10 +646,6 @@ ul#nav_bar {
   height: 30px; }
 
 /* Media index */
-.ff3 #media_container #search form input {
-  font-family: 'cgoth', 'century gothic', verdana,arial,helvetica,sans-serif !important;
-  font-weight: bold !important; }
-
 #media_container {
   height: 550px;
   width: 750px;
@@ -756,8 +654,7 @@ ul#nav_bar {
   position: relative;
   box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
   -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
-  -moz-box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
-  -ms-filter: progid:DXImageTransform.Microsoft.dropShadow(offX=5, offY=5, positive=true); }
+  -moz-box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px; }
   #media_container #header {
     height: 50px;
     width: 120px;
@@ -804,7 +701,7 @@ ul#nav_bar {
       color: white; }
   #media_container #search {
     position: absolute;
-    top: 191px;
+    top: 193px;
     left: 20px; }
     #media_container #search form input {
       padding: 0;
@@ -829,8 +726,7 @@ ul#nav_bar {
       width: 82px;
       margin-left: 8px;
       background-image: url('/images/media_filter_game_icons.png');
-      background-repeat: no-repeat;
-      background-color: transparent; }
+      background-repeat: no-repeat; }
     #media_container #filters .warcraft {
       background-position: -75px -82px; }
     #media_container #filters .starcraft {
@@ -840,9 +736,8 @@ ul#nav_bar {
     #media_container #filters .starcraft.true {
       background-position: 0px 0px; }
   #media_container .true {
-    background-color: #39b0ff;
-    background: -moz-linear-gradient(top left,  #0097fc,  #39b0ff);
-    background: -webkit-gradient(linear, left top, right bottom, from(#0097fc), to(#39b0ff));
+    background: -moz-linear-gradient(top,  #0097fc,  #39b0ff);
+    background: -webkit-gradient(linear,  left top, left bottom, from(#0097fc), to(#39b0ff));
     opacity: 0.8;
     ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=0.8*100)";
     filter: "aplha(opacity=0.8 * 100)"; }
@@ -864,7 +759,7 @@ ul#nav_bar {
     -webkit-border-radius: 3px; }
   #media_container #media_box {
     width: 596px;
-    height: 448px;
+    height: 460px;
     overflow-y: auto;
     overflow-x: hidden;
     position: absolute;
@@ -918,12 +813,11 @@ ul#nav_bar {
     position: relative; }
     #media_container .media_item .media_item_outer {
       -moz-border-radius: 10px 10px 10px 10px;
-      -khtml-border-radius: 10px 10px 10px 10px;
-      -o-border-radius: 10px 10px 10px 10px;
       border-top-left-radius: 10px;
       border-top-right-radius: 10px;
       border-bottom-right-radius: 10px;
       border-bottom-left-radius: 10px;
+      border-radius: 10px 10px 10px 10px;
       border: 2px white solid;
       width: 555px;
       height: 87px;
@@ -933,12 +827,11 @@ ul#nav_bar {
         height: 73px;
         border: 1px #333f45 solid;
         -moz-border-radius: 10px 10px 10px 10px;
-        -khtml-border-radius: 10px 10px 10px 10px;
-        -o-border-radius: 10px 10px 10px 10px;
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
         border-bottom-right-radius: 10px;
         border-bottom-left-radius: 10px;
+        border-radius: 10px 10px 10px 10px;
         position: absolute;
         top: 7.5px;
         left: 7.5px; }
@@ -1016,7 +909,6 @@ thead tr {
   height: 20px; }
 
 .album_pic {
-  background-color: #030303;
   background: -moz-linear-gradient(top left,  #363636,  #030303);
   background: -webkit-gradient(linear, left top, right bottom, from(#363636), to(#030303));
   float: left;
@@ -1027,29 +919,22 @@ thead tr {
   margin-right: 25px;
   margin-bottom: 25px;
   -moz-border-radius: 10px 10px 10px 10px;
-  -khtml-border-radius: 10px 10px 10px 10px;
-  -o-border-radius: 10px 10px 10px 10px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
+  border-radius: 10px 10px 10px 10px;
   background-color: black;
   box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
   -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
-  -moz-box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
-  -ms-filter: progid:DXImageTransform.Microsoft.dropShadow(offX=5, offY=5, positive=true); }
+  -moz-box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px; }
   .album_pic img {
     vertical-align: middle; }
 
 .ad {
   box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
   -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
-  -moz-box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
-  -ms-filter: progid:DXImageTransform.Microsoft.dropShadow(offX=5, offY=5, positive=true); }
-
-.ff3 #tv_container #search form input {
-  font-family: 'cgoth', 'century gothic', verdana,arial,helvetica,sans-serif !important;
-  font-weight: bold !important; }
+  -moz-box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px; }
 
 #tv_container {
   height: 550px;
@@ -1059,8 +944,7 @@ thead tr {
   position: relative;
   box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
   -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
-  -moz-box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
-  -ms-filter: progid:DXImageTransform.Microsoft.dropShadow(offX=5, offY=5, positive=true); }
+  -moz-box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px; }
   #tv_container #tv_logo {
     position: absolute;
     left: 30px;
@@ -1123,7 +1007,7 @@ thead tr {
       color: white; }
   #tv_container #search {
     position: absolute;
-    top: 191px;
+    top: 193px;
     left: 20px; }
     #tv_container #search form input {
       padding: 0;
@@ -1148,8 +1032,7 @@ thead tr {
       height: 82px;
       width: 82px;
       background-image: url('/images/grubbytv_filter_game_icons.png');
-      background-repeat: no-repeat;
-      background-color: transparent; }
+      background-repeat: no-repeat; }
     #tv_container #filters .warcraft {
       background-position: -75px -82px; }
     #tv_container #filters .starcraft {
@@ -1159,9 +1042,8 @@ thead tr {
     #tv_container #filters .starcraft.true {
       background-position: 0px 0px; }
   #tv_container .true {
-    background-color: #2c6651;
-    background: -moz-linear-gradient(top left,  #447362,  #2c6651);
-    background: -webkit-gradient(linear, left top, right bottom, from(#447362), to(#2c6651));
+    background: -moz-linear-gradient(top,  #447362,  #2c6651);
+    background: -webkit-gradient(linear,  left top, left bottom, from(#447362), to(#2c6651));
     opacity: 0.8;
     ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=0.8*100)";
     filter: "aplha(opacity=0.8 * 100)"; }
@@ -1175,15 +1057,15 @@ thead tr {
   #tv_container ::-webkit-scrollbar-button:vertical:increment {
     background-color: transparent; }
   #tv_container ::-webkit-scrollbar-track-piece {
-    background-color: #596673;
+    background-color: #78bba3;
     -webkit-border-radius: 3px; }
   #tv_container ::-webkit-scrollbar-thumb:vertical {
     height: 10px;
-    background-color: #78bba3;
+    background-color: #596673;
     -webkit-border-radius: 3px; }
   #tv_container #tv_box {
     width: 596px;
-    height: 456px;
+    height: 476px;
     overflow-y: auto;
     overflow-x: hidden;
     position: absolute;
@@ -1191,43 +1073,42 @@ thead tr {
     top: 25px; }
   #tv_container .box {
     -moz-border-radius: 10px 10px 10px 10px;
-    -khtml-border-radius: 10px 10px 10px 10px;
-    -o-border-radius: 10px 10px 10px 10px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
+    border-radius: 10px 10px 10px 10px;
     border: 3px #4d8e5e solid;
-    width: 565px;
+    width: 575px;
     height: 355px;
     background-color: 'transparent';
-    padding: 0; }
+    display: table; }
+    #tv_container .box #cell {
+      display: table-cell;
+      vertical-align: middle; }
   #tv_container .dialog {
     -moz-border-radius: 10px 10px 10px 10px;
-    -khtml-border-radius: 10px 10px 10px 10px;
-    -o-border-radius: 10px 10px 10px 10px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
+    border-radius: 10px 10px 10px 10px;
     border: 3px #4d8e5e solid;
-    width: 565px;
+    width: 575px;
     height: 95px;
-    font-size: 12px;
     margin-top: 5px;
     background-color: 'transparent';
     position: relative; }
     #tv_container .dialog .inner {
-      width: 550px;
+      width: 560px;
       height: 80px;
       border: 2px #182c1d solid;
       -moz-border-radius: 10px 10px 10px 10px;
-      -khtml-border-radius: 10px 10px 10px 10px;
-      -o-border-radius: 10px 10px 10px 10px;
       border-top-left-radius: 10px;
       border-top-right-radius: 10px;
       border-bottom-right-radius: 10px;
       border-bottom-left-radius: 10px;
+      border-radius: 10px 10px 10px 10px;
       position: absolute;
       top: 6.5px;
       left: 6.5px; }
@@ -1248,12 +1129,11 @@ thead tr {
     position: relative; }
     #tv_container .tv_item .tv_item_outer {
       -moz-border-radius: 10px 10px 10px 10px;
-      -khtml-border-radius: 10px 10px 10px 10px;
-      -o-border-radius: 10px 10px 10px 10px;
       border-top-left-radius: 10px;
       border-top-right-radius: 10px;
       border-bottom-right-radius: 10px;
       border-bottom-left-radius: 10px;
+      border-radius: 10px 10px 10px 10px;
       border: 2px #4d8e5e solid;
       width: 555px;
       height: 87px;
@@ -1263,12 +1143,11 @@ thead tr {
         height: 73px;
         border: 1px #182c1d solid;
         -moz-border-radius: 10px 10px 10px 10px;
-        -khtml-border-radius: 10px 10px 10px 10px;
-        -o-border-radius: 10px 10px 10px 10px;
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
         border-bottom-right-radius: 10px;
         border-bottom-left-radius: 10px;
+        border-radius: 10px 10px 10px 10px;
         position: absolute;
         top: 7.5px;
         left: 7.5px; }
@@ -1350,16 +1229,6 @@ thead tr {
   color: #CDD4DC;
   font-size: 14px; }
 
-.ie8 .side_date {
-  top: 5px !important;
-  left: 555px !important;
-  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1); }
-
-.ie9 .side_date {
-  top: 5px !important;
-  left: 555px !important;
-  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1); }
-
 .avatar_picker {
   height: 15px;
   width: 15px; }
@@ -1371,7 +1240,7 @@ thead tr {
   display: inline-block;
   left: 150px;
   position: absolute;
-  top: 580px;
+  top: 500px;
   width: 200px;
   height: 175px; }
 
@@ -1380,7 +1249,7 @@ thead tr {
   height: 150px;
   left: 505px;
   position: absolute;
-  top: 670px;
+  top: 550px;
   width: 100px; }
 
 .keyboard {
@@ -1388,7 +1257,7 @@ thead tr {
   height: 100px;
   left: 360px;
   position: absolute;
-  top: 585px;
+  top: 465px;
   width: 200px; }
 
 .mouse {
@@ -1396,7 +1265,7 @@ thead tr {
   height: 100px;
   left: 330px;
   position: absolute;
-  top: 765px;
+  top: 615px;
   width: 145px; }
 
 .jobs {
@@ -1415,29 +1284,3 @@ thead tr {
 
 #footer {
   margin-top: 25px; }
-
-#welcome_box {
-  width: 728px;
-  height: 640px;
-  display: block;
-  background-image: url("/images/welcome_bg.png");
-  position: relative; }
-  #welcome_box .container {
-    position: absolute;
-    top: 375px;
-    left: 20px; }
-    #welcome_box .container .bullet {
-      width: 15px;
-      height: 15px;
-      display: block;
-      background-color: white;
-      float: left;
-      margin-top: 5px; }
-    #welcome_box .container .header {
-      margin-left: 50px;
-      color: #9ccfe6;
-      font-size: 21px; }
-    #welcome_box .container .body {
-      margin-left: 50px;
-      color: white;
-      font-size: 11px; }

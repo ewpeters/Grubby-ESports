@@ -62,13 +62,14 @@
 			}
 
 			formImageHtml = '<form class="wysiwyg"><fieldset><legend>' + formTextLegend + '</legend>' +
-				'<label>' + formTextUrl + ': <input type="text" name="src" class="hidden" value=""/></label>' +
-				'<labe class="hidden">' + formTextTitle + ': <input type="text" name="imgtitle" class="hidden" value=""/></label>' +
-				'<labe class="hidden">' + formTextDescription + ': <input type="text" name="description" class="hidden" value=""/></label>' +
-				'<labe class="hidden">' + formTextWidth + ' x ' + formTextHeight + ': <input type="text" name="width" class="hidden" value="" class="width"/> x <input type="text" name="height" value="" class="height"/></label>' +
-				'<labe class="hidden">' + formTextOriginal + ': <input type="text" name="naturalWidth" class="hidden" value="" class="width" disabled="disabled"/> x ' +
-				'<input type="text" name="naturalHeight" class="hidden" value="" class="height" disabled="disabled"/></label>' +
-				'<label class="hidden">' + formTextFloat + ': <select name="float">' + 
+				'<label>' + formTextPreview + ': <img src="" alt="' + formTextPreview + '" style="float: left; margin: 5px; width: 80px; height: 60px; border: 1px solid rgb(192, 192, 192);"/></label>' +
+				'<label>' + formTextUrl + ': <input type="text" name="src" value=""/></label>' +
+				'<label>' + formTextTitle + ': <input type="text" name="imgtitle" value=""/></label>' +
+				'<label>' + formTextDescription + ': <input type="text" name="description" value=""/></label>' +
+				'<label>' + formTextWidth + ' x ' + formTextHeight + ': <input type="text" name="width" value="" class="width"/> x <input type="text" name="height" value="" class="height"/></label>' +
+				'<label>' + formTextOriginal + ': <input type="text" name="naturalWidth" value="" class="width" disabled="disabled"/> x ' +
+				'<input type="text" name="naturalHeight" value="" class="height" disabled="disabled"/></label>' +
+				'<label>' + formTextFloat + ': <select name="float">' + 
 				'<option value="">' + formTextFloatNone + '</option>' +
 				'<option value="left">' + formTextFloatLeft + '</option>' +
 				'<option value="right">' + formTextFloatRight + '</option></select></label>' +
@@ -113,7 +114,7 @@
 				dialog.dialog({
 					modal: true,
 					width: Wysiwyg.defaults.formWidth,
-					height: 736,
+					height: Wysiwyg.defaults.formHeight,
 					open: function (ev, ui) {
 						$("input:submit", dialog).click(function (e) {
 							e.preventDefault();
