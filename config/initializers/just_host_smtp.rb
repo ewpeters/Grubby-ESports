@@ -1,12 +1,9 @@
 if Rails.env == "production" 
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
-     :address => "mail.followgrubby.com",
-     :port => 2626,
-     :authentication => :login,
+     :address => 'localhost',
+     :port => 25,
      :domain => "followgrubby.com",
-     :user_name => "admin+followgrubby.com",
-     :password => "grubtor112"
   }
   ActionMailer::Base.perform_deliveries = true
   ActionMailer::Base.raise_delivery_errors = true
