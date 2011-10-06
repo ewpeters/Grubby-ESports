@@ -65,6 +65,10 @@ sudo rake gems:install
 sudo rake db:create
 sudo rake db:migrate
 
+sudo gem uninstall rack
+// all versions
+
+sudo gem install rack -v=1.1.0
 sudo /etc/init.d/unicorn start
 sudo /etc/init.d/nginx start
 
