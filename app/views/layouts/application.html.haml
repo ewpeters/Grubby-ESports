@@ -142,10 +142,14 @@
         = navigation [:home, "News"], [:tvs, "GrubbyTV"], [:downloads, "Downloads"], [:albums, "Gallery"], [:shop, "Shop"], [:forums, "Discussions"], [:welcome, "Welcome"], [:partners, "Pylon"]
       #content
         #main
-          %a#ad_banner.ad{:href => 'http://www.steelseries.com/sensei?utm_source=grubby&utm_medium=topbanner&utm_campaign=sensei'}
-            %object{:width => 728, :height => 90, :classid => "clsid:D27CDB6E-AE6D-11cf-96B8-444553540000", :codebase => "http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0"}
-              %param{:name => "movie", :value => "http:/followgrubby.com#{@banner_ad}?clickTAG=http://www.steelseries.com/sensei?utm_source=grubby&utm_medium=topbanner&utm_campaign=sensei"}
-              %embed{:src => @banner_ad, :width => 728, :height => 90, :pluginspage => "http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash", :type => "application/x-shockwave-flash"}
+          %div#ad_banner.ad
+            %a#banner_overlay{:href => "#{@banner_target}", :target=>"_blank"}
+            %div#flash
+            :javascript
+              var so = new SWFObject("#{@banner_ad}", "#{@banner_ad}", "728", "90", "8","#ffffff");
+              // this next line is the important one
+              so.addParam("wmode", "opaque");
+              so.write("flash");
           = yield
         #side_bar
           %div.box
@@ -185,9 +189,13 @@
                   %span.event_title= event.title
                   %span.event_hour{:class => "#{event.show_time ? "" : "hidden"}"}= event.date.strftime('%H:%M')
           %div.ad{:style => "margin-top: 15px; margin-left:10px; width: 160px; height: 600px;"}
-            %object{:width => 160, :height => 600, :classid => "clsid:D27CDB6E-AE6D-11cf-96B8-444553540000", :codebase => "http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0"}
-              %param{:name => "movie", :value => "http://followgrubby.com#{@side_ad}?clickTAG=http://www.steelseries.com/sensei?utm_source=grubby&utm_medium=sidebanner&utm_campaign=sensei"}
-              %embed{:src => @side_ad, :width => 160, :height => 600, :pluginspage => "http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash", :type => "application/x-shockwave-flash"}
+            %a#side_overlay{:href => "#{@side_target}", :target=>"_blank"}
+            %div#side_flash
+            :javascript
+              var so = new SWFObject("#{@side_ad}", "#{@side_ad}", "160", "600", "8","#ffffff");
+              // this next line is the important one
+              so.addParam("wmode", "opaque");
+              so.write("side_flash");
           %div.ad{:style => "margin-top: 15px; margin-left:10px; width: 160px; height: 600px;"}
             :javascript
               google_ad_client = "ca-pub-8728388090671471";

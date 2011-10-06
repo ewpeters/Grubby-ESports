@@ -11,6 +11,7 @@ stylesheets:
 javascripts:
   common:
     - public/javascripts/application.js
+    - public/javascripts/swfobject.js
     - public/javascripts/jquery.wysiwyg.js
     - public/javascripts/wysiwyg.image.js
     - public/javascripts/wysiwyg.table.js

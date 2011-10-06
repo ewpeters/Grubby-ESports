@@ -64,22 +64,31 @@ class ApplicationController < ActionController::Base
       @banner_ad = "/ads/SteelSeries-ikari_grubby_728x90.swf"
       @side_ad   = "/ads/SteelSeries-7H_grubby_160x600.swf"
     end
+      @banner_target = "http://www.steelseries.com/sensei?utm_source=grubby&utm_medium=topbanner&utm_campaign=sensei"
+      @side_target   = "http://www.steelseries.com/sensei?utm_source=grubby&utm_medium=sidebanner&utm_campaign=sensei"
       @side_ad = '/ads/steelseries-sensei-160x600.swf'
     c = GeoIP.new('GeoIP.dat').country(request.remote_ip)
     code = c.country_code3
     if code == "DEU"
 @banner_ad = "/ads/GER-steelseries-sensei-728x90.swf"
+@banner_target = @side_ad = "http://www.alternate.de/html/product/SteelSeries/Sensei/893408"
 elsif c.country_name.include?("Netherlands")	
 @banner_ad = "/ads/NL-steelseries-sensei-728x90.swf	"
+@banner_target = @side_ad = "http://www.4launch.nl/shop/product/115480"
 elsif code == "NOR"	
+@banner_target = @side_ad = "http://www.komplett.no/k/ki.aspx?sku=648062"
 @banner_ad = "/ads/NOR-steelseries-sensei-728x90.swf	"
 elsif code == "POL"	
+@banner_target = @side_ad = "http://www.komputronik.pl/product/135316/Sprzet_komputerowy/Peryferia_i_eksploatacja/SteelSeries_Sensei.html"
 @banner_ad = "/ads/POL-steelseries-sensei-728x90.swf"
 elsif code == "SWE"	
 @banner_ad = "/ads/SWE-steelseries-sensei-728x90.swf"
+@banner_target = @side_ad = "http://www.maxfps.se/product_view.aspx?productid=4281"
 elsif code == "DNK" || c.country_name.include?("Denmark")
+@banner_target = @side_ad = "http://www.webdanes.dk/shop/steelseries-sensei-laser-2051p.html"
 @banner_ad = "/ads/DK-steelseries-sensei-728x90.swf	"
 elsif c.country_name.include?("United Kingdom")	
+@banner_target = @side_ad = "http://overclockers.co.uk/showproduct.php?prodid=KB-027-ST"
 @banner_ad = "/ads/UK-steelseries-sensei-728x90.swf"
 else
 @banner_ad = "/ads/steelseries-sensei-728x90.swf"

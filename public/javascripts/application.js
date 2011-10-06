@@ -31,6 +31,10 @@ function inputClear(selector) {
 }
 
 $(document).ready(function() {
+  $("#ad_banner").click(function(e) {
+    console.log("hey")
+    e.stopPropagation()
+  })
   if ($("#Article")) {
     $("#Article").removeAttr("checked"); 
   }

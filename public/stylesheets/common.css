@@ -932,9 +932,33 @@ thead tr {
     vertical-align: middle; }
 
 .ad {
+  position: relative;
   box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
   -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
   -moz-box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px; }
+  .ad object {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 999; }
+
+#banner_overlay {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 90px;
+  width: 728px;
+  display: inline-block;
+  z-index: 1000; }
+
+#side_overlay {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 600px;
+  width: 160px;
+  display: inline-block;
+  z-index: 1000; }
 
 #tv_container {
   height: 550px;
