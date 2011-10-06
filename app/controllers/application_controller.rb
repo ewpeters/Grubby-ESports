@@ -64,6 +64,27 @@ class ApplicationController < ActionController::Base
       @banner_ad = "/ads/SteelSeries-ikari_grubby_728x90.swf"
       @side_ad   = "/ads/SteelSeries-7H_grubby_160x600.swf"
     end
+      @side_ad = '/ads/steelseries-sensei-160x600.swf'
+    c = GeoIP.new('GeoIP.dat').country(request.remote_ip)
+    code = c.country_code3
+    if code == "DEU"
+@banner_ad = "/ads/GER-steelseries-sensei-728x90.swf"
+elsif c.country_name.include?("Netherlands")	
+@banner_ad = "/ads/NL-steelseries-sensei-728x90.swf	"
+elsif code == "NOR"	
+@banner_ad = "/ads/NOR-steelseries-sensei-728x90.swf	"
+elsif code == "POL"	
+@banner_ad = "/ads/POL-steelseries-sensei-728x90.swf"
+elsif code == "SWE"	
+@banner_ad = "/ads/SWE-steelseries-sensei-728x90.swf"
+elsif code == "DNK" || c.country_name.include?("Denmark")
+@banner_ad = "/ads/DK-steelseries-sensei-728x90.swf	"
+elsif c.country_name.include?("United Kingdom")	
+@banner_ad = "/ads/UK-steelseries-sensei-728x90.swf"
+else
+@banner_ad = "/ads/steelseries-sensei-728x90.swf"
+end
+
   end
   protected
   # Borrowed from http://rpheath.com/posts/304-tabbed-nav … refactored

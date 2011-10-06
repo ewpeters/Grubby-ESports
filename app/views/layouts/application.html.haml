@@ -142,9 +142,9 @@
         = navigation [:home, "News"], [:tvs, "GrubbyTV"], [:downloads, "Downloads"], [:albums, "Gallery"], [:shop, "Shop"], [:forums, "Discussions"], [:welcome, "Welcome"], [:partners, "Pylon"]
       #content
         #main
-          %span#ad_banner.ad
+          %a#ad_banner.ad{:href => 'http://www.steelseries.com/sensei?utm_source=grubby&utm_medium=topbanner&utm_campaign=sensei'}
             %object{:width => 728, :height => 90, :classid => "clsid:D27CDB6E-AE6D-11cf-96B8-444553540000", :codebase => "http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0"}
-              %param{:name => "movie", :value => "/ads/xai_review_728x90.swf"}
+              %param{:name => "movie", :value => "http:/followgrubby.com#{@banner_ad}?clickTAG=http://www.steelseries.com/sensei?utm_source=grubby&utm_medium=topbanner&utm_campaign=sensei"}
               %embed{:src => @banner_ad, :width => 728, :height => 90, :pluginspage => "http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash", :type => "application/x-shockwave-flash"}
           = yield
         #side_bar
@@ -185,6 +185,10 @@
                   %span.event_title= event.title
                   %span.event_hour{:class => "#{event.show_time ? "" : "hidden"}"}= event.date.strftime('%H:%M')
           %div.ad{:style => "margin-top: 15px; margin-left:10px; width: 160px; height: 600px;"}
+            %object{:width => 160, :height => 600, :classid => "clsid:D27CDB6E-AE6D-11cf-96B8-444553540000", :codebase => "http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0"}
+              %param{:name => "movie", :value => "http://followgrubby.com#{@side_ad}?clickTAG=http://www.steelseries.com/sensei?utm_source=grubby&utm_medium=sidebanner&utm_campaign=sensei"}
+              %embed{:src => @side_ad, :width => 160, :height => 600, :pluginspage => "http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash", :type => "application/x-shockwave-flash"}
+          %div.ad{:style => "margin-top: 15px; margin-left:10px; width: 160px; height: 600px;"}
             :javascript
               google_ad_client = "ca-pub-8728388090671471";
               /* FollowGrubby.com Vertical */
@@ -193,13 +197,6 @@
               google_ad_height = 600;
               google_ad_format = "skyscraper"
             %script{:type => "text/javascript", :src => "http://pagead2.googlesyndication.com/pagead/show_ads.js"}
-            %a{:href => "/users/jobs"}
-              = image_tag("recruit.jpg")
-          %div.ad{:style => "margin-top: 15px; margin-left:10px; width: 160px; height: 600px;"}
-            %object{:width => 160, :height => 600, :classid => "clsid:D27CDB6E-AE6D-11cf-96B8-444553540000", :codebase => "http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0"}
-              %param{:name => "movie", :value => "/ads/xai_review_160x600.swf"}
-              %embed{:src => @side_ad, :width => 160, :height => 600, :pluginspage => "http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash", :type => "application/x-shockwave-flash"}
-    
     - if Rails.env == "production"
       :javascript
           var _gaq = _gaq || [];
