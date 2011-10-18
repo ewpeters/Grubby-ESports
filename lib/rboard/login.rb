@@ -17,11 +17,19 @@ module Rboard::Login
         current_user.save
       end
       flash[:notice] = t(:logged_in_successfully)
-      redirect_to(:back) and return false
+      if request.env["HTTP_REFERER"]
+        redirect_to(:back) and return false
+      else
+        redirect_to(:controller => "home", :action => "index") and return false
+      end
     else
       # flash[:notice] = t(:username_or_password_incorrect)
       flash[:notice] = "Username or password incorrect. <a href='/forgot'>Reset Password</a>".html_safe
-      redirect_to(:back)
+      if request.env["HTTP_REFERER"]
+        redirect_to(:back) and return false
+      else
+        redirect_to(:controller => "home", :action => "index") and return false
+      end
     end
   end
 

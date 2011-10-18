@@ -19,7 +19,7 @@ class UserMailer < ActionMailer::Base
   end
   
   def contact_email(name, email, message)
-    @recipients =  ["erik.w.petersen86+fgcontact@gmail.com"]
+    @recipients =  ["contact@followgrubby.com"]
     @from =        "admin@followgrubby.com"
     @subject =     "Message from #{name}"
     @sent_on =     Time.now
@@ -29,7 +29,7 @@ class UserMailer < ActionMailer::Base
   end
   
   def jobs_email(name, email, message)
-    @recipients =  ["erik.w.petersen86+fgcontact@gmail.com"]
+    @recipients =  ["jobs@followgrubby.com"]
     @from =       "admin@followgrubby.com"
     @subject     = "#{name} wants a job"
     @sent_on     = Time.now

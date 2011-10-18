@@ -296,7 +296,7 @@ img {
   box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
   -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
   -moz-box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
-  height: 75px;
+  height: 95px;
   width: 178px;
   margin-top: 15px;
   position: relative; }
@@ -308,7 +308,7 @@ img {
     font-size: 11px;
     top: 12.5px;
     width: 164px;
-    height: 36px;
+    height: 56px;
     background: -moz-linear-gradient(top left,  #454545,  #2D2D2D);
     background: -webkit-gradient(linear, left top, right bottom, from(#454545), to(#2D2D2D)); }
 
@@ -339,7 +339,7 @@ img {
     float: right;
     width: 200px; }
     #content #side_bar .box {
-      height: 162px;
+      height: 182px;
       width: 177px;
       padding: 0;
       background-color: #030303;
@@ -371,7 +371,7 @@ img {
           -moz-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5); }
     #content #side_bar .calendar {
       width: 180px;
-      height: 350px;
+      height: 420px;
       margin-top: 20px;
       padding-top: 15px;
       position: relative;
