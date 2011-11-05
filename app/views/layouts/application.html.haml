@@ -126,7 +126,9 @@
                 - if current_user.can?(:access_admin_section)
                   %span= "|"
                   = link_to "admin section", "/admin"
-                  %span.notice{:style => "position: relative; top: 0px; left: 20px"}= flash[:notice]
+                %span= "|"
+                = link_to "messages", user_messages_path(current_user)
+                %span.notice{:style => "position: relative; top: 0px; left: 20px"}= flash[:notice]
           - unless logged_in?
             %span.notice{:style => "position: relative; top: -8px; left: 20px"}= flash[:notice]
       .wrapper

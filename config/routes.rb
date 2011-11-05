@@ -105,11 +105,13 @@ ActionController::Routing::Routes.draw do |map|
     forum.resources :topics, :member => { :lock => :put, :unlock => :put }
   end
 
-  map.resources :messages, :member => { :reply => :get }, :collection => { :sent => :get, :change => :put }
-
   map.resources :posts, :member => { :destroy => :any } do |post|
     post.resources :edits
     post.resources :reports
+  end
+
+  map.resources :users do |users|
+    users.resources :messages, :collection => { :delete_selected => :post }
   end
 
   map.resources :subscriptions

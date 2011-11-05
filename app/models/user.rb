@@ -3,7 +3,7 @@ require 'logger'
 class User < ActiveRecord::Base
   include Rboard::UserExtension
   include Rboard::Permissions
-
+  has_private_messages
   after_create :create_activation_code
   validates_uniqueness_of :uid, :unless => Proc.new{|user| user.uid.blank?}, :message => "Facebook profile has already been used"
   # Authenticates a user by their login name and unencrypted password.  Returns the user or nil.
