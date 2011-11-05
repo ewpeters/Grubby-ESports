@@ -104,7 +104,7 @@
           %span.grey
           %div.hidden
           - unless logged_in?
-            = image_tag ("login_icon_facebook.png", :id => "fb_connect")
+            = image_tag ("http://grubby.muppetshow.org/Images/page_assets/login_icon_facebook.png", :id => "fb_connect")
             - form_tag "/login", :action => :post, :id => "login-form" do
               %span.cgoth_b Login
               = text_field_tag 'login'
@@ -131,7 +131,7 @@
             %span.notice{:style => "position: relative; top: -8px; left: 20px"}= flash[:notice]
       .wrapper
         %div#logo_box
-          = image_tag "grubby_header_logo.png", :class => "logo"
+          = image_tag "http://grubby.muppetshow.org/Images/page_assets/grubby_header_logo.png", :class => "logo"
           - @logos.each_with_index do |logo, i|
             - if logo.link.blank?
               %span.sponsor{:style => "left: #{500 + (i * 124)}px"}
@@ -155,15 +155,15 @@
           %div.box
             %div.inner_box
               %a{:href => "http://www.facebook.com/followgrubby", :target => "_blank"}
-                = image_tag("fb_button.png")
+                = image_tag("http://grubby.muppetshow.org/Images/page_assets/fb_button.png")
               %a{:href => "http://www.twitter.com/followgrubby", :target => "_blank"}
-                = image_tag("tw_button.png")
+                = image_tag("http://grubby.muppetshow.org/Images/page_assets/tw_button.png")
               %a{:href => "http://www.followgrubby.tumblr.com", :target => "_blank"}
-                = image_tag("tr_button.png")
+                = image_tag("http://grubby.muppetshow.org/Images/page_assets/tr_button.png")
               %a{:href => "http://t.qq.com/FollowGrubby", :target => "_blank"}
-                = image_tag("qq_button.png")
+                = image_tag("http://grubby.muppetshow.org/Images/page_assets/qq_button.png")
               %a{:href => "http://www.youtube.com/user/FollowGrubby", :target => "_blank"}
-                = image_tag("yt_button.png")
+                = image_tag("http://grubby.muppetshow.org/Images/page_assets/yt_button.png")
               %center
                 %div= like_button("http://followgrubby.com")
                 %div.follow FOLLOW GRUBBY
@@ -189,7 +189,7 @@
                   %span.event_title= event.title
                   %span.event_hour{:class => "#{event.show_time ? "" : "hidden"}"}= event.date.strftime('%H:%M')
           %div.ad{:style => "margin-top: 15px; margin-left:10px; width: 160px; height: 600px;"}
-            %a#side_overlay{:href => "#{@side_target}", :target=>"_blank"}
+            %a#side_overlay{:href => "#{@banner_target}", :target=>"_blank"}
             %div#side_flash
             :javascript
               var so = new SWFObject("#{@side_ad}", "#{@side_ad}", "160", "600", "8","#ffffff");
