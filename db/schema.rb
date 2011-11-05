@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110807023650) do
+ActiveRecord::Schema.define(:version => 20111105030335) do
 
   create_table "albums", :force => true do |t|
     t.string   "title"
@@ -307,6 +307,7 @@ ActiveRecord::Schema.define(:version => 20110807023650) do
     t.boolean "can_manage_statuses",              :default => false
     t.boolean "can_manage_members",               :default => false
     t.boolean "can_see_staff_forums",             :default => false
+    t.boolean "can_manage_shop_items",            :default => false
   end
 
   add_index "permissions", ["category_id"], :name => "index_permissions_on_category_id"
@@ -362,6 +363,18 @@ ActiveRecord::Schema.define(:version => 20110807023650) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "text"
+  end
+
+  create_table "shop_items", :force => true do |t|
+    t.float    "price"
+    t.float    "shipping"
+    t.string   "title"
+    t.text     "description"
+    t.integer  "position"
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
   end
 
   create_table "statuses", :force => true do |t|

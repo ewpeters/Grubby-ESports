@@ -1,0 +1,20 @@
+= flash[:notice]
+%br
+= link_to "New Shop Item", new_admin_shop_item_path
+%br
+- @items.each do |item|
+  %span= item.title
+  |
+  = link_to "Edit Item", edit_admin_shop_item_path(item)
+  |
+  = link_to "Delete Item", admin_shop_item_path(item), :method => :delete, :confirm => t(:confirm_deletion, :thing => "Download Item")
+  %br
+  - unless item.first?
+    = link_to theme_image_tag("top.png", :alt => t(:Top), :title => t(:Top)), move_to_top_admin_shop_item_path(item), :method => :put
+    = link_to theme_image_tag("up.png", :alt => t(:Up), :title => t(:Up)), move_up_admin_shop_item_path(item), :method => :put
+  = item.position
+  - unless item.last?
+    = link_to theme_image_tag("down.png", :alt => t(:Down), :title => t(:Down)), move_down_admin_shop_item_path(item), :method => :put
+    = link_to theme_image_tag("bottom.png", :alt => t(:Bottom), :title => t(:Bottom)), move_to_bottom_admin_shop_item_path(item), :method => :put
+  %br
+

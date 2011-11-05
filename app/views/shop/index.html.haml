@@ -1,2 +1,23 @@
-%center
-  = image_tag("shop_coming_soon.png")
+- if !current_user.can?(:manage_shop_items)
+  %center
+    = image_tag("shop_coming_soon.png")
+- else
+  <script id="googlecart-script" type="text/javascript" src="http://checkout.google.com/seller/gsc/v2/cart.js?mid=555290954469083" currency="USD" post-cart-to-sandbox="true"></script>
+  %style
+    .product-image { border:solid 1px #ccc; }
+    .product-title, .product-price, .product-shipping { font-weight:bold; }
+    .data-cell { padding:0px 50px 0px 10px;border:solid 0px #fff;vertical-align:top}
+    .align-cart { padding-left:480px }
+  %div#googlecart-width.align-cart
+  %table
+    - @items.each do |item|
+      %tr.product
+        %td
+          %img.product-image{:src => item.picture.url(:thumb)}
+        %td.data-cell
+          %div.product-title= item.title
+          %div.product-description= item.description
+          %div.product-price= "Price #{item.price}"
+          %div.product-shipping= "Shipping #{item.shipping}"
+          %div.googlecart-add-button{:role => "button", :alt => "Add to cart", :tabindex => 0}
+

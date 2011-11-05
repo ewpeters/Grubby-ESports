@@ -37,6 +37,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :articles
     admin.resources :events
     admin.resources :features, :member => { :move_up => :put, :move_down => :put, :move_to_top => :put, :move_to_bottom => :put }
+    admin.resources :shop_items, :member => { :move_up => :put, :move_down => :put, :move_to_top => :put, :move_to_bottom => :put }
     admin.resources :tickers, :member => { :move_up => :put, :move_down => :put, :move_to_top => :put, :move_to_bottom => :put }
     admin.resources :statuses, :member => { :move_up => :put, :move_down => :put, :move_to_top => :put, :move_to_bottom => :put }
     

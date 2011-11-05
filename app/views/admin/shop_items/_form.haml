@@ -1,0 +1,25 @@
+- if @item.errors.any?
+  %div{:id => "errorExplanation"}
+  %h2= "#{pluralize(@item.errors.count, "error")} prohibited this post from being saved:"
+  %ul
+    - @item.errors.full_messages.each do |msg|
+      %li= msg 
+%div{:style => "position: relative"}
+  - form_for [:admin, @item], :html => { :multipart => true } do |f|
+    %div{:class => "field"}
+      %div=  f.label :title
+      %div= f.text_field :title
+    %div{:class => "field"}
+      %div=  f.label :description
+      %div= f.text_field :description
+    %div{:class => "field"}
+      %div=  f.label :price
+      %div= f.text_field :price
+    %div{:class => "field"}
+      %div=  f.label :shipping
+      %div= f.text_field :shipping
+    %div{:class => "field"}
+      %div= f.label :picture
+      %div= f.file_field  :picture
+    %div{:class => "actions"}
+      %div= f.submit

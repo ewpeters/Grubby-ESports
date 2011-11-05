@@ -11,6 +11,7 @@ module NamespacedHelper
        (params[:controller] == "admin/tickers" && name == "tickers") ||
        (params[:controller] == "admin/events" && name == "events") ||
        (params[:controller] == "admin/features" && name == "features") ||
+       (params[:controller] == "admin/shop_items" && name == "shop_items") ||
        (params[:controller] == "admin/articles" && name == "articles") ||
        (params[:controller] == "admin/downloads" && name == "downloads") ||
        (params[:controller] == "admin/tvs" && name == "tvs") ||
@@ -18,7 +19,7 @@ module NamespacedHelper
        (params[:controller] == "admin/users" && name == "ip_banning" && params[:action] == "ban_ip") ||
        (params[:controller] == "moderator/index" && name == "index") ||
        (params[:controller] == "moderator/moderations" && name == "moderation") ||
-       (params[:controller] == "moderator/reports" && name == "reports")
+       (params[:controller] == "moderator/reports" && name == "reports") 
       'selected'
     end
   end

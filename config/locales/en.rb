@@ -170,6 +170,7 @@
    :can_manage_articles? => "Can manage articles?",
    :can_manage_events? => "Can manage events?",
    :can_manage_downloads? => "Can manage downloads?",
+   :can_manage_shop_items? => "Can manage Shop?",
    :can_manage_tvs? =>   "Can manage tvs?",
    :can_manage_albums? => "Can manage albums?",
    :can_manage_logos? => "Can manage logos?",

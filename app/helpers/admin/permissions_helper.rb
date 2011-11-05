@@ -18,6 +18,7 @@ module Admin::PermissionsHelper
      :topics,
      :tickers,
      :features,
+     :shop_items,
      :articles,
      :events,
      :downloads,
