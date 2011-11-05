@@ -5,6 +5,7 @@ development:
   encoding: utf8
   database: followg1_dev
   username: root
+  password: root
   pool: 5
 
 
@@ -21,7 +22,7 @@ production:
   adapter: mysql
   encoding: utf8
   database: followg1_prod
-  username: root
-  password: hUd5Rrx9pgBQQ1ypi2H5gP3f3pR768
-  host: localhost
+  username: followg
+  password: prodpassword
+  host: followgprod.clcy209wfqwd.us-east-1.rds.amazonaws.com
 
