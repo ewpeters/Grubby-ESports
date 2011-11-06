@@ -5,9 +5,26 @@
       \&raquo;
       =raw breadcrumb(@forum).html_safe
   #forums_body
+    
+    %div.forum_legend
+      %div{:style => "float: right; cursor:pointer", :onclick => "$('.forum_legend').hide()"} x
+      %br
+      %div{:style => "float:left"}
+        %center
+          %div Sticky
+          = theme_image_tag("sticky.png", :alt => "Sticky")
+          %div Locked
+          = theme_image_tag("locked.png", :alt => "Locked")
+      %div{:style => "float: right"}
+        %center
+          %div New Posts
+          = theme_image_tag("new.png", :alt => "New")
+          %div No New Posts
+          = theme_image_tag("old.png", :alt => "Old")
     %div.topic_buttons
       = render :partial => "topics/new_button"
       = link_to("View your profile", edit_user_path(current_user), :class => "add_topic")
+      %span.add_topic{:style => "cursor: pointer;", :onclick => "$('.forum_legend').show()"} What do the icons mean?
     - form_tag "/moderator/topics/moderate" do
       - if current_user.can_moderate_topics?
         %br

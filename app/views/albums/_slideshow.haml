@@ -125,7 +125,7 @@
             %div.title= p.title || p.album.title
             %div.photo{:style => "width: 555px;"}
               = image_tag(p.picture.url(:normal))
-            %div.desc= p.description || p.album.description
+            %div.desc= p.description
     %span.control#rightControl        
   %div.bottom_bar
     %a{:href => album_path(@album), :style => "position: absolute; left: 0px; z-index: 2;"}
