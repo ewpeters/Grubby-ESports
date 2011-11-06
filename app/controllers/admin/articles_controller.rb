@@ -6,7 +6,7 @@ class Admin::ArticlesController < Admin::ApplicationController
     end  
   end
   def index
-     @articles = Article.paginate(:page => params[:page], :per_page => per_page)
+     @articles = Article.paginate(:page => params[:page], :per_page => per_page, :order => "created_at DESC")
   end
   def show
     @article = Article.find(params[:id])
