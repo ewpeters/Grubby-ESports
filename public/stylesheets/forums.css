@@ -111,6 +111,7 @@
 
 /* topic list */
 .forum_legend {
+  z-index: 100;
   display: none;
   position: absolute;
   left: 22px;
