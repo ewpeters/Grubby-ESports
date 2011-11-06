@@ -23,7 +23,7 @@
                   = check_box_tag("moderated_topics[]", topic.id, !topic.moderations.for_user(current_user).empty?, :id => "topic_#{topic.id}_moderated") 
               - else
                 %span.topic_check
-                  = check_box_tag("moderated_topics[]", topic.moved_to.id, !topic.moved_to.moderations.for_user(current_user).empty?, :id => "topic_#{topic.moved_to.id}_moderated"), moderator_topic_moderations_path(topic.moved_to)
+                  = check_box_tag("moderated_topics[]", topic.moved_to.id, !topic.moved_to.moderations.for_user(current_user).empty?, :id => "topic_#{topic.moved_to.id}_moderated")
             %div.status
               - if topic.sticky?
                 = theme_image_tag("sticky.png", :alt => "Sticky")
