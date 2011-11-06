@@ -38,6 +38,8 @@
               - if current_user.can?(:view_reports, @forum)
                 - if !topic.reports.empty?
                   = theme_image_tag("report.jpg", :title => t(:report, :count => topic.reports.count), :alt => "Reports")
+            - if logged_in?
+              %span{:style => "float: right; margin-right: 10px"}= link_to "Report", new_topic_report_path(topic)
             %div.topic_title
               = link_to(h(topic.subject), topic.moved? ? forum_topic_path(topic.moved_to.forum, topic.moved_to) : forum_topic_path(topic.forum, topic))
             %div.topic_info
@@ -56,7 +58,7 @@
                   = t(:ago)
                   = t(:by)
                   = link_to h(topic.last_post.user), topic.last_post.user
-            = will_paginate(topic.posts.paginate(:per_page => per_page, :page => 1), :prev_label => "", :next_label => "", :params => { :controller => "topics", :action => "show", :id => topic.id, :forum_id => @forum.id })
+            = will_paginate(topic.posts.paginate(:per_page => per_page, :page => 1), :prev_label => "", :next_label => "", :params => { :controller => "topics", :action => "show", :id => topic.id, :forum_id => @forum.id }, :style => "float: right; margin-top: -20px")
       - else
         %strong
           = t(:no_topics_for_forum)

@@ -8,22 +8,23 @@
     %thead
       %tr
         %td &nbsp;
-        - unless @reportable
-          %td= t(:Topic_or_Post)
+        %td Post or Topic
         %td= t(:Report)
         %td= t(:Reported_by)
         %td= t(:Reported_on)
     %tbody
-      - if @reportable
-        - for report in @reports
-          %tr
-            %td= link_to theme_image_tag("delete.png"), moderator_report_path(report), :confirm => t(:confirm_deletion, :thing => "report")
-            %td= truncate(report.text, 100)
-            %td= report.user
-            %td= report.created_at.strftime(date_time_display)
-      - else
+      - for report in @reports
+        - @reportable = report.reportable
+        - if @reportable.is_a?(Topic)
+          - link = forum_topic_path(@reportable.forum, @reportable)
+        - else report.reportable.is_a?(Post)
+          - link = forum_topic_path(@reportable.forum,@reportable.topic) + "/#{@reportable.page_for(current_user)}" + "#post_#{@reportable.id}"
         %tr
-          %td
+          %td= link_to theme_image_tag("delete.png"), moderator_report_path(report), :confirm => t(:confirm_deletion, :thing => "report")
+          %td= link_to "#{report.reportable_type} #{report.reportable_id}", link, :target => "_blank"
+          %td= truncate(report.text, 100)
+          %td= report.user
+          %td= report.created_at.strftime(date_time_display)
   - else
     %thead
       %tr

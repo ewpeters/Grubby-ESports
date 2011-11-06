@@ -8,7 +8,7 @@
       \&raquo; #{raw breadcrumb(@topic.forum)} &raquo; #{link_to(@topic.subject, forum_topic_path(@forum, @topic), :class => "current")}
     %span.right_header
   #forums_body
-    - pagination = will_paginate(@posts)
+    - pagination = will_paginate(@posts, :class => "page_box")
     - if current_user.can?(:view_reports, @forum)
       .warning
         = t(:Topic_has_been_reported, :count => @topic.reports.count)

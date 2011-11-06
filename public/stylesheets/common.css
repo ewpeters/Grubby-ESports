@@ -285,6 +285,22 @@ img {
   padding-top: 20px;
   padding-bottom: 35px; }
 
+.page_box {
+  background-color: #030303;
+  background: -moz-linear-gradient(top left,  #4E4E4E,  #030303);
+  background: -webkit-gradient(linear, left top, right bottom, from(#4E4E4E), to(#030303));
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px;
+  font-size: 14px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 10px;
+  padding: 10px;
+  width: 500px; }
+  .page_box span {
+    color: white; }
+
 .status_box {
   background-color: #030303;
   background: -moz-linear-gradient(top left,  #363636,  #030303);
