@@ -22,7 +22,7 @@ p {
   padding: 5px; }
   .quote_box .quote_body {
     background-image: url(/images/quote_fade_invert.png);
-    background-repeat: repeat;
+    background-repeat: repeat-y;
     color: #77797b;
     padding: 5px;
     padding-left: 15px;
