@@ -28,6 +28,9 @@
         %br
       :preserve
         #{parse_text(post.user.signature)}
+      - if post.user.signature
+        %br
+        %br
 
   .user_info
     %span.post_user

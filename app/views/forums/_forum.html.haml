@@ -24,7 +24,7 @@
           = t(:by)
           = link_to(h(forum.last_post.user), forum.last_post.user)
           = t(:in)
-          = link_to(h(forum.last_post.topic.subject), forum_topic_path(forum,forum.last_post.topic))
+          = link_to(h(forum.last_post.topic.subject), forum_topic_path(forum, forum.last_post.topic) + "/#{forum.last_post.page_for(current_user)}" + "#post_#{forum.last_post.id}")
           - if !forum.last_post_forum.nil?
             = t(:in)
             = link_to(h(forum.last_post_forum), forum_path(forum.last_post_forum))
