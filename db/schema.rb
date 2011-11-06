@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111105030335) do
+ActiveRecord::Schema.define(:version => 20111105225022) do
 
   create_table "albums", :force => true do |t|
     t.string   "title"
@@ -221,14 +221,15 @@ ActiveRecord::Schema.define(:version => 20111105030335) do
   end
 
   create_table "messages", :force => true do |t|
-    t.integer  "from_id"
-    t.boolean  "from_read",    :default => false
-    t.boolean  "from_deleted", :default => false
-    t.integer  "to_id"
-    t.boolean  "to_read",      :default => false
-    t.boolean  "to_deleted",   :default => false
-    t.text     "text"
+    t.integer  "sender_id"
+    t.integer  "recipient_id"
+    t.boolean  "sender_deleted",    :default => false
+    t.boolean  "recipient_deleted", :default => false
+    t.string   "subject"
+    t.text     "body"
+    t.datetime "read_at"
     t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "moderations", :force => true do |t|
@@ -308,6 +309,8 @@ ActiveRecord::Schema.define(:version => 20111105030335) do
     t.boolean "can_manage_members",               :default => false
     t.boolean "can_see_staff_forums",             :default => false
     t.boolean "can_manage_shop_items",            :default => false
+    t.boolean "can_manage_banned_users",          :default => false
+    t.boolean "can_manage_banned_ips"
   end
 
   add_index "permissions", ["category_id"], :name => "index_permissions_on_category_id"

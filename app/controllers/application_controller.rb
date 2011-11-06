@@ -1,13 +1,10 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   include AuthenticatedSystem
-  include Rboard::Auth  
+  include Rboard::Auth
   before_filter :set_active_tab
     # Login in the user from a cookie session store.
   before_filter :login_from_cookie
-
-  # Redirect to the banned page if the requesting IP is banned.
-  before_filter :ip_banned_redirect
 
   # Mark the current user as active if they're logged in.
   before_filter :active_user

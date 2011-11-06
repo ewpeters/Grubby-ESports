@@ -6,13 +6,12 @@ module Rboard::Login
     end
     return unless request.post?
     self.current_user = @user = User.authenticate(params[:login], params[:password])
+    
     if logged_in?
       # #remember_me calls save internally, so don't bother saving it twice
       if params[:remember_me] == "1"
         self.current_user.remember_me
-        cookies[:auth_token] = { :value => self.current_user.remember_token , :expires => self.current_user.remember_token_expires_at }
-        # session[:auth_token] = { :value => self.current_user.remember_token , :expires => self.current_user.remember_token_expires_at }
-        # Rails.logger.info(session[:auth_token])
+        cookies[:auth_token] = { :value => self.current_user.remember_token , :expires => Time.now + 5.year }
       else
         current_user.save
       end
@@ -23,8 +22,7 @@ module Rboard::Login
         redirect_to(:controller => "home", :action => "index") and return false
       end
     else
-      # flash[:notice] = t(:username_or_password_incorrect)
-      flash[:notice] = "Username or password incorrect. <a href='/forgot'>Reset Password</a>".html_safe
+      flash[:notice] ||= "Username or password incorrect. <a href='/forgot'>Reset Password</a>".html_safe
       if request.env["HTTP_REFERER"]
         redirect_to(:back) and return false
       else
@@ -58,7 +56,7 @@ module Rboard::Login
     if @user.save
       self.current_user = @user
       self.current_user.remember_me
-      cookies[:auth_token] = { :value => self.current_user.remember_token , :expires => self.current_user.remember_token_expires_at }
+      cookies[:auth_token] = { :value => self.current_user.remember_token , :expires => Time.now + 5.year }
       flash[:notice] = t(:thanks_for_signing_up)
     else
       flash[:notice] = "There was a problem making your Facebook account"
@@ -70,7 +68,7 @@ module Rboard::Login
     if params[:access_token] && params[:uid]
       self.current_user = @user = User.fb_authenticate(params[:uid], params[:access_token])
       self.current_user.remember_me
-      cookies[:auth_token] = { :value => self.current_user.remember_token , :expires => self.current_user.remember_token_expires_at }
+      cookies[:auth_token] = { :value => self.current_user.remember_token , :expires => Time.now + 5.year }
     end
     if logged_in?    
       flash[:notice] = t(:logged_in_successfully)

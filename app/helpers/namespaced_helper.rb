@@ -19,7 +19,9 @@ module NamespacedHelper
        (params[:controller] == "admin/users" && name == "ip_banning" && params[:action] == "ban_ip") ||
        (params[:controller] == "moderator/index" && name == "index") ||
        (params[:controller] == "moderator/moderations" && name == "moderation") ||
-       (params[:controller] == "moderator/reports" && name == "reports") 
+       (params[:controller] == "moderator/reports" && name == "reports") ||
+       (params[:controller] == "moderator/banned_users" && name == "banned_users") ||
+       (params[:controller] == "moderator/banned_ips" && name == "banned_ips") 
       'selected'
     end
   end

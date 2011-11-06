@@ -56,7 +56,8 @@ module Admin::PermissionsHelper
      :can_post_in_closed_forums,
      :can_subscribe,
      :can_see_hidden_edits,
-     :can_see_staff_forums]
+     :can_see_staff_forums,
+     :can_manage_reports]
   end
 
   def global_permissions

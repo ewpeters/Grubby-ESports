@@ -1,0 +1,11 @@
+%ul
+  - if @user
+    - @user.errors.full_messages.each do |msg|
+      %li= msg 
+- form_tag "ban", :action => "POST" do
+  = hidden_field_tag "id", params[:id]
+  %div Reason:
+  = text_area_tag "reason", "For being a dick", :rows => 10, :cols => 25
+  %br
+  = submit_tag "BAN!"
+

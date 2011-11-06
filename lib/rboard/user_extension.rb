@@ -88,7 +88,7 @@ module Rboard::UserExtension
       end
 
       def banned?
-        ban_time.nil? ? false : ban_time > Time.now
+        ban_times.to_i > 0
       end
 
       def has_avatar?

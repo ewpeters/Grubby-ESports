@@ -1,0 +1,14 @@
+%table{:border => 1}
+  %th
+  %th IP
+  %th Reason
+  %th Banned By
+  %th Banned On
+  - @ips.each do |ip|
+    %tr
+      %td=  link_to "Unban", "banned_ips/un_ban?id=#{ip.id}"
+      %td= ip.ip
+      %td= ip.reason
+      %td= link_to ip.user.login, user_path(ip.user)
+      %td= ip.ban_time
+

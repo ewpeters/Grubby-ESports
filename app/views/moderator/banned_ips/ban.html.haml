@@ -1,0 +1,12 @@
+%ul
+  - if @ip
+    - @ip.errors.full_messages.each do |msg|
+      %li= msg 
+- form_tag "ban", :action => "POST" do
+  %div= "Banning Ip: #{params[:ip]}"
+  = hidden_field_tag "ip", params[:ip]
+  %div Reason:
+  = text_area_tag "reason", "For being a dick", :rows => 10, :cols => 25
+  %br
+  = submit_tag "BAN!"
+

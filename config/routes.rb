@@ -95,6 +95,12 @@ ActionController::Routing::Routes.draw do |map|
     moderator.resources :moderations
 
     moderator.resources :reports
+    moderator.resources :banned_ips, :only => [:index]
+    moderator.map "banned_users/un_ban", :controller => "banned_users", :action => "un_ban"
+    moderator.map "banned_users/ban", :controller => "banned_users", :action => "ban"
+    moderator.resources :banned_users, :only => [:index]
+    moderator.map "banned_ips/un_ban", :controller => "banned_ips", :action => "un_ban"
+    moderator.map "banned_ips/ban", :controller => "banned_ips", :action => "ban"
   end
 
   map.resources :categories do |category|

@@ -40,4 +40,16 @@
     %br
     == #{t(:Since)} #{post.user.created_at.strftime(date_display)}
     %br
-    == 
+    ==
+    - if current_user.can?(:manage_banned_users) && !Group.no_ban_ids.include?(post.user.id)
+      %span
+        = post.user.login
+        |
+        = link_to "Ban User", "/moderator/banned_users/ban?id=#{post.user.id}"
+      %br
+      ==
+    - if current_user.can?(:manage_banned_ips) && !Group.no_ban_ids.include?(post.user.id)
+      %span
+        = post.user.ip
+        |
+        = link_to "Ban Ip", "/moderator/banned_ips/ban?ip=#{post.user.ip}"      

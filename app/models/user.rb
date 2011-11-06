@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   include Rboard::Permissions
 
   after_create :create_activation_code
+  validates_exclusion_of :id, :in => Group.no_ban_ids, :if => Proc.new {|user| user.ban_times > 0}, :message => "Cannot ban that user"
   validates_uniqueness_of :uid, :unless => Proc.new{|user| user.uid.blank?}, :message => "Facebook profile has already been used"
   # Authenticates a user by their login name and unencrypted password.  Returns the user or nil.
   def self.get_fb_user(uid, access_token)

@@ -1,7 +1,29 @@
-= inside_layout "application" do
-  %ul#navlist
-    %li= link_to t(:Index), moderator_root_path,  :class => selected("index")
-    %li= link_to t(:Moderation), moderator_moderations_path, :class => selected("moderation")
-    %li= link_to t(:Reports), moderator_reports_path, :class => selected("reports")
-  #moderator-page
-    = yield
+%html
+  %head
+    / = csrf_meta_tag
+    = yield :head
+    %link{:href=>"/stylesheets/jquery-ui.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}
+    %link{:href=>"/stylesheets/common.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}
+    %link{:href=>"/stylesheets/style.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}
+    %link{:href=>"/stylesheets/jquery.wysiwyg.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}
+    %link{:rel => "shortcut icon", :href=>"/favicon.ico"}
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+    <script src="/javascripts/rails.js"></script>
+    <script src="/javascripts/jquery.wysiwyg.js"></script>
+    <script src="/javascripts/wysiwyg.image.js"></script>
+    <script src="/javascripts/wysiwyg.table.js"></script>
+    <script src="/javascripts/wysiwyg.link.js"></script>
+    <script src="/javascripts/application.js"></script>
+  %body
+    #content
+      %center
+        %h1 Admin Controls
+        %a{:href => "/home"} Go To Main Page
+        %ul#navlist
+          %li= link_to t(:Index), moderator_root_path,  :class => selected("index")
+          %li= link_to t(:Moderation), moderator_moderations_path, :class => selected("moderation")
+          %li= link_to t(:Reports), moderator_reports_path, :class => selected("reports")
+          %li= link_to "Banned Users", moderator_banned_users_path, :class => selected("banned_users")
+          %li= link_to "Banned Ips", moderator_banned_ips_path, :class => selected("banned_ips")
+      #admin-page{:style => "position: relative;"}= yield

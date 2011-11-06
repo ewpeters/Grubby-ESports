@@ -22,4 +22,16 @@ class Group < ActiveRecord::Base
   def set_identifier
     self.identifier = name.downcase.gsub(' ', '_')
   end
+
+  def ip_array
+    users.collect{|u| u.ips.collect{|i| i.ip}}.flatten
+  end
+
+  def self.no_ban_ips
+    Group.find_by_identifier("administrators").ip_array + Group.find_by_identifier("moderators").ip_array
+  end
+
+  def self.no_ban_ids
+    Group.find_by_identifier("administrators").users.collect{|u| u.id} + Group.find_by_identifier("moderators").users.collect{|u| u.id}
+  end
 end

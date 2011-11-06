@@ -54,10 +54,6 @@ module Rboard::Auth
     flash[:ip] = @ips.first unless @ips.empty?
   end
 
-  def ip_banned_redirect
-    redirect_to :controller => ip_is_banned_users_path unless params[:action] == "ip_is_banned"  if ip_banned?
-  end
-
   def user_banned?
     logged_in? ? current_user.banned? : false
   end
@@ -82,6 +78,18 @@ module Rboard::Auth
   # Will also return the anonymous user if the user is not logged in.
   def current_user
     @current_user ||= (session[:user] && User.find_by_id(session[:user])) || User.find_by_login("anonymous")
+    if @current_user.banned?
+      cookies.delete :auth_token
+      session[:user] = nil
+      flash[:notice] = "You have been banned please email admin@followgrubby.com to appeal"
+      return User.find_by_login("anonymous")
+    elsif ip_banned?
+      cookies.delete :auth_token
+      session[:user] = nil
+      flash[:notice] = "Your ip has been banned please email admin@followgrubby.com to appeal"
+      return User.find_by_login("anonymous")
+    end
+    return @current_user
   end
 
   # Use as a before filter to ensure that the user is logged in.
