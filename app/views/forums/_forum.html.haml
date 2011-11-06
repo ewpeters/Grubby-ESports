@@ -16,6 +16,7 @@
 
       %br
       - if !forum.last_post.nil?
+        %br
         %div.last_post
           Last post was
           = time_ago_in_words(forum.last_post.created_at)
@@ -27,4 +28,4 @@
           - if !forum.last_post_forum.nil?
             = t(:in)
             = link_to(h(forum.last_post_forum), forum_path(forum.last_post_forum))
-/       == #{t(:topics_count, :count => forum.topics.count)}, #{t(:posts_count, :count => forum.posts.count)}
+
